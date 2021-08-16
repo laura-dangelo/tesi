@@ -1,9 +1,21 @@
-\begin{thebibliography}{6}
+\begin{thebibliography}{15}
 
 \bibitem[Berridge \emph{et~al.}(2000)Berridge, Lipp and Bootman]{berridge2000}
 Berridge, M.~J., Lipp, P. and Bootman, M.~D. (2000) The versatility and
   universality of calcium signalling.
 \newblock \emph{Nature Reviews Molecular Cell Biology} \textbf{1}, 11 -- 21.
+
+\bibitem[Denk \emph{et~al.}(1990)Denk, Strickler and Webb]{denk1990}
+Denk, W., Strickler, J.~H. and Webb, W.~W. (1990) Two-photon laser scanning
+  fluorescence microscopy.
+\newblock \emph{Science} \textbf{248}, 73--76.
+
+\bibitem[Dombeck \emph{et~al.}(2010)Dombeck, Harvey, Tian, Looger and
+  Tank]{dombeck2010}
+Dombeck, D.~A., Harvey, C.~D., Tian, L., Looger, L.~L. and Tank, D.~W. (2010)
+  Functional imaging of hippocampal place cells at cellular resolution during
+  virtual navigation.
+\newblock \emph{Nature Neuroscience} \textbf{13}, 1433 -- 1440.
 
 \bibitem[Drouin \emph{et~al.}(2015)Drouin, Piloquet and Péréon]{drouin2015}
 Drouin, E., Piloquet, P. and Péréon, Y. (2015) The first illustrations of
@@ -16,9 +28,38 @@ Dudai, Y. (2004) The neurosciences: the danger that we will think that we have
 \newblock In \emph{The new brain sciences: perils and prospects}, eds S.~Rose
   and D.~Rees, pp. 167 -- 180. Cambridge University Press.
 
+\bibitem[Friedrich and Paninski(2016)]{friedrich2016}
+Friedrich, J. and Paninski, L. (2016) Fast active set methods for online spike
+  inference from calcium imaging.
+\newblock In \emph{Advances In Neural Information Processing Systems}, eds
+  D.~Lee, M.~Sugiyama, U.~Luxburg, I.~Guyon and R.~Garnett, pp. 1984 -- 1992.
+
+\bibitem[Friedrich \emph{et~al.}(2017)Friedrich, Zhou and
+  Paninski]{friedrich2017}
+Friedrich, J., Zhou, P. and Paninski, L. (2017) Fast online deconvolution of
+  calcium imaging data.
+\newblock \emph{PLOS Computational Biology} \textbf{13}(3), 1 -- 26.
+
 \bibitem[Grienberger and Konnerth(2012)]{grienberger2012}
 Grienberger, C. and Konnerth, A. (2012) Imaging calcium in neurons.
 \newblock \emph{Neuron} \textbf{73}(5), 862 -- 885.
+
+\bibitem[Jewell and Witten(2018)]{jewell2018}
+Jewell, S. and Witten, D. (2018) Exact spike train inference via {L0}
+  optimization.
+\newblock \emph{The Annals of Applied Statistics} \textbf{12}(4), 2457 -- 2482.
+
+\bibitem[Jewell \emph{et~al.}(2019)Jewell, Hocking, Fearnhead and
+  Witten]{jewell2019}
+Jewell, S.~W., Hocking, T.~D., Fearnhead, P. and Witten, D.~M. (2019) Fast
+  nonconvex deconvolution of calcium imaging data.
+\newblock \emph{Biostatistics} \textbf{21}(4), 709--726.
+
+\bibitem[Mukamel \emph{et~al.}(2009)Mukamel, Nimmerjahn and
+  Schnitzer]{mukamel2009}
+Mukamel, E.~A., Nimmerjahn, A. and Schnitzer, M.~J. (2009) Automated analysis
+  of cellular signals from large-scale calcium imaging data.
+\newblock \emph{Neuron} \textbf{63}(6), 747 -- 760.
 
 \bibitem[Parker(2006)]{parker2006}
 Parker, D. (2006) Complexities and uncertainties of neuronal network function.
@@ -30,5 +71,21 @@ Parker, D. (2010) Neuronal network analyses: premises, promises and
   uncertainties.
 \newblock \emph{Philosophical transactions of the Royal Society of London.
   Series B, Biological sciences} \textbf{365}(1551), 2315 -- 2328.
+
+\bibitem[Pnevmatikakis \emph{et~al.}(2016)Pnevmatikakis, Soudry, Gao, Machado,
+  Merel, Pfau, Reardon, Mu, Lacefield, Yang, Ahrens, Bruno, Jessell, Peterka,
+  Yuste and Paninski]{pnevmatikakis2016}
+Pnevmatikakis, E.~A., Soudry, D., Gao, Y., Machado, T.~A., Merel, J., Pfau, D.,
+  Reardon, T., Mu, Y., Lacefield, C., Yang, W., Ahrens, M., Bruno, R., Jessell,
+  T.~M., Peterka, D.~S., Yuste, R. and Paninski, L. (2016) Simultaneous
+  denoising, deconvolution, and demixing of calcium imaging data.
+\newblock \emph{Neuron} \textbf{89}(2), 285 -- 299.
+
+\bibitem[Vogelstein \emph{et~al.}(2010)Vogelstein, Packer, Machado, Sippy,
+  Babadi, Yuste and Paninski]{vogelstein2010}
+Vogelstein, J.~T., Packer, A.~M., Machado, T.~A., Sippy, T., Babadi, B., Yuste,
+  R. and Paninski, L. (2010) Fast nonnegative deconvolution for spike train
+  inference from population calcium imaging.
+\newblock \emph{Journal of Neurophysiology} \textbf{104}(6), 3691--3704.
 
 \end{thebibliography}
