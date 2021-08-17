@@ -7,16 +7,20 @@
 \contentsline {chapter}{Introduction}{1}{section*.10}%
 \contentsline {section}{Overview}{1}{chapter*.11}%
 \contentsline {section}{Main contributions of the thesis}{2}{section*.13}%
-\contentsline {chapter}{\numberline {1}Statistical modeling of calcium imaging data}{3}{chapter.15}%
+\contentsline {chapter}{\numberline {1}Background: statistical modeling of calcium imaging data}{3}{chapter.15}%
 \contentsline {section}{\numberline {1.1}Overview of calcium imaging data}{3}{section.16}%
 \contentsline {subsection}{\numberline {1.1.1}Deconvolution methods}{4}{subsection.17}%
 \contentsline {section}{\numberline {1.2}Data sets}{5}{section.19}%
 \contentsline {subsection}{\numberline {1.2.1}Allen Brain Observatory data}{5}{subsection.20}%
 \contentsline {subsection}{\numberline {1.2.2}Altri dati?}{6}{subsection.21}%
 \contentsline {section}{\numberline {1.3}A brief review of some Bayesian nonparametric models}{6}{section.22}%
-\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{7}{chapter.23}%
-\contentsline {section}{\numberline {2.1}Algorithm}{7}{section.24}%
-\contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{9}{chapter.25}%
-\contentsline {section}{\numberline {3.1}Model specification}{9}{section.26}%
-\contentsline {section}{\numberline {3.2}Posterior computation}{9}{section.27}%
-\contentsline {chapter}{Bibliography}{11}{dummy.28}%
+\contentsline {subsection}{\numberline {1.3.1}Finite mixture models}{6}{subsection.23}%
+\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixtures}{7}{subsection.24}%
+\contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{7}{subsection.25}%
+\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{7}{subsection.26}%
+\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{9}{chapter.27}%
+\contentsline {section}{\numberline {2.1}Algorithm}{9}{section.28}%
+\contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{11}{chapter.29}%
+\contentsline {section}{\numberline {3.1}Model specification}{11}{section.30}%
+\contentsline {section}{\numberline {3.2}Posterior computation}{11}{section.31}%
+\contentsline {chapter}{Bibliography}{13}{dummy.32}%

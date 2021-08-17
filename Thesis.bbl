@@ -1,4 +1,4 @@
-\begin{thebibliography}{18}
+\begin{thebibliography}{19}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -47,6 +47,12 @@ Friedrich, J. and Paninski, L. (2016) Fast active set methods for online spike
 Friedrich, J., Zhou, P. and Paninski, L. (2017) Fast online deconvolution of
   calcium imaging data.
 \newblock \emph{PLOS Computational Biology} \textbf{13}(3), 1 -- 26.
+
+\bibitem[Gelman \emph{et~al.}(2013)Gelman, Carlin, Stern, Dunson, Vehtari and
+  Rubin]{gelman2013}
+Gelman, A., Carlin, J., Stern, H., Dunson, D., Vehtari, A. and Rubin, D. (2013)
+  \emph{Bayesian Data Analysis, Third Edition}.
+\newblock Chapman \& Hall/CRC Texts in Statistical Science. Taylor \& Francis.
 
 \bibitem[Grienberger and Konnerth(2012)]{grienberger2012}
 Grienberger, C. and Konnerth, A. (2012) Imaging calcium in neurons.

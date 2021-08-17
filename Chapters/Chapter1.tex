@@ -1,8 +1,7 @@
 % Chapter 1
-\chapter{Statistical modeling of calcium imaging data}
-
+\chapter{Background: statistical modeling of calcium imaging data}
 \fancyhead[RO,LE]{\thepage}
-\fancyhead[LO]{Chapter 1 - \emph{Title of chapter}}
+\fancyhead[LO]{Chapter 1 - \emph{Background}}
 \fancyhead[RE]{Section \thesection \ - \emph{\Sectionname}}
 
 \setlength{\parskip}{0.5pt}
@@ -61,9 +60,50 @@ The goal of the study is to investigate how neurons at different depths in the v
 Paragrafo qui.
 
 \section{A brief review of some Bayesian nonparametric models} 
-In this section we review some statistical tools that will be employed in this thesis in the analysis of calcium imaging data. The purpose of this section is not to provide a comprehensive review, but rather to outline the theoretical framework we adopted.
+In this section we review some statistical tools that will be employed in this thesis in the analysis of calcium imaging data. The purpose of this section is not to provide a comprehensive review, but rather to outline the theoretical framework we adopted and fix some notation.
 The core topic will be the Bayesian methodology, with a focus on Bayesian nonparametric models.
 
+\subsection{Finite mixture models}
+We start our discussion by reviewing finite mixtures. Although they are not part of the Bayesian nonparametric methodology, they provide the starting point for many models that we will review in the following. This brief overview of finite mixtures is largely based on the dedicated chapter in~\citet{gelman2013}.
+
+Mixtures are a popular tool to model heterogeneous data, characterized by the presence of subpopulations within the overall population. In many practical problems the data are collected under different conditions -- unfortunately, it is not always possible to have information on the subpopulation to which each individual observation belongs.
+Mixture models can be used in problems of this type, where the population consists of a number of latent subpopulations, within each of which a relatively simple model can be applied.
+
+Denote the observed data as a vector of $n$ units $\bm{y} = (y_1,\dots,y_n)$; also, assume that the $n$ observations are exchangeable, meaning that the joint probability density $p(y_1,\dots,y_n)$ is invariant to permutations of the indices. In the framework of finite mixtures, we assume that the population is made of $K\leq n$ subpopulations, with $K$ known and fixed.
+We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k)$, for $k=1,\dots,K$. Usually a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k$.
+The last missing piece to construct a mixture model is the parameter describing the proportion of population from each component $k$: we denote this parameter with $\pi_k$, satisfying $\sum_{k=1}^K \pi_k = 1$. Denoting the full vectors of parameters as $\bm{\theta} = (\theta_1,\dots,\theta_K)$ and $\bm{\pi} = (\pi_1,\dots,\pi_K)$, the data distribution for observation $i$ can be formulated as
+\begin{equation*}
+p(y_i\mid \bm{\theta},\bm{\pi}) = \pi_1 \, f(y_i\mid\theta_1) + \dots + \pi_K \, f(y_i\mid\theta_K).
+\end{equation*}
+
+In mixture models it is convenient to think of the component indicators as missing data, and to impute them so that the model closely resembles a hierarchical model. Hence we introduce the indicator $S_{ik}$ of component $k$ for observation $i$, with 
+\begin{equation*}
+S_{ik} = \begin{cases}
+1 \quad \text{if $y_i$ is drawn from component $k$}\\
+0 \quad \text{otherwise}.
+\end{cases}
+\end{equation*}
+Given $\bm{\pi}$, the distribution of $\bm{S}_i = (S_{i1},\dots,S_{iK})$ is $\mathrm{Multinomial}(1;\pi_1,\dots,\pi_K)$. 
+Conditionally on $\bm{S}_{i}$, the data distribution of $y_i$ is simply $p(y_i\mid \bm{S}_i,\bm{\theta}) = \prod_{k=1}^K f(y_i\mid\theta_k)^{S_{ik}}$; moreover, given $\bm{S}=(\bm{S}_1,\dots,\bm{S}_n)$, the $y_i$ are assumed to be independent.
+Introducing these allocation variables thus greatly simplifies the data distribution: the joint density of the observed data and the unobserved indicators, conditionally on the model parameters, can now be written as 
+\begin{equation*}
+p(\bm{y},\bm{S}\mid \bm{\theta},\bm{\pi}) = p(\bm{y}\mid\bm{S},\bm{\theta})\, p(\bm{S}\mid\bm{\pi}) = 
+\prod_{i=1}^n \prod_{k=1}^K \left\{ \pi_k f(y_i\mid\theta_k) \right\}^{S_{ik}}.
+\end{equation*}
+
+Having defined the data distribution, we need to specify adequate prior distributions on the model parameters $\bm{\pi}$ and $\bm{\theta}$. The prior on $\bm{\theta}$ is usually chosen depending on the specific application and on the basis of the component distribution $f$. For the mixture proportions $\pi_k$, the conjugate and most natural prior distribution is the Dirichlet distribution, $\bm{\pi}\sim \mathrm{Dir}(\alpha_1,\dots,\alpha_K)$.
+
+
+
+
+
+\subsection{Dirichlet process mixtures}
+
+
+\subsection{Mixtures of finite mixtures}
+
+
+\subsection{Bayesian nonparametric models for nested data}
 
 
 
