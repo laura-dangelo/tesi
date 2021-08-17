@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  16 AUG 2021 21:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  17 AUG 2021 15:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -698,7 +698,7 @@ Package epstopdf Info: Source file: <Figures/logo.eps>
 -to.pdf Figures/logo.eps>
 (epstopdf)             \includegraphics on input line 114.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/logo-eps-converted-to.pdf, id=64, 171.64125pt x 80.3pt>
+<Figures/logo-eps-converted-to.pdf, id=76, 171.64125pt x 80.3pt>
 File: Figures/logo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/logo-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/logo-eps-converted-to.pdf  used on input line 
@@ -779,14 +779,14 @@ Chapter 1.
 ------------------------------------------------------------------------------
 [3
 
-]) (./Chapters/Chapter2.tex [4]
+] [4] [5]) (./Chapters/Chapter2.tex [6]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Efficient posterior sampling for Bayesian log-linear models
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter3.tex [5
+) (./Chapters/Chapter3.tex [7
 
-] [6
+] [8
 
 ]
 Chapter 3.
@@ -794,31 +794,37 @@ Chapter 3.
  3 Bayesian nonparametric analysis for partially exchangeable single-neuron dat
 a 
 ------------------------------------------------------------------------------
-) [7] [8
+) [9] [10
 
 ]
 ------------------------------------------------------------------------------
  Bibliography
 ------------------------------------------------------------------------------
-(./Thesis.bbl [9
+(./Thesis.bbl
+Underfull \hbox (badness 10000) in paragraph at lines 8--10
+[]\OT1/qpl/m/n/10.95 Allen In-sti-tute for Brain Sci-ence (2016) Allen brain ob
+-ser-va-tory.  Avail-able at:
+ []
+
+[11
 
 
 ])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 318.
- [10]
+ [12]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 318.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 318.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 318.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: 2D3D25013A46B6127C22228F822D84A7;3237.
+(rerunfilecheck)             Checksum: 757A042DE380704AC06090241584168D;3711.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 318.
  ) 
 Here is how much of TeX's memory you used:
- 15997 strings out of 481239
- 227739 string characters out of 5920376
- 500576 words of memory out of 5000000
- 30892 multiletter control sequences out of 15000+600000
+ 16017 strings out of 481239
+ 228066 string characters out of 5920376
+ 503746 words of memory out of 5000000
+ 30904 multiletter control sequences out of 15000+600000
  574182 words of font info for 55 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  49i,11n,49p,961b,480s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -831,10 +837,10 @@ fonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmsy8.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplb.pfb></usr/share
 /texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/texmf/fonts/type1/publi
 c/tex-gyre/qplri.pfb>
-Output written on Thesis.pdf (22 pages, 358837 bytes).
+Output written on Thesis.pdf (24 pages, 369557 bytes).
 PDF statistics:
- 293 PDF objects out of 1000 (max. 8388607)
- 255 compressed objects within 3 object streams
- 64 named destinations out of 1000 (max. 500000)
- 126 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 352 PDF objects out of 1000 (max. 8388607)
+ 311 compressed objects within 4 object streams
+ 72 named destinations out of 1000 (max. 500000)
+ 150 words of extra memory for PDF output out of 10000 (max. 10000000)
 

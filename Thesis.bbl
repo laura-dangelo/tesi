@@ -1,4 +1,12 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{18}
+
+\bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
+{Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
+  response analyses.
+
+\bibitem[{Allen Institute for Brain Science}(2016)]{allen}
+{Allen Institute for Brain Science} (2016) Allen brain observatory.
+\newblock Available at: http://observatory.brain-map.org/visualcoding.
 
 \bibitem[Berridge \emph{et~al.}(2000)Berridge, Lipp and Bootman]{berridge2000}
 Berridge, M.~J., Lipp, P. and Bootman, M.~D. (2000) The versatility and
@@ -71,6 +79,12 @@ Parker, D. (2010) Neuronal network analyses: premises, promises and
   uncertainties.
 \newblock \emph{Philosophical transactions of the Royal Society of London.
   Series B, Biological sciences} \textbf{365}(1551), 2315 -- 2328.
+
+\bibitem[Pnevmatikakis \emph{et~al.}(2013)Pnevmatikakis, Merel, Pakman and
+  Paninski]{pnevmatikakis2013}
+Pnevmatikakis, E., Merel, J., Pakman, A. and Paninski, L. (2013) Bayesian spike
+  inference from calcium imaging data.
+\newblock In \emph{In Signals, Systems and Computers}, pp. 349 -- 353.
 
 \bibitem[Pnevmatikakis \emph{et~al.}(2016)Pnevmatikakis, Soudry, Gao, Machado,
   Merel, Pfau, Reardon, Mu, Lacefield, Yang, Ahrens, Bruno, Jessell, Peterka,
