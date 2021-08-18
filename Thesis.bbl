@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{29}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -36,6 +36,14 @@ Dudai, Y. (2004) The neurosciences: the danger that we will think that we have
 \newblock In \emph{The new brain sciences: perils and prospects}, eds S.~Rose
   and D.~Rees, pp. 167 -- 180. Cambridge University Press.
 
+\bibitem[Ferguson(1973)]{ferguson1973}
+Ferguson, T.~S. (1973) {A Bayesian analysis of some nonparametric problems}.
+\newblock \emph{The Annals of Statistics} \textbf{1}(2), 209 -- 230.
+
+\bibitem[Ferguson(1974)]{ferguson1974}
+Ferguson, T.~S. (1974) {Prior distributions on spaces of probability measures}.
+\newblock \emph{The Annals of Statistics} \textbf{2}(4), 615 -- 629.
+
 \bibitem[Friedrich and Paninski(2016)]{friedrich2016}
 Friedrich, J. and Paninski, L. (2016) Fast active set methods for online spike
   inference from calcium imaging.
@@ -47,6 +55,12 @@ Friedrich, J. and Paninski, L. (2016) Fast active set methods for online spike
 Friedrich, J., Zhou, P. and Paninski, L. (2017) Fast online deconvolution of
   calcium imaging data.
 \newblock \emph{PLOS Computational Biology} \textbf{13}(3), 1 -- 26.
+
+\bibitem[Fr\"uhwirth-Schnatter and Malsiner-Walli(2019)]{fs2019}
+Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
+  Sparse finite versus {Dirichlet} process mixtures in model-based clustering.
+\newblock \emph{Advances in Data Analysis and Classification} \textbf{13},
+  33--64.
 
 \bibitem[Gelman \emph{et~al.}(2013)Gelman, Carlin, Stern, Dunson, Vehtari and
   Rubin]{gelman2013}
@@ -69,11 +83,37 @@ Jewell, S.~W., Hocking, T.~D., Fearnhead, P. and Witten, D.~M. (2019) Fast
   nonconvex deconvolution of calcium imaging data.
 \newblock \emph{Biostatistics} \textbf{21}(4), 709--726.
 
+\bibitem[Malsiner-Walli \emph{et~al.}(2016)Malsiner-Walli,
+  Fr\"uhwirth-Schnatter and Gr\"un]{malsinerwalli2016}
+Malsiner-Walli, G., Fr\"uhwirth-Schnatter, S. and Gr\"un, B. (2016)
+  {Model-based clustering based on sparse finite Gaussian mixtures}.
+\newblock \emph{Statistics and Computing} \textbf{26}, 303 -- 324.
+
+\bibitem[McCullagh and Yang(2008)]{McCullagh2008}
+McCullagh, P. and Yang, J. (2008) {How many clusters?}
+\newblock \emph{Bayesian Analysis} \textbf{3}(1), 101 -- 120.
+
+\bibitem[Miller and Harrison(2018)]{miller2018}
+Miller, J.~W. and Harrison, M.~T. (2018) Mixture models with a prior on the
+  number of components.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{113}(521), 340--356.
+
 \bibitem[Mukamel \emph{et~al.}(2009)Mukamel, Nimmerjahn and
   Schnitzer]{mukamel2009}
 Mukamel, E.~A., Nimmerjahn, A. and Schnitzer, M.~J. (2009) Automated analysis
   of cellular signals from large-scale calcium imaging data.
 \newblock \emph{Neuron} \textbf{63}(6), 747 -- 760.
+
+\bibitem[Nobile(2004)]{nobile2004}
+Nobile, A. (2004) On the posterior distribution of the number of components in
+  a finite mixture.
+\newblock \emph{The Annals of Statistics} \textbf{32}(5), 2044 -- 2073.
+
+\bibitem[Nobile and Fearnside(2007)]{nobile2007}
+Nobile, A. and Fearnside, A. (2007) Bayesian finite mixtures with an unknown
+  number of components: the allocation sampler.
+\newblock \emph{Statistics and Computing} \textbf{17}, 147 -- 162.
 
 \bibitem[Parker(2006)]{parker2006}
 Parker, D. (2006) Complexities and uncertainties of neuronal network function.
@@ -100,6 +140,16 @@ Pnevmatikakis, E.~A., Soudry, D., Gao, Y., Machado, T.~A., Merel, J., Pfau, D.,
   T.~M., Peterka, D.~S., Yuste, R. and Paninski, L. (2016) Simultaneous
   denoising, deconvolution, and demixing of calcium imaging data.
 \newblock \emph{Neuron} \textbf{89}(2), 285 -- 299.
+
+\bibitem[Richardson and Green(1997)]{richardson1997}
+Richardson, S. and Green, P.~J. (1997) On {Bayesian} analysis of mixtures with
+  an unknown number of components (with discussion).
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)} \textbf{59}(4), 731--792.
+
+\bibitem[Sethuraman(1994)]{sethuraman1994}
+Sethuraman, J. (1994) A constructive definition of {Dirichlet} priors.
+\newblock \emph{Statistica Sinica} \textbf{4}(2), 639--650.
 
 \bibitem[Vogelstein \emph{et~al.}(2010)Vogelstein, Packer, Machado, Sippy,
   Babadi, Yuste and Paninski]{vogelstein2010}

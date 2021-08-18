@@ -64,19 +64,20 @@ In this section we review some statistical tools that will be employed in this t
 The core topic will be the Bayesian methodology, with a focus on Bayesian nonparametric models.
 
 \subsection{Finite mixture models}
-We start our discussion by reviewing finite mixtures. Although they are not part of the Bayesian nonparametric methodology, they provide the starting point for many models that we will review in the following. This brief overview of finite mixtures is largely based on the dedicated chapter in~\citet{gelman2013}.
+We start our discussion by reviewing finite mixtures. Although they are not part of the Bayesian nonparametric methodology, they provide the starting point for many models that we will review in the following. The content of this brief overview on finite mixtures is largely based on the dedicated chapter in~\citet{gelman2013}.
 
 Mixtures are a popular tool to model heterogeneous data, characterized by the presence of subpopulations within the overall population. In many practical problems the data are collected under different conditions -- unfortunately, it is not always possible to have information on the subpopulation to which each individual observation belongs.
 Mixture models can be used in problems of this type, where the population consists of a number of latent subpopulations, within each of which a relatively simple model can be applied.
 
 Denote the observed data as a vector of $n$ units $\bm{y} = (y_1,\dots,y_n)$; also, assume that the $n$ observations are exchangeable, meaning that the joint probability density $p(y_1,\dots,y_n)$ is invariant to permutations of the indices. In the framework of finite mixtures, we assume that the population is made of $K\leq n$ subpopulations, with $K$ known and fixed.
-We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k)$, for $k=1,\dots,K$. Usually a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k$.
-The last missing piece to construct a mixture model is the parameter describing the proportion of population from each component $k$: we denote this parameter with $\pi_k$, satisfying $\sum_{k=1}^K \pi_k = 1$. Denoting the full vectors of parameters as $\bm{\theta} = (\theta_1,\dots,\theta_K)$ and $\bm{\pi} = (\pi_1,\dots,\pi_K)$, the data distribution for observation $i$ can be formulated as
-\begin{equation*}
-p(y_i\mid \bm{\theta},\bm{\pi}) = \pi_1 \, f(y_i\mid\theta_1) + \dots + \pi_K \, f(y_i\mid\theta_K).
-\end{equation*}
+We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k^*)$, for $k=1,\dots,K$. Usually a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k^*$.
+The last missing piece to construct a mixture model is the parameter describing the proportion of population from each component $k$: we denote this parameter with $\pi_k$, satisfying $\sum_{k=1}^K \pi_k = 1$. Denoting the full vectors of parameters as $\bm{\theta}^* = (\theta_1^*,\dots,\theta_K^*)$ and $\bm{\pi} = (\pi_1,\dots,\pi_K)$, the data distribution for observation $i$ can be formulated as
+\begin{equation}
+p(y_i\mid \bm{\theta}^*,\bm{\pi}) = \pi_1 \, f(y_i\mid\theta_1^*) + \dots + \pi_K \, f(y_i\mid\theta_K^*).
+\label{eq:ch1_finitemix}
+\end{equation}
 
-In mixture models it is convenient to think of the component indicators as missing data, and to impute them so that the model closely resembles a hierarchical model. Hence we introduce the indicator $S_{ik}$ of component $k$ for observation $i$, with 
+In mixture models it is convenient to think of the component indicators as missing data, and to impute them to obtain a much simpler form of the data distribution. Hence we introduce the indicator $S_{ik}$ of component $k$ for observation $i$, with 
 \begin{equation*}
 S_{ik} = \begin{cases}
 1 \quad \text{if $y_i$ is drawn from component $k$}\\
@@ -84,23 +85,87 @@ S_{ik} = \begin{cases}
 \end{cases}
 \end{equation*}
 Given $\bm{\pi}$, the distribution of $\bm{S}_i = (S_{i1},\dots,S_{iK})$ is $\mathrm{Multinomial}(1;\pi_1,\dots,\pi_K)$. 
-Conditionally on $\bm{S}_{i}$, the data distribution of $y_i$ is simply $p(y_i\mid \bm{S}_i,\bm{\theta}) = \prod_{k=1}^K f(y_i\mid\theta_k)^{S_{ik}}$; moreover, given $\bm{S}=(\bm{S}_1,\dots,\bm{S}_n)$, the $y_i$ are assumed to be independent.
-Introducing these allocation variables thus greatly simplifies the data distribution: the joint density of the observed data and the unobserved indicators, conditionally on the model parameters, can now be written as 
+Conditionally on $\bm{S}_{i}$, the data distribution of $y_i$ is simply $p(y_i\mid \bm{S}_i,\bm{\theta}^*) = \prod_{k=1}^K f(y_i\mid\theta_k^*)^{S_{ik}}$; moreover, given $\bm{S}=(\bm{S}_1,\dots,\bm{S}_n)$, the $y_i$ are assumed to be independent.
+The joint density of the observed data and the unobserved indicators, conditionally on the model parameters, can now be written as 
 \begin{equation*}
-p(\bm{y},\bm{S}\mid \bm{\theta},\bm{\pi}) = p(\bm{y}\mid\bm{S},\bm{\theta})\, p(\bm{S}\mid\bm{\pi}) = 
-\prod_{i=1}^n \prod_{k=1}^K \left\{ \pi_k f(y_i\mid\theta_k) \right\}^{S_{ik}}.
+p(\bm{y},\bm{S}\mid \bm{\theta}^*,\bm{\pi}) = p(\bm{y}\mid\bm{S},\bm{\theta}^*)\, p(\bm{S}\mid\bm{\pi}) = 
+\prod_{i=1}^n \prod_{k=1}^K \left\{ \pi_k f(y_i\mid\theta_k^*) \right\}^{S_{ik}}.
 \end{equation*}
 
-Having defined the data distribution, we need to specify adequate prior distributions on the model parameters $\bm{\pi}$ and $\bm{\theta}$. The prior on $\bm{\theta}$ is usually chosen depending on the specific application and on the basis of the component distribution $f$. For the mixture proportions $\pi_k$, the conjugate and most natural prior distribution is the Dirichlet distribution, $\bm{\pi}\sim \mathrm{Dir}(\alpha_1,\dots,\alpha_K)$.
+Having defined the data distribution, we need to specify adequate prior distributions on the model parameters $\bm{\pi}$ and $\bm{\theta}^*$. The prior $G_0$ on $\bm{\theta}^*$ is usually chosen depending on the specific application and on the basis of the component distribution $f$. For the mixture proportions $\pi_k$, the conjugate and most natural prior distribution is the Dirichlet distribution, $\bm{\pi}\sim \mathrm{Dir}_K(\alpha_1,\dots,\alpha_K)$.
 
+It is possible to rewrite equation (\ref{eq:ch1_finitemix}) in a hierarchical way by thinking that each observation $y_i$ is associated with a parameter $\theta_i$, where these parameters are drawn from a discrete distribution $G$ with support on the $K$ locations $\{\theta^*_1,\dots,\theta^*_K\}$. The model then becomes, for $i=1,\dots,n$
+\begin{equation}
+\begin{gathered}
+y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
+\theta_i \mid \bm{\theta}^*,\bm{\pi} \sim G = \sum_{k=1}^K \pi_k \delta_{\theta^*_k}\\
+(\pi_1,\dots,\pi_K) \sim \mathrm{Dir}_K(\alpha_1,\dots,\alpha_K) \\
+(\theta^*_1,\dots,\theta^*_K) \sim G_0.
+\end{gathered}
+\label{eq:ch1_discretemix_h}
+\end{equation}
 
-
-
+%Posterior inference for mixture models is usually performed through MCMC methods and, in particular, the Gibbs sampler, as the full conditionals after imputing the missing allocation variables are greatly simplified. If we introduce the latent cluster indicators $c_i\in\{1,\dots,K\}$, with $c_i=k$ if $y_i$ belongs to the $k$-th mixture component, then $y_i\mid c_i=k \sim f(y_i\mid \theta^*_k)$, and $Pr(c_i = k \mid \bm{\pi}) = \pi_k$.
+%With this notation, and exploiting the conjugacy of the Dirichlet distribution with the multinomial model, we obtain the following full conditionals (where we denote with $\pi(\cdot\mid -)$ the generic full conditional):
+%\begin{gather*}
+%\pi(\theta^*_k\mid - ) \propto G_0(\theta^*_k) \prod_{i:c_i=k} f(y_i\mid\theta^*_{k})\\
+%\pi(\pi_1,\dots,\pi_K\mid -) = \mathrm{Dir}_K(\alpha_1 + n_1,\dots,\alpha_K + n_K) \\
+%pr(c_i = k\mid -) = \frac{ \pi_k f(y_i\mid\theta^*_{k}) } {\sum_{k=1}^K \pi_k f(y_i\mid\theta^*_{k}) } 
+%\end{gather*}
+%where $n_k$ is the number of observations allocated to component $k$, for $k=1,\dots,K$.
 
 \subsection{Dirichlet process mixtures}
+Nonparametric mixtures extend model (\ref{eq:ch1_discretemix_h}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \citet{ferguson1973, ferguson1974}. Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
+
+A random distribution $G$ on $\Theta$ is said to follow a DP prior with base measure $G_0$ and concentration parameter $\alpha$, denoted $G\sim\mathrm{DP}(\alpha,G_0)$, if for any partition $\{B_1,\dots,B_H\}$ of $\Theta$, 
+\begin{equation*}
+(G(B_1),\dots,G(B_H)) \sim \mathrm{Dir}_H\big(\alpha G_0(B_1),\dots,\alpha G_0(B_H)\big).
+\end{equation*}
+The success of the DP mainly arises from two appealing characteristics: its large support, with respect to the space of probability distributions, and tractability of the posterior distribution.
+
+Closely related to this last aspect is the conjugacy property of the DP: as the finite dimensional Dirichlet distribution is conjugate to the multinomial likelihood, the DP is conjugate with respect to i.i.d. sampling, that is, with respect to a completely unknown distribution from i.i.d. data.
+More precisely, if we take $\{\theta_1,\dots,\theta_n\}$ a sequence of independent draws from $G\sim\mathrm{DP}(\alpha,G_0)$, then the posterior distribution of $G$ given these observed values is still a DP. 
+Letting again $\{B_1,\dots,B_H\}$ be a finite measurable partition of $\Theta$, and letting $n_h$ be the number of observed values in $B_h$, for $h = 1,\dots,H$, the posterior distribution is given by
+\begin{equation*}
+(G(B_1),\dots,G(B_H))\mid \theta_1,\dots,\theta_n \sim \mathrm{Dir}_H\big(\alpha G_0(B_1) + n_1,\dots,\alpha G_0(B_H) + n_H\big).
+\end{equation*}
+In other terms, the posterior distribution is still DP with updated parameters:
+\begin{equation*}
+G \mid \theta_1,\dots,\theta_n \sim \mathrm{DP} \left(\alpha + n, \frac{\alpha G_0 + \sum_{i=1}^n \delta_{\theta_i}}{\alpha + n} \right).
+\end{equation*}
+
+The DP admits several nice representations. An intuitive constructive definition of a DP random probability measure is given by \citet{sethuraman1994} and is based on the discrete nature of the process, which can be represented as a a weighted sum of point masses. This definition states that if  $G\sim \mathrm{DP}(\alpha, G_0)$, then it can be expressed as follows:
+\begin{equation*}
+\begin{gathered}
+\beta_k \sim \mathrm{Beta}(1,\alpha), \qquad \pi_k = \beta_k \prod_{l = 1}^{k-1} (1-\beta_l)\\
+\theta^*_k \sim G_0, \qquad
+G = \sum_{k=1}^{\infty} \pi_k \delta_{\theta^*_k}.
+\end{gathered}
+\end{equation*}
+
+From this representation it is straightforward to extend the finite mixture framework described above to nonparametric mixtures: following the structure of equation (\ref{eq:ch1_discretemix_h}), DP mixtures (DPM) can be written as
+\begin{equation*}
+\begin{gathered}
+y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
+\theta_i \mid G \sim G \\
+G \sim \mathrm{DP}(\alpha,G_0).
+\end{gathered}
+\end{equation*}
+Differently from the mixtures described in the previous section, DPM are an infinite mixture model, as they assume a countably infinite number of components. 
+However, because the $\pi_k$'s decrease exponentially quickly, only a small number of components will be used to model the
+data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, the prior expected number of clusters, which corresponds to the number of distinct $\theta_i$ in a sample of $n$ values, is approximately equal to $\alpha \log(1 + n/\alpha)$.
+This means that while in finite mixture models the number of clusters has to be fixed in advance, in DP mixture model, the number of clusters is determined by the data and can be inferred.
+
 
 
 \subsection{Mixtures of finite mixtures}
+To avoid fixing the number of clusters, a different approach to DP mixtures is to consider finite mixtures with a prior on the number of components. Although this may seem as the most natural way to infer the number of groups, application of mixtures of finite mixtures (MFM) has long been hindered by the difficulty of performing posterior inference. 
+Several inference methods have been proposed for this type of model \citep{McCullagh2008,nobile2004,nobile2007,richardson1997} often exploiting the reversible jump Markov chain Monte Carlo technique.
+
+More recently, different models have been proposed inspired by nonparametric mixtures. \citet{miller2018} explicitly derive properties of MFM analogous to those exhibited by DPM. They consider a finite mixture model similar to the one defined in equation (\ref{eq:ch1_discretemix_h}), with a prior $p(K)$ on the number of clusters. The limit of their approach is that it is assumed a fixed parameter $\alpha$ for the Dirichlet distribution, regardless of the dimension $K$.
+
+Another approach is discussed by \citet{malsinerwalli2016} and \cite{fs2019}, based on the use of sparse mixtures. Similarly to DPM, in this formulation they distinguish between the mixture components and the clusters, which are defined as the components actually used by the data. The number of components $K$ is fixed to a large and clearly overfitting value, and a Dirichlet prior with small parameter on the mixture weights ensures that the (random) number of clusters $K_+$ will take values smaller than $K$ with high probability a priori and also a posteriori.
+
 
 
 \subsection{Bayesian nonparametric models for nested data}
