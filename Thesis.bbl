@@ -1,4 +1,4 @@
-\begin{thebibliography}{29}
+\begin{thebibliography}{30}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -61,6 +61,11 @@ Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
   Sparse finite versus {Dirichlet} process mixtures in model-based clustering.
 \newblock \emph{Advances in Data Analysis and Classification} \textbf{13},
   33--64.
+
+\bibitem[Fr\"uhwirth-Schnatter \emph{et~al.}(2020)Fr\"uhwirth-Schnatter,
+  Malsiner-Walli and Gr\"un]{fruhwirthschnatter2020}
+Fr\"uhwirth-Schnatter, S., Malsiner-Walli, G. and Gr\"un, B. (2020) Generalized
+  mixtures of finite mixtures and telescoping sampling.
 
 \bibitem[Gelman \emph{et~al.}(2013)Gelman, Carlin, Stern, Dunson, Vehtari and
   Rubin]{gelman2013}
