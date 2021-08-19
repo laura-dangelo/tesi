@@ -1,4 +1,4 @@
-\begin{thebibliography}{30}
+\begin{thebibliography}{32}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -152,9 +152,22 @@ Richardson, S. and Green, P.~J. (1997) On {Bayesian} analysis of mixtures with
 \newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)} \textbf{59}(4), 731--792.
 
+\bibitem[Rodr\'iguez \emph{et~al.}(2008)Rodr\'iguez, Dunson and
+  Gelfand]{rodriguez2008}
+Rodr\'iguez, A., Dunson, D.~B. and Gelfand, A.~E. (2008) The nested dirichlet
+  process.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{103}(483), 1131--1154.
+
 \bibitem[Sethuraman(1994)]{sethuraman1994}
 Sethuraman, J. (1994) A constructive definition of {Dirichlet} priors.
 \newblock \emph{Statistica Sinica} \textbf{4}(2), 639--650.
+
+\bibitem[Teh \emph{et~al.}(2006)Teh, Jordan, Beal and Blei]{Teh2006}
+Teh, Y.~W., Jordan, M.~I., Beal, M.~J. and Blei, D.~M. (2006) Hierarchical
+  {Dirichlet} processes.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{101}(476), 1566--1581.
 
 \bibitem[Vogelstein \emph{et~al.}(2010)Vogelstein, Packer, Machado, Sippy,
   Babadi, Yuste and Paninski]{vogelstein2010}

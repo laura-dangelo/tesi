@@ -236,18 +236,26 @@ The algorithm performs the following steps:
 
 \subsection{Bayesian nonparametric models for nested data}
 All models described so far assumed that the data were exchangeable, that is, they arise from one unknown distribution. However, there is growing interest in modeling scenarios where the data come from different but related groups, as for example different populations or experiments. In these cases it is desirable to individually model the distribution of each group, while also borrowing information between them.
+When data are collected from individuals in multiple groups, the exchangeability assumption is no longer valid: in these cases, observations are said to be partially exchangeable, meaning that they are exchangeable \textit{within} groups.
 
+Suppose that in addition to each $y_i$, $i=1,\dots,n$, we also observe a categorical variable $g_i$ with values in $\{1,\dots,J\}$ indicating the population to which $y_i$ belongs, so that when $g_i = j$ means that $y_i$ comes from the $j$-th group.
+In the Bayesian nonparametric framework, several approaches have been proposed to deal with these nested data sets.
 
+The hierarchical Dirichlet process~\citep{Teh2006} arises from the desire to flexibly model the distributions of the observations of each group, while also performing clustering to capture latent structures among all individuals.
+Each group-specific distribution is modeled with a mixture model which uses a random probability measure $G_j$ as mixing measure, where the $G_j$'s are distributed according to a DP: this allows to obtain a partition of individuals within each group.
+In order to borrow information across groups, they propose a hierarchical formulation where one draw from a Dirichlet process is used as the base measure $G_0$ of the Dirichlet process generating the individual $G_j$'s.
+This construction implies that the distributions $\{G_1,\dots,G_J\}$ share the same atoms (the atoms of $G_0$), thus the model yields a clustering of the individuals also across groups.
+However, as these $G_j$'s are independent draws, in general, they will have different weights: as a result, there is no clustering of these group-specific distributions. The hierarchical DP hence does not allow to investigate similarities between the distributions, but only to cluster individuals.
 
-
-
-
-
-
-
-
-
-
+To overcome this limitation,~\citet{rodriguez2008} introduced the nested Dirichlet process, which allows to obtain a clustering both of the observations and of the groups. 
+Consider again a collection of distributions $\{G_1,\dots,G_J\}$ serving as group-specific mixing measures of a nonparametric mixture. The nested DP assumes that $G_j\mid Q \sim Q$ for $j=1,\dots,J$ and $Q \sim DP(\alpha, DP(\beta,G_0))$. Using the stick-breaking representation of the DP, this model can be expressed as
+\begin{equation*}
+\begin{gathered}
+G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{\infty} \pi_k \delta_{G^*_k}\\
+G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l,k}}
+\end{gathered}
+\end{equation*}
+where the sequences of weights $\bm{\pi}$ and $\{\bm{\omega}_{k}\}_{k=1}^{\infty}$ follow a stick breaking construction and the parameters $\theta^*_{l,k}$ are i.i.d. samples from $G_0$.
 
 
 
