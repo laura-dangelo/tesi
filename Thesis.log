@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  19 AUG 2021 17:54
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  19 AUG 2021 21:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -788,14 +788,21 @@ Overfull \hbox (4.28012pt too wide) in paragraph at lines 68--69
 l-though they are not part of the Bayesian
  []
 
-[6] [7] [8] [9] [10] [11] [12]) (./Chapters/Chapter2.tex [13] [14
+[6] [7] [8]
+Overfull \hbox (3.29393pt too wide) in paragraph at lines 171--176
+\T1/qpl/m/n/10.95 ably in-fi-nite num-ber of com-po-nents. How-ever, be-cause t
+he $\OML/cmm/m/it/10.95 ^^Y[]$\T1/qpl/m/n/10.95 's de-crease ex-po-nen-tially q
+uickly,
+ []
 
-]
+[9] [10] [11] [12] [13]) (./Chapters/Chapter2.tex [14]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Efficient posterior sampling for Bayesian log-linear models
 ------------------------------------------------------------------------------
-) (./Chapters/Chapter3.tex [15] [16
+) (./Chapters/Chapter3.tex [15
+
+] [16
 
 ]
 Chapter 3.
@@ -830,13 +837,13 @@ Package rerunfilecheck Info: File `Thesis.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 16247 strings out of 481239
- 230957 string characters out of 5920376
- 508209 words of memory out of 5000000
- 31069 multiletter control sequences out of 15000+600000
+ 16255 strings out of 481239
+ 231111 string characters out of 5920376
+ 508374 words of memory out of 5000000
+ 31075 multiletter control sequences out of 15000+600000
  585490 words of font info for 73 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,12n,49p,960b,505s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,49p,960b,507s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec.enc}</usr/share/texlive/texmf
 -dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/
 fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
@@ -850,10 +857,10 @@ share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texmf/fo
 nts/type1/public/tex-gyre/qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyr
 e/qplr.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on Thesis.pdf (33 pages, 460177 bytes).
+Output written on Thesis.pdf (33 pages, 462858 bytes).
 PDF statistics:
- 513 PDF objects out of 1000 (max. 8388607)
- 457 compressed objects within 5 object streams
- 116 named destinations out of 1000 (max. 500000)
+ 521 PDF objects out of 1000 (max. 8388607)
+ 465 compressed objects within 5 object streams
+ 118 named destinations out of 1000 (max. 500000)
  182 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,4 +1,4 @@
-\begin{thebibliography}{32}
+\begin{thebibliography}{34}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -13,10 +13,22 @@ Berridge, M.~J., Lipp, P. and Bootman, M.~D. (2000) The versatility and
   universality of calcium signalling.
 \newblock \emph{Nature Reviews Molecular Cell Biology} \textbf{1}, 11 -- 21.
 
+\bibitem[Camerlenghi \emph{et~al.}(2019)Camerlenghi, Dunson, Lijoi, Prünster
+  and Rodríguez]{camerlenghi2019}
+Camerlenghi, F., Dunson, D.~B., Lijoi, A., Prünster, I. and Rodríguez, A.
+  (2019) {Latent Nested Nonparametric Priors (with Discussion)}.
+\newblock \emph{Bayesian Analysis} \textbf{14}(4), 1303 -- 1356.
+
 \bibitem[Denk \emph{et~al.}(1990)Denk, Strickler and Webb]{denk1990}
 Denk, W., Strickler, J.~H. and Webb, W.~W. (1990) Two-photon laser scanning
   fluorescence microscopy.
 \newblock \emph{Science} \textbf{248}, 73--76.
+
+\bibitem[Denti \emph{et~al.}(2021)Denti, Camerlenghi, Guindani and
+  Mira]{denti2021}
+Denti, F., Camerlenghi, F., Guindani, M. and Mira, A. (2021) A common atoms
+  model for the bayesian nonparametric analysis of nested data.
+\newblock \emph{Journal of the American Statistical Association} pp. 1--12.
 
 \bibitem[Dombeck \emph{et~al.}(2010)Dombeck, Harvey, Tian, Looger and
   Tank]{dombeck2010}
@@ -59,8 +71,8 @@ Friedrich, J., Zhou, P. and Paninski, L. (2017) Fast online deconvolution of
 \bibitem[Fr\"uhwirth-Schnatter and Malsiner-Walli(2019)]{fs2019}
 Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
   Sparse finite versus {Dirichlet} process mixtures in model-based clustering.
-\newblock \emph{Advances in Data Analysis and Classification} \textbf{13},
-  33--64.
+\newblock \emph{Advances in Data Analysis and Classification} \textbf{13}, 33
+  -- 64.
 
 \bibitem[Fr\"uhwirth-Schnatter \emph{et~al.}(2020)Fr\"uhwirth-Schnatter,
   Malsiner-Walli and Gr\"un]{fruhwirthschnatter2020}
@@ -102,7 +114,7 @@ McCullagh, P. and Yang, J. (2008) {How many clusters?}
 Miller, J.~W. and Harrison, M.~T. (2018) Mixture models with a prior on the
   number of components.
 \newblock \emph{Journal of the American Statistical Association}
-  \textbf{113}(521), 340--356.
+  \textbf{113}(521), 340 -- 356.
 
 \bibitem[Mukamel \emph{et~al.}(2009)Mukamel, Nimmerjahn and
   Schnitzer]{mukamel2009}
@@ -150,24 +162,24 @@ Pnevmatikakis, E.~A., Soudry, D., Gao, Y., Machado, T.~A., Merel, J., Pfau, D.,
 Richardson, S. and Green, P.~J. (1997) On {Bayesian} analysis of mixtures with
   an unknown number of components (with discussion).
 \newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
-  Methodology)} \textbf{59}(4), 731--792.
+  Methodology)} \textbf{59}(4), 731 -- 792.
 
 \bibitem[Rodr\'iguez \emph{et~al.}(2008)Rodr\'iguez, Dunson and
   Gelfand]{rodriguez2008}
 Rodr\'iguez, A., Dunson, D.~B. and Gelfand, A.~E. (2008) The nested dirichlet
   process.
 \newblock \emph{Journal of the American Statistical Association}
-  \textbf{103}(483), 1131--1154.
+  \textbf{103}(483), 1131 -- 1154.
 
 \bibitem[Sethuraman(1994)]{sethuraman1994}
 Sethuraman, J. (1994) A constructive definition of {Dirichlet} priors.
-\newblock \emph{Statistica Sinica} \textbf{4}(2), 639--650.
+\newblock \emph{Statistica Sinica} \textbf{4}(2), 639 -- 650.
 
 \bibitem[Teh \emph{et~al.}(2006)Teh, Jordan, Beal and Blei]{Teh2006}
 Teh, Y.~W., Jordan, M.~I., Beal, M.~J. and Blei, D.~M. (2006) Hierarchical
   {Dirichlet} processes.
 \newblock \emph{Journal of the American Statistical Association}
-  \textbf{101}(476), 1566--1581.
+  \textbf{101}(476), 1566 -- 1581.
 
 \bibitem[Vogelstein \emph{et~al.}(2010)Vogelstein, Packer, Machado, Sippy,
   Babadi, Yuste and Paninski]{vogelstein2010}
