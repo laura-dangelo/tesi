@@ -3,44 +3,44 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Thesis.aux
 The style file: CUP.bst
 Database file #1: References/references.bib
-You've used 34 entries,
+You've used 38 entries,
             2750 wiz_defined-function locations,
-            819 strings with 10238 characters,
-and the built_in function-call counts, 16604 in all, are:
-= -- 1552
-> -- 923
-< -- 21
-+ -- 353
-- -- 319
-* -- 1673
-:= -- 2817
-add.period$ -- 68
-call.type$ -- 34
-change.case$ -- 211
-chr.to.int$ -- 34
-cite$ -- 102
-duplicate$ -- 626
-empty$ -- 1144
-format.name$ -- 369
-if$ -- 3260
+            841 strings with 10694 characters,
+and the built_in function-call counts, 18320 in all, are:
+= -- 1725
+> -- 995
+< -- 24
++ -- 381
+- -- 343
+* -- 1844
+:= -- 3106
+add.period$ -- 76
+call.type$ -- 38
+change.case$ -- 231
+chr.to.int$ -- 38
+cite$ -- 114
+duplicate$ -- 695
+empty$ -- 1273
+format.name$ -- 401
+if$ -- 3597
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 32
-newline$ -- 137
-num.names$ -- 140
-pop$ -- 195
+missing$ -- 36
+newline$ -- 153
+num.names$ -- 156
+pop$ -- 211
 preamble$ -- 1
-purify$ -- 172
+purify$ -- 188
 quote$ -- 0
-skip$ -- 398
+skip$ -- 439
 stack$ -- 0
-substring$ -- 1002
-swap$ -- 148
+substring$ -- 1117
+swap$ -- 161
 text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 303
+type$ -- 339
 warning$ -- 0
-while$ -- 160
+while$ -- 180
 width$ -- 0
-write$ -- 404
+write$ -- 452

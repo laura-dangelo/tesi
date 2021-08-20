@@ -15,12 +15,12 @@
 \contentsline {subsection}{\numberline {1.2.2}Altri dati?}{6}{subsection.21}%
 \contentsline {section}{\numberline {1.3}A brief review of some Bayesian nonparametric models}{6}{section.22}%
 \contentsline {subsection}{\numberline {1.3.1}Finite mixture models}{6}{subsection.23}%
-\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixtures}{8}{subsection.31}%
-\contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{10}{subsection.35}%
-\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{12}{subsection.43}%
-\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{15}{chapter.44}%
-\contentsline {section}{\numberline {2.1}Algorithm}{15}{section.45}%
-\contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{17}{chapter.46}%
-\contentsline {section}{\numberline {3.1}Model specification}{17}{section.47}%
-\contentsline {section}{\numberline {3.2}Posterior computation}{17}{section.48}%
-\contentsline {chapter}{Bibliography}{19}{dummy.49}%
+\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixture models}{8}{subsection.31}%
+\contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{13}{subsection.42}%
+\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{15}{subsection.50}%
+\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{19}{chapter.55}%
+\contentsline {section}{\numberline {2.1}Algorithm}{19}{section.56}%
+\contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{21}{chapter.57}%
+\contentsline {section}{\numberline {3.1}Model specification}{21}{section.58}%
+\contentsline {section}{\numberline {3.2}Posterior computation}{21}{section.59}%
+\contentsline {chapter}{Bibliography}{23}{dummy.60}%

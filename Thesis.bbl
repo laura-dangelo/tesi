@@ -1,4 +1,4 @@
-\begin{thebibliography}{34}
+\begin{thebibliography}{38}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -12,6 +12,11 @@
 Berridge, M.~J., Lipp, P. and Bootman, M.~D. (2000) The versatility and
   universality of calcium signalling.
 \newblock \emph{Nature Reviews Molecular Cell Biology} \textbf{1}, 11 -- 21.
+
+\bibitem[Blackwell and MacQueen(1973)]{blackwell1973}
+Blackwell, D. and MacQueen, J.~B. (1973) {Ferguson distributions via Polya urn
+  schemes}.
+\newblock \emph{The Annals of Statistics} \textbf{1}(2), 353 -- 355.
 
 \bibitem[Camerlenghi \emph{et~al.}(2019)Camerlenghi, Dunson, Lijoi, Prünster
   and Rodríguez]{camerlenghi2019}
@@ -89,6 +94,12 @@ Gelman, A., Carlin, J., Stern, H., Dunson, D., Vehtari, A. and Rubin, D. (2013)
 Grienberger, C. and Konnerth, A. (2012) Imaging calcium in neurons.
 \newblock \emph{Neuron} \textbf{73}(5), 862 -- 885.
 
+\bibitem[Ishwaran and James(2001)]{ishwaran2001}
+Ishwaran, H. and James, L.~F. (2001) Gibbs sampling methods for stick-breaking
+  priors.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{96}(453), 161--173.
+
 \bibitem[Jewell and Witten(2018)]{jewell2018}
 Jewell, S. and Witten, D. (2018) Exact spike train inference via {L0}
   optimization.
@@ -99,6 +110,10 @@ Jewell, S. and Witten, D. (2018) Exact spike train inference via {L0}
 Jewell, S.~W., Hocking, T.~D., Fearnhead, P. and Witten, D.~M. (2019) Fast
   nonconvex deconvolution of calcium imaging data.
 \newblock \emph{Biostatistics} \textbf{21}(4), 709--726.
+
+\bibitem[Kalli \emph{et~al.}(2011)Kalli, Griffin and Walker]{kalli2011}
+Kalli, M., Griffin, J. and Walker, S. (2011) Slice sampling mixture models.
+\newblock \emph{Statistics and Computing} \textbf{21}, 93 -- 105.
 
 \bibitem[Malsiner-Walli \emph{et~al.}(2016)Malsiner-Walli,
   Fr\"uhwirth-Schnatter and Gr\"un]{malsinerwalli2016}
@@ -187,5 +202,10 @@ Vogelstein, J.~T., Packer, A.~M., Machado, T.~A., Sippy, T., Babadi, B., Yuste,
   R. and Paninski, L. (2010) Fast nonnegative deconvolution for spike train
   inference from population calcium imaging.
 \newblock \emph{Journal of Neurophysiology} \textbf{104}(6), 3691--3704.
+
+\bibitem[Walker(2007)]{walker2007}
+Walker, S.~G. (2007) Sampling the {Dirichlet} mixture model with slices.
+\newblock \emph{Communications in Statistics - Simulation and Computation}
+  \textbf{36}(1), 45--54.
 
 \end{thebibliography}

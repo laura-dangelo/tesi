@@ -60,6 +60,7 @@ The goal of the study is to investigate how neurons at different depths in the v
 Paragrafo qui.
 
 \section{A brief review of some Bayesian nonparametric models} 
+\sectionmark{Bayesian nonparametric models}
 In this section we review some statistical tools that will be employed in this thesis in the analysis of calcium imaging data. The purpose of this section is not to provide a comprehensive review, but rather to outline the theoretical framework we adopted and fix some notation.
 The core topic will be the Bayesian methodology, with a focus on Bayesian nonparametric models.
 
@@ -106,7 +107,7 @@ y_i \mid c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k).
 \label{eq:ch1_finitemix_h1}
 \end{equation}
 
-It is possible to rewrite equation (\ref{eq:ch1_finitemix_h1}) in a slightly different way by thinking that each observation $y_i$ is associated with a parameter $\theta_i$, where these parameters are drawn from a discrete distribution $G$ with support on the $K$ locations $\{\theta^*_1,\dots,\theta^*_K\}$. The model then becomes, for $i=1,\dots,n$
+It is possible to rewrite Equation (\ref{eq:ch1_finitemix_h1}) in a slightly different way by thinking that each observation $y_i$ is associated with a parameter $\theta_i$, where these parameters are drawn from a discrete distribution $G$ with support on the $K$ locations $\{\theta^*_1,\dots,\theta^*_K\}$. The model then becomes, for $i=1,\dots,n$
 \begin{equation}
 \begin{gathered}
 \pi_1,\dots,\pi_K \sim \Dir_K(\alpha_1,\dots,\alpha_K) \\
@@ -130,16 +131,20 @@ Moreover, for the distribution of the mixture weights it is possible to exploit 
 	$$ \Pr(c_i = k\mid \bm{\pi},\bm{\theta}^*, y_i) \propto \pi_k f(y_i\mid\theta^*_{k})  .$$
 \end{enumerate}
 
-\subsection{Dirichlet process mixtures}
+\subsection{Dirichlet process mixture models}
 Nonparametric mixtures extend model (\ref{eq:ch1_finitemix_h2}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \citet{ferguson1973, ferguson1974}. Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
 
 \subsubsection*{The Dirichlet process }
-A random distribution $G$ on $\Theta$ is said to follow a DP prior with base measure $G_0$ and concentration parameter $\alpha$, denoted $G\sim\DP(\alpha,G_0)$, if for any partition $\{B_1,\dots,B_H\}$ of $\Theta$, 
+The Dirichlet process is a stochastic process whose realizations are probability distributions with probability one. 
+Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. For this short review of some of the main properties of the DP we followed the unpublished report by Yee Whye Teh, which illustrates in a clear and simple way the fundamental properties of this process.
+
+Formally, a random distribution $G$ on some probability space $\Theta$ is said to follow a DP prior with base measure $G_0$ and concentration parameter $\alpha$, denoted $G\sim\DP(\alpha,G_0)$, if for any partition $\{B_1,\dots,B_H\}$ of $\Theta$
 \begin{equation*}
 (G(B_1),\dots,G(B_H)) \sim \Dir_H\big(\alpha G_0(B_1),\dots,\alpha G_0(B_H)\big).
 \end{equation*}
+That is, the finite-dimensional marginal distributions of a DP are Dirichlet distributions.
+
 The success of the DP mainly arises from two appealing characteristics: its large support, with respect to the space of probability distributions, and tractability of the posterior distribution.
-%
 Closely related to this last aspect is the conjugacy property of the DP: as the finite dimensional Dirichlet distribution is conjugate to the multinomial likelihood, the DP is conjugate with respect to i.i.d. sampling, that is, with respect to a completely unknown distribution from i.i.d. data.
 More precisely, if we take $\{\theta_1,\dots,\theta_n\}$ a sequence of independent draws from $G\sim\DP(\alpha,G_0)$, then the posterior distribution of $G$ given these observed values is still a DP. 
 Letting again $\{B_1,\dots,B_H\}$ be a finite measurable partition of $\Theta$, and letting $n_h$ be the number of observed values in $B_h$, for $h = 1,\dots,H$, the posterior distribution is given by
@@ -148,20 +153,39 @@ Letting again $\{B_1,\dots,B_H\}$ be a finite measurable partition of $\Theta$, 
 \end{equation*}
 In other terms, the posterior distribution is still DP with updated parameters:
 \begin{equation*}
-G \mid \theta_1,\dots,\theta_n \sim \DP \left(\alpha + n, \frac{\alpha G_0 + \sum_{i=1}^n \delta_{\theta_i}}{\alpha + n} \right).
+G \mid \theta_1,\dots,\theta_n \sim \DP \left(\alpha + n, \frac{\alpha G_0 + \sum_{i=1}^n \delta_{\theta_i}}{\alpha + n} \right)
 \end{equation*}
+where the posterior base measure is a weighted average between the prior base measure $G_0$ and the empirical distribution $\sum_{i=1}^n \delta_{\theta_i} / n$.
+The weight associated with the prior base distribution is proportional to $\alpha$, while the empirical distribution has weight proportional to the number of observations.
+
+
+Another useful result, which allows to get a better understanding of the effect of using a DP as mixing measure, is the represented by Blackwell-MacQueen urn scheme~\citep{blackwell1973}, which describes the predictive distribution of draws from a DP. Consider again a sequence $\{\theta_1,\dots,\theta_n\}$ of independent draws from $G\sim\DP(\alpha,G_0)$. The predictive distribution of $\theta_{n+1}$ conditioned on these values, and with $G$ marginalized out is given by 
+\begin{equation*}
+\theta_{n+1} \mid \theta_1,\dots,\theta_n \sim \frac{1}{\alpha + n} \left( \alpha G_0 + \sum_{i=1}^n \delta_{\theta_i} \right).
+\end{equation*}
+Therefore the posterior base measure given $\{\theta_1,\dots,\theta_n\}$ is also the predictive distribution of $\theta_{n+1}$. This distribution highlights the discreteness of draws from a DP, and allows to investigate the clustering structure induced by the DP when is used as mixing measure in mixture models. Since the distribution is discrete, it is possible that some of the values $\{\theta_1,\dots,\theta_n\}$ will be repeated. In particular, the unique values of $\{\theta_1,\dots,\theta_n\}$ induce
+a partition of the set $\{1,\dots,n\}$ into clusters defined by observations with the same value.
+Denoting with $\{\theta^*_1, \dots, \theta^*_K\}$ the unique values among the $\theta_i$, and letting $n_k$ be the number of $\theta_i$ equal to $\theta^*_k$, for $i=1,\dots,n$ and $k=1,\dots,K$, the predictive distribution can be written as
+\begin{equation*}
+\theta_{n+1} \mid \theta_1,\dots,\theta_n \sim \frac{1}{\alpha + n} \left( \alpha G_0 + \sum_{k=1}^K n_k \delta_{\theta_k^*} \right).
+\end{equation*}
+From this equation, it is possible to notice that $\theta_{n+1}$ will take a value $\theta^*_k$ with a probability proportional to $n_k$, the number of times it has already been observed. 
+Hence, the larger $n_k$ is, the higher the probability that it will grow. This is a rich-gets-richer phenomenon, where large clusters grow larger faster.
 
 The DP admits several nice representations. An intuitive constructive definition of a DP random probability measure is given by \citet{sethuraman1994} and is based on the discrete nature of the process, which can be represented as a a weighted sum of point masses. This definition states that if  $G\sim \DP(\alpha, G_0)$, then it can be expressed as follows:
-\begin{equation*}
-\begin{gathered}
-\beta_k \sim \Beta(1,\alpha), \qquad \pi_k = \beta_k \prod_{l = 1}^{k-1} (1-\beta_l)\\
-\theta^*_k \sim G_0, \qquad
-G = \sum_{k=1}^{\infty} \pi_k \delta_{\theta^*_k}.
-\end{gathered}
-\end{equation*}
+%\begin{equation}
+\begin{gather} \label{eq:ch1_stickbreaking}
+\beta_k \sim \Beta(1,\alpha), \quad \theta^*_k \sim G_0 \qquad \text{for } k\geq 1 \nonumber \\
+\pi_1 = \beta_1, \quad \pi_k = \beta_k \prod_{l = 1}^{k-1} (1-\beta_l) \qquad \text{for } k\geq 2\\
+G = \sum_{k=1}^{\infty} \pi_k \delta_{\theta^*_k}. \nonumber
+\end{gather}
+%\end{equation}
+The construction of the weights $\{\pi_k\}_{k=1}^{\infty}$ by means of Beta random variable is usually called stick-breaking process. The name arises from a metaphor for this construction, where a unit stick is broken in infinitely many parts, and each piece is used to define a weight.
+Because of its simplicity, this representation has motivated extensions of the process as well as new inference procedures, as for example the algorithms described in the following to sample from the posterior distribution of Dirichlet process mixtures.
+
 
 \subsubsection*{Dirichlet process mixtures}
-Getting back to the framework of mixture models, from the stick-breaking representation it is straightforward to extend the finite mixtures described in the previous section to nonparametric mixtures: following the structure of equation (\ref{eq:ch1_finitemix_h2}), DP mixtures (DPM) can be written as
+Getting back to the framework of mixture models, from the representation of the process as discrete measure it is straightforward to extend the finite mixtures described in the previous section to nonparametric mixtures: following the structure of Equation (\ref{eq:ch1_finitemix_h2}), DP mixtures (DPMs) can be written as
 \begin{equation*}
 \begin{gathered}
 G \sim \DP(\alpha,G_0)\\
@@ -169,26 +193,67 @@ G \sim \DP(\alpha,G_0)\\
 y_i \mid \theta_i \sim f(y_i\mid\theta_i).
 \end{gathered}
 \end{equation*}
-Differently from finite mixtures, DPM are an infinite mixture model, as they assume a countably infinite number of components. 
-However, because the $\pi_k$'s decrease exponentially quickly, only a small number of components will be used to model the
-data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, the prior expected number of clusters, which corresponds to the number of distinct $\theta_i$ in a sample of $n$ values, is approximately equal to $\alpha \log(1 + n/\alpha)$.
-This means that while in finite mixture models the number of clusters has to be fixed in advance, in DP mixture model, the number of clusters is determined by the data and can be inferred.
+Alternatively, making use of the set of unique values $\{\theta^*_k\}_{k=1}^{\infty}$ and of Sethuraman's representation, the model can be expressed as
+\begin{equation}
+p(y_i\mid G) = \sum_{k=1}^{\infty} \pi_k f(y_i\mid\theta^*_k)
+\label{eq:ch1_DPM}
+\end{equation}
+where the weights $\{\pi_k\}_{k=1}^{\infty}$ follow a stick-breaking construction and the $\{\theta^*_k\}_{k=1}^{\infty}$ are i.i.d. samples from the base measure $G_0$.
 
-\subsubsection*{Posterior inference for DPM}
+Differently from finite mixtures, DPMs are infinite mixture models, as they assume a countably infinite number of components. 
+However, because the $\pi_k$'s decrease exponentially quickly, only a small number of components will be used to model the
+data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, the prior expected number of clusters in a sample of size $n$ is approximately equal to $\alpha \log(1 + n/\alpha)$.
+This means that while in finite mixture models the number of clusters has to be fixed in advance, in DPMs the number of clusters is determined by the data and can be inferred.
+
+\subsubsection*{Posterior inference for DPMs}
+Applying MCMC techniques to DPMs directly is not feasible, as it would require imputing the infinite-dimensional distribution $G$. Instead, successful algorithms to perform posterior inference on DP mixtures have been developed using the particular representations that this process admits. 
+It is common to divide these methods into two classes depending on the strategy they adopt to deal with the infinite-dimensional component of the model: marginal algorithms are based on model representations with the DP is integrated out, while conditional algorithms explicitly represent the measure generated by the process using its stick-breaking construction.
+Here we will focus on conditional methods. Avoiding marginalization of the random measure allows to perform inference on it directly, moreover, these methods are often computationally more efficient than marginal ones; however, they require to devise good strategies to deal with the infinite dimension of the process.
+
+In the blocked Gibbs sampler of~\citet{ishwaran2001} the infinite random measure is truncated to an upper bound $K$ for the number of clusters. The motivation that justifies this approach is that the weights $\{\pi_k\}_{k=1}^{\infty}$ determined by the stick-breaking construction are stochastically decreasing in $k$. By choosing a sufficiently large value $K$ one can assume that $\sum_{k=K+1}^{\infty} \pi_k$ has a distribution concentrated near zero.
+Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{subsec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $\beta_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h)$ for $k = 1,\dots,K-1$. Finally, letting $\beta_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
+
+The slice sampler \citep{walker2007, kalli2011} has been adopted as an alternative ``dynamic'' truncation method to automatically select the active components of the mixture. 
+The slice sampler relies on the introduction of latent uniform random variables $u_i$, $i=1,\dots,n$, such that 
+marginalizing the joint density of $(y_i,u_i)$ still returns the desired density in Eq. (\ref{eq:ch1_DPM}), and such that the conditional density of $y_i\mid u_i$ only involves a finite number of mixture components.
+Specifically, model (\ref{eq:ch1_DPM}) can be obtained as marginal density with respect to $u_i$ of
+\begin{equation*}
+p(y_i,u_i\mid G) = \sum_{k=1}^{\infty} \mathbb{I}(u_i<\pi_k) f(y_i\mid\theta^*_k),
+\end{equation*}
+where $\mathbb{I}(A)$ is the indicator variable, taking value 1 if condition $A$ is satisfied and 0 otherwise. 
+The key of introducing this variable is that, conditionally on $u_i$, the density can be written as
+\begin{equation*}
+p(y_i\mid u_i, G) = N_u^{-1} \sum_{k\in A_u} f(y_i\mid\theta^*_k)
+\end{equation*}
+where $A_u$ is the set of indices of active components $A_u = \{k:\pi_k >u\}$ and $N_u = \sum_{k\in A_u} \pi_k$. This model defines a finite mixture with equal weights $N_u^{-1}$.
+Introducing the cluster indicators $\CC = \{c_1,\dots,c_n\}$ further simplifies the density, similarly to the case of finite mixtures. Finally, \citet{kalli2011} also introduce a non-stochastic positive sequence $\{\xi_1,\xi_2,\dots\}$ in order to improve mixing. With all these elements, the joint density of $(y_i,u_i,c_i)$ conditioned on $\bm{\pi}$ and $\bm{\theta}^*$ becomes
+\begin{equation*}
+p(y_i,u_i,c_i \mid \bm{\pi},\bm{\theta}^*) =  \mathbb{I}(u_i < \xi_{c_i}) \frac{\pi_{c_i}}{\xi_{c_i}} f(y_i\mid\theta^*_{c_i}).
+\end{equation*}
+The slice sampler algorithm iterates the following steps:
+\begin{enumerate}
+	\item Update the cluster-specific parameters $\theta^*_k$, for $k=1,\dots,K$, where $K$ is defined as the maximum index $h$ such that $\xi_h > u_i$ for all $i=1,\dots,n$, from
+	$$p(\theta^*\mid \CC) \propto G_0(\theta^*_k)\prod_{i:c_i=k} f(y_i\mid\theta^*_k).$$
+	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{eq:ch1_stickbreaking}) with beta random variables $\beta_k\sim\Beta(1+n_k, \alpha + \sum_{l=k+1}^K n_l).$
+	\item Sample the latent variables $u_i$ from a uniform distribution $u_i \mid c_i \sim \mathrm{Unif}(0,\xi_{c_i})$
+	\item Update the cluster allocations $c_i$ for $i=1,\dots,n$ from
+	$$\Pr(c_i = k\mid u_i, y_i, \theta^*_k)\propto \mathbb{I}(k:\xi_k > u_i) \frac{\pi_k}{\xi_k} f(y_i\mid\theta^*_k).$$
+\end{enumerate}
+
 
 
 \subsection{Mixtures of finite mixtures}
-To avoid fixing the number of clusters, a different approach to DP mixtures is to consider finite mixtures with a prior on the number of components. Although this may seem as the most natural way to infer the number of groups, application of mixtures of finite mixtures (MFM) has long been hindered by the difficulty of performing posterior inference. 
+To avoid fixing the number of clusters, a different approach to DP mixtures is to consider finite mixtures with a prior on the number of components. Although this may seem as the most natural way to infer the number of groups, application of mixtures of finite mixtures (MFMs) has long been hindered by the difficulty of performing posterior inference. 
 Several inference methods have been proposed for this type of models \citep{McCullagh2008,nobile2004,nobile2007,richardson1997} often exploiting the reversible jump Markov chain Monte Carlo techniques. However, applying the reversible jump in new situations can be hard, as it requires designing new reversible jump moves.
 
-More recently, different models have been proposed inspired by nonparametric mixtures. \citet{miller2018} explicitly derived MFM counterparts for several properties exhibited by DPM. They considered a finite mixture model similar to the one defined in section \ref{subsec:finite_mix}, where however the number of clusters is random and is assigned a prior distribution. A main limitation of their approach is that it assumes a fixed parameter $\alpha$ for the Dirichlet distribution, regardless of the dimension $K$, which can lead to undesired 
+More recently, different models have been proposed inspired by nonparametric mixtures. \citet{miller2018} explicitly derived MFMs counterparts for several properties exhibited by DPMs. They considered a finite mixture model similar to the one defined in section \ref{subsec:finite_mix}, where however the number of clusters is random and is assigned a prior distribution. A main limitation of their approach is that it assumes a fixed parameter $\alpha$ for the Dirichlet distribution, regardless of the dimension $K$, which can lead to undesired 
 
-Another approach is discussed by \citet{malsinerwalli2016} and \cite{fs2019}, based on the use of sparse mixtures. Similarly to DPM, in this formulation they distinguish between the mixture components and the clusters, which are defined as the components actually used by the data. In their approach, the number of components $K$ is fixed to a large and clearly overfitting value, and a Dirichlet prior with small parameter on the mixture weights ensures that the (random) number of clusters $K_+$ will take values smaller than $K$ with high probability a priori and also a posteriori.
+Another approach is discussed by \citet{malsinerwalli2016} and \cite{fs2019}, based on the use of sparse mixtures. Similarly to DPMs, in this formulation they distinguish between the mixture components and the clusters, which are defined as the components actually used by the data. In their approach, the number of components $K$ is fixed to a large and clearly overfitting value, and a Dirichlet prior with small parameter on the mixture weights ensures that the (random) number of clusters $K_+$ will take values smaller than $K$ with high probability a priori and also a posteriori.
 
 \subsubsection*{Generalized mixtures of finite mixtures}
-A general formulation that includes all three models described above as special cases (finite mixtures with a fixed number of clusters, MFM and overfitted mixtures) has recently been described by \citet{fruhwirthschnatter2020}: they call this specification generalized mixtures of finite mixtures (gMFM). Similarly to overfitted mixtures, a key aspect of this approach is the distinction between the number of components $K$ and the number of clusters $K_+$; however, here, the number of components is also random. 
+A general formulation that includes all three models described above as special cases (finite mixtures with a fixed number of clusters, MFMs and overfitted mixtures) has recently been described by \citet{fruhwirthschnatter2020}: they call this specification generalized mixture of finite mixtures (gMFM). Similarly to overfitted mixtures, a key aspect of this approach is the distinction between the number of components $K$ and the number of clusters $K_+$; however, here, the number of components is also random. 
 In the following we will review some aspects of these models that will be used later in this thesis.
-The gMFM model can be defined in a hierarchical form analogous to equation (\ref{eq:ch1_finitemix_h1}) as
+The gMFM model can be defined in a hierarchical form analogous to Equation (\ref{eq:ch1_finitemix_h1}) as
 \begin{equation*}
 \begin{gathered}
 K \sim p(K)\\
@@ -200,10 +265,10 @@ y_i \mid K, c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k).
 \label{eq:ch1_gMFM}
 \end{equation*}
 Including a prior on $K$ also induces a prior on the number of clusters $K_+$: here a crucial role is played by the sequence of concentration parameters of the Dirichlet distribution. Considering fixed parameters as in~\citet{miller2018}, where a $\Dir_K(1,\dots,1)$ is used regardless of the value of $K$, leads to a prior expected number of clusters $E(K_+)$ close to $E(K)$ for many priors $p(K)$. Having instead concentration parameters that decrease with increasing $K$ induces randomness in the prior distribution of $K_+\mid K$, allowing for a gap between $K_+$ and $K$. In this formulation the parameters decrease linearly with $K$, and a $F$ prior distribution is used for the hyperparameter $\alpha$.
-The specification of gMFM is completed with a suitable prior $p(K)$ on the number of components. In their work, \citet{fruhwirthschnatter2020} discuss different choices and compare the resulting prior on the number of clusters. 
-A desirable prior on $K$ should be weakly informative on the number of clusters, and should lead to a prior on $K_+$ which is concentrated on moderate number of clusters, with fat tails to ensure that also a high number of clusters may be estimated. They suggest to use a translated prior for $K$, where $K-1$ follows a beta-negative-binomial (BNB) distribution, which is a hierarchical generalization of the Poisson, the geometric and the negative-binomial distribution.
+The specification of a gMFM is completed with a suitable prior $p(K)$ on the number of components. In their work, \citet{fruhwirthschnatter2020} discuss different choices and compare the resulting prior on the number of clusters. 
+A desirable prior on $K$ should be weakly informative on the number of clusters, and should lead to a prior on $K_+$ which is concentrated on moderate number of clusters, with fat tails to ensure that also a high number of clusters may be estimated. They suggest to use a translated prior for $K$, where $K-1$ follows a beta-negative-binomial distribution, which is a hierarchical generalization of the Poisson, the geometric and the negative-binomial distribution.
 
-\subsubsection*{Posterior inference for gMFM}
+\subsubsection*{Posterior inference for gMFMs}
 An important contribution of the work of~\citet{fruhwirthschnatter2020} is the introduction of a new inference algorithm ``telescoping sampler'' to obtain the posterior distribution of all model parameters without resorting to reversible jump MCMC techniques. Their algorithm is a trans-dimensional Gibbs sampler which at each iteration alternates two key steps: first, it updates the partition of the observations $\CC= \{c_1,\dots,c_n\}$ conditionally on the number of components, then, it samples a new value for $K$ on the basis of this partition.
 Explicitly sampling the number of mixture components greatly simplifies inference as, conditionally on $K$, the updates of the partition and of the model parameters are brought back to standard steps.
 %
@@ -249,13 +314,11 @@ However, as these $G_j$'s are independent draws, in general, they will have diff
 
 To overcome this limitation,~\citet{rodriguez2008} introduced the nested Dirichlet process, which allows to obtain a clustering both of the observations within each group, and of the groups themselves. 
 Consider again a collection of distributions $\{G_1,\dots,G_J\}$ serving as group-specific mixing measures of a nonparametric mixture. The nested DP assumes that $G_j\mid Q \sim Q$ for $j=1,\dots,J$ and $Q \sim DP(\alpha, DP(\beta,G_0))$. Using the stick-breaking representation of the DP, this model can be expressed as
-\begin{equation*}
-\begin{gathered}
-G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{\infty} \pi_k \delta_{G^*_k}\\
-G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l,k}}
-\end{gathered}
-\end{equation*}
-where the sequences of weights $\bm{\pi}$ and $\{\bm{\omega}_{k}\}_{k=1}^{\infty}$ follow a stick breaking construction and the parameters $\theta^*_{l,k}$ are i.i.d. samples from $G_0$.
+\begin{gather}
+G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{\infty} \pi_k \delta_{G^*_k} \label{eq:ch1_nestedDP_level1}\\
+G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l,k}} \nonumber
+\end{gather}
+where the sequences of weights $\{\pi_k\}_{k=1}^{\infty}$ and $\{\omega_{l,k}\}_{l=1}^{\infty}$ for $k\geq1$ follow a stick breaking construction and the parameters $\theta^*_{l,k}$ are i.i.d. samples from $G_0$.
 A main difference from the hierarchical DP is that this formulation allows to cluster the group-specific distributions: indeed, if two $G_j$'s are assigned to the same $G^*_k$, then the observations in the two groups have exactly the same generating distribution. When two groups share the same distribution, they are said to belong to the same distributional cluster.
 
 In a recent paper by~\citet{camerlenghi2019}, however, they noted a degeneracy property that occurs in the nested DP in case of  ties across samples at the observed or latent level.
@@ -267,7 +330,29 @@ The shared random distribution explicitly accounts for the possibility of observ
 allows some atoms to be distinct and specific to each subpopulation.
 However, implementation of this model becomes challenging and computationally burdensome when the number of groups increases.
 
+\subsubsection*{The common atom model}
 Another nested nonparametric prior, more suited to practical applications, is proposed by~\citet{denti2021}. They formulate a constrained modification of the nested DP which, however, does not suffer from the degeneracy issue. Moreover, compared to the models introduced by~\citet{camerlenghi2019}, it is computationally more efficient and allows to perform posterior inference in a quite straightforward way even when the number of groups is moderate.
+%
+The first level of their common atoms model (CAM) is analogous to the nested DP (Eq.~\ref{eq:ch1_nestedDP_level1}), however, the specification of the distributional atoms $G^*_k$ makes use of a common set of atoms for all $k$. Hence the distributions $G^*_k$ can be seen as realizations of a single-atom dependent DP,
+\begin{equation*}
+G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l}} 
+\end{equation*}
+where the sequences of weights $\{\omega_{l,k}\}_{l=1}^{\infty}$ for $k\geq1$ again follow a stick breaking construction, and the common atoms $\{\theta^*_l\}_{l=1}^{\infty}$ are independent draws from a base measure $G_0$.
+Similarly to the nested DP, the first mixture level of the CAM allows to perform a clustering of the group-specific distributions $G_j$; however, as the set of atoms defining the $G^*_k$ is common across distributions, the CAM also allows to obtain a clustering of individuals both within each group and across them, in a similar fashion to the hierarchical DP.
+
+\subsubsection*{Posterior inference for the CAM}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
