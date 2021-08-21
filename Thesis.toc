@@ -12,15 +12,15 @@
 \contentsline {subsection}{\numberline {1.1.1}Deconvolution methods}{4}{subsection.17}%
 \contentsline {section}{\numberline {1.2}Data sets}{5}{section.19}%
 \contentsline {subsection}{\numberline {1.2.1}Allen Brain Observatory data}{5}{subsection.20}%
-\contentsline {subsection}{\numberline {1.2.2}Altri dati?}{6}{subsection.21}%
-\contentsline {section}{\numberline {1.3}A brief review of some Bayesian nonparametric models}{6}{section.22}%
-\contentsline {subsection}{\numberline {1.3.1}Finite mixture models}{6}{subsection.23}%
-\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixture models}{8}{subsection.31}%
-\contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{13}{subsection.42}%
-\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{15}{subsection.50}%
-\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{19}{chapter.55}%
-\contentsline {section}{\numberline {2.1}Algorithm}{19}{section.56}%
-\contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{21}{chapter.57}%
-\contentsline {section}{\numberline {3.1}Model specification}{21}{section.58}%
-\contentsline {section}{\numberline {3.2}Posterior computation}{21}{section.59}%
-\contentsline {chapter}{Bibliography}{23}{dummy.60}%
+\contentsline {subsection}{\numberline {1.2.2}Altri dati?}{6}{subsection.22}%
+\contentsline {section}{\numberline {1.3}A brief review of some Bayesian nonparametric models}{6}{section.23}%
+\contentsline {subsection}{\numberline {1.3.1}Finite mixture models}{6}{subsection.24}%
+\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixture models}{8}{subsection.32}%
+\contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{13}{subsection.44}%
+\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{15}{subsection.52}%
+\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{21}{chapter.61}%
+\contentsline {section}{\numberline {2.1}Algorithm}{21}{section.62}%
+\contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{23}{chapter.63}%
+\contentsline {section}{\numberline {3.1}Model specification}{23}{section.64}%
+\contentsline {section}{\numberline {3.2}Posterior computation}{23}{section.65}%
+\contentsline {chapter}{Bibliography}{25}{dummy.66}%

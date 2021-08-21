@@ -49,15 +49,33 @@ They formulate the presence/absence of a spike and its amplitude by using the pr
 Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...
 
 \subsection{Allen Brain Observatory data}
-The Allen Brain Observatory~\citep{allen} is a public large data repository for investigating how sensory stimulation is represented by neural activity in the mouse visual cortex in both single cells and populations.
+The Allen Brain Observatory~\citep{allen} is a large public data repository for investigating how sensory stimulation is represented by neural activity in the mouse visual cortex in both single cells and populations.
 The project aims to provide a standardized and systematic survey to measure and analyze visual responses from neurons across cortical areas and layers, utilizing transgenic Cre lines to drive expression of genetically encoded fluorescent calcium indicators, and measured by \textit{in vivo} two-photon calcium imaging.
 
 The study is an extended survey of physiological activity in the mouse visual cortex in response to a range of visual stimuli~\citep{allen_stimulus}. Each mouse is placed in front of a screen where different types of visual stimuli are shown, while the mouse’s neuronal activity is recorded. The stimuli vary from simple synthetic images such as locally sparse noise or static gratings, to complex natural scenes and movies.
 The goal of the study is to investigate how neurons at different depths in the visual areas respond to stimuli of different complexity. Specifically, each neuron in the visual cortex can be characterized by their \textit{receptive field}, i.e. the features of the visual stimulus that trigger the signaling of that neuron. Hence, it is of critical interest to devise methods that allow inferring how the neuronal response varies under the different types of visual stimuli. %We expect that the neuronal activity will vary across all the experimental settings, and that some variations in its intensity will be observed based on the specific visual stimulus.
 
+\subsubsection*{Exploratory analyses}
+
 
 \subsection{Altri dati?}
 Paragrafo qui.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 \section{A brief review of some Bayesian nonparametric models} 
 \sectionmark{Bayesian nonparametric models}
@@ -99,10 +117,10 @@ Having defined the data distribution, we need to specify adequate prior distribu
 This model also admits a useful hierarchical representation. Rewriting the latent allocation variables using the cluster indicators $c_i\in\{1,\dots,K\}$, with $c_i=k$ if $y_i$ belongs to the $k$-th mixture component (i.e. $S_{ik} = 1$), the model is, for $i = 1,\dots,n$ 
 \begin{equation}
 \begin{gathered}
-\pi_1,\dots,\pi_K  \sim \Dir_K(\alpha_1,\dots,\alpha_K)\\
-\theta^*_1,\dots,\theta^*_K \sim G_0\\
+y_i \mid c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k)\\
 \Pr(c_i = k \mid \pi_1,\dots,\pi_K) = \pi_k \quad \text{for } k = 1,\dots,K\\ 
-y_i \mid c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k).
+\theta^*_1,\dots,\theta^*_K \sim G_0\\
+\pi_1,\dots,\pi_K  \sim \Dir_K(\alpha_1,\dots,\alpha_K).
 \end{gathered}
 \label{eq:ch1_finitemix_h1}
 \end{equation}
@@ -110,10 +128,10 @@ y_i \mid c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k).
 It is possible to rewrite Equation (\ref{eq:ch1_finitemix_h1}) in a slightly different way by thinking that each observation $y_i$ is associated with a parameter $\theta_i$, where these parameters are drawn from a discrete distribution $G$ with support on the $K$ locations $\{\theta^*_1,\dots,\theta^*_K\}$. The model then becomes, for $i=1,\dots,n$
 \begin{equation}
 \begin{gathered}
-\pi_1,\dots,\pi_K \sim \Dir_K(\alpha_1,\dots,\alpha_K) \\
-\theta^*_1,\dots,\theta^*_K \sim G_0\\
+y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
 \theta_i \mid \bm{\theta}^*,\bm{\pi} \sim G = \sum_{k=1}^K \pi_k \delta_{\theta^*_k}\\
-y_i \mid \theta_i \sim f(y_i\mid\theta_i).
+\theta^*_1,\dots,\theta^*_K \sim G_0\\
+\pi_1,\dots,\pi_K \sim \Dir_K(\alpha_1,\dots,\alpha_K).
 \end{gathered}
 \label{eq:ch1_finitemix_h2}
 \end{equation}
@@ -131,10 +149,13 @@ Moreover, for the distribution of the mixture weights it is possible to exploit 
 	$$ \Pr(c_i = k\mid \bm{\pi},\bm{\theta}^*, y_i) \propto \pi_k f(y_i\mid\theta^*_{k})  .$$
 \end{enumerate}
 
+
+
 \subsection{Dirichlet process mixture models}
 Nonparametric mixtures extend model (\ref{eq:ch1_finitemix_h2}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \citet{ferguson1973, ferguson1974}. Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
 
 \subsubsection*{The Dirichlet process }
+\label{subsec:DP}
 The Dirichlet process is a stochastic process whose realizations are probability distributions with probability one. 
 Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. For this short review of some of the main properties of the DP we followed the unpublished report by Yee Whye Teh, which illustrates in a clear and simple way the fundamental properties of this process.
 
@@ -174,13 +195,13 @@ Hence, the larger $n_k$ is, the higher the probability that it will grow. This i
 
 The DP admits several nice representations. An intuitive constructive definition of a DP random probability measure is given by \citet{sethuraman1994} and is based on the discrete nature of the process, which can be represented as a a weighted sum of point masses. This definition states that if  $G\sim \DP(\alpha, G_0)$, then it can be expressed as follows:
 %\begin{equation}
-\begin{gather} \label{eq:ch1_stickbreaking}
-\beta_k \sim \Beta(1,\alpha), \quad \theta^*_k \sim G_0 \qquad \text{for } k\geq 1 \nonumber \\
-\pi_1 = \beta_1, \quad \pi_k = \beta_k \prod_{l = 1}^{k-1} (1-\beta_l) \qquad \text{for } k\geq 2\\
+\begin{gather} 
+v_k \sim \Beta(1,\alpha), \quad \theta^*_k \sim G_0 \qquad \text{for } k\geq 1  \nonumber\\
+\pi_1 = v_1, \quad \pi_k = v_k \prod_{h = 1}^{k-1} (1-v_h) \qquad \text{for } k\geq 2 \label{eq:ch1_stickbreaking}\\
 G = \sum_{k=1}^{\infty} \pi_k \delta_{\theta^*_k}. \nonumber
 \end{gather}
 %\end{equation}
-The construction of the weights $\{\pi_k\}_{k=1}^{\infty}$ by means of Beta random variable is usually called stick-breaking process. The name arises from a metaphor for this construction, where a unit stick is broken in infinitely many parts, and each piece is used to define a weight.
+The construction of the weights $\{\pi_k\}_{k=1}^{\infty}$ by means of beta random variable is usually called stick-breaking process, also denoted as $\bm{\pi}\sim \mathrm{GEM}(\alpha)$ after the names of Griffiths, Engen and McCloskey. The name arises from a metaphor for this construction, where a unit stick is broken in infinitely many parts, and each piece is used to define a weight.
 Because of its simplicity, this representation has motivated extensions of the process as well as new inference procedures, as for example the algorithms described in the following to sample from the posterior distribution of Dirichlet process mixtures.
 
 
@@ -188,9 +209,9 @@ Because of its simplicity, this representation has motivated extensions of the p
 Getting back to the framework of mixture models, from the representation of the process as discrete measure it is straightforward to extend the finite mixtures described in the previous section to nonparametric mixtures: following the structure of Equation (\ref{eq:ch1_finitemix_h2}), DP mixtures (DPMs) can be written as
 \begin{equation*}
 \begin{gathered}
-G \sim \DP(\alpha,G_0)\\
+y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
 \theta_i \mid G \sim G \\
-y_i \mid \theta_i \sim f(y_i\mid\theta_i).
+G \sim \DP(\alpha,G_0).
 \end{gathered}
 \end{equation*}
 Alternatively, making use of the set of unique values $\{\theta^*_k\}_{k=1}^{\infty}$ and of Sethuraman's representation, the model can be expressed as
@@ -211,7 +232,7 @@ It is common to divide these methods into two classes depending on the strategy 
 Here we will focus on conditional methods. Avoiding marginalization of the random measure allows to perform inference on it directly, moreover, these methods are often computationally more efficient than marginal ones; however, they require to devise good strategies to deal with the infinite dimension of the process.
 
 In the blocked Gibbs sampler of~\citet{ishwaran2001} the infinite random measure is truncated to an upper bound $K$ for the number of clusters. The motivation that justifies this approach is that the weights $\{\pi_k\}_{k=1}^{\infty}$ determined by the stick-breaking construction are stochastically decreasing in $k$. By choosing a sufficiently large value $K$ one can assume that $\sum_{k=K+1}^{\infty} \pi_k$ has a distribution concentrated near zero.
-Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{subsec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $\beta_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h)$ for $k = 1,\dots,K-1$. Finally, letting $\beta_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
+Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{subsec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $v_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h)$ for $k = 1,\dots,K-1$. Finally, letting $v_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
 
 The slice sampler \citep{walker2007, kalli2011} has been adopted as an alternative ``dynamic'' truncation method to automatically select the active components of the mixture. 
 The slice sampler relies on the introduction of latent uniform random variables $u_i$, $i=1,\dots,n$, such that 
@@ -220,21 +241,22 @@ Specifically, model (\ref{eq:ch1_DPM}) can be obtained as marginal density with 
 \begin{equation*}
 p(y_i,u_i\mid G) = \sum_{k=1}^{\infty} \mathbb{I}(u_i<\pi_k) f(y_i\mid\theta^*_k),
 \end{equation*}
-where $\mathbb{I}(A)$ is the indicator variable, taking value 1 if condition $A$ is satisfied and 0 otherwise. 
+where $\mathbb{I}(A)$ is the indicator variable, taking value 1 if event $A$ occurs and 0 otherwise. 
 The key of introducing this variable is that, conditionally on $u_i$, the density can be written as
 \begin{equation*}
 p(y_i\mid u_i, G) = N_u^{-1} \sum_{k\in A_u} f(y_i\mid\theta^*_k)
 \end{equation*}
 where $A_u$ is the set of indices of active components $A_u = \{k:\pi_k >u\}$ and $N_u = \sum_{k\in A_u} \pi_k$. This model defines a finite mixture with equal weights $N_u^{-1}$.
-Introducing the cluster indicators $\CC = \{c_1,\dots,c_n\}$ further simplifies the density, similarly to the case of finite mixtures. Finally, \citet{kalli2011} also introduce a non-stochastic positive sequence $\{\xi_1,\xi_2,\dots\}$ in order to improve mixing. With all these elements, the joint density of $(y_i,u_i,c_i)$ conditioned on $\bm{\pi}$ and $\bm{\theta}^*$ becomes
-\begin{equation*}
-p(y_i,u_i,c_i \mid \bm{\pi},\bm{\theta}^*) =  \mathbb{I}(u_i < \xi_{c_i}) \frac{\pi_{c_i}}{\xi_{c_i}} f(y_i\mid\theta^*_{c_i}).
-\end{equation*}
+Introducing the cluster indicators $\CC = \{c_1,\dots,c_n\}$ further simplifies the density, similarly to the case of finite mixtures. Finally, \citet{kalli2011} also introduce a non-stochastic positive sequence $\{\xi_1,\xi_2,\dots\}$ in order to improve mixing (we refer to the original paper for a discussion on the choice of the sequence). With all these elements, the joint density of $(\bm{y},\bm{u},\mathcal{C})$ conditioned on $\bm{\pi}$ and $\bm{\theta}^*$ becomes
+\begin{equation}
+p(\bm{y},\bm{u},\mathcal{C} \mid \bm{\pi},\bm{\theta}^*) = \prod_{i=1}^n \mathbb{I}(u_i < \xi_{c_i}) \frac{\pi_{c_i}}{\xi_{c_i}} f(y_i\mid\theta^*_{c_i}).
+\label{eq:ch1_sliceDPMlik}
+\end{equation}
 The slice sampler algorithm iterates the following steps:
 \begin{enumerate}
 	\item Update the cluster-specific parameters $\theta^*_k$, for $k=1,\dots,K$, where $K$ is defined as the maximum index $h$ such that $\xi_h > u_i$ for all $i=1,\dots,n$, from
 	$$p(\theta^*\mid \CC) \propto G_0(\theta^*_k)\prod_{i:c_i=k} f(y_i\mid\theta^*_k).$$
-	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{eq:ch1_stickbreaking}) with beta random variables $\beta_k\sim\Beta(1+n_k, \alpha + \sum_{l=k+1}^K n_l).$
+	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{eq:ch1_stickbreaking}) with beta random variables $v_k\sim\Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h).$
 	\item Sample the latent variables $u_i$ from a uniform distribution $u_i \mid c_i \sim \mathrm{Unif}(0,\xi_{c_i})$
 	\item Update the cluster allocations $c_i$ for $i=1,\dots,n$ from
 	$$\Pr(c_i = k\mid u_i, y_i, \theta^*_k)\propto \mathbb{I}(k:\xi_k > u_i) \frac{\pi_k}{\xi_k} f(y_i\mid\theta^*_k).$$
@@ -256,11 +278,11 @@ In the following we will review some aspects of these models that will be used l
 The gMFM model can be defined in a hierarchical form analogous to Equation (\ref{eq:ch1_finitemix_h1}) as
 \begin{equation*}
 \begin{gathered}
-K \sim p(K)\\
-\pi_1,\dots,\pi_K \mid K, \alpha \sim \Dir_K(\alpha / K, \dots, \alpha / K)\\
-\theta^*_1,\dots,\theta^*_K \sim G_0\\
+y_i \mid K, c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k)\\
 \Pr(c_i = k \mid K, \pi_1,\dots,\pi_K) = \pi_k \quad \text{for } k = 1,\dots,K\\ 
-y_i \mid K, c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k).
+\theta^*_1,\dots,\theta^*_K \sim G_0\\
+\pi_1,\dots,\pi_K \mid K, \alpha \sim \Dir_K(\alpha / K, \dots, \alpha / K)\\
+K \sim p(K)
 \end{gathered}
 \label{eq:ch1_gMFM}
 \end{equation*}
@@ -318,7 +340,7 @@ Consider again a collection of distributions $\{G_1,\dots,G_J\}$ serving as grou
 G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{\infty} \pi_k \delta_{G^*_k} \label{eq:ch1_nestedDP_level1}\\
 G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l,k}} \nonumber
 \end{gather}
-where the sequences of weights $\{\pi_k\}_{k=1}^{\infty}$ and $\{\omega_{l,k}\}_{l=1}^{\infty}$ for $k\geq1$ follow a stick breaking construction and the parameters $\theta^*_{l,k}$ are i.i.d. samples from $G_0$.
+where the sequences of weights $\{\pi_k\}_{k=1}^{\infty}$ and $\{\omega_{l,k}\}_{l=1}^{\infty}$ for $k\geq1$ follow a stick breaking construction, $\bm{\pi}\sim \mathrm{GEM}(\alpha)$ and $\bm{\omega}_k \sim \mathrm{GEM}(\beta)$, and the parameters $\theta^*_{l,k}$ are i.i.d. samples from $G_0$.
 A main difference from the hierarchical DP is that this formulation allows to cluster the group-specific distributions: indeed, if two $G_j$'s are assigned to the same $G^*_k$, then the observations in the two groups have exactly the same generating distribution. When two groups share the same distribution, they are said to belong to the same distributional cluster.
 
 In a recent paper by~\citet{camerlenghi2019}, however, they noted a degeneracy property that occurs in the nested DP in case of  ties across samples at the observed or latent level.
@@ -330,7 +352,7 @@ The shared random distribution explicitly accounts for the possibility of observ
 allows some atoms to be distinct and specific to each subpopulation.
 However, implementation of this model becomes challenging and computationally burdensome when the number of groups increases.
 
-\subsubsection*{The common atom model}
+\subsubsection*{The common atoms model}
 Another nested nonparametric prior, more suited to practical applications, is proposed by~\citet{denti2021}. They formulate a constrained modification of the nested DP which, however, does not suffer from the degeneracy issue. Moreover, compared to the models introduced by~\citet{camerlenghi2019}, it is computationally more efficient and allows to perform posterior inference in a quite straightforward way even when the number of groups is moderate.
 %
 The first level of their common atoms model (CAM) is analogous to the nested DP (Eq.~\ref{eq:ch1_nestedDP_level1}), however, the specification of the distributional atoms $G^*_k$ makes use of a common set of atoms for all $k$. Hence the distributions $G^*_k$ can be seen as realizations of a single-atom dependent DP,
@@ -340,11 +362,53 @@ G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l}}
 where the sequences of weights $\{\omega_{l,k}\}_{l=1}^{\infty}$ for $k\geq1$ again follow a stick breaking construction, and the common atoms $\{\theta^*_l\}_{l=1}^{\infty}$ are independent draws from a base measure $G_0$.
 Similarly to the nested DP, the first mixture level of the CAM allows to perform a clustering of the group-specific distributions $G_j$; however, as the set of atoms defining the $G^*_k$ is common across distributions, the CAM also allows to obtain a clustering of individuals both within each group and across them, in a similar fashion to the hierarchical DP.
 
+Convoluting this nested prior with a kernel we obtain a nested infinite mixture model: the density for observations $\bm{y}_j = \{y_i : g_i = j; i=1,\dots,n\}$ belonging to group $j$ can be written as
+\begin{equation*}
+p(\bm{y}_j \mid \bm{\theta}^*, \bm{\pi}, \bm{\omega}) = \sum_{k=1}^{\infty} \pi_k \prod_{i:g_i=j} \sum_{l=1}^{\infty} \omega_{l,k} f(y_i\mid\theta^*_l).
+\end{equation*}
+Introducing two sequences of latent cluster allocations $\bm{S}=\{S_{g_i}\}$ and $\bm{M} = \{M_{i}\}$ for $i = 1,\dots,n$, corresponding respectively to the distributional cluster allocation of the $J$ groups and to the observational cluster allocation of individuals, the model admits a hierarchical representation as
+\begin{equation*}
+\begin{gathered}
+y_i\mid  M_{i}, \bm{\theta}^* \sim f(y_i\mid \theta^*_{M_{i}})\\
+M_i \mid S_{g_i} = k, \bm{\omega}_k \sim \sum_{l=1}^{\infty} \omega_{l,k} \delta_l \qquad 
+\bm{\omega}_k \sim \mathrm{GEM}(\beta) \quad \text{for } k\geq1\\
+S_{g_i} \mid \bm{\pi} \sim \sum_{k=1}^{\infty} \pi_k \delta_k \qquad \bm{\pi} \sim \mathrm{GEM}(\alpha) \\
+\theta^*_l \sim G_0 \quad\text{for }l\geq 1.
+\end{gathered}
+\end{equation*}
+
 \subsubsection*{Posterior inference for the CAM}
-
-
-
-
+To infer on the posterior distribution of the CAM model, \citet{denti2021} develop a nested version of the slice sampler of \citet{kalli2011} (described in the last part of Section \ref{subsec:DP}). This sampler relies on two sequences of latent uniform variables $\bm{u}^D = \{u_{g_i}\}_{g_i=1}^J$ (on the distributional level) and $\bm{u}^O = \{u^O_i\}_{i=1}^n$ (on the observational level) pointing to the active mixture components. Moreover, they also introduce two deterministic sequences $\bm{\xi}^D = \{\xi_k\}_{k=1}^{\infty}$ and $\bm{\xi}^O = \{\xi_{l,k}^O\}_{l=1}^{\infty}$ for $k\geq 1$.
+Similarly to Equation~\ref{eq:ch1_sliceDPMlik}, the model can be written as 
+\begin{equation*}
+p(\bm{y}, \bm{u}^D, \bm{u}^O, \bm{S}, \bm{M} \mid \bm{\theta}^*, \bm{\pi}, \bm{\omega} ) = \prod_{j=1}^J \mathbb{I}(u^D_j < \xi^D_{S_j}) \frac{\pi_{S_j}}{\xi^D_{S_{j}}}  \prod_{i:g_i=j} \mathbb{I}(u_i^O < \xi_{M_i,S_j}^O) 
+\frac{\omega_{M_i,S_j}}{\xi_{M_i,S_j}^O}
+f(y_i\mid\theta^*_{M_i}).
+\end{equation*}
+Then, the algorithm iterates the following steps
+\begin{enumerate}
+	\item Sample the latent uniform random variables
+	\begin{enumerate}
+		\item[(a)] At the distributional level, for $j=1,\dots,J$, sample $u^D_j\sim \Unif(0, \xi^D_{S_j})$
+		\item[(b)] At the observational level, for $i=1,\dots,n$, sample $u^O_i \sim \Unif (0, \xi^O_{M_i,S_{g_i}})$
+	\end{enumerate}
+	\item Update the weight vectors $\bm{\pi}$ and $\bm{\omega}_k$, for $k\geq1$
+		\begin{enumerate}
+		\item[(a)] At the distributional level, sample the distributional stick-breaking proportions $v_k \sim \Beta (1 + m_k, \alpha + \sum_{h=k+1}^{K^*} m_h)$, where $m_k$ is the number of groups in distributional cluster $k$.
+		\item[(b)] At the observational level, for each $k=1,\dots,K^*$, sample the stick-breaking proportions $u_{l,k} \sim \Beta (1 + n_l^k, \beta + \sum_{h=l+1}^{L^*} n_h^k)$, where $n_l^k$ is the number of individuals assigned to observational cluster $l$ and distributional cluster $k$.
+	\end{enumerate}
+	\item Update the cluster indicators
+		\begin{enumerate}
+		\item[(a)] For the distributional clusters, sample the variables $S_j$ from 
+		$$ \Pr(S_j = k \mid \bm{u}^D, \bm{\pi}, \bm{\omega_k}, \bm{M}) \propto \mathbb{I}(u^D_j < \xi^D_{S_j}) \frac{\pi_{S_j}}{\xi^D_{S_{j}}}  \prod_{i:g_i=j} \omega_{M_i,k} $$
+		\item[(b)] For the observational clusters, sample the variables $M_i$ from 
+		$$ \Pr (M_i = l \mid y_i, g_i = j, S_{j}, \bm{u}^O, \omega_{l,S_j}) \propto 
+		\mathbb{I}(u_i^O < \xi_{l,S_j}^O) \frac{\omega_{l,S_j}}{\xi_{l,S_j}^O} f(y_i\mid\theta^*_{l}).$$
+		\end{enumerate}
+	\item Conditional on the observational clusters, sample the cluster-specific parameters $\theta^*_l$ from
+	$$p(\theta^*\mid \bm{M}) \propto G_0(\theta^*_l)\prod_{i:M_i=l} f(y_i\mid\theta^*_l).$$
+\end{enumerate}
+We refer to the Supplementary Material of the original paper for details about the specific sequences $\xi^O$ and $\xi^D$ and computation of the upper bounds $K^*$ and $L^*$ involved at step 2.
 
 
 
