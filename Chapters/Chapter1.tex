@@ -53,7 +53,24 @@ The Allen Brain Observatory~\citep{allen} is a large public data repository for 
 The project aims to provide a standardized and systematic survey to measure and analyze visual responses from neurons across cortical areas and layers, utilizing transgenic Cre lines to drive expression of genetically encoded fluorescent calcium indicators, and measured by \textit{in vivo} two-photon calcium imaging.
 
 The study is an extended survey of physiological activity in the mouse visual cortex in response to a range of visual stimuli~\citep{allen_stimulus}. Each mouse is placed in front of a screen where different types of visual stimuli are shown, while the mouse’s neuronal activity is recorded. The stimuli vary from simple synthetic images such as locally sparse noise or static gratings, to complex natural scenes and movies.
-The goal of the study is to investigate how neurons at different depths in the visual areas respond to stimuli of different complexity. Specifically, each neuron in the visual cortex can be characterized by their \textit{receptive field}, i.e. the features of the visual stimulus that trigger the signaling of that neuron. Hence, it is of critical interest to devise methods that allow inferring how the neuronal response varies under the different types of visual stimuli. %We expect that the neuronal activity will vary across all the experimental settings, and that some variations in its intensity will be observed based on the specific visual stimulus.
+The goal of the study is to investigate how neurons at different depths and in different areas of the visual cortex respond to stimuli of varying complexity, to understand their functional properties. Specifically, each neuron in the visual cortex can be characterized by their \textit{receptive field}, i.e. the features of the visual stimulus that trigger the signaling of that neuron. 
+An important finding from mammalian is that higher visual areas tend to respond to more complex stimuli relative to lower areas. These differences indicate that the different neurons and visual areas have distinct functional properties.
+Hence, it is of critical interest to devise methods that allow inferring how the neuronal response varies under the different types of visual stimuli. %We expect that the neuronal activity will vary across all the experimental settings, and that some variations in its intensity will be observed based on the specific visual stimulus.
+As an example, Figure \ref{fig:ch1_trace_neurons} shows the calcium traces of two neurons recorded during two different experiment sessions from the Allen Brain Observatory study.
+Each experiment comprises three types of visual stimuli, and has a duration of approximately one hour.
+These plots highlight that the neuronal response is highly variable, both across experimental conditions and between neurons.
+
+The Allen Brain Observatory study comprises records of neuronal activity from over $60000$ cells from six visual areas (VISp, VISl, VISal, VISrl, VISam, and VISpm) and different imaging depths (ranging from 175 to 625 microns). The data were collected analyzing the brain activity of several genetically engineered mice, using different transgenic Cre lines.
+The neuronal response of each mouse was recorded during different experimental sessions. 
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\textwidth]{neuron2_trace}
+	\centering
+	\includegraphics[width=\textwidth]{neuron1_trace}
+	\caption[Allen Brain Observatory data: calcium traces of two neurons located in the primary visual area during Session A and Session B of the experiment. ]{Allen Brain Observatory data: calcium traces (black line) of two neurons located in the primary visual area during Session A (upper plot) and Session B (bottom plot) of the experiment. The background colors denote the visual stimulus displayed at each time.} 	\label{fig:ch1_trace_neurons}
+\end{figure}
+
 
 \subsubsection*{Exploratory analyses}
 
