@@ -10,14 +10,15 @@
 \contentsline {chapter}{\numberline {1}Background: statistical modeling of calcium imaging data}{3}{chapter.15}%
 \contentsline {section}{\numberline {1.1}Overview of calcium imaging data}{3}{section.16}%
 \contentsline {subsection}{\numberline {1.1.1}Deconvolution methods}{4}{subsection.17}%
-\contentsline {section}{\numberline {1.2}Data sets}{5}{section.19}%
-\contentsline {subsection}{\numberline {1.2.1}Allen Brain Observatory data}{5}{subsection.20}%
+\contentsline {subsection}{\numberline {1.1.2}Spike train data analysis}{5}{subsection.19}%
+\contentsline {section}{\numberline {1.2}Data sets}{5}{section.20}%
+\contentsline {subsection}{\numberline {1.2.1}Allen Brain Observatory data}{5}{subsection.21}%
 \contentsline {subsection}{\numberline {1.2.2}Altri dati?}{7}{subsection.23}%
 \contentsline {section}{\numberline {1.3}A brief review of some Bayesian nonparametric models}{7}{section.24}%
-\contentsline {subsection}{\numberline {1.3.1}Finite mixture models}{7}{subsection.25}%
-\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixture models}{9}{subsection.33}%
+\contentsline {subsection}{\numberline {1.3.1}Finite mixture models}{8}{subsection.25}%
+\contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixture models}{10}{subsection.33}%
 \contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{14}{subsection.45}%
-\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{16}{subsection.53}%
+\contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{17}{subsection.53}%
 \contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{21}{chapter.62}%
 \contentsline {section}{\numberline {2.1}Algorithm}{21}{section.63}%
 \contentsline {chapter}{\numberline {3}Bayesian nonparametric analysis for partially exchangeable single-neuron data }{23}{chapter.64}%

@@ -1,8 +1,10 @@
-\begin{thebibliography}{38}
+\begin{thebibliography}{41}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
   response analyses.
+\newblock Available at:
+  http://help.brain-map.org/display/observatory/Documentation.
 
 \bibitem[{Allen Institute for Brain Science}(2016)]{allen}
 {Allen Institute for Brain Science} (2016) Allen brain observatory.
@@ -147,6 +149,18 @@ Nobile, A. and Fearnside, A. (2007) Bayesian finite mixtures with an unknown
   number of components: the allocation sampler.
 \newblock \emph{Statistics and Computing} \textbf{17}, 147 -- 162.
 
+\bibitem[Paninski and Cunningham(2018)]{paninski2018}
+Paninski, L. and Cunningham, J.~P. (2018) Neural data science: accelerating the
+  experiment-analysis-theory cycle in large-scale neuroscience.
+\newblock \emph{Current opinion in neurobiology} \textbf{50}, 232 -- 241.
+
+\bibitem[Paninski \emph{et~al.}(2007)Paninski, Pillow and Lewi]{paninski2007}
+Paninski, L., Pillow, J. and Lewi, J. (2007) Statistical models for neural
+  encoding, decoding, and optimal stimulus design.
+\newblock In \emph{Computational Neuroscience: Theoretical Insights into Brain
+  Function}, eds P.~Cisek, T.~Drew and J.~F. Kalaska, volume 165 of
+  \emph{Progress in Brain Research}, pp. 493--507. Elsevier.
+
 \bibitem[Parker(2006)]{parker2006}
 Parker, D. (2006) Complexities and uncertainties of neuronal network function.
 \newblock \emph{Philosophical transactions of the Royal Society of London.
@@ -207,5 +221,11 @@ Vogelstein, J.~T., Packer, A.~M., Machado, T.~A., Sippy, T., Babadi, B., Yuste,
 Walker, S.~G. (2007) Sampling the {Dirichlet} mixture model with slices.
 \newblock \emph{Communications in Statistics - Simulation and Computation}
   \textbf{36}(1), 45--54.
+
+\bibitem[Wei \emph{et~al.}(2019)Wei, Zhou, Grosmark, Ajabi, Sparks, Zhou,
+  Brandon, Losonczy and Paninski]{wei2019}
+Wei, X.-X., Zhou, D., Grosmark, A., Ajabi, Z., Sparks, F., Zhou, P., Brandon,
+  M., Losonczy, A. and Paninski, L. (2019) A zero-inflated gamma model for
+  post-deconvolved calcium imaging traces .
 
 \end{thebibliography}

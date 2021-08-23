@@ -20,6 +20,7 @@ The output two-photon calcium imaging is a movie of time-varying fluorescence in
 Hence further analyses are needed to deconvolve the fluorescence trace to extract the spike train (i.e. the series of recorded firing times), and to try to explain how these firing events are linked with the experiment that generated that particular pattern of activity.
 
 \subsection{Deconvolution methods}
+\label{sec:ch1_deconvolution_methods}
 
 There is currently a rich literature of methods addressing the issue of deconvolving the raw fluorescent trace to extract the spike train. A successful approach is to assume a biophysical model to relate the spiking activity to the calcium dynamics, and to the observed fluorescence. \citet{vogelstein2010} proposed a simple but effective model that has later been adopted by several authors~\citep{pnevmatikakis2016, friedrich2016, friedrich2017, jewell2018, jewell2019}. The model considers the observed fluorescence as a linear (and noisy) function of the intracellular calcium concentration; the calcium dynamics is then modeled using an autoregressive process with jumps in correspondence of the neuron's firing events.
 Denoting with $y_t$ the observed fluorescence trace of a neuron and with $c_t$ the underlying calcium concentration, for time $t=1,\dots,T$, the model can be written as
@@ -45,6 +46,16 @@ Finally,~\citet{pnevmatikakis2013} propose a fully Bayesian approach. Although l
 Differently from previous models, they define the parameter $A_t$ as the \textit{amplitude} of a spike at time $t$, taking values in the non-negative real numbers.
 They formulate the presence/absence of a spike and its amplitude by using the product of a Bernoulli random variable (taking value 0 if there is no spike at time $t$, and 1 otherwise) with a half-Gaussian random variable (modeling the positive amplitudes). However, they do not explicitly assume sparsity of the spikes.
 
+
+\subsection{Spike train data analysis}
+Standard methods to analyze calcium imaging data rely on a two-step approach: in a first phase, some deconvolution method such as those just described is applied to identify the spikes, then, a different method is used on the deconvolved output to analyze it and, possibly, to relate it with some covariates.
+However, while there is a rich literature on deconvolution methods, there is still little research on methods that try to derive inferential results from their output.
+
+Concerning encoding models, i.e. models that try to understand how the brain encodes external variables into spike train, \citet{paninski2007} focus on the use of generalized linear models (GLMs). GLMs allow spike trains to be regressed against a potentially large number of covariates such as behavioral parameters, experimental conditions and other relevant factors.
+Moreover, they provide simple and interpretable results of the effect of each covariate on the neuronal response.
+
+A different approach is proposed by \citet{wei2019}
+
 \section{Data sets} 
 Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...
 
@@ -60,9 +71,6 @@ As an example, Figure \ref{fig:ch1_trace_neurons} shows the calcium traces of tw
 Each experiment comprises three types of visual stimuli, and has a duration of approximately one hour.
 These plots highlight that the neuronal response is highly variable, both across experimental conditions and between neurons.
 
-The Allen Brain Observatory study comprises records of neuronal activity from over $60000$ cells from six visual areas (VISp, VISl, VISal, VISrl, VISam, and VISpm) and different imaging depths (ranging from 175 to 625 microns). The data were collected analyzing the brain activity of several genetically engineered mice, using different transgenic Cre lines.
-The neuronal response of each mouse was recorded during different experimental sessions. 
-
 \begin{figure}
 	\centering
 	\includegraphics[width=\textwidth]{neuron2_trace}
@@ -71,8 +79,13 @@ The neuronal response of each mouse was recorded during different experimental s
 	\caption[Allen Brain Observatory data: calcium traces of two neurons located in the primary visual area during Session A and Session B of the experiment. ]{Allen Brain Observatory data: calcium traces (black line) of two neurons located in the primary visual area during Session A (upper plot) and Session B (bottom plot) of the experiment. The background colors denote the visual stimulus displayed at each time.} 	\label{fig:ch1_trace_neurons}
 \end{figure}
 
+The Allen Brain Observatory study comprises records of neuronal activity from over $60000$ cells from six visual areas (VISp, VISl, VISal, VISrl, VISam, and VISpm) and different imaging depths (ranging from 175 to 625 microns). The data were collected analyzing the brain activity of several genetically engineered mice, using different transgenic Cre lines.
+The neuronal response of each mouse was recorded during three experimental sessions: specifically, each session was made up of different types of visual stimuli displayed sequentially.
+Session ``A'' comprises two natural movies and a drifting gratings stimulus; session ``B'' comprises both natural movies and natural scenes, and a static gratings stimulus; finally, session ``C'' again includes two natural movies, and a locally sparse noise. Moreover, in all sessions a period of absence of stimuli was used to evaluate the baseline response during spontaneous activity.
+The synthetic stimuli are used to investigate the parameters that trigger the neuronal response: the locally sparse noise displays white and black spots in different parts of the visual space, and allows to map the spatial size and shape of the receptive field. The grating stimulus is a simple pattern whose intensity varies periodically along one dimension, and is constant in the other dimension. Different spatial frequencies, temporal frequencies and orientations are considered in order to further characterize the receptive fields. A detailed description of the visual stimuli can be found in a technical report \citep{allen_stimulus}.
 
-\subsubsection*{Exploratory analyses}
+
+
 
 
 \subsection{Altri dati?}
@@ -383,13 +396,13 @@ Convoluting this nested prior with a kernel we obtain a nested infinite mixture 
 \begin{equation*}
 p(\bm{y}_j \mid \bm{\theta}^*, \bm{\pi}, \bm{\omega}) = \sum_{k=1}^{\infty} \pi_k \prod_{i:g_i=j} \sum_{l=1}^{\infty} \omega_{l,k} f(y_i\mid\theta^*_l).
 \end{equation*}
-Introducing two sequences of latent cluster allocations $\bm{S}=\{S_{g_i}\}$ and $\bm{M} = \{M_{i}\}$ for $i = 1,\dots,n$, corresponding respectively to the distributional cluster allocation of the $J$ groups and to the observational cluster allocation of individuals, the model admits a hierarchical representation as
+Introducing two sequences of latent cluster allocations $\CC^D=\{c^D_{g_i}\}$ and $\CC = \{c_{i}\}$ for $i = 1,\dots,n$, corresponding respectively to the distributional cluster allocation of the $J$ groups and to the observational cluster allocation of individuals, the model admits a hierarchical representation as
 \begin{equation*}
 \begin{gathered}
-y_i\mid  M_{i}, \bm{\theta}^* \sim f(y_i\mid \theta^*_{M_{i}})\\
-M_i \mid S_{g_i} = k, \bm{\omega}_k \sim \sum_{l=1}^{\infty} \omega_{l,k} \delta_l \qquad 
+y_i\mid  c_{i}, \bm{\theta}^* \sim f(y_i\mid \theta^*_{c_{i}})\\
+c_i \mid c^D_{g_i} = k, \bm{\omega}_k \sim \sum_{l=1}^{\infty} \omega_{l,k} \delta_l \qquad 
 \bm{\omega}_k \sim \mathrm{GEM}(\beta) \quad \text{for } k\geq1\\
-S_{g_i} \mid \bm{\pi} \sim \sum_{k=1}^{\infty} \pi_k \delta_k \qquad \bm{\pi} \sim \mathrm{GEM}(\alpha) \\
+c^D_{g_i} \mid \bm{\pi} \sim \sum_{k=1}^{\infty} \pi_k \delta_k \qquad \bm{\pi} \sim \mathrm{GEM}(\alpha) \\
 \theta^*_l \sim G_0 \quad\text{for }l\geq 1.
 \end{gathered}
 \end{equation*}
@@ -398,16 +411,16 @@ S_{g_i} \mid \bm{\pi} \sim \sum_{k=1}^{\infty} \pi_k \delta_k \qquad \bm{\pi} \s
 To infer on the posterior distribution of the CAM model, \citet{denti2021} develop a nested version of the slice sampler of \citet{kalli2011} (described in the last part of Section \ref{subsec:DP}). This sampler relies on two sequences of latent uniform variables $\bm{u}^D = \{u_{g_i}\}_{g_i=1}^J$ (on the distributional level) and $\bm{u}^O = \{u^O_i\}_{i=1}^n$ (on the observational level) pointing to the active mixture components. Moreover, they also introduce two deterministic sequences $\bm{\xi}^D = \{\xi_k\}_{k=1}^{\infty}$ and $\bm{\xi}^O = \{\xi_{l,k}^O\}_{l=1}^{\infty}$ for $k\geq 1$.
 Similarly to Equation~\ref{eq:ch1_sliceDPMlik}, the model can be written as 
 \begin{equation*}
-p(\bm{y}, \bm{u}^D, \bm{u}^O, \bm{S}, \bm{M} \mid \bm{\theta}^*, \bm{\pi}, \bm{\omega} ) = \prod_{j=1}^J \mathbb{I}(u^D_j < \xi^D_{S_j}) \frac{\pi_{S_j}}{\xi^D_{S_{j}}}  \prod_{i:g_i=j} \mathbb{I}(u_i^O < \xi_{M_i,S_j}^O) 
-\frac{\omega_{M_i,S_j}}{\xi_{M_i,S_j}^O}
-f(y_i\mid\theta^*_{M_i}).
+p(\bm{y}, \bm{u}^D, \bm{u}^O, \CC^D, \CC \mid \bm{\theta}^*, \bm{\pi}, \bm{\omega} ) = \prod_{j=1}^J \mathbb{I}(u^D_j < \xi^D_{c^D_j}) \frac{\pi_{c^D_j}}{\xi^D_{c^D_{j}}}  \prod_{i:g_i=j} \mathbb{I}(u_i^O < \xi_{c_i,c^D_j}^O) 
+\frac{\omega_{c_i,c^D_j}}{\xi_{c_i,c^D_j}^O}
+f(y_i\mid\theta^*_{c_i}).
 \end{equation*}
 Then, the algorithm iterates the following steps
 \begin{enumerate}
 	\item Sample the latent uniform random variables
 	\begin{enumerate}
-		\item[(a)] At the distributional level, for $j=1,\dots,J$, sample $u^D_j\sim \Unif(0, \xi^D_{S_j})$
-		\item[(b)] At the observational level, for $i=1,\dots,n$, sample $u^O_i \sim \Unif (0, \xi^O_{M_i,S_{g_i}})$
+		\item[(a)] At the distributional level, for $j=1,\dots,J$, sample $u^D_j\sim \Unif(0, \xi^D_{c^D_j})$
+		\item[(b)] At the observational level, for $i=1,\dots,n$, sample $u^O_i \sim \Unif (0, \xi^O_{c_i,c^D_{g_i}})$
 	\end{enumerate}
 	\item Update the weight vectors $\bm{\pi}$ and $\bm{\omega}_k$, for $k\geq1$
 		\begin{enumerate}
@@ -416,14 +429,14 @@ Then, the algorithm iterates the following steps
 	\end{enumerate}
 	\item Update the cluster indicators
 		\begin{enumerate}
-		\item[(a)] For the distributional clusters, sample the variables $S_j$ from 
-		$$ \Pr(S_j = k \mid \bm{u}^D, \bm{\pi}, \bm{\omega_k}, \bm{M}) \propto \mathbb{I}(u^D_j < \xi^D_{S_j}) \frac{\pi_{S_j}}{\xi^D_{S_{j}}}  \prod_{i:g_i=j} \omega_{M_i,k} $$
-		\item[(b)] For the observational clusters, sample the variables $M_i$ from 
-		$$ \Pr (M_i = l \mid y_i, g_i = j, S_{j}, \bm{u}^O, \omega_{l,S_j}) \propto 
-		\mathbb{I}(u_i^O < \xi_{l,S_j}^O) \frac{\omega_{l,S_j}}{\xi_{l,S_j}^O} f(y_i\mid\theta^*_{l}).$$
+		\item[(a)] For the distributional clusters, sample the variables $c^D_j$ from 
+		$$ \Pr(c^D_j = k \mid \bm{u}^D, \bm{\pi}, \bm{\omega_k}, \CC) \propto \mathbb{I}(u^D_j < \xi^D_{c^D_j}) \frac{\pi_{c^D_j}}{\xi^D_{c^D_{j}}}  \prod_{i:g_i=j} \omega_{c_i,k} $$
+		\item[(b)] For the observational clusters, sample the variables $c_i$ from 
+		$$ \Pr (c_i = l \mid y_i, g_i = j, c^D_{j}, \bm{u}^O, \omega_{l,c^D_j}) \propto 
+		\mathbb{I}(u_i^O < \xi_{l,c^D_j}^O) \frac{\omega_{l,c^D_j}}{\xi_{l,c^D_j}^O} f(y_i\mid\theta^*_{l}).$$
 		\end{enumerate}
 	\item Conditional on the observational clusters, sample the cluster-specific parameters $\theta^*_l$ from
-	$$p(\theta^*\mid \bm{M}) \propto G_0(\theta^*_l)\prod_{i:M_i=l} f(y_i\mid\theta^*_l).$$
+	$$p(\theta^*\mid \CC) \propto G_0(\theta^*_l)\prod_{i:c_i=l} f(y_i\mid\theta^*_l).$$
 \end{enumerate}
 We refer to the Supplementary Material of the original paper for details about the specific sequences $\xi^O$ and $\xi^D$ and computation of the upper bounds $K^*$ and $L^*$ involved at step 2.
 

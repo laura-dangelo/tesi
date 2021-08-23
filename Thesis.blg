@@ -3,44 +3,54 @@ Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: Thesis.aux
 The style file: CUP.bst
 Database file #1: References/references.bib
-You've used 38 entries,
+Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
+while executing---line 1383 of file CUP.bst
+Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
+while executing---line 1383 of file CUP.bst
+Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
+while executing---line 1465 of file CUP.bst
+Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
+while executing---line 1465 of file CUP.bst
+Warning--empty journal in wei2019
+You've used 41 entries,
             2750 wiz_defined-function locations,
-            841 strings with 10694 characters,
-and the built_in function-call counts, 18320 in all, are:
-= -- 1725
-> -- 995
-< -- 24
-+ -- 381
-- -- 343
-* -- 1844
-:= -- 3106
-add.period$ -- 76
-call.type$ -- 38
-change.case$ -- 231
-chr.to.int$ -- 38
-cite$ -- 114
-duplicate$ -- 695
-empty$ -- 1273
-format.name$ -- 401
-if$ -- 3597
+            861 strings with 11519 characters,
+and the built_in function-call counts, 20076 in all, are:
+= -- 1874
+> -- 1123
+< -- 27
++ -- 429
+- -- 388
+* -- 2026
+:= -- 3404
+add.period$ -- 83
+call.type$ -- 41
+change.case$ -- 257
+chr.to.int$ -- 41
+cite$ -- 124
+duplicate$ -- 760
+empty$ -- 1379
+format.name$ -- 451
+if$ -- 3941
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 36
-newline$ -- 153
-num.names$ -- 156
-pop$ -- 211
+missing$ -- 39
+newline$ -- 165
+num.names$ -- 170
+pop$ -- 239
 preamble$ -- 1
-purify$ -- 188
+purify$ -- 208
 quote$ -- 0
-skip$ -- 439
+skip$ -- 482
 stack$ -- 0
-substring$ -- 1117
-swap$ -- 161
-text.length$ -- 4
+substring$ -- 1185
+swap$ -- 181
+text.length$ -- 6
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 339
-warning$ -- 0
-while$ -- 180
+type$ -- 366
+warning$ -- 1
+while$ -- 194
 width$ -- 0
-write$ -- 452
+write$ -- 489
+(There were 4 error messages)

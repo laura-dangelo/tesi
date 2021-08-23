@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  22 AUG 2021 18:05
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=pdflatex 2020.11.30)  23 AUG 2021 18:15
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,7 +701,7 @@ Package epstopdf Info: Source file: <Figures/logo.eps>
 -to.pdf Figures/logo.eps>
 (epstopdf)             \includegraphics on input line 125.
 Package epstopdf Info: Output file is already uptodate.
-<Figures/logo-eps-converted-to.pdf, id=92, 171.64125pt x 80.3pt>
+<Figures/logo-eps-converted-to.pdf, id=96, 171.64125pt x 80.3pt>
 File: Figures/logo-eps-converted-to.pdf Graphic file (type pdf)
 <use Figures/logo-eps-converted-to.pdf>
 Package pdftex.def Info: Figures/logo-eps-converted-to.pdf  used on input line 
@@ -783,44 +783,45 @@ Chapter 1.
 [3
 
 ] [4] [5]
-<Figures/neuron2_trace.pdf, id=297, 578.16pt x 252.945pt>
+<Figures/neuron2_trace.pdf, id=310, 578.16pt x 252.945pt>
 File: Figures/neuron2_trace.pdf Graphic file (type pdf)
 <use Figures/neuron2_trace.pdf>
-Package pdftex.def Info: Figures/neuron2_trace.pdf  used on input line 68.
+Package pdftex.def Info: Figures/neuron2_trace.pdf  used on input line 76.
 (pdftex.def)             Requested size: 446.38063pt x 195.28929pt.
-<Figures/neuron1_trace.pdf, id=298, 578.16pt x 252.945pt>
+<Figures/neuron1_trace.pdf, id=311, 578.16pt x 252.945pt>
 File: Figures/neuron1_trace.pdf Graphic file (type pdf)
 <use Figures/neuron1_trace.pdf>
-Package pdftex.def Info: Figures/neuron1_trace.pdf  used on input line 70.
+Package pdftex.def Info: Figures/neuron1_trace.pdf  used on input line 78.
 (pdftex.def)             Requested size: 446.38063pt x 195.28929pt.
- [6 <./Figures/neuron2_trace.pdf> <./Figures/neuron1_trace.pdf>]
-Overfull \hbox (4.28012pt too wide) in paragraph at lines 104--105
+ [6]
+Overfull \hbox (4.28012pt too wide) in paragraph at lines 117--118
 \T1/qpl/m/n/10.95 We start our dis-cus-sion by re-view-ing fi-nite mix-tures. A
 l-though they are not part of the Bayesian
  []
 
-[7] [8] [9]
-Overfull \hbox (8.64967pt too wide) in paragraph at lines 203--207
+[7 <./Figures/neuron2_trace.pdf> <./Figures/neuron1_trace.pdf>] [8] [9]
+[10]
+Overfull \hbox (8.64967pt too wide) in paragraph at lines 216--220
 \OMS/cmsy/m/n/10.95 f\OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 ; [] ; n\OMS/cmsy/
 m/n/10.95 g$ \T1/qpl/m/n/10.95 into clus-ters de-fined by ob-ser-va-tions with 
 the same value. De-not-ing with $\OMS/cmsy/m/n/10.95 f\OML/cmm/m/it/10.95 ^^R[]
 ; [] ; ^^R[]\OMS/cmsy/m/n/10.95 g$
  []
 
-[10] [11]
-Overfull \hbox (3.29393pt too wide) in paragraph at lines 241--245
+[11]
+Overfull \hbox (3.29393pt too wide) in paragraph at lines 254--258
 \T1/qpl/m/n/10.95 ably in-fi-nite num-ber of com-po-nents. How-ever, be-cause t
 he $\OML/cmm/m/it/10.95 ^^Y[]$\T1/qpl/m/n/10.95 's de-crease ex-po-nen-tially q
 uickly,
  []
 
 [12] [13] [14] [15] [16] [17]
-Overfull \hbox (5.2862pt too wide) in paragraph at lines 373--376
+Overfull \hbox (5.2862pt too wide) in paragraph at lines 386--389
 \T1/qpl/m/n/10.95 Another nested non-para-met-ric prior, more suited to prac-ti
 -cal ap-pli-ca-tions, is pro-posed by [][]Denti
  []
 
-[18]) (./Chapters/Chapter2.tex [19] [20]
+[18] [19]) (./Chapters/Chapter2.tex [20]
 Chapter 2.
 ------------------------------------------------------------------------------
  2 Efficient posterior sampling for Bayesian log-linear models
@@ -842,7 +843,7 @@ a
  Bibliography
 ------------------------------------------------------------------------------
 (./Thesis.bbl
-Underfull \hbox (badness 10000) in paragraph at lines 8--10
+Underfull \hbox (badness 10000) in paragraph at lines 10--12
 []\T1/qpl/m/n/10.95 Allen In-sti-tute for Brain Sci-ence (2016) Allen brain ob-
 ser-va-tory.  Avail-able at:
  []
@@ -850,25 +851,25 @@ ser-va-tory.  Avail-able at:
 [25
 
 
-] [26])
+] [26] [27])
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 329.
- [27]
+ [28]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 329.
  (./Thesis.aux)
 Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 329.
 Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 329.
 Package rerunfilecheck Info: File `Thesis.out' has not changed.
-(rerunfilecheck)             Checksum: D53914ED71DF2316A891F8E9E6F2CF0C;4802.
+(rerunfilecheck)             Checksum: 91F3AFE0E5D7C9A1776F2C8B064B618A;5027.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 329.
  ) 
 Here is how much of TeX's memory you used:
- 16326 strings out of 481239
- 232243 string characters out of 5920376
- 509007 words of memory out of 5000000
- 31119 multiletter control sequences out of 15000+600000
+ 16341 strings out of 481239
+ 232509 string characters out of 5920376
+ 508252 words of memory out of 5000000
+ 31130 multiletter control sequences out of 15000+600000
  591744 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 49i,12n,79p,960b,509s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 49i,12n,79p,960b,533s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texmf/fonts/enc/dvips/tex-gyre/q-ec-sc.enc}{/usr/share/texmf/font
 s/enc/dvips/tex-gyre/q-ec.enc}</usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
@@ -885,10 +886,10 @@ ype1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/amsfonts/symbols/msbm10.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/
 qplb.pfb></usr/share/texmf/fonts/type1/public/tex-gyre/qplr.pfb></usr/share/tex
 mf/fonts/type1/public/tex-gyre/qplri.pfb>
-Output written on Thesis.pdf (39 pages, 1403015 bytes).
+Output written on Thesis.pdf (40 pages, 1406803 bytes).
 PDF statistics:
- 628 PDF objects out of 1000 (max. 8388607)
- 559 compressed objects within 6 object streams
- 144 named destinations out of 1000 (max. 500000)
- 192 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 649 PDF objects out of 1000 (max. 8388607)
+ 579 compressed objects within 6 object streams
+ 148 named destinations out of 1000 (max. 500000)
+ 200 words of extra memory for PDF output out of 10000 (max. 10000000)
 
