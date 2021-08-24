@@ -48,13 +48,15 @@ They formulate the presence/absence of a spike and its amplitude by using the pr
 
 
 \subsection{Spike train data analysis}
+\label{subsec:ch1_spike_analysis}
 Standard methods to analyze calcium imaging data rely on a two-step approach: in a first phase, some deconvolution method such as those just described is applied to identify the spikes, then, a different method is used on the deconvolved output to analyze it and, possibly, to relate it with some covariates.
 However, while there is a rich literature on deconvolution methods, there is still little research on methods that try to derive inferential results from their output.
 
 Concerning encoding models, i.e. models that try to understand how the brain encodes external variables into spike train, \citet{paninski2007} focus on the use of generalized linear models (GLMs). GLMs allow spike trains to be regressed against a potentially large number of covariates such as behavioral parameters, experimental conditions and other relevant factors.
-Moreover, they provide simple and interpretable results of the effect of each covariate on the neuronal response.
+Moreover, regression models provide simple and interpretable results of the effect of each covariate on the neuronal response.
+In particular, \citet{paninski2007} highlight the importance of regularization methods and inclusion of prior knowledge to improve estimation of the model parameters, as in many cases the number of covariates is potentially very large, leading to noisy results and a loss in interpretability.
 
-A different approach is proposed by \citet{wei2019}
+A different approach is proposed by \citet{wei2019}: instead of focusing the relationship between the experimental conditions and some summary statistic of the resulting spike train, they study of the distribution of the deconvolved output. In particular, this allows to analyze quantities such as the spike probability and the spikes' amplitudes. They propose a mixture model, with a Dirac mass at zero, representing the absence of neuronal response, and a translated Gamma distribution to model the positive amplitudes.
 
 \section{Data sets} 
 Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...

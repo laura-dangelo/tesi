@@ -1,5 +1,5 @@
 % Chapter 2
-\chapter{Efficient posterior sampling for Bayesian log-linear models}
+\chapter{Efficient posterior sampling for Poisson log-linear models}
 
 \fancyhead[RO,LE]{\thepage}
 \fancyhead[LO]{Chapter 2 - \emph{Title of chapter}}
@@ -8,6 +8,21 @@
 \setlength{\parskip}{0.5pt}
 
 \bigskip
+
+As we have seen in Section \ref{subsec:ch1_spike_analysis}, encoding models are an important tool to study how the deconvolved spike trains vary with the underlying experimental conditions. To this end, GLMs provide a simple and flexible strategy to estimate the impact of each covariate on the mean of the variable of interest.
+A relevant question that can be addressed using GLMs is how the number of spikes detected during a specific experiment is affected by the experimental conditions and the characteristics of the neuron. \citet{paninski2007} assert that a plausible assumption to model the spike counts per time bin is to use a Poisson distribution: in the context of GLMs, the standard choice is given by log-linear models. 
+Adopting a Bayesian approach is particularly convenient in the context of calcium imaging studies: as pointed out by \citet{paninski2007}, often some regularization technique is needed to obtain reliable estimates of the effects, and it is well known that many regularization methods can be written as posterior estimates under particular choices of the prior distribution.
+Moreover, the Bayesian approach allows to include prior knowledge about the effect of each predictor if this is available, which is often the case of biological studies. 
+
+Poisson log-linear models are ubiquitous in statistics and represent one the most popular choices to model how the distribution of count data varies with predictors. A typical assumption is that, under an independent sample of counts, $y_1, \dots, y_n$, the probability mass function of the generic $y_i$ conditionally on a $p$ dimensional vector of covariates $x_i$ is
+\begin{equation*}
+f(y_i \mid \lambda_i) =  \frac {\lambda_i^{y_i}}{{y_i}!}e^{-\lambda_i}, \quad \log(\lambda_i) = x_i^T \beta,
+\label{eq:model0}
+\end{equation*}
+with $\beta$ being a $p$-dimensional vector of unknown coefficients. Linking the linear predictor $x_i^T \beta$ and the parameter $\lambda_i$ with the logarithm represents the most natural choice, as the log is the canonical link for the Poisson family~\citep{nelder1972glm}.
+Besides encoding models for spike train analyses, this model has broad application in several fields, including medicine and epidemiology~\citep{Frome1983, frome1985, Hutchinson2005}, manufacturing process control~\citep{lambert1992}, analysis of accident rates~\citep{Sarath1990, Miaou1994}, and crowd counting~\citep{chan2009}, among others.
+
+
 
 \section{Algorithm} 
 \noindent

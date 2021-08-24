@@ -1,4 +1,4 @@
-\begin{thebibliography}{41}
+\begin{thebibliography}{49}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -25,6 +25,12 @@ Blackwell, D. and MacQueen, J.~B. (1973) {Ferguson distributions via Polya urn
 Camerlenghi, F., Dunson, D.~B., Lijoi, A., Prünster, I. and Rodríguez, A.
   (2019) {Latent Nested Nonparametric Priors (with Discussion)}.
 \newblock \emph{Bayesian Analysis} \textbf{14}(4), 1303 -- 1356.
+
+\bibitem[{Chan} and {Vasconcelos}(2009)]{chan2009}
+{Chan}, A.~B. and {Vasconcelos}, N. (2009) Bayesian {Poisson} regression for
+  crowd counting.
+\newblock In \emph{2009 IEEE 12th International Conference on Computer Vision},
+  pp. 545--551.
 
 \bibitem[Denk \emph{et~al.}(1990)Denk, Strickler and Webb]{denk1990}
 Denk, W., Strickler, J.~H. and Webb, W.~W. (1990) Two-photon laser scanning
@@ -75,6 +81,15 @@ Friedrich, J., Zhou, P. and Paninski, L. (2017) Fast online deconvolution of
   calcium imaging data.
 \newblock \emph{PLOS Computational Biology} \textbf{13}(3), 1 -- 26.
 
+\bibitem[Frome(1983)]{Frome1983}
+Frome, E.~L. (1983) The analysis of rates using {Poisson} regression models.
+\newblock \emph{Biometrics} \textbf{39}(3), 665--674.
+
+\bibitem[Frome and Checkoway(1985)]{frome1985}
+Frome, E.~L. and Checkoway, H. (1985) {Use of Poisson regression models in
+  estimating incidence rates and ratios}.
+\newblock \emph{American Journal of Epidemiology} \textbf{121}(2), 309--323.
+
 \bibitem[Fr\"uhwirth-Schnatter and Malsiner-Walli(2019)]{fs2019}
 Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
   Sparse finite versus {Dirichlet} process mixtures in model-based clustering.
@@ -96,6 +111,11 @@ Gelman, A., Carlin, J., Stern, H., Dunson, D., Vehtari, A. and Rubin, D. (2013)
 Grienberger, C. and Konnerth, A. (2012) Imaging calcium in neurons.
 \newblock \emph{Neuron} \textbf{73}(5), 862 -- 885.
 
+\bibitem[Hutchinson and Holtman(2005)]{Hutchinson2005}
+Hutchinson, M.~K. and Holtman, M.~C. (2005) Analysis of count data using
+  {Poisson} regression.
+\newblock \emph{Research in Nursing \& Health} \textbf{28}(5), 408--418.
+
 \bibitem[Ishwaran and James(2001)]{ishwaran2001}
 Ishwaran, H. and James, L.~F. (2001) Gibbs sampling methods for stick-breaking
   priors.
@@ -113,9 +133,19 @@ Jewell, S.~W., Hocking, T.~D., Fearnhead, P. and Witten, D.~M. (2019) Fast
   nonconvex deconvolution of calcium imaging data.
 \newblock \emph{Biostatistics} \textbf{21}(4), 709--726.
 
+\bibitem[Joshua and Garber(1990)]{Sarath1990}
+Joshua, S.~C. and Garber, N.~J. (1990) Estimating truck accident rate and
+  involvements using linear and {Poisson} regression models.
+\newblock \emph{Transportation Planning and Technology} \textbf{15}(1), 41--58.
+
 \bibitem[Kalli \emph{et~al.}(2011)Kalli, Griffin and Walker]{kalli2011}
 Kalli, M., Griffin, J. and Walker, S. (2011) Slice sampling mixture models.
 \newblock \emph{Statistics and Computing} \textbf{21}, 93 -- 105.
+
+\bibitem[Lambert(1992)]{lambert1992}
+Lambert, D. (1992) Zero-inflated {Poisson} regression, with an application to
+  defects in manufacturing.
+\newblock \emph{Technometrics} \textbf{34}(1), 1--14.
 
 \bibitem[Malsiner-Walli \emph{et~al.}(2016)Malsiner-Walli,
   Fr\"uhwirth-Schnatter and Gr\"un]{malsinerwalli2016}
@@ -126,6 +156,11 @@ Malsiner-Walli, G., Fr\"uhwirth-Schnatter, S. and Gr\"un, B. (2016)
 \bibitem[McCullagh and Yang(2008)]{McCullagh2008}
 McCullagh, P. and Yang, J. (2008) {How many clusters?}
 \newblock \emph{Bayesian Analysis} \textbf{3}(1), 101 -- 120.
+
+\bibitem[Miaou(1994)]{Miaou1994}
+Miaou, S.-P. (1994) The relationship between truck accidents and geometric
+  design of road sections: {Poisson} versus negative binomial regressions.
+\newblock \emph{Accident Analysis \& Prevention} \textbf{26}(4), 471--482.
 
 \bibitem[Miller and Harrison(2018)]{miller2018}
 Miller, J.~W. and Harrison, M.~T. (2018) Mixture models with a prior on the
@@ -138,6 +173,11 @@ Miller, J.~W. and Harrison, M.~T. (2018) Mixture models with a prior on the
 Mukamel, E.~A., Nimmerjahn, A. and Schnitzer, M.~J. (2009) Automated analysis
   of cellular signals from large-scale calcium imaging data.
 \newblock \emph{Neuron} \textbf{63}(6), 747 -- 760.
+
+\bibitem[Nelder and Wedderburn(1972)]{nelder1972glm}
+Nelder, J.~A. and Wedderburn, R. W.~M. (1972) Generalized linear models.
+\newblock \emph{Journal of the Royal Statistical Society. Series A (General)}
+  \textbf{135}(3), 370--384.
 
 \bibitem[Nobile(2004)]{nobile2004}
 Nobile, A. (2004) On the posterior distribution of the number of components in
