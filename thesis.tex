@@ -1,0 +1,78 @@
+\documentclass[twoside,openright,titlepage,numbers=noenddot,%1headlines,
+        headinclude,footinclude,cleardoublepage=empty,abstract=on, hidelinks,
+        BCOR=5mm,paper=a4,fontsize=11pt
+        ]{scrreprt}
+
+
+\newcommand\inputfile[1]{%
+    \InputIfFileExists{#1}{}{\typeout{No file #1.}}%
+}
+
+
+%********************************************************************
+% Note: Make all your adjustments in here
+%*******************************************************
+\inputfile{config}
+
+
+
+\begin{document}
+
+    \include{_Extras/frontpage}
+
+    \include{_Extras/second}
+
+   % \include{_Extras/dedication}
+%	 \renewcommand\thepage{\scshape\roman{page}}
+
+	\setcounter{page}{1} %%%
+	\pagenumbering{roman}%%%
+	
+   % \include{_Extras/thanks}	
+   	
+    \include{_Extras/abstract}
+   
+    \include{_Extras/sommario}
+   
+    \gotoclearpage
+    \phantomsection\tableofcontents
+    
+    \gotoclearpage
+    \phantomsection\listoffigures  % Write out the List of Figures
+    
+    \gotoclearpage
+    \phantomsection\listoftables  % Write out the List of Tables
+
+	
+    \renewcommand\thepage{\arabic{page}}
+	
+    \gotoclearpage
+    \setcounter{page}{1} %%%
+    \include{_Chapters/Introduction}
+
+
+    \gotoclearpage
+    \include{_Chapters/Chapter1}
+
+    \gotoclearpage
+    \include{_Chapters/Chapter2}
+
+    \gotoclearpage
+    \include{_Chapters/Chapter3}
+    
+    \gotoclearpage
+    \include{_Chapters/Chapter4}
+
+
+    % INIZIO APPENDICI
+    \appendix
+    \gotoclearpage
+    \include{_Chapters/A_appendix}
+
+
+    % INIZIO MATERIALE CONCLUSIVO
+    \gotoclearpage
+    \include{_Extras/bibliography}
+
+\end{document}
+
