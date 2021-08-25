@@ -1,6 +1,6 @@
 % Chapter 1
 \chapter{Background: statistical modeling of calcium imaging data}
-
+\chaptermark{Background}
 
 
 \section{Overview of calcium imaging data} 
@@ -11,7 +11,7 @@ The development of techniques that enable the visualization and quantitative est
 The development of calcium imaging techniques involved two parallel processes: the development of calcium indicators, which are fluorescent molecules that react when binding to the calcium ions, and the implementation of the appropriate imaging instrumentation, in particular, the introduction of two-photon microscopy~\citep{denk1990}.
 In recent years, the innovation achieved in these two fields has allowed for real-time observation of biological processes at the single-cell level simultaneously for large groups of neurons~\citep{grienberger2012}. 
 
-The output two-photon calcium imaging is a movie of time-varying fluorescence intensities, and a first complex pre-processing phase deals with the identification of the spatial location of each neuron in the optical field and source extraction~\citep{mukamel2009,dombeck2010}. The resulting processed data consist of a fluorescent calcium trace for each observable neuron in the targeted area which, however, is only a proxy of the underlying neuronal activity.
+The output of two-photon calcium imaging is a movie of time-varying fluorescence intensities, and a first complex pre-processing phase deals with the identification of the spatial location of each neuron in the optical field and source extraction~\citep{mukamel2009,dombeck2010}. The resulting processed data consist of a fluorescent calcium trace for each observable neuron in the targeted area which, however, is only a proxy of the underlying neuronal activity.
 Hence further analyses are needed to deconvolve the fluorescence trace to extract the spike train (i.e. the series of recorded firing times), and to try to explain how these firing events are linked with the experiment that generated that particular pattern of activity.
 
 \subsection{Deconvolution methods}
@@ -51,7 +51,7 @@ Concerning encoding models, i.e. models that try to understand how the brain enc
 Moreover, regression models provide simple and interpretable results of the effect of each covariate on the neuronal response.
 In particular, \citet{paninski2007} highlight the importance of regularization methods and inclusion of prior knowledge to improve estimation of the model parameters, as in many cases the number of covariates is potentially very large, leading to noisy results and a loss in interpretability.
 
-A different approach is proposed by \citet{wei2019}: instead of focusing the relationship between the experimental conditions and some summary statistic of the resulting spike train, they study of the distribution of the deconvolved output. In particular, this allows to analyze quantities such as the spike probability and the spikes' amplitudes. They propose a mixture model, with a Dirac mass at zero, representing the absence of neuronal response, and a translated Gamma distribution to model the positive amplitudes.
+A different approach is proposed by \citet{wei2019}: instead of focusing the relationship between the experimental conditions and some summary statistic of the resulting spike train, they study the distribution of the deconvolved output. In particular, this allows to analyze quantities such as the spike probability and the spikes' amplitudes. They propose a mixture model, with a Dirac mass at zero, representing the absence of neuronal response, and a translated Gamma distribution to model the positive amplitudes.
 
 \section{Data sets} 
 Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...
@@ -103,7 +103,7 @@ Paragrafo qui.
 
 
 
-
+\sectionmark{Bayesian nonparametric models}
 \section{A brief review of some Bayesian nonparametric models} 
 \sectionmark{Bayesian nonparametric models}
 In this section we review some statistical tools that will be employed in this thesis in the analysis of calcium imaging data. The purpose of this section is not to provide a comprehensive review, but rather to outline the theoretical framework we adopted and fix some notation.

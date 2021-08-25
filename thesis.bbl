@@ -1,4 +1,4 @@
-\begin{thebibliography}{49}
+\begin{thebibliography}{48}
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -188,11 +188,6 @@ Nobile, A. (2004) On the posterior distribution of the number of components in
 Nobile, A. and Fearnside, A. (2007) Bayesian finite mixtures with an unknown
   number of components: the allocation sampler.
 \newblock \emph{Statistics and Computing} \textbf{17}, 147 -- 162.
-
-\bibitem[Paninski and Cunningham(2018)]{paninski2018}
-Paninski, L. and Cunningham, J.~P. (2018) Neural data science: accelerating the
-  experiment-analysis-theory cycle in large-scale neuroscience.
-\newblock \emph{Current opinion in neurobiology} \textbf{50}, 232 -- 241.
 
 \bibitem[Paninski \emph{et~al.}(2007)Paninski, Pillow and Lewi]{paninski2007}
 Paninski, L., Pillow, J. and Lewi, J. (2007) Statistical models for neural

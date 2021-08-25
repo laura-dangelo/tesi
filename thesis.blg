@@ -14,54 +14,46 @@ A level-1 auxiliary file: _Chapters/A_appendix.aux
 A level-1 auxiliary file: _Extras/bibliography.aux
 The style file: CUP.bst
 Database file #1: references.bib
-Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
-while executing---line 1383 of file CUP.bst
-Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
-while executing---line 1383 of file CUP.bst
-Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
-while executing---line 1465 of file CUP.bst
-Name 1 in "Paninski, L., and Cunningham, J. P." has a comma at the end for entry paninski2018
-while executing---line 1465 of file CUP.bst
 Warning--empty journal in wei2019
-You've used 49 entries,
+You've used 48 entries,
             2750 wiz_defined-function locations,
-            930 strings with 13100 characters,
-and the built_in function-call counts, 23362 in all, are:
-= -- 2200
-> -- 1243
-< -- 36
-+ -- 476
-- -- 427
-* -- 2332
-:= -- 3947
-add.period$ -- 99
-call.type$ -- 49
-change.case$ -- 296
-chr.to.int$ -- 49
-cite$ -- 148
-duplicate$ -- 907
-empty$ -- 1642
-format.name$ -- 508
-if$ -- 4617
+            924 strings with 12912 characters,
+and the built_in function-call counts, 22919 in all, are:
+= -- 2154
+> -- 1225
+< -- 35
++ -- 469
+- -- 421
+* -- 2290
+:= -- 3873
+add.period$ -- 97
+call.type$ -- 48
+change.case$ -- 291
+chr.to.int$ -- 48
+cite$ -- 145
+duplicate$ -- 890
+empty$ -- 1609
+format.name$ -- 499
+if$ -- 4529
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 47
-newline$ -- 197
-num.names$ -- 202
-pop$ -- 273
+missing$ -- 46
+newline$ -- 193
+num.names$ -- 198
+pop$ -- 269
 preamble$ -- 1
-purify$ -- 237
+purify$ -- 233
 quote$ -- 0
-skip$ -- 577
+skip$ -- 567
 stack$ -- 0
-substring$ -- 1377
-swap$ -- 213
+substring$ -- 1343
+swap$ -- 210
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 438
+type$ -- 429
 warning$ -- 1
-while$ -- 229
+while$ -- 224
 width$ -- 0
-write$ -- 585
-(There were 4 error messages)
+write$ -- 573
+(There was 1 warning)
