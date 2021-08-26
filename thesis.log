@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  25 AUG 2021 14:06
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  26 AUG 2021 12:15
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -1268,7 +1268,7 @@ Class scrreprt Warning: Usage of package `tocloft' together
 (scrreprt)              `part', `section', `subsection',
 (scrreprt)              `subsubsection', `paragraph' and `subparagraph'.
 (scrreprt)              Nevertheless, using requested
-(scrreprt)              package `tocloft' on input line 129.
+(scrreprt)              package `tocloft' on input line 131.
 
 (/usr/share/texlive/texmf-dist/tex/latex/tocloft/tocloft.sty
 Package: tocloft 2017/08/31 v2.3i parameterised ToC, etc., typesetting
@@ -1708,11 +1708,11 @@ Package auxhook Info: \AddLineBeginMainAux comes a little late,
 \openout2 = _Extras/frontpage.aux
 
 (./_Extras/frontpage.tex
-<_Images/LogoUNIPD_Red.png, id=7, 943.525pt x 949.5475pt>
-File: _Images/LogoUNIPD_Red.png Graphic file (type png)
-<use _Images/LogoUNIPD_Red.png>
-Package luatex.def Info: _Images/LogoUNIPD_Red.png  used on input line 10.
-(luatex.def)             Requested size: 113.81102pt x 114.53482pt.
+<_Images/image.png, id=7, 399.4925pt x 401.5pt>
+File: _Images/image.png Graphic file (type png)
+<use _Images/image.png>
+Package luatex.def Info: _Images/image.png  used on input line 10.
+(luatex.def)             Requested size: 113.81102pt x 114.37967pt.
 Package microtype Info: Character `ﬆ' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/n/12'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -2329,16 +2329,15 @@ Package microtype Info: Character `ﬆ' is missing
 
 
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}<./_Images/LogoUNIPD_Red.png>
-])
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}<./_Images/image.png>])
 \openout2 = _Extras/second.aux
- (./_Extras/second.tex) [2
+ (./_
+Extras/second.tex) [2
 
 
 ]
 \openout2 = _Extras/abstract.aux
-
-(./_Extras/abstract.tex
+ (./_Extras/abstract.tex
 Package microtype Info: Character `ﬆ' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/n/14.4'.
 (microtype)             Ignoring protrusion settings for this character.
@@ -3679,11 +3678,7 @@ Package microtype Info: Character `⁺' is missing
 Package microtype Info: Character `⁻' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/n/6'.
 (microtype)             Ignoring protrusion settings for this character.
- [8]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.9'
-[9]
-warning  (pdf backend): ignoring duplicate destination with the name 'page.10'
-[10] [11] [12] [13]
+ [8] [9] [10] [11] [12] [13]
 Overfull \hbox (4.54pt too wide) in paragraph at lines 300--301
 []\TU/TeXGyrePagella(0)/m/n/10.95 An-other ap-proach is dis-cussed by []Malsine
 r-Walli \TU/TeXGyrePagella(0)/m/it/10.95 et al.[] \TU/TeXGyrePagella(0)/m/n/10.
@@ -3751,35 +3746,35 @@ chapter A.
 
 
 ] [30] [31])) [32]
-<CVthesis/cv.pdf, id=536, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=538, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
-Package luatex.def Info: CVthesis/cv.pdf  used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf  used on input line 78.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
-Package luatex.def Info: CVthesis/cv.pdf  used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf  used on input line 78.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=539, page=1, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=541, page=1, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
-Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
 (luatex.def)             Requested size: 597.50793pt x 773.2913pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
-Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
-Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
-Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
-Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 79.
+Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 
 [33
@@ -3788,79 +3783,74 @@ Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 79.
 <./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
-Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf  used on input line 80.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
-Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf  used on input line 80.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=566, page=2, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=568, page=2, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
-Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
 (luatex.def)             Requested size: 597.50793pt x 773.2913pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
-Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
-Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
-Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
-Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 81.
+Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
  [34<./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
-Package luatex.def Info: CVthesis/cv.pdf  used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf  used on input line 82.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
-Package luatex.def Info: CVthesis/cv.pdf  used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf  used on input line 82.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=573, page=3, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=575, page=3, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
-Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
 (luatex.def)             Requested size: 597.50793pt x 773.2913pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
-Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
-Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
-Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
-Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 83.
+Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
  [35<./CVthesis/cv.pdf>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 85.
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 85.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
 
 (./thesis.aux (./_Extras/frontpage.aux) (./_Extras/second.aux)
 (./_Extras/abstract.aux) (./_Extras/sommario.aux) (./_Chapters/Introduction.aux
 ) (./_Chapters/Chapter1.aux) (./_Chapters/Chapter2.aux)
 (./_Chapters/Chapter3.aux) (./_Chapters/Chapter4.aux)
-(./_Chapters/A_appendix.aux) (./_Extras/bibliography.aux
-
-Package natbib Warning: Citation(s) may have changed.
-(natbib)                Rerun to get citations correct.
-
-))
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 85.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 85.
+(./_Chapters/A_appendix.aux) (./_Extras/bibliography.aux))
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 84.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 84.
 Package rerunfilecheck Info: File `thesis.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
@@ -3870,13 +3860,13 @@ LaTeX Warning: There were multiply-defined labels.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46741 strings out of 481365
+ 46742 strings out of 481365
  100000,2373549 words of node,token memory allocated
  1104 words of node memory still in use:
    6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 116 attribute, 101 glue_sp
 ec, 58 attribute_list, 2 write, 8 pdf_action nodes
    avail lists: 1:2,2:3022,3:156,4:84,5:546,6:68,7:5013,8:76,9:537,10:23,11:426
- 61416 multiletter control sequences out of 65536+600000
+ 61415 multiletter control sequences out of 65536+600000
  138 fonts using 21174899 bytes
  80i,23n,120p,10100b,927s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/s
@@ -3894,10 +3884,10 @@ cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (47 pages, 1373333 bytes).
+Output written on thesis.pdf (47 pages, 1429268 bytes).
 
-PDF statistics: 714 PDF objects out of 1000 (max. 8388607)
- 615 compressed objects within 7 object streams
- 146 named destinations out of 1000 (max. 131072)
+PDF statistics: 716 PDF objects out of 1000 (max. 8388607)
+ 617 compressed objects within 7 object streams
+ 148 named destinations out of 1000 (max. 131072)
  192 words of extra memory for PDF output out of 10000 (max. 100000000)
 

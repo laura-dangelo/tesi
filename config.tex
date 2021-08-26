@@ -96,7 +96,7 @@
 \def\toc@heading{\chapter*{\contentsname}
     \@mkboth{\spacedlowsmallcaps{\contentsname}}{\spacedlowsmallcaps{\contentsname}}}
 \makeatother
-
+\cfoot[\pagemark]{}
 
 % Chapters, sections and stuff
 \usepackage[clearempty,notocpart*]{titlesec}
@@ -117,6 +117,8 @@
 \titleformat{\subsection}{\large}{\scshape\thesubsection.}{0.5em}{\bfseries} %\itshape
 \titleformat{\subsubsection}{\large}{\quad\scshape\thesubsubsection}{0.5em}{\itshape}
 \titleformat{\paragraph}[runin]{\itshape}{}{}{}
+
+\titlespacing*{\section}{0pt}{22pt}{12pt}
 
 %\renewcommand{\thesection}{\Roman{section}}
 %\renewcommand{\thesubsection}{\thesection.\roman{subsection}}
