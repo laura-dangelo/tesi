@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  26 AUG 2021 12:15
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  27 AUG 2021 16:46
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -3746,7 +3746,7 @@ chapter A.
 
 
 ] [30] [31])) [32]
-<CVthesis/cv.pdf, id=538, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=552, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 78.
@@ -3755,7 +3755,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 78.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=541, page=1, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=555, page=1, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
@@ -3789,7 +3789,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 80.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=568, page=2, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=582, page=2, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
@@ -3819,7 +3819,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 82.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=575, page=3, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=589, page=3, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
@@ -3860,13 +3860,13 @@ LaTeX Warning: There were multiply-defined labels.
 )
 
 Here is how much of LuaTeX's memory you used:
- 46742 strings out of 481365
+ 46758 strings out of 481365
  100000,2373549 words of node,token memory allocated
- 1104 words of node memory still in use:
-   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 116 attribute, 101 glue_sp
-ec, 58 attribute_list, 2 write, 8 pdf_action nodes
-   avail lists: 1:2,2:3022,3:156,4:84,5:546,6:68,7:5013,8:76,9:537,10:23,11:426
- 61415 multiletter control sequences out of 65536+600000
+ 1128 words of node memory still in use:
+   6 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 120 attribute, 101 glue_sp
+ec, 60 attribute_list, 2 write, 10 pdf_action nodes
+   avail lists: 1:2,2:3016,3:156,4:83,5:546,6:66,7:5013,8:76,9:537,10:23,11:426
+ 61427 multiletter control sequences out of 65536+600000
  138 fonts using 21174899 bytes
  80i,23n,120p,10100b,927s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/s
@@ -3884,10 +3884,10 @@ cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb>
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/tex
 live/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/tex
 mf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (47 pages, 1429268 bytes).
+Output written on thesis.pdf (47 pages, 1430766 bytes).
 
-PDF statistics: 716 PDF objects out of 1000 (max. 8388607)
- 617 compressed objects within 7 object streams
- 148 named destinations out of 1000 (max. 131072)
+PDF statistics: 730 PDF objects out of 1000 (max. 8388607)
+ 631 compressed objects within 7 object streams
+ 152 named destinations out of 1000 (max. 131072)
  192 words of extra memory for PDF output out of 10000 (max. 100000000)
 

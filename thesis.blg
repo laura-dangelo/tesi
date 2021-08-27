@@ -15,45 +15,45 @@ A level-1 auxiliary file: _Extras/bibliography.aux
 The style file: CUP.bst
 Database file #1: references.bib
 Warning--empty journal in wei2019
-You've used 48 entries,
+You've used 52 entries,
             2750 wiz_defined-function locations,
-            924 strings with 12912 characters,
-and the built_in function-call counts, 22919 in all, are:
-= -- 2154
-> -- 1225
-< -- 35
-+ -- 469
-- -- 421
-* -- 2290
-:= -- 3873
-add.period$ -- 97
-call.type$ -- 48
-change.case$ -- 291
-chr.to.int$ -- 48
-cite$ -- 145
-duplicate$ -- 890
-empty$ -- 1609
-format.name$ -- 499
-if$ -- 4529
+            951 strings with 13511 characters,
+and the built_in function-call counts, 24728 in all, are:
+= -- 2334
+> -- 1305
+< -- 38
++ -- 500
+- -- 448
+* -- 2476
+:= -- 4175
+add.period$ -- 105
+call.type$ -- 52
+change.case$ -- 312
+chr.to.int$ -- 52
+cite$ -- 157
+duplicate$ -- 959
+empty$ -- 1744
+format.name$ -- 536
+if$ -- 4887
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 46
-newline$ -- 193
-num.names$ -- 198
-pop$ -- 269
+missing$ -- 50
+newline$ -- 209
+num.names$ -- 214
+pop$ -- 286
 preamble$ -- 1
-purify$ -- 233
+purify$ -- 250
 quote$ -- 0
-skip$ -- 567
+skip$ -- 607
 stack$ -- 0
-substring$ -- 1343
-swap$ -- 210
+substring$ -- 1469
+swap$ -- 223
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 429
+type$ -- 465
 warning$ -- 1
-while$ -- 224
+while$ -- 243
 width$ -- 0
-write$ -- 573
+write$ -- 621
 (There was 1 warning)
