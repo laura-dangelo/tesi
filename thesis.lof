@@ -3,5 +3,8 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {1.1}{\ignorespaces Allen Brain Observatory data: calcium traces of two neurons located in the primary visual area during Session A and Session B of the experiment. }}{6}{figure.caption.10}%
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a Gaussian prior.}}{27}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a horseshoe prior.}}{28}{figure.caption.12}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval}}{29}{figure.caption.13}%
 \addvspace {10\p@ }
 \addvspace {10\p@ }

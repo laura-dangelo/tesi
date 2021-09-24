@@ -10,14 +10,68 @@
 \citation{mitchell1988}
 \citation{park2008bayesian}
 \citation{carvalho2010horseshoe,Piironen2017}
-\@writefile{toc}{\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian log-linear models}{21}{chapter.2}\protected@file@percent }
+\citation{fruhwirth2006}
+\citation{fruhwirth2009}
+\citation{karlis2005,bradley2018}
+\citation{hastings1970monte}
+\citation{neal2011mcmc}
+\@writefile{toc}{\contentsline {chapter}{\numberline {2}Efficient posterior sampling for Bayesian Poisson regression}{21}{chapter.2}\protected@file@percent }
 \@writefile{lof}{\addvspace {10\p@ }}
 \@writefile{lot}{\addvspace {10\p@ }}
-\newlabel{eq:model0}{{2}{21}{Efficient posterior sampling for Bayesian log-linear models}{chapter.2}{}}
-\@writefile{toc}{\contentsline {section}{\numberline {2.1}Algorithm}{21}{section.2.1}\protected@file@percent }
+\@writefile{loa}{\addvspace {10\p@ }}
+\newlabel{ch2_eq:model0}{{2.1}{21}{Efficient posterior sampling for Bayesian Poisson regression}{equation.2.0.1}{}}
+\citation{albert_chib_1993}
+\citation{polson_scott_2013}
+\citation{polson_scott_2013}
+\citation{polson_scott_2013}
+\citation{polson_scott_2013}
+\citation{park2008bayesian,carvalho2010horseshoe,Piironen2017}
+\citation{polson_scott_2013}
+\@writefile{toc}{\contentsline {section}{\numberline {2.1}Efficient posterior sampling strategies}{23}{section.2.1}\protected@file@percent }
+\newlabel{ch2_sec:2}{{2.1}{23}{Efficient posterior sampling strategies}{section.2.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.1}Approximate posterior distribution}{23}{subsection.2.1.1}\protected@file@percent }
+\newlabel{ch2_sec:approx_distr}{{2.1.1}{23}{Approximate posterior distribution}{subsection.2.1.1}{}}
+\newlabel{ch2_eq:approx1}{{2.2}{23}{Approximate posterior distribution}{equation.2.1.2}{}}
+\newlabel{ch2_eq:approx0}{{2.3}{23}{Approximate posterior distribution}{equation.2.1.3}{}}
+\citation{robert2010}
+\newlabel{ch2_eq:approx2}{{2.4}{24}{Approximate posterior distribution}{equation.2.1.4}{}}
+\newlabel{ch2_eq:proposal_distr}{{2.5}{24}{Approximate posterior distribution}{equation.2.1.5}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.2}Metropolis-Hastings sampler}{24}{subsection.2.1.2}\protected@file@percent }
+\newlabel{ch2_sec:mh}{{2.1.2}{24}{Metropolis-Hastings sampler}{subsection.2.1.2}{}}
+\newlabel{ch2_eq:acceptanceMH}{{2.6}{24}{Metropolis-Hastings sampler}{equation.2.1.6}{}}
+\citation{Teerapabolarn2012}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.3}Adaptive importance sampler}{25}{subsection.2.1.3}\protected@file@percent }
+\newlabel{ch2_sec:is}{{2.1.3}{25}{Adaptive importance sampler}{subsection.2.1.3}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1.4}Tuning parameters $r_i$}{25}{subsection.2.1.4}\protected@file@percent }
+\newlabel{sec:tuning_param}{{2.1.4}{25}{Tuning parameters $r_i$}{subsection.2.1.4}{}}
+\citation{W}
+\citation{stan}
+\citation{RCPP}
+\citation{bpr}
+\citation{carvalho2010horseshoe}
+\citation{makalic2016horseshoesampler}
+\citation{vanderpas2017}
+\newlabel{ch2_eq:r_solution}{{2.7}{26}{Tuning parameters $r_i$}{equation.2.1.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {2.2}Numerical illustrations}{26}{section.2.2}\protected@file@percent }
+\newlabel{ch2_sec:illustr}{{2.2}{26}{Numerical illustrations}{section.2.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.1}Synthetic data}{26}{subsection.2.2.1}\protected@file@percent }
+\newlabel{ch2_sec:sim}{{2.2.1}{26}{Synthetic data}{subsection.2.2.1}{}}
+\citation{robert2010}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.1}{\ignorespaces Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a Gaussian prior.}}{27}{figure.caption.11}\protected@file@percent }
+\newlabel{fig:time_ess}{{2.1}{27}{Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a Gaussian prior}{figure.caption.11}{}}
+\citation{allen}
+\citation{jewell2019}
+\citation{vries2020}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.2}{\ignorespaces Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a horseshoe prior.}}{28}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:time_ess_horseshoe}{{2.2}{28}{Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a horseshoe prior}{figure.caption.12}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2.3}{\ignorespaces Coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval}}{29}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:calcium_coeff}{{2.3}{29}{Coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval}{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2.2}Spike train data}{29}{subsection.2.2.2}\protected@file@percent }
+\newlabel{ch2_sec:application}{{2.2.2}{29}{Spike train data}{subsection.2.2.2}{}}
+\citation{vries2020}
 \@setckpt{_Chapters/Chapter2}{
-\setcounter{page}{22}
-\setcounter{equation}{0}
+\setcounter{page}{31}
+\setcounter{equation}{7}
 \setcounter{enumi}{4}
 \setcounter{enumii}{0}
 \setcounter{enumiii}{0}
@@ -26,12 +80,12 @@
 \setcounter{mpfootnote}{0}
 \setcounter{part}{0}
 \setcounter{chapter}{2}
-\setcounter{section}{1}
-\setcounter{subsection}{0}
+\setcounter{section}{2}
+\setcounter{subsection}{2}
 \setcounter{subsubsection}{0}
 \setcounter{paragraph}{0}
 \setcounter{subparagraph}{0}
-\setcounter{figure}{0}
+\setcounter{figure}{3}
 \setcounter{table}{0}
 \setcounter{AM@survey}{0}
 \setcounter{parentequation}{0}
@@ -47,5 +101,14 @@
 \setcounter{Item}{16}
 \setcounter{Hfootnote}{0}
 \setcounter{bookmark@seq@number}{0}
+\setcounter{float@type}{8}
+\setcounter{algorithm}{0}
+\setcounter{ALG@line}{0}
+\setcounter{ALG@rem}{0}
+\setcounter{ALG@nested}{0}
+\setcounter{ALG@Lnr}{2}
+\setcounter{ALG@blocknr}{10}
+\setcounter{ALG@storecount}{0}
+\setcounter{ALG@tmpcounter}{0}
 \setcounter{section@level}{0}
 }

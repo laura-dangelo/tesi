@@ -1,4 +1,10 @@
-\begin{thebibliography}{52}
+\begin{thebibliography}{74}
+
+\bibitem[Albert and Chib(1993)]{albert_chib_1993}
+Albert, J.~H. and Chib, S. (1993) Bayesian analysis of binary and polychotomous
+  response data.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{88}(422), 669--679.
 
 \bibitem[{Allen Brain Observatory}(2017)]{allen_stimulus}
 {Allen Brain Observatory} (2017) Technical whitepaper: stimulus set and
@@ -20,11 +26,37 @@ Blackwell, D. and MacQueen, J.~B. (1973) {Ferguson distributions via Polya urn
   schemes}.
 \newblock \emph{The Annals of Statistics} \textbf{1}(2), 353 -- 355.
 
+\bibitem[Bradley \emph{et~al.}(2018)Bradley, Holan and Wikle]{bradley2018}
+Bradley, J.~R., Holan, S.~H. and Wikle, C.~K. (2018) Computationally efficient
+  multivariate spatio-temporal models for high-dimensional count-valued data
+  (with discussion).
+\newblock \emph{Bayesian Analysis} \textbf{13}(1), 253--310.
+
+\bibitem[Brenner \emph{et~al.}(2002)Brenner, Agam, Bialek and de~Ruyter~van
+  Steveninck]{Brenner2002PhysRevE}
+Brenner, N., Agam, O., Bialek, W. and de~Ruyter~van Steveninck, R. (2002)
+  Statistical properties of spike trains: universal and stimulus-dependent
+  aspects.
+\newblock \emph{Physical review. E, Statistical, nonlinear, and soft matter
+  physics} \textbf{66}, 031907.
+
 \bibitem[Camerlenghi \emph{et~al.}(2019)Camerlenghi, Dunson, Lijoi, Prünster
   and Rodríguez]{camerlenghi2019}
 Camerlenghi, F., Dunson, D.~B., Lijoi, A., Prünster, I. and Rodríguez, A.
   (2019) {Latent Nested Nonparametric Priors (with Discussion)}.
 \newblock \emph{Bayesian Analysis} \textbf{14}(4), 1303 -- 1356.
+
+\bibitem[Canale \emph{et~al.}(2017)Canale, Lijoi, Nipoti and
+  Pr{\"u}nster]{canale2017}
+Canale, A., Lijoi, A., Nipoti, B. and Pr{\"u}nster, I. (2017) {On the
+  Pitman--Yor process with spike and slab base measure}.
+\newblock \emph{Biometrika} \textbf{104}(3), 681--697.
+
+\bibitem[Canale \emph{et~al.}(2021)Canale, Lijoi, Nipoti and
+  Pr{\"u}nster]{spikeandslab2}
+Canale, A., Lijoi, A., Nipoti, B. and Pr{\"u}nster, I. (2021) {Inner spike and
+  slab Bayesian nonparametric models}.
+\newblock \emph{arXiv:2107.10223} .
 
 \bibitem[Carvalho \emph{et~al.}(2010)Carvalho, Polson and
   Scott]{carvalho2010horseshoe}
@@ -37,6 +69,10 @@ Carvalho, C.~M., Polson, N.~G. and Scott, J.~G. (2010) The horseshoe estimator
   crowd counting.
 \newblock In \emph{2009 IEEE 12th International Conference on Computer Vision},
   pp. 545--551.
+
+\bibitem[D'Angelo(2021)]{bpr}
+D'Angelo, L. (2021) {bpr: Bayesian Poisson regression}.
+\newblock \textsc{url:} \texttt{https://CRAN.R-project.org/package=bpr}.
 
 \bibitem[Denk \emph{et~al.}(1990)Denk, Strickler and Webb]{denk1990}
 Denk, W., Strickler, J.~H. and Webb, W.~W. (1990) Two-photon laser scanning
@@ -67,6 +103,12 @@ Dudai, Y. (2004) The neurosciences: the danger that we will think that we have
 \newblock In \emph{The new brain sciences: perils and prospects}, eds S.~Rose
   and D.~Rees, pp. 167 -- 180. Cambridge University Press.
 
+\bibitem[Eddelbuettel and Francois(2011)]{RCPP}
+Eddelbuettel, D. and Francois, R. (2011) Rcpp: Seamless {R} and {C}++
+  integration.
+\newblock \emph{Journal of Statistical Software, Articles} \textbf{40}(8),
+  1--18.
+
 \bibitem[Ferguson(1973)]{ferguson1973}
 Ferguson, T.~S. (1973) {A Bayesian analysis of some nonparametric problems}.
 \newblock \emph{The Annals of Statistics} \textbf{1}(2), 209 -- 230.
@@ -96,6 +138,13 @@ Frome, E.~L. and Checkoway, H. (1985) {Use of Poisson regression models in
   estimating incidence rates and ratios}.
 \newblock \emph{American Journal of Epidemiology} \textbf{121}(2), 309--323.
 
+\bibitem[Fr\"uhwirth-Schnatter \emph{et~al.}(2009)Fr\"uhwirth-Schnatter,
+  Fr\"uhwirth, Held and Rue]{fruhwirth2009}
+Fr\"uhwirth-Schnatter, S., Fr\"uhwirth, R., Held, L. and Rue, H. (2009)
+  {Improved auxiliary mixture sampling for hierarchical models of non-Gaussian
+  data}.
+\newblock \emph{Statistics and Computing} \textbf{19}(479).
+
 \bibitem[Fr\"uhwirth-Schnatter and Malsiner-Walli(2019)]{fs2019}
 Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
   Sparse finite versus {Dirichlet} process mixtures in model-based clustering.
@@ -107,6 +156,12 @@ Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
 Fr\"uhwirth-Schnatter, S., Malsiner-Walli, G. and Gr\"un, B. (2020) Generalized
   mixtures of finite mixtures and telescoping sampling.
 
+\bibitem[Fr\"uhwirth-Schnatter and Wagner(2006)]{fruhwirth2006}
+Fr\"uhwirth-Schnatter, S. and Wagner, H. (2006) Auxiliary mixture sampling for
+  parameter-driven models of time series of counts with applications to state
+  space modelling.
+\newblock \emph{Biometrika} \textbf{93}(4), 827--841.
+
 \bibitem[Gelman \emph{et~al.}(2013)Gelman, Carlin, Stern, Dunson, Vehtari and
   Rubin]{gelman2013}
 Gelman, A., Carlin, J., Stern, H., Dunson, D., Vehtari, A. and Rubin, D. (2013)
@@ -116,6 +171,11 @@ Gelman, A., Carlin, J., Stern, H., Dunson, D., Vehtari, A. and Rubin, D. (2013)
 \bibitem[Grienberger and Konnerth(2012)]{grienberger2012}
 Grienberger, C. and Konnerth, A. (2012) Imaging calcium in neurons.
 \newblock \emph{Neuron} \textbf{73}(5), 862 -- 885.
+
+\bibitem[Hastings(1970)]{hastings1970monte}
+Hastings, W.~K. (1970) Monte {Carlo} sampling methods using {Markov} chains and
+  their applications.
+\newblock \emph{Biometrika} \textbf{57}(1), 97--109.
 
 \bibitem[Hutchinson and Holtman(2005)]{Hutchinson2005}
 Hutchinson, M.~K. and Holtman, M.~C. (2005) Analysis of count data using
@@ -139,6 +199,12 @@ Jewell, S.~W., Hocking, T.~D., Fearnhead, P. and Witten, D.~M. (2019) Fast
   nonconvex deconvolution of calcium imaging data.
 \newblock \emph{Biostatistics} \textbf{21}(4), 709--726.
 
+\bibitem[Johnson and Rossell(2010)]{johnson2010}
+Johnson, V.~E. and Rossell, D. (2010) On the use of non-local prior densities
+  in {Bayesian} hypothesis tests.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)} \textbf{72}(2), 143--170.
+
 \bibitem[Joshua and Garber(1990)]{Sarath1990}
 Joshua, S.~C. and Garber, N.~J. (1990) Estimating truck accident rate and
   involvements using linear and {Poisson} regression models.
@@ -148,10 +214,25 @@ Joshua, S.~C. and Garber, N.~J. (1990) Estimating truck accident rate and
 Kalli, M., Griffin, J. and Walker, S. (2011) Slice sampling mixture models.
 \newblock \emph{Statistics and Computing} \textbf{21}, 93 -- 105.
 
+\bibitem[Karlis and Meligkotsidou(2005)]{karlis2005}
+Karlis, D. and Meligkotsidou, L. (2005) {Multivariate Poisson regression with
+  covariance structure}.
+\newblock \emph{Statistics and Computing} \textbf{15}, 255--265.
+
 \bibitem[Lambert(1992)]{lambert1992}
 Lambert, D. (1992) Zero-inflated {Poisson} regression, with an application to
   defects in manufacturing.
 \newblock \emph{Technometrics} \textbf{34}(1), 1--14.
+
+\bibitem[Lambert(1758)]{W}
+Lambert, J.~H. (1758) Observations variae in mathesin puram.
+\newblock \emph{Acta Helvitica, physico-mathematico-anatomico-botanico-medica}
+  \textbf{3}, 128--168.
+
+\bibitem[Makalic and Schmidt(2016)]{makalic2016horseshoesampler}
+Makalic, E. and Schmidt, D.~F. (2016) A simple sampler for the horseshoe
+  estimator.
+\newblock \emph{IEEE Signal Processing Letters} \textbf{23}(1), 179--182.
 
 \bibitem[Malsiner-Walli \emph{et~al.}(2016)Malsiner-Walli,
   Fr\"uhwirth-Schnatter and Gr\"un]{malsinerwalli2016}
@@ -185,6 +266,10 @@ Mitchell, T.~J. and Beauchamp, J.~J. (1988) Bayesian variable selection in
 Mukamel, E.~A., Nimmerjahn, A. and Schnitzer, M.~J. (2009) Automated analysis
   of cellular signals from large-scale calcium imaging data.
 \newblock \emph{Neuron} \textbf{63}(6), 747 -- 760.
+
+\bibitem[Neal(2011)]{neal2011mcmc}
+Neal, R.~M. (2011) {MCMC} using {Hamiltonian} dynamics.
+\newblock \emph{Handbook of {M}arkov chain {M}onte {C}arlo} \textbf{2}(11), 2.
 
 \bibitem[Nelder and Wedderburn(1972)]{nelder1972glm}
 Nelder, J.~A. and Wedderburn, R. W.~M. (1972) Generalized linear models.
@@ -224,6 +309,12 @@ Parker, D. (2010) Neuronal network analyses: premises, promises and
 \newblock \emph{Philosophical transactions of the Royal Society of London.
   Series B, Biological sciences} \textbf{365}(1551), 2315 -- 2328.
 
+\bibitem[van~der Pas \emph{et~al.}(2017)van~der Pas, Szabó and van~der
+  Vaart]{vanderpas2017}
+van~der Pas, S., Szabó, B. and van~der Vaart, A. (2017) {Adaptive posterior
+  contraction rates for the horseshoe}.
+\newblock \emph{Electronic Journal of Statistics} \textbf{11}(2), 3196 -- 3225.
+
 \bibitem[Piironen and Vehtari(2017)]{Piironen2017}
 Piironen, J. and Vehtari, A. (2017) {Sparsity information and regularization in
   the horseshoe and other shrinkage priors}.
@@ -244,11 +335,28 @@ Pnevmatikakis, E.~A., Soudry, D., Gao, Y., Machado, T.~A., Merel, J., Pfau, D.,
   denoising, deconvolution, and demixing of calcium imaging data.
 \newblock \emph{Neuron} \textbf{89}(2), 285 -- 299.
 
+\bibitem[Polson \emph{et~al.}(2013)Polson, Scott and Windle]{polson_scott_2013}
+Polson, N.~G., Scott, J.~G. and Windle, J. (2013) Bayesian inference for
+  logistic models using {P\'olya}-gamma latent variables.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{108}(504), 1339--1349.
+
+\bibitem[Prado and West(2010)]{prado2010}
+Prado, R. and West, M. (2010) \emph{Time Series: Modeling, Computation, and
+  Inference}. First edition.
+\newblock Chapman and Hall.
+\newblock ISBN 1420093363.
+
 \bibitem[Richardson and Green(1997)]{richardson1997}
 Richardson, S. and Green, P.~J. (1997) On {Bayesian} analysis of mixtures with
   an unknown number of components (with discussion).
 \newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)} \textbf{59}(4), 731 -- 792.
+
+\bibitem[Robert and Casella(2010)]{robert2010}
+Robert, C. and Casella, G. (2010) \emph{{Introducing Monte Carlo methods with
+  R}}.
+\newblock Springer.
 
 \bibitem[Rodr\'iguez \emph{et~al.}(2008)Rodr\'iguez, Dunson and
   Gelfand]{rodriguez2008}
@@ -260,6 +368,17 @@ Rodr\'iguez, A., Dunson, D.~B. and Gelfand, A.~E. (2008) The nested dirichlet
 \bibitem[Sethuraman(1994)]{sethuraman1994}
 Sethuraman, J. (1994) A constructive definition of {Dirichlet} priors.
 \newblock \emph{Statistica Sinica} \textbf{4}(2), 639 -- 650.
+
+\bibitem[{Stan Development Team}(2021)]{stan}
+{Stan Development Team} (2021) Stan modeling language users guide and reference
+  manual.
+\newblock \textsc{url:} \texttt{http://mc-stan.org/}.
+
+\bibitem[Teerapabolarn(2012)]{Teerapabolarn2012}
+Teerapabolarn, K. (2012) The least upper bound on the {Poisson}-negative
+  binomial relative error.
+\newblock \emph{Communications in Statistics - Theory and Methods}
+  \textbf{41}(10), 1833--1838.
 
 \bibitem[Teh \emph{et~al.}(2006)Teh, Jordan, Beal and Blei]{Teh2006}
 Teh, Y.~W., Jordan, M.~I., Beal, M.~J. and Blei, D.~M. (2006) Hierarchical
@@ -273,6 +392,16 @@ Vogelstein, J.~T., Packer, A.~M., Machado, T.~A., Sippy, T., Babadi, B., Yuste,
   R. and Paninski, L. (2010) Fast nonnegative deconvolution for spike train
   inference from population calcium imaging.
 \newblock \emph{Journal of Neurophysiology} \textbf{104}(6), 3691--3704.
+
+\bibitem[de~Vries \emph{et~al.}(2020)de~Vries, Lecoq, Buice, Groblewski, Ocker,
+  Oliver, Feng, Cain, Ledochowitsch, Millman, Roll, Garrett, Keenan, Kuan,
+  Mihalas, Olsen, Thompson, Wakeman, Waters and Koch]{vries2020}
+de~Vries, S., Lecoq, J., Buice, M., Groblewski, P., Ocker, G., Oliver, M.,
+  Feng, D., Cain, N., Ledochowitsch, P., Millman, D., Roll, K., Garrett, M.,
+  Keenan, T., Kuan, C., Mihalas, S., Olsen, S., Thompson, C., Wakeman, W.,
+  Waters, J. and Koch, C. (2020) A large-scale standardized physiological
+  survey reveals functional organization of the mouse visual cortex.
+\newblock \emph{Nature neuroscience} \textbf{23}(1), 138--151.
 
 \bibitem[Walker(2007)]{walker2007}
 Walker, S.~G. (2007) Sampling the {Dirichlet} mixture model with slices.

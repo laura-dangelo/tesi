@@ -1,8 +1,185 @@
 % Chapter 3
-\chapter{Simultaneous deconvolution and modeling of nested calcium imaging data}
+\chapter{Simultaneous deconvolution and modeling of grouped calcium imaging data }
+
+\vspace{.7cm}
+As discussed in Section~\ref{ch1_sec:spike_train_analysis}, routine methods to analyze calcium imaging data are based on a two-step approach. 
+However, it is expected the rate and the distribution of spikes to be stimulus-dependent \citep{Brenner2002PhysRevE}, but none of the previously described approaches allows to take into account explicitly the heterogeneity of spikes' behaviors as a function of the stimulus. 
+As Figure~\ref{ch1_fig:trace_neurons} clearly shows for the Allen Brain Observatory data, the spikes' intensities vary greatly according to the type of stimulus.
+
+In this chapter, we introduce a coherent nested Bayesian finite mixture model that allows for the estimation of the spiking activity of each neuron -- which could be seen as a first step for the analysis of larger brain activity combining multiple neurons in a region. In addition, our model \textit{simultaneously} allows for reconstructing the distributions of spikes under various experimental conditions; for example, in response to different types of visual stimuli in the Allen Brain Observatory data set. 
+
+More specifically, our modeling framework estimates and clusters the distributions of the calcium transient spikes' amplitudes via a nested formulation of the generalized mixture of finite mixtures (gMFM) prior recently proposed by \citet{fruhwirthschnatter2020}. 
+The proposed model further adopts the use of a common atom specification as in \citet{denti2021} for estimating the distribution of the spikes' amplitudes under each experimental condition. The proposed common atom gMFM has several advantages with respect to typical Bayesian nonparametric models for nested data. With respect to models based on Dirichlet process priors, the gMFM provides increased flexibility to estimate partitions characterized either by many, well-balanced, clusters or by a small set of large clusters. The common atom model allows to obtain nested inference on densities without incurring in the degeneracy issues pointed out by \citet{camerlenghi2019} for the widely used nested Dirichlet process of \citet{rodriguez2008}. At the same time, the common atom formulation still leverages two nested layers of random discrete mixture priors to borrow information between experiments and to identify similarities in the distributional patterns of the neuronal responses to different stimuli. In addition, differently than in the nested Dirichlet process, the common atom model also allows to cluster the inferred spikes' intensity values both within and between experimental conditions, so to infer common (recurring) response amplitudes. Finally, we allow our model to enforce sparsity of neuron firing over time by assuming a spike-and-slab prior specification on the marginal distribution of the amplitudes.
+
+
+\section{Bayesian mixture model for calcium imaging data}
+\subsection{Model and prior specification}
+\label{s:model}
+
+We consider the biophysical model for the calcium dynamics~\eqref{ch1_eq:armodel} introduced in Section~\ref{ch1_sec:deconvolution_methods}, and the interpretation of the $A_t$ parameters as \textit{amplitude} of a spike at time $t$, taking value $0$ if there is no spike and a positive value otherwise.
+
+We are interested in characterizing the neuronal activity under different experimental conditions. For each time point $t=1,\dots,T$, let $g_t$ be a discrete categorical variable, taking values in $\{1,\dots, J\}$, where $J$ is the number of distinct experimental settings, so that $g_t=j$ indicates that the neuronal activity at time $t$ is observed under condition $j$. The experimental conditions are often designed to capture variations in neuronal activity with respect to a baseline process, which may represent a ``typical" brain process. For example, in the Allen Observatory data, the interest is to investigate visually-evoked functional responses of neurons in the mouse's visual cortex. Therefore, neurons associated with visual decoding should be expected to activate in all conditions. It is then of interest to study not only \textit{if} but also \textit{how} the neurons differentially respond to the presentation of a variety of visual stimuli. 
+
+In this chapter, we propose a hierarchical Bayesian approach to investigate similarities and differences in the distribution of spikes over time and conditions. In order to borrow information across different experimental conditions, one option is to fit a parametric hierarchical random effect model, and obtain a post-MCMC clustering of the estimated spikes $A_t$ by grouping together those spikes with similar magnitudes. This approach has several limitations: on the one hand, the distribution of the random effects is constrained into a specific parametric form; on the other hand, the clustering of, say, the posterior mean estimates of the parameters $A_t$'s does not allow to fully describe stimulus-specific distributional differences and to take into account the posterior uncertainty in the spikes.
+
+In order to allow flexible modeling of distributions and to describe the heterogeneity of distributional features, we assume a nested Bayesian finite mixture specification. More specifically, we rewrite~\eqref{ch1_eq:armodel} as
+\begin{equation*}
+y_t\mid b, \gamma, \Ca_{t-1}, A_t, \sigma^2, \tau^2 \sim \N(b+\gamma\:\Ca_{t-1} + A_t, \sigma^2 + \tau^2 )
+\end{equation*}
+and we assume that the spikes $A_t$ are from stimulus-specific distributions, i.e. 
+$ (A_t \mid g_t = j, \, G_j) \sim G_j$, $ j=1, \ldots, J$,
+to account for the observed variety of neuronal activity under different experiment settings. We further allow for clustering the distributions across conditions, in order to capture similar patterns of neuronal activity. Indeed, one may typically expect $K<J$ distributional clusters. For example, a neuron may respond to general visual stimulation and not specifically to the type of stimulus considered. More specifically, we assume the following generalized mixture of finite mixtures structure:
+%
+\begin{equation}
+G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{K} \pi_k \delta_{G^*_k}
+\label{eq:first_layer}
+\end{equation}
+where \(\pi_1,\dots,\pi_K \mid K \sim \Dir_K\left(\alpha/K, \ldots \alpha/K\right)\), $\alpha>0$, and $G_1^*, \ldots, G_K^*$ are a set of cluster-defining distributions, obtained as realizations of an underlying random probability measure, specified further below. Equation \eqref{eq:first_layer} implies that the $G_j$'s, $j=1,\ldots, J$ have a positive probability of clustering together, thereby giving rise to \textit{distributional clusters}. In practice, the number of mixture components, $K$, is typically larger than the number of clusters, $K_+$, and some of the atoms $G_k^*$ are not assigned to any of the $G_j$'s (empty components). The prior on the number of mixture components $K$ is a translated beta-negative-binomial distribution as in \citet{fruhwirthschnatter2020}. 
+Including a prior $p(K)$ leads to both $K_+$ and $K$ being random a priori. 
+Finally, the distributional atoms $G_k^*$, $k=1, \ldots, K$ are also obtained as a realization from an underlying generalized mixture of finite mixtures, 
+\begin{equation}
+G^*_k = \sum_{l=1}^{L} \omega_{l,k} \delta_{A^*_l}
+\label{eq:second_layer}
+\end{equation}
+with $\omega_{1,k},\dots,\omega_{L,k} \mid L\sim \Dir_L\left(\beta/L\right)$, for some positive real number $\beta>0$. The set of atoms $A_l^*$ is common across all distributions $G_1^*, \ldots, G_K^*$ and they are obtained as i.i.d. draws from a centering measure, \(A^*_l \sim G_0(A^*_l)\). Therefore, equation \eqref{eq:second_layer} defines a clustering of the inferred spike intensities both within a given condition (i.e. for fixed $G_k^*$) and across conditions (i.e. across the $G_k^*$'s; hence, across the $G_j$'s). In the following, we adopt common terminology in the literature on nested Bayesian non-parametric priors and indicate the clustering induced on the $A_t$ through the proposed two-layers prior as \textit{observational clustering}. The nested gMFM formulation requires the specification of a prior on the number of components that specify the lower-level distributional atoms $G_k^*$, \(L\sim p(L)\). Once again, some of the components may be empty. 
+
+We enforce sparsity in the detection of the spikes by modeling the base measure $G_0$ for the parameters $A^*_{l}$ with a spike-and-slab specification \citep{mitchell1988}, which is a convex mixture between a Dirac mass at zero -- representing the absence of neuronal response -- and a diffuse density on the positive real numbers -- representing the intensity of the neuronal response. More specifically, we assume
+\begin{equation}
+G_0 = (1-p) \, \delta_0 + p\, \mathrm{Gamma}\,(h_{A1},h_{A2}),
+\label{eq:G0}
+\end{equation}
+where the slab is a gamma distribution, $\mathrm{Gamma}(a,b)$ with mean $a/b$ and variance $a/b^2$. The choice of a gamma distribution in (\ref{eq:G0}) is particularly relevant for sparsity-inducing purposes, as the gamma density belongs to the set of moment non-local prior densities, as defined by~\citet{johnson2010}. Therefore, a negligible probability density is assigned to values in a neighborhood of zero, thus inducing a clear separation between the baseline neuronal activity and the neuronal responses. In particular, the higher the shape parameter $h_{A1}$, the larger is the separation. We assume a $ \mathrm{Beta}(h_{1p}, h_{2p})$ prior for the proportion of spikes $p$ with $h_{1p} $ much smaller than $h_{2p}$ in order to favor sparsity of detections.
+
+The proposed formulation can be seen as a special case of \textit{inner} spike-and-slab nonparametric priors, following a terminology introduced by \citet{canale2017,spikeandslab2}. In the following, we will refer to the proposed specification as a finite common atom model (fCAM). 
+
+
+The Bayesian model elicitation is completed by assuming conjugate priors for the underlying calcium level concentration parameters, i.e. the baseline calcium level $b$, and the variances $\sigma^2$ and $\tau^2$.  Specifically, the following conjugate prior distributions are assumed:
+\begin{eqnarray*}
+	&\Ca_0 \sim \N(0,C_0), \quad b\sim \N(b_0,B_0) \\ 
+	&1/\sigma^2 \sim \mathrm{Gamma}(h_{1\sigma},h_{2\sigma}),\quad 
+	1/\tau^2 \sim \mathrm{Gamma}(h_{1\tau},h_{2\tau}),
+\end{eqnarray*}
+Finally, under the assumption that the process is stationary with positive correlation between the calcium level at consecutive times, we constrain $\gamma \in (0,1)$ and let $\gamma\sim \mathrm{Beta}(h_{1\gamma}, h_{2\gamma})$, a priori.
 
 
 
-\section{Model specification} 
+\subsection{Posterior inference}
+\label{s:posterior_inference}
 
-\section{Posterior computation}
+For computational purposes, it is convenient to rewrite the likelihood for an observation $y_t$ under condition $g_t=j$ by introducing two latent cluster allocation variables, $c^D_j = c^D_{g_t}$ and $c_t$, indicating the distributional cluster for the group $j$ and the observational cluster for $y_t$, respectively. 
+
+Given $K$ and $\{\pi_k\}_{k=1}^K$, the distributional allocation variable $c^D_j\in\{1,\dots,K\}$, with $\Pr(c^D_j = k) = \pi_k$. Similarly, conditionally on $c^D_{g_t} =k$, and given $L$ and $\{\omega_{l,k}\}_{l=1}^L$, the observational allocation variable $c_t \in \{1,\dots,L\}$, with $\Pr(c_t = l) = \omega_{l,k}$. 
+Therefore, conditionally on the other model parameters, the joint distribution of the observed data and the latent cluster allocations can be written as
+\begin{equation*}
+f(\bm{y},\bm{c},\bm{c}^D\mid \bm{\pi}, \bm{\omega}, \bm{A}^*) = \prod_{j=1}^J \pi_{c^D_j} \prod_{t:g_t = j} \omega_{c_t,c^D_j}\: p(y_t\mid A^*_{c_t}),
+\end{equation*}
+which facilitates posterior inference. 
+
+More specifically, posterior inference for the proposed fCAM can be carried out quite straightforwardly by means of Markov chain Monte Carlo (MCMC) techniques. The sampling of the latent calcium level $\Ca_t$ uses an iterative approach based on the Kalman filter and on a forward filtering backward sampling algorithm \citep{prado2010}.
+Full conditional posteriors for $b$, $p$, $\sigma^2$ and $\tau^2$ are available in closed form thus leading to straightforward Gibbs sampling steps. For the autoregressive parameter $\gamma$, we use a Metropolis-Hastings within the Gibbs step. 
+The sampling of $A_t$ exploits a combination of the nested slice sampler of~\citet{denti2021} and of the telescoping sampler of~\citet{fruhwirthschnatter2020}. A detailed description of the latter step is reported in Algorithm \ref{ch3_alg:nested_telescopic} below. Here, we just present a schematic description of the MCMC steps:
+\begin{enumerate}
+	\item[1)] Sample the calcium level $\Ca_t$, for $t=0,\dots,T$, using a forward filtering backward sampling:
+	\begin{itemize}
+		\item[a)] Run Kalman filter: set $a_0 = m_0 = 0$, $R_0 = C_0 = \mathrm{var}(\Ca_0)$. For $t = 1,\dots,T$ let 
+		\begin{equation*}
+		a_t = \gamma \, m_{t-1} + A_t
+		\end{equation*}
+		\begin{equation*}
+		R_t = \gamma^2 \, C_{t-1} + \tau^2.
+		\end{equation*}
+		Compute the filtering distribution's parameters, $m_t$ and $C_t$, for $t = 1,\dots,T$, where
+		\begin{equation*}
+		m_t = a_t + R_t\, (R_t + \sigma^2)^{-1} \, (y_t - b - a_t)
+		\end{equation*}
+		%
+		\begin{equation*}
+		C_t = R_t -  R_t^2 \, (R_t + \sigma^2)^{-1}.
+		\end{equation*}
+		%
+		\item[b)] Draw $\Ca_T \sim \N(m_T, C_T)$;
+		\item[c)] For $t = T-1, \dots, 0$, draw $\Ca_t \sim \N(h_t, H_t)$, with 
+		\begin{equation*}
+		h_t = m_t + \gamma \, C_t \, R_{t+1}^{-1} (\Ca_{t+1} - a_{t+1})
+		\end{equation*}
+		%
+		\begin{equation*}
+		H_t = C_t - \gamma^2 \, C_t^2 \, R_{t+1}^{-1}.
+		\end{equation*}
+	\end{itemize}
+	%%%
+	\item[2)] Sample a new value for the baseline level $b$: 
+	\begin{equation*}
+	b  \sim \N \left( \frac{b_0}{B_0} + \frac{1}{\sigma^2} \sum_{t=1}^T(y_t - \Ca_t), \sqrt{\frac{1}{B_0} + \frac{T}{\sigma^2}} \right).
+	\end{equation*}
+	%%%
+	\item[3)] Sample the variance on the output equation $\sigma^2$ and the variance on the state equation $\tau^2$:
+	\begin{equation*}
+	1/\sigma^2 \sim \mathrm{Gamma} \left( h_{1\sigma} + \frac{T}{2},\, h_{2\sigma} + \frac{1}{2} \sum_{t=1}^T (y_t - \Ca_t - b)^2 \right)
+	\end{equation*}
+	\begin{equation*}
+	1/\tau^2 \sim \mathrm{Gamma}\left( h_{1\tau} + \frac{T}{2},\, h_{2\tau} + \frac{1}{2} \sum_{t=1}^T (\Ca_t - \gamma \, \Ca_{t-1} - A_t)^2 \right).
+	\end{equation*}
+	%%%
+	\item[4)] Update the autoregressive parameter $\gamma$ using a Metropolis-Hastings step.
+	%%%
+	\item[5)] Update the parameter $p$ of the spike-and-slab base measure from
+	\begin{equation*}
+	p \sim \mathrm{Beta}(h_{1p} + T - n_0,\, h_{2p} + n_0), 
+	\end{equation*}
+	where $n_0$ is the number of $y_t$ assigned to the the spike component.
+	\item[6)] Update the cluster allocations variables $\bm{c}^D$ and $\bm{c}$, the number of mixture components $K$ and $L$, and the cluster parameters $\bm{A^*}$ using the nested telescoping sampling for the finite common atom model reported in Algorithm \ref{ch3_alg:nested_telescopic}.
+\end{enumerate}
+
+\begin{algorithm}
+	Denote with $\mathcal{C}^D$ the current partition on the distributions and with $\mathcal{C}^O$ the partition on the observations.
+	\caption{Nested telescoping sampling}\label{ch3_alg:nested_telescopic}
+	\begin{algorithmic}[1]
+		%
+		\State Sample the weights on the distributions: $$(\pi_1,\dots,\pi_K)\mid K, \alpha, \mathcal{C}^D \sim \Dir(e_1, \dots, e_K);$$ where $e_k = \alpha/K + J_k$, and $J_k$ is the number of groups assigned to distribution $k$.
+		%
+		\State Sample the weights on the observations: for all $k\in\{1,\dots,K\}$ sample a vector $\bm{\omega}_k$ from
+		$$(\omega_{1,k},\dots,\omega_{L,k})\mid L, \beta, \mathcal{C}^O, \mathcal{C}^D \sim \Dir(f_{1,k}, \dots, f_{L,k});$$ where $f_{l,k} = \beta/L + N_{l,k}$, and $N_{l,k}$ is the number of observations in the observational cluster $l$ and distributional cluster $k$.
+		%
+		\State Update the partition on the distributions $\mathcal{C}^D$ by sampling from the posterior distribution of the latent cluster allocation variables $\bm{c}^D$. For $j = 1,\dots,J$
+		$$\Pr(c^D_j = k\mid \bm{\pi}, K,\bm{A}^*, \bm{y}, \bm{g}) \propto \pi_k \prod_{t:g_t=j} \omega_{c_t,c^D_j} \: p(y_t\mid A^*_{c_t}),$$
+		with $k\in\{1,\dots,K\}$.
+		Determine $J_k = \#\{j:c^D_j = k\}$, for $k=1\dots,K$, and the number of non-empty components $K_+ = \sum_{k=1}^K I\{ J_k > 0\}$. Relabel the components so that the first $K_+$ are non-empty.
+		%
+		\State Update the partition on the observations $\mathcal{C}^O$ by sampling from the posterior distribution of the latent cluster allocation variables $\bm{c}$. For $t = 1,\dots,T$
+		$$\Pr(c_t = l \mid c^D_{g_t}= k, \bm{c},\bm{\omega}, L,K,\bm{A}^*, \bm{y}, \bm{g}) \propto \omega_{l,k} \: p(y_t\mid A^*_{c_t}),$$
+		with $l\in\{1,\dots,L\}$, $k\in\{1,\dots,K\}$.
+		Determine $N_l = \#\{t:c_t = l\}$, for $l=1\dots,L$, and the number of non-empty components $L_+ = \sum_{l=1}^L I\{ N_l > 0\}$. Relabel the components so that the first $L_+$ are non-empty. Because all the mixtures share the same atoms, the cluster parameters are sorted regardless of the distributional cluster allocation.
+		% 
+		\State Sample the cluster parameters for the non-empty components: $ p(A^*_l\mid -)\propto p(A^*_l)\: \prod_{t:c_t = l} p(y_t\mid A^*_l) $.
+		%
+		\State Conditional on $\mathcal{C}^D$, sample the number of components $K$ of the mixture on distributions.
+		%
+		\State Conditional on $\mathcal{C}^O$, sample the number of components $L$ of the mixtures on observations. If $L > L_+$, sample a new parameter $A^*$ for the empty components from the prior distribution.
+		%
+		\State Update the hyperparameter $\alpha$ on the Dirichlet distribution on the mixture weights on distributions.
+		%
+		\State Update the hyperparameter $\beta$ on the Dirichlet distribution on the mixture weights on observations.
+	\end{algorithmic}
+The posterior distributions for steps 6-9 are given in~\citet{fruhwirthschnatter2020}.
+\end{algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

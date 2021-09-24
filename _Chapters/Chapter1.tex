@@ -15,65 +15,66 @@ The output of two-photon calcium imaging is a movie of time-varying fluorescence
 Hence further analyses are needed to deconvolve the fluorescence trace to extract the spike train (i.e. the series of recorded firing times), and to try to explain how these firing events are linked with the experiment that generated that particular pattern of activity.
 
 \subsection{Deconvolution methods}
-\label{sec:ch1_deconvolution_methods}
+\label{ch1_sec:deconvolution_methods}
 
 There is currently a rich literature of methods addressing the issue of deconvolving the raw fluorescent trace to extract the spike train. A successful approach is to assume a biophysical model to relate the spiking activity to the calcium dynamics, and to the observed fluorescence. \citet{vogelstein2010} proposed a simple but effective model that has later been adopted by several authors~\citep{pnevmatikakis2016, friedrich2016, friedrich2017, jewell2018, jewell2019}. The model considers the observed fluorescence as a linear (and noisy) function of the intracellular calcium concentration; the calcium dynamics is then modeled using an autoregressive process with jumps in correspondence of the neuron's firing events.
-Denoting with $y_t$ the observed fluorescence trace of a neuron and with $c_t$ the underlying calcium concentration, for time $t=1,\dots,T$, the model can be written as
+Denoting with $y_t$ the observed fluorescence trace of a neuron and with $\Ca_t$ the underlying calcium concentration, for time $t=1,\dots,T$, the model can be written as
 \begin{equation}
 \begin{gathered}
-y_t = b + c_t + \epsilon_t,\quad \epsilon_t \sim \N(0,\sigma^2),  \\
-c_t = \gamma\, c_{t-1} + A_t + w_t, \quad w_t \sim \N(0, \tau^2),
+y_t = b + \Ca_t + \epsilon_t,\quad \epsilon_t \sim \N(0,\sigma^2),  \\
+\Ca_t = \gamma\, \Ca_{t-1} + A_t + w_t, \quad w_t \sim \N(0, \tau^2),
 \end{gathered}
-\label{eq:ch1_armodel}
+\label{ch1_eq:armodel}
 \end{equation}
-where $b$ models the baseline level of the observed trace and $\epsilon_t$ is a Gaussian measurement error. In the absence of neuronal activity, the true calcium concentration $c_t$ is considered to be centered around zero. The parameter $A_t$ captures the neuronal activity: in the absence of a spike ($A_t = 0$), the calcium level follows a AR(1) process controlled by the parameter $\gamma$; when a spike occurs, the concentration increases instantaneously of a value $A_t > 0$.
+where $b$ models the baseline level of the observed trace and $\epsilon_t$ is a Gaussian measurement error. In the absence of neuronal activity, the true calcium concentration $\Ca_t$ is considered to be centered around zero. The parameter $A_t$ captures the neuronal activity: in the absence of a spike ($A_t = 0$), the calcium level follows a AR(1) process controlled by the parameter $\gamma$; when a spike occurs, the concentration increases instantaneously of a value $A_t > 0$.
 A challenge remains estimating the neuronal activity $A_t$ in a precise and computationally efficient way.
 
-\citet{vogelstein2010} assume that all spikes have a fixed amplitude, and interpret the parameter $A_t$ as the \textit{number} of spikes at time $t$. Following this definition, they place a Poisson prior distribution on $A_t$; however, the maximum a posteriori estimation of the spike train using a Poisson distribution is computationally intractable. Hence they search an approximate solution by replacing the Poisson distribution with an exponential distribution of the same mean. This leads to some loss of interpretation of the parameters $A_t$, as now they are no longer integer values but rather non-negative real numbers, but turns the problem into a convex optimization, which can be solved efficiently.
+\citet{vogelstein2010} assumed that all spikes have a fixed amplitude, and interpreted the parameter $A_t$ as the \textit{number} of spikes at time $t$. Following this definition, they placed a Poisson prior distribution on $A_t$; however, the maximum a posteriori estimation of the spike train using a Poisson distribution is computationally intractable. Hence they searched an approximate solution by replacing the Poisson distribution with an exponential distribution of the same mean. This leads to some loss of interpretation of the parameters $A_t$, as now they are no longer integer values but rather non-negative real numbers, but turns the problem into a convex optimization, which can be solved efficiently.
 Adopting this approach leads to solving a non-negative lasso problem for estimating the calcium concentration, where the $L_1$ penalty enforces sparsity of the neural activity.
-Efficient algorithms to obtain a solution of this problem were also proposed by \citet{pnevmatikakis2016}, \citet{friedrich2016}, and \citet{friedrich2017}.
+Efficient algorithms to obtain a solution of this problem have also been proposed by \citet{pnevmatikakis2016}, \citet{friedrich2016}, and \citet{friedrich2017}.
 
-A different perspective is instead proposed by~\citet{jewell2018} and~\citet{jewell2019}: rather than interpreting $A_t$ in model~(\ref{eq:ch1_armodel}) as the number of spikes at the $t$-th timestep, they interpret its sign as an indicator for whether or not \textit{at least one} spike occurred, that is, $A_t = 0$ indicates no spikes at time $t$, and $A_t>0$ indicates the occurrence of at least one spike. The model so formulated includes an indicator variable, which corresponds to using an $L_0$ penalization and which makes the optimization problem highly non-convex. 
-In their work, \citet{jewell2018} and~\citet{jewell2019} develop fast algorithms to compute the spike trains under these assumptions.
-\citet{jewell2018} assert that the solutions discussed by \citet{vogelstein2010}, \citet{friedrich2016}, and \citet{friedrich2017} can actually be seen as convex relaxations of this optimization problem, to overcome the computational intractability of the $L_0$ penalization. 
+A different perspective is instead proposed by~\citet{jewell2018} and~\citet{jewell2019}: rather than interpreting $A_t$ in model~(\ref{ch1_eq:armodel}) as the number of spikes at the $t$-th timestep, they interpreted its sign as an indicator for whether or not \textit{at least one} spike occurred, that is, $A_t = 0$ indicates no spikes at time $t$, and $A_t>0$ indicates the occurrence of at least one spike. The model so formulated includes an indicator variable, which corresponds to using an $L_0$ penalization and which makes the optimization problem highly non-convex. 
+In their work, \citet{jewell2018} and~\citet{jewell2019} developed fast algorithms to compute the spike trains under these assumptions.
+\citet{jewell2018} asserted that the solutions discussed by \citet{vogelstein2010}, \citet{friedrich2016}, and \citet{friedrich2017} can actually be seen as convex relaxations of this optimization problem, to overcome the computational intractability of the $L_0$ penalization. 
 
-Finally,~\citet{pnevmatikakis2013} propose a fully Bayesian approach. Although less computationally efficient than optimization methods, it allows to obtain a posterior distribution of all model parameters instead of just a point estimate, hence improving uncertainty quantification.
-Differently from previous models, they define the parameter $A_t$ as the \textit{amplitude} of a spike at time $t$, taking values in the non-negative real numbers.
-They formulate the presence/absence of a spike and its amplitude by using the product of a Bernoulli random variable (taking value 0 if there is no spike at time $t$, and 1 otherwise) with a half-Gaussian random variable (modeling the positive amplitudes). However, they do not explicitly assume sparsity of the spikes.
+Finally,~\citet{pnevmatikakis2013} proposed a fully Bayesian approach. Although less computationally efficient than optimization methods, it allows to obtain a posterior distribution of all model parameters instead of just a point estimate, hence improving uncertainty quantification.
+Differently from previous models, they defined the parameter $A_t$ as the \textit{amplitude} of a spike at time $t$, taking values in the non-negative real numbers.
+They formulated the presence/absence of a spike and its amplitude by using the product of a Bernoulli random variable (taking value 0 if there is no spike at time $t$, and 1 otherwise) with a half-Gaussian random variable (modeling the positive amplitudes). However, they did not explicitly assume sparsity of the spikes.
 
 
 \subsection{Spike train data analysis}
-\label{subsec:ch1_spike_analysis}
+\label{ch1_sec:spike_train_analysis}
 Standard methods to analyze calcium imaging data rely on a two-step approach: in a first phase, some deconvolution method such as those just described is applied to identify the spikes, then, a different method is used on the deconvolved output to analyze it and, possibly, to relate it with some covariates.
 However, while there is a rich literature on deconvolution methods, there is still little research on methods that try to derive inferential results from their output.
 
-Concerning encoding models, i.e. models that try to understand how the brain encodes external variables into spike train, \citet{paninski2007} focus on the use of generalized linear models (GLMs). GLMs allow spike trains to be regressed against a potentially large number of covariates such as behavioral parameters, experimental conditions and other relevant factors.
+Concerning encoding models, i.e. models that try to understand how the brain encodes external variables into spike train, \citet{paninski2007} focused on the use of generalized linear models (GLMs). GLMs allow spike trains to be regressed against a potentially large number of covariates such as behavioral parameters, experimental conditions and other relevant factors.
 Moreover, regression models provide simple and interpretable results of the effect of each covariate on the neuronal response.
-In particular, \citet{paninski2007} highlight the importance of regularization methods and inclusion of prior knowledge to improve estimation of the model parameters, as in many cases the number of covariates is potentially very large, leading to noisy results and a loss in interpretability.
+In particular, \citet{paninski2007} highlighted the importance of regularization methods and inclusion of prior knowledge to improve estimation of the model parameters, as in many cases the number of covariates is potentially very large, leading to noisy results and a loss in interpretability.
 
-A different approach is proposed by \citet{wei2019}: instead of focusing the relationship between the experimental conditions and some summary statistic of the resulting spike train, they study the distribution of the deconvolved output. In particular, this allows to analyze quantities such as the spike probability and the spikes' amplitudes. They propose a mixture model, with a Dirac mass at zero, representing the absence of neuronal response, and a translated Gamma distribution to model the positive amplitudes.
+A different approach has been proposed by \citet{wei2019}: instead of focusing the relationship between the experimental conditions and some summary statistic of the resulting spike train, they studied the distribution of the deconvolved output. In particular, this allows to analyze quantities such as the spike probability and the spikes' amplitudes. They proposed a mixture model, with a Dirac mass at zero, representing the absence of neuronal response, and a translated Gamma distribution to model the positive amplitudes.
 
 \section{Data sets} 
 Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...
 
 \subsection{Allen Brain Observatory data}
+\label{ch1_sec:allen_brain_data}
 The Allen Brain Observatory~\citep{allen} is a large public data repository for investigating how sensory stimulation is represented by neural activity in the mouse visual cortex in both single cells and populations.
 The project aims to provide a standardized and systematic survey to measure and analyze visual responses from neurons across cortical areas and layers, utilizing transgenic Cre lines to drive expression of genetically encoded fluorescent calcium indicators, and measured by \textit{in vivo} two-photon calcium imaging.
 
-The study is an extended survey of physiological activity in the mouse visual cortex in response to a range of visual stimuli~\citep{allen_stimulus}. Each mouse is placed in front of a screen where different types of visual stimuli are shown, while the mouse’s neuronal activity is recorded. The stimuli vary from simple synthetic images such as locally sparse noise or static gratings, to complex natural scenes and movies.
+The study is an extended survey of physiological activity in the mouse visual cortex in response to a range of visual stimuli~\citep{allen_stimulus}. Each mouse was placed in front of a screen where different types of visual stimuli were shown, while the mouse’s neuronal activity was recorded. The stimuli vary from simple synthetic images such as locally sparse noise or static gratings, to complex natural scenes and movies.
 The goal of the study is to investigate how neurons at different depths and in different areas of the visual cortex respond to stimuli of varying complexity, to understand their functional properties. Specifically, each neuron in the visual cortex can be characterized by their \textit{receptive field}, i.e. the features of the visual stimulus that trigger the signaling of that neuron. 
 An important finding from mammalian is that higher visual areas tend to respond to more complex stimuli relative to lower areas. These differences indicate that the different neurons and visual areas have distinct functional properties.
 Hence, it is of critical interest to devise methods that allow inferring how the neuronal response varies under the different types of visual stimuli. %We expect that the neuronal activity will vary across all the experimental settings, and that some variations in its intensity will be observed based on the specific visual stimulus.
-As an example, Figure \ref{fig:ch1_trace_neurons} shows the calcium traces of two neurons recorded during two different experiment sessions from the Allen Brain Observatory study.
+As an example, Figure \ref{ch1_fig:trace_neurons} shows the calcium traces of two neurons recorded during two different experiment sessions from the Allen Brain Observatory study.
 Each experiment comprises three types of visual stimuli, and has a duration of approximately one hour.
 These plots highlight that the neuronal response is highly variable, both across experimental conditions and between neurons.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.9\textwidth]{neuron2_trace}
+	\includegraphics[width=.9\textwidth]{ch1_neuron2_trace}
 	\centering
-	\includegraphics[width=.9\textwidth]{neuron1_trace}
-	\caption[Allen Brain Observatory data: calcium traces of two neurons located in the primary visual area during Session A and Session B of the experiment. ]{Allen Brain Observatory data: calcium traces (black line) of two neurons located in the primary visual area during Session A (upper plot) and Session B (bottom plot) of the experiment. The background colors denote the visual stimulus displayed at each time.}\label{fig:ch1_trace_neurons}
+	\includegraphics[width=.9\textwidth]{ch1_neuron1_trace}
+	\caption[Allen Brain Observatory data: calcium traces of two neurons located in the primary visual area during Session A and Session B of the experiment. ]{Allen Brain Observatory data: calcium traces (black line) of two neurons located in the primary visual area during Session A (upper plot) and Session B (bottom plot) of the experiment. The background colors denote the visual stimulus displayed at each time.}\label{ch1_fig:trace_neurons}
 \end{figure}
 
 The Allen Brain Observatory study comprises records of neuronal activity from over $60000$ cells from six visual areas (VISp, VISl, VISal, VISrl, VISam, and VISpm) and different imaging depths (ranging from 175 to 625 microns). The data were collected analyzing the brain activity of several genetically engineered mice, using different transgenic Cre lines.
@@ -110,7 +111,7 @@ In this section we review some statistical tools that will be employed in this t
 The core topic will be the Bayesian methodology, with a focus on Bayesian nonparametric models.
 
 \subsection{Finite mixture models}
-\label{subsec:finite_mix}
+\label{ch1_sec:finite_mix}
 We start our discussion by reviewing finite mixtures. Although they are not part of the Bayesian nonparametric methodology, they provide the starting point for many models that we will review in the following. The content of this brief overview on finite mixtures is largely based on the dedicated chapter in~\citet{gelman2013}.
 
 \subsubsection*{Definition and hierarchical representations}
@@ -149,10 +150,10 @@ y_i \mid c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k)\\
 \theta^*_1,\dots,\theta^*_K \sim G_0\\
 \pi_1,\dots,\pi_K  \sim \Dir_K(\alpha_1,\dots,\alpha_K).
 \end{gathered}
-\label{eq:ch1_finitemix_h1}
+\label{ch1_eq:finitemix_h1}
 \end{equation}
 
-It is possible to rewrite Equation (\ref{eq:ch1_finitemix_h1}) in a slightly different way by thinking that each observation $y_i$ is associated with a parameter $\theta_i$, where these parameters are drawn from a discrete distribution $G$ with support on the $K$ locations $\{\theta^*_1,\dots,\theta^*_K\}$. The model then becomes, for $i=1,\dots,n$
+It is possible to rewrite Equation (\ref{ch1_eq:finitemix_h1}) in a slightly different way by thinking that each observation $y_i$ is associated with a parameter $\theta_i$, where these parameters are drawn from a discrete distribution $G$ with support on the $K$ locations $\{\theta^*_1,\dots,\theta^*_K\}$. The model then becomes, for $i=1,\dots,n$
 \begin{equation}
 \begin{gathered}
 y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
@@ -160,7 +161,7 @@ y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
 \theta^*_1,\dots,\theta^*_K \sim G_0\\
 \pi_1,\dots,\pi_K \sim \Dir_K(\alpha_1,\dots,\alpha_K).
 \end{gathered}
-\label{eq:ch1_finitemix_h2}
+\label{ch1_eq:finitemix_h2}
 \end{equation}
 
 \subsubsection*{Posterior inference for finite mixture models}
@@ -179,10 +180,10 @@ Moreover, for the distribution of the mixture weights it is possible to exploit 
 
 
 \subsection{Dirichlet process mixture models}
-Nonparametric mixtures extend model (\ref{eq:ch1_finitemix_h2}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \citet{ferguson1973, ferguson1974}. Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
+Nonparametric mixtures extend model (\ref{ch1_eq:finitemix_h2}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \citet{ferguson1973, ferguson1974}. Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
 
 \subsubsection*{The Dirichlet process }
-\label{subsec:DP}
+\label{ch1_sec:DP}
 The Dirichlet process is a stochastic process whose realizations are probability distributions with probability one. 
 Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. For this short review of some of the main properties of the DP we followed the unpublished report by Yee Whye Teh, which illustrates in a clear and simple way the fundamental properties of this process.
 
@@ -224,7 +225,7 @@ The DP admits several nice representations. An intuitive constructive definition
 %\begin{equation}
 \begin{gather} 
 v_k \sim \Beta(1,\alpha), \quad \theta^*_k \sim G_0 \qquad \text{for } k\geq 1  \nonumber\\
-\pi_1 = v_1, \quad \pi_k = v_k \prod_{h = 1}^{k-1} (1-v_h) \qquad \text{for } k\geq 2 \label{eq:ch1_stickbreaking}\\
+\pi_1 = v_1, \quad \pi_k = v_k \prod_{h = 1}^{k-1} (1-v_h) \qquad \text{for } k\geq 2 \label{ch1_eq:stickbreaking}\\
 G = \sum_{k=1}^{\infty} \pi_k \delta_{\theta^*_k}. \nonumber
 \end{gather}
 %\end{equation}
@@ -233,7 +234,7 @@ Because of its simplicity, this representation has motivated extensions of the p
 
 
 \subsubsection*{Dirichlet process mixtures}
-Getting back to the framework of mixture models, from the representation of the process as discrete measure it is straightforward to extend the finite mixtures described in the previous section to nonparametric mixtures: following the structure of Equation (\ref{eq:ch1_finitemix_h2}), DP mixtures (DPMs) can be written as
+Getting back to the framework of mixture models, from the representation of the process as discrete measure it is straightforward to extend the finite mixtures described in the previous section to nonparametric mixtures: following the structure of Equation (\ref{ch1_eq:finitemix_h2}), DP mixtures (DPMs) can be written as
 \begin{equation*}
 \begin{gathered}
 y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
@@ -244,7 +245,7 @@ G \sim \DP(\alpha,G_0).
 Alternatively, making use of the set of unique values $\{\theta^*_k\}_{k=1}^{\infty}$ and of Sethuraman's representation, the model can be expressed as
 \begin{equation}
 p(y_i\mid G) = \sum_{k=1}^{\infty} \pi_k f(y_i\mid\theta^*_k)
-\label{eq:ch1_DPM}
+\label{ch1_eq:DPM}
 \end{equation}
 where the weights $\{\pi_k\}_{k=1}^{\infty}$ follow a stick-breaking construction and the $\{\theta^*_k\}_{k=1}^{\infty}$ are i.i.d. samples from the base measure $G_0$.
 
@@ -259,12 +260,12 @@ It is common to divide these methods into two classes depending on the strategy 
 Here we will focus on conditional methods. Avoiding marginalization of the random measure allows to perform inference on it directly, moreover, these methods are often computationally more efficient than marginal ones; however, they require to devise good strategies to deal with the infinite dimension of the process.
 
 In the blocked Gibbs sampler of~\citet{ishwaran2001} the infinite random measure is truncated to an upper bound $K$ for the number of clusters. The motivation that justifies this approach is that the weights $\{\pi_k\}_{k=1}^{\infty}$ determined by the stick-breaking construction are stochastically decreasing in $k$. By choosing a sufficiently large value $K$ one can assume that $\sum_{k=K+1}^{\infty} \pi_k$ has a distribution concentrated near zero.
-Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{subsec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $v_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h)$ for $k = 1,\dots,K-1$. Finally, letting $v_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
+Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{ch1_sec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $v_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h)$ for $k = 1,\dots,K-1$. Finally, letting $v_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
 
 The slice sampler \citep{walker2007, kalli2011} has been adopted as an alternative ``dynamic'' truncation method to automatically select the active components of the mixture. 
 The slice sampler relies on the introduction of latent uniform random variables $u_i$, $i=1,\dots,n$, such that 
-marginalizing the joint density of $(y_i,u_i)$ still returns the desired density in Eq. (\ref{eq:ch1_DPM}), and such that the conditional density of $y_i\mid u_i$ only involves a finite number of mixture components.
-Specifically, model (\ref{eq:ch1_DPM}) can be obtained as marginal density with respect to $u_i$ of
+marginalizing the joint density of $(y_i,u_i)$ still returns the desired density in Eq. (\ref{ch1_eq:DPM}), and such that the conditional density of $y_i\mid u_i$ only involves a finite number of mixture components.
+Specifically, model (\ref{ch1_eq:DPM}) can be obtained as marginal density with respect to $u_i$ of
 \begin{equation*}
 p(y_i,u_i\mid G) = \sum_{k=1}^{\infty} \mathbb{I}(u_i<\pi_k) f(y_i\mid\theta^*_k),
 \end{equation*}
@@ -277,13 +278,13 @@ where $A_u$ is the set of indices of active components $A_u = \{k:\pi_k >u\}$ an
 Introducing the cluster indicators $\CC = \{c_1,\dots,c_n\}$ further simplifies the density, similarly to the case of finite mixtures. Finally, \citet{kalli2011} also introduce a non-stochastic positive sequence $\{\xi_1,\xi_2,\dots\}$ in order to improve mixing (we refer to the original paper for a discussion on the choice of the sequence). With all these elements, the joint density of $(\bm{y},\bm{u},\mathcal{C})$ conditioned on $\bm{\pi}$ and $\bm{\theta}^*$ becomes
 \begin{equation}
 p(\bm{y},\bm{u},\mathcal{C} \mid \bm{\pi},\bm{\theta}^*) = \prod_{i=1}^n \mathbb{I}(u_i < \xi_{c_i}) \frac{\pi_{c_i}}{\xi_{c_i}} f(y_i\mid\theta^*_{c_i}).
-\label{eq:ch1_sliceDPMlik}
+\label{ch1_eq:sliceDPMlik}
 \end{equation}
 The slice sampler algorithm iterates the following steps:
 \begin{enumerate}
 	\item Update the cluster-specific parameters $\theta^*_k$, for $k=1,\dots,K$, where $K$ is defined as the maximum index $h$ such that $\xi_h > u_i$ for all $i=1,\dots,n$, from
 	$$p(\theta^*\mid \CC) \propto G_0(\theta^*_k)\prod_{i:c_i=k} f(y_i\mid\theta^*_k).$$
-	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{eq:ch1_stickbreaking}) with beta random variables $v_k\sim\Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h).$
+	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{ch1_eq:stickbreaking}) with beta random variables $v_k\sim\Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h).$
 	\item Sample the latent variables $u_i$ from a uniform distribution $u_i \mid c_i \sim \mathrm{Unif}(0,\xi_{c_i})$
 	\item Update the cluster allocations $c_i$ for $i=1,\dots,n$ from
 	$$\Pr(c_i = k\mid u_i, y_i, \theta^*_k)\propto \mathbb{I}(k:\xi_k > u_i) \frac{\pi_k}{\xi_k} f(y_i\mid\theta^*_k).$$
@@ -295,14 +296,14 @@ The slice sampler algorithm iterates the following steps:
 To avoid fixing the number of clusters, a different approach to DP mixtures is to consider finite mixtures with a prior on the number of components. Although this may seem as the most natural way to infer the number of groups, application of mixtures of finite mixtures (MFMs) has long been hindered by the difficulty of performing posterior inference. 
 Several inference methods have been proposed for this type of models \citep{McCullagh2008,nobile2004,nobile2007,richardson1997} often exploiting the reversible jump Markov chain Monte Carlo techniques. However, applying the reversible jump in new situations can be hard, as it requires designing new reversible jump moves.
 
-More recently, different models have been proposed inspired by nonparametric mixtures. \citet{miller2018} explicitly derived MFMs counterparts for several properties exhibited by DPMs. They considered a finite mixture model similar to the one defined in section \ref{subsec:finite_mix}, where however the number of clusters is random and is assigned a prior distribution. A main limitation of their approach is that it assumes a fixed parameter $\alpha$ for the Dirichlet distribution, regardless of the dimension $K$, which can lead to undesired 
+More recently, different models have been proposed inspired by nonparametric mixtures. \citet{miller2018} explicitly derived MFMs counterparts for several properties exhibited by DPMs. They considered a finite mixture model similar to the one defined in section \ref{ch1_sec:finite_mix}, where however the number of clusters is random and is assigned a prior distribution. A main limitation of their approach is that it assumes a fixed parameter $\alpha$ for the Dirichlet distribution, regardless of the dimension $K$, which can lead to undesired 
 
 Another approach is discussed by \citet{malsinerwalli2016} and \cite{fs2019}, based on the use of sparse mixtures. Similarly to DPMs, in this formulation they distinguish between the mixture components and the clusters, which are defined as the components actually used by the data. In their approach, the number of components $K$ is fixed to a large and clearly overfitting value, and a Dirichlet prior with small parameter on the mixture weights ensures that the (random) number of clusters $K_+$ will take values smaller than $K$ with high probability a priori and also a posteriori.
 
 \subsubsection*{Generalized mixtures of finite mixtures}
 A general formulation that includes all three models described above as special cases (finite mixtures with a fixed number of clusters, MFMs and overfitted mixtures) has recently been described by \citet{fruhwirthschnatter2020}: they call this specification generalized mixture of finite mixtures (gMFM). Similarly to overfitted mixtures, a key aspect of this approach is the distinction between the number of components $K$ and the number of clusters $K_+$; however, here, the number of components is also random. 
 In the following we will review some aspects of these models that will be used later in this thesis.
-The gMFM model can be defined in a hierarchical form analogous to Equation (\ref{eq:ch1_finitemix_h1}) as
+The gMFM model can be defined in a hierarchical form analogous to Equation (\ref{ch1_eq:finitemix_h1}) as
 \begin{equation*}
 \begin{gathered}
 y_i \mid K, c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k)\\
@@ -311,7 +312,7 @@ y_i \mid K, c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k)\\
 \pi_1,\dots,\pi_K \mid K, \alpha \sim \Dir_K(\alpha / K, \dots, \alpha / K)\\
 K \sim p(K)
 \end{gathered}
-\label{eq:ch1_gMFM}
+\label{ch1_eq:gMFM}
 \end{equation*}
 Including a prior on $K$ also induces a prior on the number of clusters $K_+$: here a crucial role is played by the sequence of concentration parameters of the Dirichlet distribution. Considering fixed parameters as in~\citet{miller2018}, where a $\Dir_K(1,\dots,1)$ is used regardless of the value of $K$, leads to a prior expected number of clusters $E(K_+)$ close to $E(K)$ for many priors $p(K)$. Having instead concentration parameters that decrease with increasing $K$ induces randomness in the prior distribution of $K_+\mid K$, allowing for a gap between $K_+$ and $K$. In this formulation the parameters decrease linearly with $K$, and a $F$ prior distribution is used for the hyperparameter $\alpha$.
 The specification of a gMFM is completed with a suitable prior $p(K)$ on the number of components. In their work, \citet{fruhwirthschnatter2020} discuss different choices and compare the resulting prior on the number of clusters. 
@@ -364,7 +365,7 @@ However, as these $G_j$'s are independent draws, in general, they will have diff
 To overcome this limitation,~\citet{rodriguez2008} introduced the nested Dirichlet process, which allows to obtain a clustering both of the observations within each group, and of the groups themselves. 
 Consider again a collection of distributions $\{G_1,\dots,G_J\}$ serving as group-specific mixing measures of a nonparametric mixture. The nested DP assumes that $G_j\mid Q \sim Q$ for $j=1,\dots,J$ and $Q \sim DP(\alpha, DP(\beta,G_0))$. Using the stick-breaking representation of the DP, this model can be expressed as
 \begin{gather}
-G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{\infty} \pi_k \delta_{G^*_k} \label{eq:ch1_nestedDP_level1}\\
+G_1,\dots,\,G_J \mid Q \sim Q, \qquad Q = \sum_{k=1}^{\infty} \pi_k \delta_{G^*_k} \label{ch1_eq:nestedDP_level1}\\
 G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l,k}} \nonumber
 \end{gather}
 where the sequences of weights $\{\pi_k\}_{k=1}^{\infty}$ and $\{\omega_{l,k}\}_{l=1}^{\infty}$ for $k\geq1$ follow a stick breaking construction, $\bm{\pi}\sim \mathrm{GEM}(\alpha)$ and $\bm{\omega}_k \sim \mathrm{GEM}(\beta)$, and the parameters $\theta^*_{l,k}$ are i.i.d. samples from $G_0$.
@@ -382,7 +383,7 @@ However, implementation of this model becomes challenging and computationally bu
 \subsubsection*{The common atoms model}
 Another nested nonparametric prior, more suited to practical applications, is proposed by~\citet{denti2021}. They formulate a constrained modification of the nested DP which, however, does not suffer from the degeneracy issue. Moreover, compared to the models introduced by~\citet{camerlenghi2019}, it is computationally more efficient and allows to perform posterior inference in a quite straightforward way even when the number of groups is moderate.
 %
-The first level of their common atoms model (CAM) is analogous to the nested DP (Eq.~\ref{eq:ch1_nestedDP_level1}), however, the specification of the distributional atoms $G^*_k$ makes use of a common set of atoms for all $k$. Hence the distributions $G^*_k$ can be seen as realizations of a single-atom dependent DP,
+The first level of their common atoms model (CAM) is analogous to the nested DP (Eq.~\ref{ch1_eq:nestedDP_level1}), however, the specification of the distributional atoms $G^*_k$ makes use of a common set of atoms for all $k$. Hence the distributions $G^*_k$ can be seen as realizations of a single-atom dependent DP,
 \begin{equation*}
 G^*_k = \sum_{l=1}^{\infty} \omega_{l,k} \delta_{\theta^*_{l}} 
 \end{equation*}
@@ -405,8 +406,8 @@ c^D_{g_i} \mid \bm{\pi} \sim \sum_{k=1}^{\infty} \pi_k \delta_k \qquad \bm{\pi} 
 \end{equation*}
 
 \subsubsection*{Posterior inference for the CAM}
-To infer on the posterior distribution of the CAM model, \citet{denti2021} develop a nested version of the slice sampler of \citet{kalli2011} (described in the last part of Section \ref{subsec:DP}). This sampler relies on two sequences of latent uniform variables $\bm{u}^D = \{u_{g_i}\}_{g_i=1}^J$ (on the distributional level) and $\bm{u}^O = \{u^O_i\}_{i=1}^n$ (on the observational level) pointing to the active mixture components. Moreover, they also introduce two deterministic sequences $\bm{\xi}^D = \{\xi_k\}_{k=1}^{\infty}$ and $\bm{\xi}^O = \{\xi_{l,k}^O\}_{l=1}^{\infty}$ for $k\geq 1$.
-Similarly to Equation~\ref{eq:ch1_sliceDPMlik}, the model can be written as 
+To infer on the posterior distribution of the CAM model, \citet{denti2021} develop a nested version of the slice sampler of \citet{kalli2011} (described in the last part of Section \ref{ch1_sec:DP}). This sampler relies on two sequences of latent uniform variables $\bm{u}^D = \{u_{g_i}\}_{g_i=1}^J$ (on the distributional level) and $\bm{u}^O = \{u^O_i\}_{i=1}^n$ (on the observational level) pointing to the active mixture components. Moreover, they also introduce two deterministic sequences $\bm{\xi}^D = \{\xi_k\}_{k=1}^{\infty}$ and $\bm{\xi}^O = \{\xi_{l,k}^O\}_{l=1}^{\infty}$ for $k\geq 1$.
+Similarly to Equation~\ref{ch1_eq:sliceDPMlik}, the model can be written as 
 \begin{equation*}
 p(\bm{y}, \bm{u}^D, \bm{u}^O, \CC^D, \CC \mid \bm{\theta}^*, \bm{\pi}, \bm{\omega} ) = \prod_{j=1}^J \mathbb{I}(u^D_j < \xi^D_{c^D_j}) \frac{\pi_{c^D_j}}{\xi^D_{c^D_{j}}}  \prod_{i:g_i=j} \mathbb{I}(u_i^O < \xi_{c_i,c^D_j}^O) 
 \frac{\omega_{c_i,c^D_j}}{\xi_{c_i,c^D_j}^O}
