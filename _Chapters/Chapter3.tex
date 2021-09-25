@@ -1,5 +1,6 @@
 % Chapter 3
-\chapter{Simultaneous deconvolution and modeling of grouped calcium imaging data }
+\chapter{Deconvolution and modeling of calcium imaging data with discrete stimulus}
+\chaptermark{Calcium imaging data with discrete stimulus}
 
 \vspace{.7cm}
 As discussed in Section~\ref{ch1_sec:spike_train_analysis}, routine methods to analyze calcium imaging data are based on a two-step approach. 
@@ -12,8 +13,8 @@ More specifically, our modeling framework estimates and clusters the distributio
 The proposed model further adopts the use of a common atom specification as in \citet{denti2021} for estimating the distribution of the spikes' amplitudes under each experimental condition. The proposed common atom gMFM has several advantages with respect to typical Bayesian nonparametric models for nested data. With respect to models based on Dirichlet process priors, the gMFM provides increased flexibility to estimate partitions characterized either by many, well-balanced, clusters or by a small set of large clusters. The common atom model allows to obtain nested inference on densities without incurring in the degeneracy issues pointed out by \citet{camerlenghi2019} for the widely used nested Dirichlet process of \citet{rodriguez2008}. At the same time, the common atom formulation still leverages two nested layers of random discrete mixture priors to borrow information between experiments and to identify similarities in the distributional patterns of the neuronal responses to different stimuli. In addition, differently than in the nested Dirichlet process, the common atom model also allows to cluster the inferred spikes' intensity values both within and between experimental conditions, so to infer common (recurring) response amplitudes. Finally, we allow our model to enforce sparsity of neuron firing over time by assuming a spike-and-slab prior specification on the marginal distribution of the amplitudes.
 
 
-\section{Bayesian mixture model for calcium imaging data}
-\subsection{Model and prior specification}
+%\section{Mixture model for nested calcium imaging data}
+\section{Model and prior specification}
 \label{s:model}
 
 We consider the biophysical model for the calcium dynamics~\eqref{ch1_eq:armodel} introduced in Section~\ref{ch1_sec:deconvolution_methods}, and the interpretation of the $A_t$ parameters as \textit{amplitude} of a spike at time $t$, taking value $0$ if there is no spike and a positive value otherwise.
@@ -63,7 +64,7 @@ Finally, under the assumption that the process is stationary with positive corre
 
 
 
-\subsection{Posterior inference}
+\section{Posterior inference}
 \label{s:posterior_inference}
 
 For computational purposes, it is convenient to rewrite the likelihood for an observation $y_t$ under condition $g_t=j$ by introducing two latent cluster allocation variables, $c^D_j = c^D_{g_t}$ and $c_t$, indicating the distributional cluster for the group $j$ and the observational cluster for $y_t$, respectively. 
