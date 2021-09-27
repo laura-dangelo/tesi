@@ -1,4 +1,4 @@
-\begin{thebibliography}{74}
+\begin{thebibliography}{82}
 
 \bibitem[Albert and Chib(1993)]{albert_chib_1993}
 Albert, J.~H. and Chib, S. (1993) Bayesian analysis of binary and polychotomous
@@ -177,6 +177,17 @@ Hastings, W.~K. (1970) Monte {Carlo} sampling methods using {Markov} chains and
   their applications.
 \newblock \emph{Biometrika} \textbf{57}(1), 97--109.
 
+\bibitem[Hoang \emph{et~al.}(2020)Hoang, Sato, Shinomoto, Tsutsumi, Hashizume,
+  Ishikawa, Kano, Ikegaya, Kitamura, Kawato and Toyama]{Hoang2020}
+Hoang, H., Sato, M.-a., Shinomoto, S., Tsutsumi, S., Hashizume, M., Ishikawa,
+  T., Kano, M., Ikegaya, Y., Kitamura, K., Kawato, M. and Toyama, K. (2020)
+  Improved hyperacuity estimation of spike timing from calcium imaging.
+\newblock \emph{Scientific Reports} \textbf{10}(1), 17844.
+
+\bibitem[Hubert and Arabie(1985)]{hubert1985}
+Hubert, L. and Arabie, P. (1985) Comparing partitions.
+\newblock \emph{Journal of Classification} \textbf{2}(336), 193 -- 218.
+
 \bibitem[Hutchinson and Holtman(2005)]{Hutchinson2005}
 Hutchinson, M.~K. and Holtman, M.~C. (2005) Analysis of count data using
   {Poisson} regression.
@@ -267,6 +278,13 @@ Mukamel, E.~A., Nimmerjahn, A. and Schnitzer, M.~J. (2009) Automated analysis
   of cellular signals from large-scale calcium imaging data.
 \newblock \emph{Neuron} \textbf{63}(6), 747 -- 760.
 
+\bibitem[M\"uller \emph{et~al.}(2007)M\"uller, Parmigiani and Rice]{Muller07}
+M\"uller, P., Parmigiani, G. and Rice, K. (2007) {FDR} and {B}ayesian multiple
+  comparisons rules.
+\newblock In \emph{Bayesian Statistics 8}, eds J.~Bernardo, M.~Bayarri,
+  J.~Berger, A.~Dawid, D.~Heckerman, A.~Smith and M.~West. Oxford, UK: Oxford
+  University Press.
+
 \bibitem[Neal(2011)]{neal2011mcmc}
 Neal, R.~M. (2011) {MCMC} using {Hamiltonian} dynamics.
 \newblock \emph{Handbook of {M}arkov chain {M}onte {C}arlo} \textbf{2}(11), 2.
@@ -275,6 +293,13 @@ Neal, R.~M. (2011) {MCMC} using {Hamiltonian} dynamics.
 Nelder, J.~A. and Wedderburn, R. W.~M. (1972) Generalized linear models.
 \newblock \emph{Journal of the Royal Statistical Society. Series A (General)}
   \textbf{135}(3), 370--384.
+
+\bibitem[Newton \emph{et~al.}(2004)Newton, Noueiry, Sarkar and
+  Ahlquist]{newton2004}
+Newton, M.~A., Noueiry, A., Sarkar, D. and Ahlquist, P. (2004) Detecting
+  differential gene expression with a semiparametric hierarchical mixture
+  method.
+\newblock \emph{Biostatistics} \textbf{5}(2).
 
 \bibitem[Nobile(2004)]{nobile2004}
 Nobile, A. (2004) On the posterior distribution of the number of components in
@@ -315,6 +340,11 @@ van~der Pas, S., Szabó, B. and van~der Vaart, A. (2017) {Adaptive posterior
   contraction rates for the horseshoe}.
 \newblock \emph{Electronic Journal of Statistics} \textbf{11}(2), 3196 -- 3225.
 
+\bibitem[Peron and Gabbiani(2009)]{Peron2009}
+Peron, S.~P. and Gabbiani, F. (2009) Role of spike-frequency adaptation in
+  shaping neuronal response to dynamic stimuli.
+\newblock \emph{Biological cybernetics} \textbf{100}(6), 505--520.
+
 \bibitem[Piironen and Vehtari(2017)]{Piironen2017}
 Piironen, J. and Vehtari, A. (2017) {Sparsity information and regularization in
   the horseshoe and other shrinkage priors}.
@@ -347,6 +377,11 @@ Prado, R. and West, M. (2010) \emph{Time Series: Modeling, Computation, and
 \newblock Chapman and Hall.
 \newblock ISBN 1420093363.
 
+\bibitem[Rand(1971)]{rand1971}
+Rand, W.~M. (1971) Objective criteria for the evaluation of clustering methods.
+\newblock \emph{Journal of the American Statistical Association}
+  \textbf{66}(336), 846--850.
+
 \bibitem[Richardson and Green(1997)]{richardson1997}
 Richardson, S. and Green, P.~J. (1997) On {Bayesian} analysis of mixtures with
   an unknown number of components (with discussion).
@@ -373,6 +408,13 @@ Sethuraman, J. (1994) A constructive definition of {Dirichlet} priors.
 {Stan Development Team} (2021) Stan modeling language users guide and reference
   manual.
 \newblock \textsc{url:} \texttt{http://mc-stan.org/}.
+
+\bibitem[Sun \emph{et~al.}(2015)Sun, Reich, Tony~Cai, Guindani and
+  Schwartzman]{SunReich2015}
+Sun, W., Reich, B.~J., Tony~Cai, T., Guindani, M. and Schwartzman, A. (2015)
+  False discovery control in large-scale spatial multiple testing.
+\newblock \emph{Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)} \textbf{77}(1), 59--83.
 
 \bibitem[Teerapabolarn(2012)]{Teerapabolarn2012}
 Teerapabolarn, K. (2012) The least upper bound on the {Poisson}-negative
@@ -402,6 +444,11 @@ de~Vries, S., Lecoq, J., Buice, M., Groblewski, P., Ocker, G., Oliver, M.,
   Waters, J. and Koch, C. (2020) A large-scale standardized physiological
   survey reveals functional organization of the mouse visual cortex.
 \newblock \emph{Nature neuroscience} \textbf{23}(1), 138--151.
+
+\bibitem[Wade and Ghahramani(2018)]{wade2018}
+Wade, S. and Ghahramani, Z. (2018) Bayesian cluster analysis: point estimation
+  and credible balls (with discussion).
+\newblock \emph{Bayesian Analysis} \textbf{13}(2), 559--626.
 
 \bibitem[Walker(2007)]{walker2007}
 Walker, S.~G. (2007) Sampling the {Dirichlet} mixture model with slices.

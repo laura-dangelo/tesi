@@ -129,7 +129,7 @@ The sampling of $A_t$ exploits a combination of the nested slice sampler of~\cit
 	p \sim \mathrm{Beta}(h_{1p} + T - n_0,\, h_{2p} + n_0), 
 	\end{equation*}
 	where $n_0$ is the number of $y_t$ assigned to the the spike component.
-	\item[6)] Update the cluster allocations variables $\bm{c}^D$ and $\bm{c}$, the number of mixture components $K$ and $L$, and the cluster parameters $\bm{A^*}$ using the nested telescoping sampling for the finite common atom model reported in Algorithm \ref{ch3_alg:nested_telescopic}.
+	\item[6)] Update the cluster allocations variables $\bm{c}^D$ and $\bm{c}$, the number of mixture components $K$ and $L$, and the cluster parameters $\bm{A}^*$ using the nested telescoping sampling for the finite common atom model reported in Algorithm \ref{ch3_alg:nested_telescopic}.
 \end{enumerate}
 
 \begin{algorithm}
@@ -166,6 +166,122 @@ The posterior distributions for steps 6-9 are given in~\citet{fruhwirthschnatter
 \end{algorithm}
 
 
+\section{Simulation study}
+\label{s:simulations}   
+
+The performances of the proposed method are assessed through a simulation study. The purpose of this section is twofold, namely to assess both the ability to correctly identify the spike times, and the accuracy of the inferred clustering structure.  
+
+We simulated synthetic data exhibiting a baseline level and a number of spikes representing the effect of the response of a neuron to a stimulus, thus mimicking the characteristics of real series of calcium imaging following the structure of model (\ref{ch1_eq:armodel}).
+%
+Specifically, we first divided the time frame into $J$ hypothetical experimental conditions of equal length, with $J$ varying in the different scenarios described below. Consistent with our motivating assumption that the neuronal response depends on the type of stimulus, each experimental condition is assumed to belong to one of the $K$ distributional clusters. Then, for each experimental condition, we generated the neuronal activity: first, we generated the presence or absence of a neuron response uniformly in time, where the spike probability can vary across groups. 
+Then, conditionally on the obtained activations, we generated some additional spikes in a short subsequent interval, so that it is very likely to observe close or even successive spikes.
+%
+In this way, the data mimic a real calcium imaging time series. Moreover, we are able to conduct a careful assessment of the ability of the model to distinguish the presence of a single high spike versus the convolution of several spikes in consecutive times.
+Finally, the values $A_t$, conditionally on their distributional cluster, are generated from one of the finite sets of spike amplitudes described below. 
+
+We simulated 50 independent data sets for each of the three scenarios described henceforth. In Scenario 1 we assumed $J=6$ experimental conditions, generated from $K=4$ distributional clusters. 
+%
+The spike amplitudes in the distributional clusters are (0.35, 0.89, 1.15, 1.80, 2.20), (0.65, 0.89, 1.40, 1.80), (0.35, 0.65, 1.15), and (0.35, 0.89, 1.60).
+%
+Scenario 2 assumes $J=4$ experimental conditions and $K=3$ distributional clusters with spike amplitudes equal to (0.3, 0.5, 0.7, 0.9, 1.1, 1.5), (0.3, 0.9, 1.5, 1.8), and (0.5, 0.9, 1.5). 
+%
+Finally, Scenario 3 sets $J=5$ and $K=3$ with the spike amplitudes in the distributional clusters being (0.3, 0.5, 0.7, 0.9, 1.1), (0.3, 0.9, 1.1, 1.3), and (0.7, 0.9, 1.3). 
+%
+While in Scenario 1 the amplitudes of the spikes are quite large, spaced apart, and with the corresponding distributional clusters well distinct, in Scenario 3 the spike amplitudes are more homogeneous and more clustered in time. Scenario 2 represents an in-between situation. Hence, from the first to the last scenario, we are assuming an increasing degree of complexity. The R script generating these synthetic datasets is described in the Supporting Information.
+
+The results attained by the proposed fCAM are compared to those obtained exploiting the common atom model (CAM) of~\citet{denti2021} -- which provides a benchmark for the clustering of the spikes and the stimulus-specific distributions -- and to those obtained with the $L_0$ penalization method of~\citet{jewell2019} and the $L_1$ penalization method of~\citet{friedrich2017}, which provide a benchmark for the task of spikes' detection. For the latter two methods we have assumed complete knowledge of the autoregressive constant controlling the rate of the calcium decay, since we found that the results were quite sensitive to this estimate.
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width = .44\linewidth]{_Images/ch3_err_rate1.pdf}
+
+		\includegraphics[width = .44\linewidth]{_Images/ch3_err_rate2.pdf}
+	}
+	\centerline{
+		\includegraphics[width = .44\linewidth]{_Images/ch3_err_rate3.pdf}
+	}
+	\caption{Distribution of the misclassification error rate in the simulation study for the four considered methods: CAM, fCAM, and the methods of~\citet{jewell2019} ``L0'' and~\citet{friedrich2017} ``L1''.}
+	\label{fig:boxplots_rates}
+\end{figure}
+
+
+To assess the sensitivity of the proposed fCAM to the prior specification, we repeated the numerical experiment for different values of the hyperparameters $h_{A1}$ and $h_{A2}$ in \eqref{eq:G0}. In particular, the shape parameter $h_{A1}$ was supposed to play a key role in the detection of spikes. Keeping fixed the ratio $h_{A1}/h_{A2}$, the parameters were set equal to 3, 4, 6, and 8: a small value implies, \textit{a priori}, less separation between zero and the distribution of the positive spikes while a large value corresponds to the opposite effect. 
+
+
+Focusing on the classification of each time point as a spike or not, Figure~\ref{fig:boxplots_rates} summarizes the misclassification rate for all competing methods under the three scenarios. The results of the $50$ replications are summarized using boxplots. For our fCAM, we report only the results obtained with $h_{A1} = h_{A2} = 8$ as those obtained for the other choices are essentially equivalent.  The rates are small in absolute value and broadly comparable across the different methods, thus confirming that all the competing models are effective in detecting the spikes.  
+
+However, the proposed fCAM not only enables the detection of spikes but also allows to conduct inference on the clustering structure. Therefore, we report on its ability to identify the clustering structure. Figure~\ref{fig:rand_index} reports the adjusted Rand index~\citep{rand1971,hubert1985} computed on both the observational and the distributional clusters for $h_{A1} = h_{A2} = 8$ (results for other settings are similar). Values of the adjusted Rand index close to 1 denote that the identified structure resemble the true clustering. While for the observational clusters the results are broadly comparable, for the distributional clusters, the performance of the proposed fCAM is uniformly superior. In addition, the variability of the results generally appears to be drastically smaller for the fCAM, thus providing evidence of greater efficiency. This is consistent to the results of \citet{fruhwirthschnatter2020} where  the generalized mixtures of finite mixtures is compared to a standard Dirichlet process mixture model. 
+
+From a computational point of view, the proposed algorithm is clearly more demanding than the optimization methods of~\citet{jewell2019} and~\citet{friedrich2017}.  However, the computing time is comparable to the slice sampler adopted for the CAM, and in general a full run requires just few minutes on a Linux machine with an i7-7700HQ 3.8 GHz Intel processor, 8 GB RAM, running R 4.1.0. For example, for a calcium trace of length 50,000, the computing time of the proposed method is around 2 minutes. Indeed, our experience suggests that the main factor affecting the computing time is the length of the series.  In general, in the analysis of spike activity, we expect the number of clusters  to be small and -- in particular -- much smaller than the number of observations.
+
+
+\begin{figure}
+	\centerline{\includegraphics[width = .9\linewidth]{_Images/ch3_rand_index.pdf}}
+	\caption{Distribution of the adjusted Rand index on the distributional and observational clusters, computed on the 50 simulations for the three scenarios of the simulated data.}
+	\label{fig:rand_index}
+\end{figure}
+
+
+
+\section{Allen Brain Observatory data analysis}
+\label{s:dataanalysis}
+
+\begin{figure}
+	\centerline{\includegraphics[width = \linewidth]{_Images/ch3_plot_data_new.pdf}}
+	\caption{Observed fluorescence trace $y_t$ from the Allen Brain Observatory data (black line), and visual stimulus to which the mouse is exposed (shaded areas). The yellow line represents the estimated neuronal activity.}
+	\label{fig:y}
+\end{figure}
+
+We now revert to the analysis of the data from the Allen Brain Observatory~\citep{allen}. The data comprise the $dF/F$-transformed fluorescence trace for a cell during session-B of the experiment. This session comprises three types of visual stimuli (static gratings, natural scene and natural movie) in addition to some period of spontaneous activity (absence of visual stimuli). Since the data are recorded at a frequency of $30$ Hz, the resulting series consists of 113{,}865 time points for a total of 63.2 minutes. 
+We focus our analysis on a neuron located in the primary visual area, at an imaging depth equal to 350 microns. Additional analyses for other neurons are reported in the Supporting Information.
+%{\textcolor{red}{ADD SOMETHING LIKE: we focus our analysis for neuron ABC. Additional analyses for other neurons are reported in the Supporting Information. }}
+
+The observed fluorescence trace is shown with a continuous black line in Figure~\ref{fig:y}. Different shaded backgrounds indicate the types of visual stimuli.
+Using the notation introduced in the previous Sections, $J=4$ with $j=1, 2, 3$ corresponding to static grating, natural scene, and natural movie, respectively and $j=4$ indicating no stimulus presence. 
+
+
+We ran the MCMC algorithm of Section \ref{s:posterior_inference} using the same prior specification of Section \ref{s:model} for 15{,}000 iterations discarding the first 7{,}000 iterations as burn-in and keeping one iteration every four to improve mixing.  Visual inspection of the traceplots and Geweke diagnostics showed no issues with convergence. 
+%
+The superimposed light line in Figure~\ref{fig:y} represents the estimated neuronal activity in terms of the inferred amplitude $A_t$, i.e. removing the measurement errors and the result of the accumulation of calcium from the previous spikes. Here and henceforth, we identified the presence of a spike if the  posterior probability of a spike at time $t$, say $PPS_t$, estimated by the proportion of non-zero $A_t$'s over all MCMC iterations, was greater than  $\kappa=75.5\%$. This threshold allows to control the (estimated) Bayesian false discovery rate at the pre-set value 0.05, that is $\kappa$ solves the equation $$\operatorname{FDR}\left(\kappa\right)=\frac{\sum_{t=1}^{T}\left(1-\mathrm{PPS}_{t}\right) I_{\left(\mathrm{PPS}_{t}>\kappa\right)}}{ \left.\sum_{t=1}^{T} I_{\left(\mathrm{PPS}_{t}>\kappa\right.}\right)}=0.05.$$ For more details, we refer to \citet{newton2004} and \citet{Muller07}. See also \citet{SunReich2015} for a discussion with dependent hypotheses.
+%
+
+%
+As already mentioned in the Introduction, in calcium imaging it is of interest studying the distribution of the spikes in response to each experimental stimulus, and identifying similarities and differences in these distributions across stimuli. 
+
+We start by investigating the presence of similarities in the neuronal response to different types of visual stimuli. This corresponds to analyzing the clustering of the spike distributions induced by the proposed fCAM. The model clusters together the groups corresponding to the natural scene and natural movie stimuli with high posterior probability, while the static grating stimulus and the absence of stimuli are assigned to two separate distributional clusters. In other terms, the neuron appears to show similar neuronal responses in the natural scene and natural movie stimuli whereas the responses appear distinctly different under the other two conditions. 
+
+
+
+To understand whether and how the neuronal response depends on the type of stimulus, we estimated the spike amplitude distribution for each of the four types of stimuli. Figure~\ref{fig:A_distr} shows the histograms of posterior means of the non-zero spike amplitudes for the three types of stimuli. The distribution for the time interval between 1018-1319 sec in Figure \ref{fig:y} (absence of stimuli) is not presented because no activity was detected. Despite the apparent similarities of the distributions in Figure~\ref{fig:A_distr}, the second cluster of spike amplitude distributions (natural scene and natural movie) shows a heavier tail. 
+Specifically, the highest observed cluster during the static grating stimulus (top plot) is centered at 1.06, while for the other two stimuli we obtained several higher values, with the largest cluster centered around 1.43. 
+
+\begin{figure}
+	\centerline{\includegraphics[width = .65\linewidth]{_Images/ch3_hist_new.pdf}}
+	\caption{Empirical distribution of the posterior means of the observational cluster parameters $A_t$ for the three experimental conditions of the Allen Brain Observatory data.}
+	\label{fig:A_distr}
+\end{figure}
+
+A qualitative representation of how these spike clusters are distributed within the three groups is given in Figure~\ref{fig:spike_color}. The three plots show a short interval of the observed calcium series, chosen in correspondence of one of the highest observed spikes. 
+Each plot also shows a series of colored vertical lines: the lines are placed at the estimated spike times, and the colors correspond to the estimated spike amplitudes. 
+The represented partition is the posterior point estimate obtained by minimizing the variation of information loss, as proposed in~\citet{wade2018}. Conditionally on the obtained partition, for each cluster a representative value for the cluster parameter is obtained as follows: 
+first, for each MCMC iteration, the group-specific average of $A_t$ is computed keeping the partition fixed; then, these values are averaged over all the MCMC iterations.
+We notice that for all experiments, high values of the observed calcium level are often produced as the result of several consecutive spikes, since, individually, the spikes are characterized by a relatively low amplitude, and the observed calcium level is cumulated due to its autoregressive behavior.  The autoregressive parameter $\gamma$ has a posterior mean equal to $0.493$ with a 95\% credible interval of $(0.481, 0.505)$.
+%
+This result corresponds to the understanding that the observed calcium response may be generated by high-frequency firing neurons: due to the low-sampling rate, the non-linear calcium signal essentially captures a super-imposition of multiple spikes \citep{Hoang2020}.  
+
+
+
+As a matter of fact, another useful quantity we can compute to compare the neuronal activity between stimuli is the firing rate, which provides a measure of how often the neuron has activated during a specific visual stimulus.
+The rate computes the number of detected spikes per second, to take into account the different duration of the experiments.  For the static grating stimulus the posterior mean rate (and related 95\% credible interval) is $0.223$ $(0.216, 0.229)$, while for the natural scene and natural movie stimuli they are $0.419$ $(0.410, 0.428)$ and $0.511$ $(0.495, 0.531)$, respectively. These results highlight the role of spike-frequency adaptation, whereby some neurons show an increased activity when exposed to more complex stimuli, thus exhibiting higher firing rates and larger calcium concentration measurements \citep{Peron2009}.
+%
+
+
+
+\begin{figure}
+	\centerline{\includegraphics[width = \linewidth]{_Images/ch3_spike_color_prob_new.pdf}}
+	\caption{Short interval of length 500 of the Allen Brain Observatory data in correspondence of a spike, for the three stimuli. The vertical lines indicate the time of a spike and the colors correspond to the observational cluster of its amplitude. The bottom panels show the estimated posterior probability of spike presence, for each time point.}
+	\label{fig:spike_color}
+\end{figure}
 
 
 

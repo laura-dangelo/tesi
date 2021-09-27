@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  24 SEP 2021 17:49
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  27 SEP 2021 17:25
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -2965,7 +2965,74 @@ Package microtype Info: Character `⁻' is missing
 ]
 Package tocbasic Info: character protrusion at lof deactivated on input line 41.
 
- (./thesis.lof)
+ (./thesis.lof
+Package microtype Info: Character `‥' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁰' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁴' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁵' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁶' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁷' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁸' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁹' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₀' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₁' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₂' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₃' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₄' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₅' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₆' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₇' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₈' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₉' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₊' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₋' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁺' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁻' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+)
 \tf@lof=\write6
 
 \openout6 = thesis.lof
@@ -3084,72 +3151,6 @@ Package microtype Info: Character `ﬅ' is missing
 (microtype)             Ignoring protrusion settings for this character.
 Package microtype Info: Character `ﬆ' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/sc/14.4'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `‥' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁰' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁴' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁵' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁶' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁷' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁸' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁹' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₀' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₁' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₂' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₃' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₄' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₅' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₆' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₇' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₈' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₉' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₊' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `₋' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁺' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
-(microtype)             Ignoring protrusion settings for this character.
-Package microtype Info: Character `⁻' is missing
-(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
@@ -3566,12 +3567,12 @@ Package microtype Info: Character `ﬆ' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
  [5]
-<_Images/ch1_neuron2_trace.pdf, id=270, 578.16pt x 252.945pt>
+<_Images/ch1_neuron2_trace.pdf, id=300, 578.16pt x 252.945pt>
 File: _Images/ch1_neuron2_trace.pdf Graphic file (type pdf)
 <use _Images/ch1_neuron2_trace.pdf>
 Package luatex.def Info: _Images/ch1_neuron2_trace.pdf  used on input line 74.
 (luatex.def)             Requested size: 367.46329pt x 160.76495pt.
-<_Images/ch1_neuron1_trace.pdf, id=271, 578.16pt x 252.945pt>
+<_Images/ch1_neuron1_trace.pdf, id=301, 578.16pt x 252.945pt>
 File: _Images/ch1_neuron1_trace.pdf Graphic file (type pdf)
 <use _Images/ch1_neuron1_trace.pdf>
 Package luatex.def Info: _Images/ch1_neuron1_trace.pdf  used on input line 76.
@@ -3791,7 +3792,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
  [26]
-<_Images/ch2_toess_gaussian.pdf, id=656, 539.01375pt x 479.7925pt>
+<_Images/ch2_toess_gaussian.pdf, id=686, 539.01375pt x 479.7925pt>
 File: _Images/ch2_toess_gaussian.pdf Graphic file (type pdf)
 <use _Images/ch2_toess_gaussian.pdf>
 Package luatex.def Info: _Images/ch2_toess_gaussian.pdf  used on input line 204.
@@ -3801,7 +3802,7 @@ Package luatex.def Info: _Images/ch2_toess_gaussian.pdf  used on input line 204.
 Underfull \vbox (badness 2717) has occurred while \output is active []
 
  [27<./_Images/ch2_toess_gaussian.pdf>]
-<_Images/ch2_toess_horseshoe.pdf, id=669, 539.01375pt x 479.7925pt>
+<_Images/ch2_toess_horseshoe.pdf, id=698, 539.01375pt x 479.7925pt>
 File: _Images/ch2_toess_horseshoe.pdf Graphic file (type pdf)
 <use _Images/ch2_toess_horseshoe.pdf>
 Package luatex.def Info: _Images/ch2_toess_horseshoe.pdf  used on input line 216
@@ -3811,12 +3812,12 @@ Package luatex.def Info: _Images/ch2_toess_horseshoe.pdf  used on input line 216
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [28<./_Images/ch2_toess_horseshoe.pdf>]
-<_Images/ch2_plot_area_exp.pdf, id=686, 593.21625pt x 174.6525pt>
+<_Images/ch2_plot_area_exp.pdf, id=715, 593.21625pt x 174.6525pt>
 File: _Images/ch2_plot_area_exp.pdf Graphic file (type pdf)
 <use _Images/ch2_plot_area_exp.pdf>
 Package luatex.def Info: _Images/ch2_plot_area_exp.pdf  used on input line 240.
 (luatex.def)             Requested size: 408.29532pt x 120.21187pt.
-<_Images/ch2_plot_cre.pdf, id=687, 593.21625pt x 276.03125pt>
+<_Images/ch2_plot_cre.pdf, id=716, 593.21625pt x 276.03125pt>
 File: _Images/ch2_plot_cre.pdf Graphic file (type pdf)
 <use _Images/ch2_plot_cre.pdf>
 Package luatex.def Info: _Images/ch2_plot_cre.pdf  used on input line 243.
@@ -3913,38 +3914,152 @@ Package microtype Info: Character `⁺' is missing
 Package microtype Info: Character `⁻' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
-) [35] [36]
+ [35] [36]
+<_Images/ch3_err_rate1.pdf, id=834, 442.65375pt x 290.08376pt>
+File: _Images/ch3_err_rate1.pdf Graphic file (type pdf)
+<use _Images/ch3_err_rate1.pdf>
+Package luatex.def Info: _Images/ch3_err_rate1.pdf  used on input line 199.
+(luatex.def)             Requested size: 179.65092pt x 117.73114pt.
+<_Images/ch3_err_rate2.pdf, id=835, 442.65375pt x 290.08376pt>
+File: _Images/ch3_err_rate2.pdf Graphic file (type pdf)
+<use _Images/ch3_err_rate2.pdf>
+Package luatex.def Info: _Images/ch3_err_rate2.pdf  used on input line 199.
+(luatex.def)             Requested size: 179.65092pt x 117.73114pt.
+<_Images/ch3_err_rate3.pdf, id=836, 442.65375pt x 290.08376pt>
+File: _Images/ch3_err_rate3.pdf Graphic file (type pdf)
+<use _Images/ch3_err_rate3.pdf>
+Package luatex.def Info: _Images/ch3_err_rate3.pdf  used on input line 202.
+(luatex.def)             Requested size: 179.65092pt x 117.73114pt.
+Package microtype Info: Character `‥' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁰' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁴' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁵' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁶' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁷' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁸' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁹' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₀' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₁' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₂' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₃' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₄' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₅' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₆' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₇' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₈' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₉' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₊' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `₋' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁺' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+Package microtype Info: Character `⁻' is missing
+(microtype)             in font `TU/TeXGyrePagella(0)/m/it/10'.
+(microtype)             Ignoring protrusion settings for this character.
+
+Underfull \vbox (badness 1009) has occurred while \output is active []
+
+ [37]
+<_Images/ch3_rand_index.pdf, id=863, 712.6625pt x 368.37625pt>
+File: _Images/ch3_rand_index.pdf Graphic file (type pdf)
+<use _Images/ch3_rand_index.pdf>
+Package luatex.def Info: _Images/ch3_rand_index.pdf  used on input line 219.
+(luatex.def)             Requested size: 367.46329pt x 189.9379pt.
+<_Images/ch3_plot_data_new.pdf, id=864, 578.16pt x 252.945pt>
+File: _Images/ch3_plot_data_new.pdf Graphic file (type pdf)
+<use _Images/ch3_plot_data_new.pdf>
+Package luatex.def Info: _Images/ch3_plot_data_new.pdf  used on input line 230.
+(luatex.def)             Requested size: 408.29532pt x 178.62729pt.
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [38<./_Images/ch3_err_rate1.pdf><./_Images/ch3_err_rate2.pdf><./_Images/ch3_err
+_rate3.pdf>]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [39<./_Images/ch3_rand_index.pdf>]
+<_Images/ch3_hist_new.pdf, id=911, 398.48875pt x 579.16376pt>
+File: _Images/ch3_hist_new.pdf Graphic file (type pdf)
+<use _Images/ch3_hist_new.pdf>
+Package luatex.def Info: _Images/ch3_hist_new.pdf  used on input line 259.
+(luatex.def)             Requested size: 265.38945pt x 385.73116pt.
+ [40<./_Images/ch3_plot_data_new.pdf>] [41<./_Images/ch3_hist_new.pdf>]
+<_Images/ch3_spike_color_prob_new.pdf, id=944, 578.16pt x 722.7pt>
+File: _Images/ch3_spike_color_prob_new.pdf Graphic file (type pdf)
+<use _Images/ch3_spike_color_prob_new.pdf>
+Package luatex.def Info: _Images/ch3_spike_color_prob_new.pdf  used on input lin
+e 281.
+(luatex.def)             Requested size: 408.29532pt x 510.36371pt.
+) [42] [43<./_Images/ch3_spike_color_prob_new.pdf>] [44
+
+
+]
 \openout2 = _Chapters/Chapter4.aux
- (./_Chapters/Chapter4.tex) [37
+
+(./_Chapters/Chapter4.tex) [45
 
 
-
-
-] [38
+] [46
 
 
 ]
 \openout2 = _Chapters/A_appendix.aux
-
-(./_Chapters/A_appendix.tex
+ (./_Chapters/A_appendix.tex
 chapter A.
-) [39
+) [47
 
 
-] [40
+] [48
 
 
 ]
 \openout2 = _Extras/bibliography.aux
- (./_Extras/bibliography.tex (./thesis.bbl [41
+ (./_Extras/bibliography.tex (./thesis.bbl [49
 
 
-] [42] [43] [44]))
-[45] [46
-
-
-]
-<CVthesis/cv.pdf, id=843, 614.295pt x 794.97pt>
+] [50] [51] [52]
+[53])) [54]
+<CVthesis/cv.pdf, id=1011, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 78.
@@ -3953,7 +4068,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 78.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=846, page=1, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1014, page=1, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
@@ -3974,7 +4089,10 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 78.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [47<./CVthesis/cv.pdf>]
+ [55
+
+
+<./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 80.
@@ -3983,7 +4101,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 80.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=873, page=2, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1041, page=2, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
@@ -4004,7 +4122,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 80.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [48<./CVthesis/cv.pdf>]
+ [56<./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 82.
@@ -4013,7 +4131,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 82.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=880, page=3, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1048, page=3, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
@@ -4034,7 +4152,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 82.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [49<./CVthesis/cv.pdf>]
+ [57<./CVthesis/cv.pdf>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 84.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 84.
  (./thesis.aux (./_Extras/frontpage.aux) (./_Extras/second.aux)
@@ -4053,41 +4171,38 @@ LaTeX Warning: There were multiply-defined labels.
 )
 
 Here is how much of LuaTeX's memory you used:
- 47660 strings out of 481365
+ 47812 strings out of 481365
  100000,2373549 words of node,token memory allocated
- 1503 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 222 attribute, 101 glue_sp
-ec, 111 attribute_list, 2 write, 20 pdf_action nodes
-   avail lists: 1:2,2:3459,3:191,4:84,5:552,6:72,7:5030,8:78,9:543,10:28,11:427
- 62165 multiletter control sequences out of 65536+600000
- 149 fonts using 22117707 bytes
- 85i,23n,126p,10100b,951s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 1605 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 240 attribute, 101 glue_sp
+ec, 120 attribute_list, 2 write, 28 pdf_action nodes
+   avail lists: 1:2,2:3695,3:196,4:118,5:685,6:68,7:6076,8:78,9:570,10:28,11:427
 
-warning  (pdf backend): unreferenced destination with name 'subsection.3.1.2'
-
-warning  (pdf backend): unreferenced destination with name 'subsection.3.1.1'
+ 62235 multiletter control sequences out of 65536+600000
+ 150 fonts using 22371131 bytes
+ 85i,23n,126p,10100b,987s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
 f/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/share/texmf/fonts
 /opentype/public/tex-gyre/texgyrepagella-italic.otf></usr/share/texmf/fonts/open
 type/public/tex-gyre/texgyrepagella-regular.otf></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cmextra/cmbsy8.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb
-></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/s
-hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf
--dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/f
-onts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb>
-Output written on thesis.pdf (61 pages, 1638332 bytes).
+onts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm
+/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></u
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msbm10.pfb>
+Output written on thesis.pdf (69 pages, 2254628 bytes).
 
-PDF statistics: 1057 PDF objects out of 1200 (max. 8388607)
- 928 compressed objects within 10 object streams
- 211 named destinations out of 1000 (max. 131072)
- 248 words of extra memory for PDF output out of 10000 (max. 100000000)
+PDF statistics: 1231 PDF objects out of 1440 (max. 8388607)
+ 1075 compressed objects within 11 object streams
+ 232 named destinations out of 1000 (max. 131072)
+ 264 words of extra memory for PDF output out of 10000 (max. 100000000)
 
