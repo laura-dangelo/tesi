@@ -255,8 +255,20 @@ We start by investigating the presence of similarities in the neuronal response 
 To understand whether and how the neuronal response depends on the type of stimulus, we estimated the spike amplitude distribution for each of the four types of stimuli. Figure~\ref{fig:A_distr} shows the histograms of posterior means of the non-zero spike amplitudes for the three types of stimuli. The distribution for the time interval between 1018-1319 sec in Figure \ref{fig:y} (absence of stimuli) is not presented because no activity was detected. Despite the apparent similarities of the distributions in Figure~\ref{fig:A_distr}, the second cluster of spike amplitude distributions (natural scene and natural movie) shows a heavier tail. 
 Specifically, the highest observed cluster during the static grating stimulus (top plot) is centered at 1.06, while for the other two stimuli we obtained several higher values, with the largest cluster centered around 1.43. 
 
+%\begin{figure}
+%	\centerline{\includegraphics[width = .65\linewidth]{_Images/ch3_hist_new.pdf}}
+%	\caption{Empirical distribution of the posterior means of the observational cluster parameters $A_t$ for the three experimental conditions of the Allen Brain Observatory data.}
+%	\label{fig:A_distr}
+%\end{figure}
 \begin{figure}
-	\centerline{\includegraphics[width = .65\linewidth]{_Images/ch3_hist_new.pdf}}
+	\centerline{
+		\includegraphics[width = .5\linewidth]{_Images/ch3_hist1.pdf}\hfill
+		
+		\includegraphics[width = .5\linewidth]{_Images/ch3_hist2.pdf}
+	}
+	\centerline{
+		\includegraphics[width = .5\linewidth]{_Images/ch3_hist3.pdf}
+	}
 	\caption{Empirical distribution of the posterior means of the observational cluster parameters $A_t$ for the three experimental conditions of the Allen Brain Observatory data.}
 	\label{fig:A_distr}
 \end{figure}
@@ -278,7 +290,7 @@ The rate computes the number of detected spikes per second, to take into account
 
 
 \begin{figure}
-	\centerline{\includegraphics[width = \linewidth]{_Images/ch3_spike_color_prob_new.pdf}}
+	\centerline{\includegraphics[width = .75\linewidth]{_Images/ch3_spike_color_prob_new.pdf}}
 	\caption{Short interval of length 500 of the Allen Brain Observatory data in correspondence of a spike, for the three stimuli. The vertical lines indicate the time of a spike and the colors correspond to the observational cluster of its amplitude. The bottom panels show the estimated posterior probability of spike presence, for each time point.}
 	\label{fig:spike_color}
 \end{figure}

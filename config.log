@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  28 AUG 2021 11:05
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  28 SEP 2021 09:38
  restricted system commands enabled.
 **config.tex
 (./config.tex
@@ -563,7 +563,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 55--69
+Overfull \hbox (20.0pt too wide) in paragraph at lines 55--71
 []*argmin
  []
 
@@ -574,13 +574,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.71 \usepackage{
+l.73 \usepackage{
                geometry}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
-l.72     \geometry
+l.74     \geometry
                 {%left=3.5cm, right=3.5cm,
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -595,7 +595,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.73     	t
+l.75     	t
          op=3.5cm,
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -607,13 +607,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.77 \usepackage{
+l.79 \usepackage{
                graphicx}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
-l.78     \graphicspath
+l.80     \graphicspath
                     {{_Images/}}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -624,17 +624,17 @@ and I'll forget about whatever was undefined.
 ! Missing $ inserted.
 <inserted text> 
 $
-l.78     \graphicspath{{_
+l.80     \graphicspath{{_
                        Images/}}
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <7> on input line 78.
+(Font)              <7> on input line 80.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <5> on input line 78.
+(Font)              <5> on input line 80.
 ! Extra }, or forgotten $.
-l.78     \graphicspath{{_Images/}
+l.80     \graphicspath{{_Images/}
                                }
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -643,7 +643,7 @@ the way to recover is to insert both the forgotten and the
 deleted material, e.g., by typing `I$}'.
 
 ! Extra }, or forgotten $.
-l.78     \graphicspath{{_Images/}}
+l.80     \graphicspath{{_Images/}}
                                 
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -658,14 +658,14 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.79 \usepackage{
+l.81 \usepackage{
                booktabs,caption,subcaption}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
-l.80     \captionsetup
-                    {font=small,labelfont={sc},format=hang}
+l.82     \captionsetup
+                    {font=small,labelfont={sc}}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -675,18 +675,18 @@ and I'll forget about whatever was undefined.
 ! Missing $ inserted.
 <inserted text> 
 $
-l.81 
+l.83 
    
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 73--81
+Overfull \hbox (20.0pt too wide) in paragraph at lines 75--83
 []top=3.5cm,
  []
 
 
-Overfull \hbox (238.06984pt too wide) in paragraph at lines 73--81
+Overfull \hbox (164.82793pt too wide) in paragraph at lines 75--83
 [][]\OML/cmm/m/it/10 mages=[]$ 
  []
 
@@ -697,13 +697,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.85 \usepackage[automark]{
+l.87 \usepackage[automark]{
                          scrlayer-scrpage}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
-l.86 \clearpairofpagestyles
+l.88 \clearpairofpagestyles
                          
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -718,13 +718,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.89 \renewcommand{\chaptermark}
+l.91 \renewcommand{\chaptermark}
                               [1]{\markboth{\spacedlowsmallcaps{#1}}{\spaced...
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.91 \lehead
+l.93 \lehead
           {\mbox{\llap{\small\thepage\kern1em\color{Trasparentino}\vline}\co...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -739,7 +739,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.91 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
+l.93 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
                                                   }
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -747,7 +747,7 @@ If that doesn't work, type  X <return>  to quit.
 ! Undefined control sequence.
 <argument> \small 
        \thepage \kern 1em\color {Trasparentino}\vline 
-l.91 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
+l.93 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -758,7 +758,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \small \thepage 
                 \kern 1em\color {Trasparentino}\vline 
-l.91 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
+l.93 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -769,7 +769,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \small \thepage \kern 1em\color 
                                 {Trasparentino}\vline 
-l.91 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
+l.93 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -780,7 +780,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ... \kern 1em\color {Trasparentino}\vline }\color 
                                                   {Trasparentino}\hspace {0....
-l.91 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
+l.93 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -791,7 +791,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...\color {Trasparentino}\hspace {0.5em}\headmark 
                                                   \hfil 
-l.91 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
+l.93 ...{Trasparentino}\hspace{0.5em}\headmark\hfil}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -800,7 +800,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.92 \rohead
+l.94 \rohead
           {\mbox{\hfil{\color{Trasparentino}\headmark\hspace{0.5em}}\rlap{\s...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -811,7 +811,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \hfil {\color 
               {Trasparentino}\headmark \hspace {0.5em}}\rlap {\small {\color {T
-l.92 ...olor{Trasparentino}\vline}\kern1em\thepage}}
+l.94 ...olor{Trasparentino}\vline}\kern1em\thepage}}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -822,7 +822,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \hfil {\color {Trasparentino}\headmark 
                                        \hspace {0.5em}}\rlap {\small {\color {T
-l.92 ...olor{Trasparentino}\vline}\kern1em\thepage}}
+l.94 ...olor{Trasparentino}\vline}\kern1em\thepage}}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -833,7 +833,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \small 
        {\color {Trasparentino}\vline }\kern 1em\thepage 
-l.92 ...olor{Trasparentino}\vline}\kern1em\thepage}}
+l.94 ...olor{Trasparentino}\vline}\kern1em\thepage}}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -844,7 +844,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \small {\color 
                {Trasparentino}\vline }\kern 1em\thepage 
-l.92 ...olor{Trasparentino}\vline}\kern1em\thepage}}
+l.94 ...olor{Trasparentino}\vline}\kern1em\thepage}}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -855,7 +855,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> ...color {Trasparentino}\vline }\kern 1em\thepage 
                                                   
-l.92 ...olor{Trasparentino}\vline}\kern1em\thepage}}
+l.94 ...olor{Trasparentino}\vline}\kern1em\thepage}}
                                                   }
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -864,7 +864,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.93 \rofoot
+l.95 \rofoot
           [\mbox{\makebox[0pt][l]{\kern1em\thepage}}]{}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -875,7 +875,7 @@ and I'll forget about whatever was undefined.
 ! Undefined control sequence.
 <argument> \kern 1em\thepage 
                   
-l.93 ...ot[\mbox{\makebox[0pt][l]{\kern1em\thepage}}
+l.95 ...ot[\mbox{\makebox[0pt][l]{\kern1em\thepage}}
                                                   ]{}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -890,7 +890,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.94 \renewcommand{\headfont}
+l.96 \renewcommand{\headfont}
                            {\small}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -902,13 +902,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.95 \renewcommand{\pnumfont}
+l.97 \renewcommand{\pnumfont}
                            {\small}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.96 \clearscrplain
+l.98 \clearscrplain
                  
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -917,7 +917,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.100 \cfoot
+l.102 \cfoot
           [\pagemark]{}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -926,7 +926,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.100 \cfoot[\pagemark
+l.102 \cfoot[\pagemark
                     ]{}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -935,7 +935,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 91--101
+Overfull \hbox (20.0pt too wide) in paragraph at lines 93--103
 [][]
  []
 
@@ -946,13 +946,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.103 \usepackage[clearempty,notocpart*]{
+l.105 \usepackage[clearempty,notocpart*]{
                                        titlesec}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
-l.111 \titleformat
+l.113 \titleformat
                 {\part}[block]{\normalfont\Huge}{Parte \thepart}{10pt}{\filc...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -961,7 +961,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.111 \titleformat{\part
+l.113 \titleformat{\part
                       }[block]{\normalfont\Huge}{Parte \thepart}{10pt}{\filc...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -976,13 +976,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.111 \titleformat{\part}[
+l.113 \titleformat{\part}[
                         block]{\normalfont\Huge}{Parte \thepart}{10pt}{\filc...
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.111 \titleformat{\part}[block]{\normalfont\Huge
+l.113 \titleformat{\part}[block]{\normalfont\Huge
                                                }{Parte \thepart}{10pt}{\filc...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -991,7 +991,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.111 ...rt}[block]{\normalfont\Huge}{Parte \thepart
+l.113 ...rt}[block]{\normalfont\Huge}{Parte \thepart
                                                   }{10pt}{\filcenter\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1000,7 +1000,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.111 ...font\Huge}{Parte \thepart}{10pt}{\filcenter
+l.113 ...font\Huge}{Parte \thepart}{10pt}{\filcenter
                                                   \scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1009,7 +1009,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.112 \titleformat
+l.114 \titleformat
                 {\chapter}[block]%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1018,7 +1018,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.112 \titleformat{\chapter
+l.114 \titleformat{\chapter
                          }[block]%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1027,7 +1027,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.113 {\normalfont\Large
+l.115 {\normalfont\Large
                       }%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1036,7 +1036,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.114 {{\chapterNumber
+l.116 {{\chapterNumber
                     \thechapter}%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1045,7 +1045,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.114 {{\chapterNumber\thechapter
+l.116 {{\chapterNumber\thechapter
                                }%
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1056,7 +1056,7 @@ and I'll forget about whatever was undefined.
 ! Argument of \formatchapter has an extra }.
 <inserted text> 
 \par 
-l.116 {\formatchapter}
+l.118 {\formatchapter}
                     
 I've run across a `}' that doesn't seem to match anything.
 For example, `\def\a#1{...}' and `\a}' would produce
@@ -1069,19 +1069,19 @@ Runaway argument?
 ! Paragraph ended before \formatchapter was complete.
 <to be read again> 
 \par 
-l.116 {\formatchapter}
+l.118 {\formatchapter}
                     
 I suspect you've forgotten a `}', causing me to apply this
 control sequence to too much text. How can we recover?
 My plan is to forget the whole thing and hope for the best.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 111--116
+Overfull \hbox (20.0pt too wide) in paragraph at lines 113--118
 [][block]Parte
  []
 
 ! Undefined control sequence.
-l.117 \titleformat
+l.119 \titleformat
                 {\section}{\Large}{\scshape\thesection.}{1em}{\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1090,7 +1090,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.117 \titleformat{\section
+l.119 \titleformat{\section
                          }{\Large}{\scshape\thesection.}{1em}{\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1099,7 +1099,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.117 \titleformat{\section}{\Large
+l.119 \titleformat{\section}{\Large
                                  }{\scshape\thesection.}{1em}{\scshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1114,13 +1114,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.117 ...rmat{\section}{\Large}{\scshape\thesection.
+l.119 ...rmat{\section}{\Large}{\scshape\thesection.
                                                   }{1em}{\scshape}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.118 \titleformat
+l.120 \titleformat
                 {\subsection}{\large}{\scshape\thesubsection.}{0.5em}{\bfser...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1129,7 +1129,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.118 \titleformat{\subsection
+l.120 \titleformat{\subsection
                             }{\large}{\scshape\thesubsection.}{0.5em}{\bfser...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1138,7 +1138,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.118 \titleformat{\subsection}{\large
+l.120 \titleformat{\subsection}{\large
                                     }{\scshape\thesubsection.}{0.5em}{\bfser...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1147,7 +1147,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.118 ...\subsection}{\large}{\scshape\thesubsection
+l.120 ...\subsection}{\large}{\scshape\thesubsection
                                                   .}{0.5em}{\bfseries} %\its...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1156,7 +1156,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.119 \titleformat
+l.121 \titleformat
                 {\subsubsection}{\large}{\quad\scshape\thesubsubsection}{0.5...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1165,7 +1165,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.119 \titleformat{\subsubsection
+l.121 \titleformat{\subsubsection
                                }{\large}{\quad\scshape\thesubsubsection}{0.5...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1174,7 +1174,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.119 \titleformat{\subsubsection}{\large
+l.121 \titleformat{\subsubsection}{\large
                                        }{\quad\scshape\thesubsubsection}{0.5...
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1183,7 +1183,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.119 ...ion}{\large}{\quad\scshape\thesubsubsection
+l.121 ...ion}{\large}{\quad\scshape\thesubsubsection
                                                   }{0.5em}{\itshape}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1192,7 +1192,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.120 \titleformat
+l.122 \titleformat
                 {\paragraph}[runin]{\itshape}{}{}{}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1201,7 +1201,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 ! Undefined control sequence.
-l.120 \titleformat{\paragraph
+l.122 \titleformat{\paragraph
                            }[runin]{\itshape}{}{}{}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1210,17 +1210,17 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (23.19pt too wide) in paragraph at lines 117--121
+Overfull \hbox (23.19pt too wide) in paragraph at lines 119--123
 []\TU/lmr/m/sc/10 .\nullfont 1em
  []
 
 
-Overfull \hbox (3.19pt too wide) in paragraph at lines 117--121
+Overfull \hbox (3.19pt too wide) in paragraph at lines 119--123
 \TU/lmr/m/sc/10 .\nullfont 0.5em
  []
 
 ! Undefined control sequence.
-l.122 \titlespacing
+l.124 \titlespacing
                  *{\section}{0pt}{22pt}{12pt}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1235,13 +1235,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.122 \titlespacing*
+l.124 \titlespacing*
                   {\section}{0pt}{22pt}{12pt}
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 ! Undefined control sequence.
-l.122 \titlespacing*{\section
+l.124 \titlespacing*{\section
                            }{0pt}{22pt}{12pt}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1250,7 +1250,7 @@ spelling (e.g., `I\hbox'). Otherwise just continue,
 and I'll forget about whatever was undefined.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 122--123
+Overfull \hbox (20.0pt too wide) in paragraph at lines 124--125
 []*0pt22pt12pt 
  []
 
@@ -1261,7 +1261,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.130 \usepackage[titles]{
+l.132 \usepackage[titles]{
                         tocloft}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
@@ -1273,7 +1273,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.132 \renewcommand{\cftchapfont}
+l.134 \renewcommand{\cftchapfont}
                                {\scshape}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1285,7 +1285,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.171 \usepackage{
+l.173 \usepackage{
                 natbib}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
@@ -1297,13 +1297,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.175 \usepackage{
+l.177 \usepackage{
                 hyperref}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
-l.176 \hypersetup
+l.178 \hypersetup
                {
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
@@ -1318,7 +1318,7 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.184     p
+l.186     p
          dfauthor  = {name},
 You're in trouble here.  Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
@@ -1330,13 +1330,13 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.189 \renewcommand\UrlFont
+l.191 \renewcommand\UrlFont
                          {\rmfamily}
 Try typing  <return>  to proceed.
 If that doesn't work, type  X <return>  to quit.
 
 
-Overfull \hbox (20.0pt too wide) in paragraph at lines 184--190
+Overfull \hbox (20.0pt too wide) in paragraph at lines 186--192
 []pdfauthor
  []
 
@@ -1347,8 +1347,20 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.191 \usepackage{
+l.193 \usepackage{
                 breakurl}
+\usepackage may only appear in the document preamble, i.e.,
+between \documentclass and \begin{document}.
+
+
+! LaTeX Error: \usepackage before \documentclass.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.195 \usepackage{
+                algorithm, algpseudocode}
 \usepackage may only appear in the document preamble, i.e.,
 between \documentclass and \begin{document}.
 
@@ -1361,12 +1373,12 @@ between \documentclass and \begin{document}.
 
 
 Here is how much of LuaTeX's memory you used:
- 124 strings out of 481365
- 100000,319454 words of node,token memory allocated 6171 words of node memory still in use:
-   43 hlist, 3 rule, 10 local_par, 1 dir, 1 math, 137 glue, 17 kern, 22 penalty,
- 558 glyph, 102 attribute, 39 glue_spec, 102 attribute_list nodes
-   avail lists: 1:1,2:2,3:31,4:16,5:4,7:16,8:45,10:15
- 17327 multiletter control sequences out of 65536+600000
+ 126 strings out of 481365
+ 100000,319454 words of node,token memory allocated 6061 words of node memory still in use:
+   43 hlist, 3 rule, 10 local_par, 1 dir, 1 math, 136 glue, 14 kern, 22 penalty,
+ 546 glyph, 101 attribute, 39 glue_spec, 101 attribute_list nodes
+   avail lists: 1:1,2:2,3:19,4:16,5:4,7:16,8:33,10:15
+ 17329 multiletter control sequences out of 65536+600000
  38 fonts using 4274675 bytes
  18i,3n,17p,145b,80s stack positions out of 5000i,500n,10000p,200000b,100000s
 !  ==> Fatal error occurred, no output PDF file produced!

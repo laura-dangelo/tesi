@@ -26,6 +26,6 @@
 \contentsline {section}{\numberline {3.2}Posterior inference}{34}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Simulation study}{35}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Allen Brain Observatory data analysis}{39}{section.3.4}%
-\contentsline {chapter}{Conclusions}{45}{chapter*.19}%
-\contentsline {chapter}{\numberline {A}Appendix name}{47}{appendix.A}%
-\contentsline {chapter}{Bibliography}{49}{appendix.A}%
+\contentsline {chapter}{Conclusions}{43}{chapter*.19}%
+\contentsline {chapter}{\numberline {A}Appendix name}{45}{appendix.A}%
+\contentsline {chapter}{Bibliography}{47}{appendix.A}%
