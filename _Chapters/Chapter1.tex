@@ -116,10 +116,10 @@ We start our discussion by reviewing finite mixtures. Although they are not part
 
 \subsubsection*{Definition and hierarchical representations}
 Mixtures are a popular tool to model heterogeneous data, characterized by the presence of subpopulations within the overall population. In many practical problems the data are collected under different conditions -- unfortunately, it is not always possible to have information on the subpopulation to which each individual observation belongs.
-Mixture models can be used in problems of this type, where the population consists of a number of latent subpopulations, and within each of them a relatively simple model can be applied.
+Mixture models can be used in problems of this type, where the population consists of a number of latent subpopulations, and where each subpopulation can be described using a relatively simple model. 
 
 Denote the observed data as a vector of $n$ units $\bm{y} = (y_1,\dots,y_n)$; also, assume that the $n$ observations are exchangeable, meaning that the joint probability density $p(y_1,\dots,y_n)$ is invariant to permutations of the indices. In the framework of finite mixtures, we assume that the population is made of $K\leq n$ subpopulations, with $K$ known and fixed.
-We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k^*)$, for $k=1,\dots,K$. Usually a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k^*$.
+We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k^*)$, for $k=1,\dots,K$. In this way we assume that a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k^*$.
 The last missing piece to construct a mixture model is the parameter describing the proportion of population from each component $k$: we denote this parameter with $\pi_k$, satisfying $\sum_{k=1}^K \pi_k = 1$. Denoting the full vectors of parameters as $\bm{\theta}^* = (\theta_1^*,\dots,\theta_K^*)$ and $\bm{\pi} = (\pi_1,\dots,\pi_K)$, the data distribution for observation $i$ can be formulated as
 \begin{equation*}
 p(y_i\mid \bm{\theta}^*,\bm{\pi}) = \pi_1 \, f(y_i\mid\theta_1^*) + \dots + \pi_K \, f(y_i\mid\theta_K^*).
@@ -165,7 +165,7 @@ y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
 \end{equation}
 
 \subsubsection*{Posterior inference for finite mixture models}
-Posterior inference for mixture models is usually performed through Markov Chain Monte Carlo (MCMC) methods and, in particular, the Gibbs sampler, as the full conditionals after imputing the cluster indicators $\CC = \{c_1,\dots,c_n\}$ are greatly simplified.
+Posterior inference for mixture models is usually performed through Markov Chain Monte Carlo (MCMC) methods and, in particular, the Gibbs sampler, as the full conditional distributions after imputing the cluster indicators $\CC = \{c_1,\dots,c_n\}$ are greatly simplified.
 Moreover, for the distribution of the mixture weights it is possible to exploit the conjugacy of the Dirichlet distribution with the multinomial model. A Gibbs sampler then simply iterates these three steps:
 \begin{enumerate}
 	\item Update the cluster-specific parameters $\theta^*_k$, for $k=1,\dots,K$, from
@@ -185,7 +185,7 @@ Nonparametric mixtures extend model (\ref{ch1_eq:finitemix_h2}) by placing a non
 \subsubsection*{The Dirichlet process }
 \label{ch1_sec:DP}
 The Dirichlet process is a stochastic process whose realizations are probability distributions with probability one. 
-Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. For this short review of some of the main properties of the DP we followed the unpublished report by Yee Whye Teh, which illustrates in a clear and simple way the fundamental properties of this process.
+Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. For this short review of some of the main properties of the DP we followed the unpublished report by Yee Whye Teh, which illustrates the fundamental properties of this process.
 
 Formally, a random distribution $G$ on some probability space $\Theta$ is said to follow a DP prior with base measure $G_0$ and concentration parameter $\alpha$, denoted $G\sim\DP(\alpha,G_0)$, if for any partition $\{B_1,\dots,B_H\}$ of $\Theta$
 \begin{equation*}
@@ -230,11 +230,11 @@ G = \sum_{k=1}^{\infty} \pi_k \delta_{\theta^*_k}. \nonumber
 \end{gather}
 %\end{equation}
 The construction of the weights $\{\pi_k\}_{k=1}^{\infty}$ by means of beta random variable is usually called stick-breaking process, also denoted as $\bm{\pi}\sim \mathrm{GEM}(\alpha)$ after the names of Griffiths, Engen and McCloskey. The name arises from a metaphor for this construction, where a unit stick is broken in infinitely many parts, and each piece is used to define a weight.
-Because of its simplicity, this representation has motivated extensions of the process as well as new inference procedures, as for example the algorithms described in the following to sample from the posterior distribution of Dirichlet process mixtures.
+Because of its simplicity, this representation has motivated extensions of the process as well as new algorithms for posterior inference.
 
 
 \subsubsection*{Dirichlet process mixtures}
-Getting back to the framework of mixture models, from the representation of the process as discrete measure it is straightforward to extend the finite mixtures described in the previous section to nonparametric mixtures: following the structure of Equation (\ref{ch1_eq:finitemix_h2}), DP mixtures (DPMs) can be written as
+Getting back to the framework of mixture models, from the last representation of the DP it is clear that this process can be conveniently used as mixing measure in mixture models. Following the structure of Equation (\ref{ch1_eq:finitemix_h2}) for finite mixtures, DP mixtures (DPMs) can be written as
 \begin{equation*}
 \begin{gathered}
 y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\

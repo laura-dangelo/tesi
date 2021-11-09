@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  28 SEP 2021 10:05
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  9 NOV 2021 12:26
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -4185,7 +4185,7 @@ Here is how much of LuaTeX's memory you used:
  1617 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 242 attribute, 101 glue_sp
 ec, 121 attribute_list, 2 write, 29 pdf_action nodes
-   avail lists: 1:2,2:3692,3:196,4:118,5:685,6:67,7:6076,8:78,9:570,10:28,11:427
+   avail lists: 1:2,2:3692,3:196,4:118,5:685,6:67,7:6076,8:78,9:570,10:28,11:434
 
  62245 multiletter control sequences out of 65536+600000
  150 fonts using 22370475 bytes
@@ -4208,7 +4208,7 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on thesis.pdf (67 pages, 2260944 bytes).
+Output written on thesis.pdf (67 pages, 2260932 bytes).
 
 PDF statistics: 1234 PDF objects out of 1440 (max. 8388607)
  1076 compressed objects within 11 object streams
