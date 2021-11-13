@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  28 SEP 2021 09:38
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  13 NOV 2021 15:10
  restricted system commands enabled.
 **config.tex
 (./config.tex
@@ -665,7 +665,7 @@ between \documentclass and \begin{document}.
 
 ! Undefined control sequence.
 l.82     \captionsetup
-                    {font=small,labelfont={sc}}
+                    {font=small,labelfont={sc},format=plain}
 The control sequence at the end of the top line
 of your error message was never \def'ed. If you have
 misspelled it (e.g., `\hobx'), type `I' and the correct
@@ -686,7 +686,7 @@ Overfull \hbox (20.0pt too wide) in paragraph at lines 75--83
  []
 
 
-Overfull \hbox (164.82793pt too wide) in paragraph at lines 75--83
+Overfull \hbox (238.83675pt too wide) in paragraph at lines 75--83
 [][]\OML/cmm/m/it/10 mages=[]$ 
  []
 
@@ -1374,10 +1374,10 @@ between \documentclass and \begin{document}.
 
 Here is how much of LuaTeX's memory you used:
  126 strings out of 481365
- 100000,319454 words of node,token memory allocated 6061 words of node memory still in use:
-   43 hlist, 3 rule, 10 local_par, 1 dir, 1 math, 136 glue, 14 kern, 22 penalty,
- 546 glyph, 101 attribute, 39 glue_spec, 101 attribute_list nodes
-   avail lists: 1:1,2:2,3:19,4:16,5:4,7:16,8:33,10:15
+ 100000,319454 words of node,token memory allocated 6192 words of node memory still in use:
+   43 hlist, 3 rule, 10 local_par, 1 dir, 1 math, 139 glue, 17 kern, 22 penalty,
+ 559 glyph, 102 attribute, 39 glue_spec, 102 attribute_list nodes
+   avail lists: 1:1,2:2,3:32,4:16,5:4,7:16,8:46,10:15
  17329 multiletter control sequences out of 65536+600000
  38 fonts using 4274675 bytes
  18i,3n,17p,145b,80s stack positions out of 5000i,500n,10000p,200000b,100000s
