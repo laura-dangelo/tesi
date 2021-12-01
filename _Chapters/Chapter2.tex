@@ -202,7 +202,7 @@ Notably, the burn-in samples were removed from the chains before computing the e
 \begin{figure}[h]
 	\begin{center}
 		\includegraphics[width = .85\textwidth]{ch2_toess_gaussian.pdf}
-		\caption[Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a Gaussian prior.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using a Gaussian prior, over 50 replications.
+		\caption[Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using a Gaussian prior, over 50 replications.
 		\label{fig:time_ess}}
 	\end{center}
 \end{figure}
@@ -214,7 +214,7 @@ For the Gaussian prior the performances of the proposed algorithms are better th
 \begin{figure}[h!]
 	\begin{center}
 		\includegraphics[width = .85\textwidth]{ch2_toess_horseshoe.pdf}
-		\caption[Time per independent sample for the importance sampler, MH and HMC algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the time over the effective sample size using a horseshoe prior.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using the horseshoe prior, over 50 replications.
+		\caption[Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm, using a horseshoe prior.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using the horseshoe prior, over 50 replications.
 			\label{fig:time_ess_horseshoe}}
 	\end{center}
 \end{figure}
@@ -241,7 +241,7 @@ We applied the method reported by~\citet{jewell2019} as described in~\citet{vrie
 	\end{subfigure}
 	\begin{subfigure}{\linewidth} \centering
 		\includegraphics[width = \linewidth]{ch2_plot_cre.pdf}   \end{subfigure}
-	\caption[Coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval]{Coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval (colored dot and segment).} \label{fig:calcium_coeff}
+	\caption[Estimated coefficients of the regression on the calcium imaging data set.]{Estimated coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval (colored dot and segment).} \label{fig:calcium_coeff}
 \end{figure}
 
 

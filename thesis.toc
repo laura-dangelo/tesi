@@ -1,5 +1,7 @@
 \babel@toc {english}{}
-\contentsline {chapter}{\nonumberline Introduction}{1}{chapter*.9}%
+\contentsline {chapter}{\nonumberline Introduction}{1}{chapter*.7}%
+\contentsline {section}{Overview}{1}{chapter*.7}%
+\contentsline {section}{Main contributions of the thesis}{1}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Background: statistical modeling of calcium imaging data}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Overview of calcium imaging data}{3}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Deconvolution methods}{3}{subsection.1.1.1}%
@@ -26,6 +28,6 @@
 \contentsline {section}{\numberline {3.2}Posterior inference}{34}{section.3.2}%
 \contentsline {section}{\numberline {3.3}Simulation study}{35}{section.3.3}%
 \contentsline {section}{\numberline {3.4}Allen Brain Observatory data analysis}{39}{section.3.4}%
-\contentsline {chapter}{Conclusions}{43}{chapter*.19}%
+\contentsline {chapter}{Conclusions}{43}{chapter*.17}%
 \contentsline {chapter}{\numberline {A}Appendix name}{45}{appendix.A}%
 \contentsline {chapter}{Bibliography}{47}{appendix.A}%
