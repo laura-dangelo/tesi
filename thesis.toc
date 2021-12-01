@@ -1,7 +1,7 @@
 \babel@toc {english}{}
 \contentsline {chapter}{\nonumberline Introduction}{1}{chapter*.7}%
 \contentsline {section}{Overview}{1}{chapter*.7}%
-\contentsline {section}{Main contributions of the thesis}{1}{chapter*.7}%
+\contentsline {section}{Main contributions of the thesis}{2}{chapter*.7}%
 \contentsline {chapter}{\numberline {1}Background: statistical modeling of calcium imaging data}{3}{chapter.1}%
 \contentsline {section}{\numberline {1.1}Overview of calcium imaging data}{3}{section.1.1}%
 \contentsline {subsection}{\numberline {1.1.1}Deconvolution methods}{3}{subsection.1.1.1}%

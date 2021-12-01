@@ -14,11 +14,15 @@ However, many scientists recognize that despite the innovative techniques develo
 The technological developments of the last few decades have opened fundamentally new opportunities to investigate the nervous system. Large neuronal networks can now be visualized using \textit{in vivo} high-resolution imaging techniques, which permit to record the neuronal activity in freely moving animals over long periods of time. In this thesis, we focus on data resulting from the application of the two-photon calcium imaging technique. Calcium ions generate intracellular signals that determine a large variety of functions in all neurons: when a neuron fires, calcium floods the cell and produces a transient spike in its concentration~\citep{grienberger2012}. By using genetically encoded calcium indicators, which are fluorescent molecules that react when binding to the calcium ions, it is possible to optically measure the level of calcium by analyzing the observed fluorescence trace. 
 However, extracting these fluorescent calcium traces is just the first step towards the understanding of brain circuits: how to relate the observed pattern of neuronal activity to its output remains an open problem of research.
 
+The set of tools that explicitly try to relate external stimuli with the brain activity are usually referred to as ``encoding models''. In this context the stimuli are considered as features, and they are used to predict patterns of neuronal activity. These models allow to investigate how experimental conditions and specific stimulation trigger the neurons' activity, and hence how external information is encoded by individual neurons and neuronal networks.
+
 
 
 \addcontentsline{toc}{section}{Main contributions of the thesis}
 \section*{Main contributions of the thesis}
-Data collection without analysis and interpretation is meaningless. In this thesis we aim to 
+The availability of large quantities of data from calcium imaging studies, and the relative scarcity of tools to analyze them, constitute a breeding ground for the investigation of new methodologies.
+In this thesis, we aim to contribute to the development of novel statistical tools to gain new insights into the analysis of calcium imaging data.
 
+Linear models and generalized linear models are among the most natural classes of encoding models. They allow to flexibly link the observed output of an experiment with a number of features and experimental conditions, and to provide interpretable results. In particular, if the variable of interest is the number of spikes, which is a proxy of the intensity of the neuronal response, Poisson regression represents a straightforward choice. However, the dimension... In Chapter 2, we develop a novel sampling strategy to efficiently draw from the posterior distribution of the regression parameters.  
 \noindent
 

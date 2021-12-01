@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  1 DEC 2021 08:54
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  1 DEC 2021 16:29
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -3153,9 +3153,6 @@ Package microtype Info: Character `⁻' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/it/10.95'.
 (microtype)             Ignoring protrusion settings for this character.
 
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
-
 warning  (pdf backend): ignoring duplicate destination with the name 'page.1'
 [1
 
@@ -4208,7 +4205,7 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on thesis.pdf (65 pages, 2215108 bytes).
+Output written on thesis.pdf (65 pages, 2215735 bytes).
 
 PDF statistics: 1224 PDF objects out of 1440 (max. 8388607)
  1060 compressed objects within 11 object streams
