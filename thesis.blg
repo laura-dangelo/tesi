@@ -10,14 +10,13 @@ A level-1 auxiliary file: _Chapters/Chapter1.aux
 A level-1 auxiliary file: _Chapters/Chapter2.aux
 A level-1 auxiliary file: _Chapters/Chapter3.aux
 A level-1 auxiliary file: _Chapters/Chapter4.aux
-A level-1 auxiliary file: _Chapters/A_appendix.aux
 A level-1 auxiliary file: _Extras/bibliography.aux
 The style file: CUP.bst
 Database file #1: references.bib
 Warning--empty journal in wei2019
 You've used 82 entries,
             2750 wiz_defined-function locations,
-            1117 strings with 18540 characters,
+            1116 strings with 18516 characters,
 and the built_in function-call counts, 38383 in all, are:
 = -- 3545
 > -- 2165

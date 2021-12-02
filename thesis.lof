@@ -1,15 +1,14 @@
 \babel@toc {english}{}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Calcium traces of two neurons from the Allen Brain Observatory data.}}{6}{figure.caption.8}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Calcium traces of two neurons from the Allen Brain Observatory data.}}{6}{figure.caption.9}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.}}{27}{figure.caption.9}%
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm, using a horseshoe prior.}}{28}{figure.caption.10}%
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Estimated coefficients of the regression on the calcium imaging data set.}}{29}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.}}{27}{figure.caption.10}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm, using a horseshoe prior.}}{28}{figure.caption.11}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Estimated coefficients of the regression on the calcium imaging data set.}}{29}{figure.caption.12}%
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparison between the misclassification error rate in the simulation study for the four considered methods.}}{38}{figure.caption.12}%
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Comparison between the adjusted Rand index of the fCAM and CAM.}}{39}{figure.caption.13}%
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Observed fluorescence trace of a neuron from the Allen Brain Observatory data and estimated neuronal activity.}}{40}{figure.caption.14}%
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Distribution of the observational cluster parameters for the three experimental conditions of the Allen Brain Observatory data.}}{41}{figure.caption.15}%
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Visual representation of the estimated spikes and their amplitudes in the calcium trace from the Allen Brain Observatory data.}}{42}{figure.caption.16}%
-\addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparison between the misclassification error rate in the simulation study for the four considered methods.}}{38}{figure.caption.13}%
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Comparison between the adjusted Rand index of the fCAM and CAM.}}{39}{figure.caption.14}%
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Observed fluorescence trace of a neuron from the Allen Brain Observatory data and estimated neuronal activity.}}{40}{figure.caption.15}%
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Distribution of the observational cluster parameters for the three experimental conditions of the Allen Brain Observatory data.}}{41}{figure.caption.16}%
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Visual representation of the estimated spikes and their amplitudes in the calcium trace from the Allen Brain Observatory data.}}{42}{figure.caption.17}%

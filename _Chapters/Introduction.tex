@@ -23,6 +23,16 @@ The set of tools that explicitly try to relate external stimuli with the brain a
 The availability of large quantities of data from calcium imaging studies, and the relative scarcity of tools to analyze them, constitute a breeding ground for the investigation of new methodologies.
 In this thesis, we aim to contribute to the development of novel statistical tools to gain new insights into the analysis of calcium imaging data.
 
-Linear models and generalized linear models are among the most natural classes of encoding models. They allow to flexibly link the observed output of an experiment with a number of features and experimental conditions, and to provide interpretable results. In particular, if the variable of interest is the number of spikes, which is a proxy of the intensity of the neuronal response, Poisson regression represents a straightforward choice. However, the dimension... In Chapter 2, we develop a novel sampling strategy to efficiently draw from the posterior distribution of the regression parameters.  
-\noindent
+\subsubsection{Efficient posterior sampling for Poisson regression}
+Linear models and generalized linear models are among the most natural classes of encoding models~\citep{paninski2007}. They allow to link the observed output of an experiment with a number of features and experimental conditions in a flexible and interpretable way. In particular, if the variable of interest is the number of spikes, which is a proxy of the intensity of the neuronal response, Poisson regression represents a straightforward choice. However, the dimensionality of the considered data poses a computational challenge and leads to the need for efficient algorithms to obtain a sample from the posterior distribution of the parameters. 
+Motivated by the lack of specific and efficient algorithms to sample from the posterior distribution of the parameters
+of Bayesian log-linear models, in Chapter 2 we develop a novel sampling strategy which exhibits superior performance with respect to the state-of-the-art alternatives. 
+
+In particular, we develop an efficient Metropolis-Hastings algorithm and importance sampler to simulate from the posterior distribution of the regression parameters.
+The key for both algorithms is the introduction of a proposal density based on an approximation of the posterior distribution of parameters under conditional Gaussian priors. 
+With conditional Gaussian prior, we refer to a possibly hierarchical prior with conditional distribution $\beta \sim \mathrm{N}(b, B)$, with $b$ and/or $B$ random. Examples include straightforward Gaussian prior distributions with informative $(b,B)$ fixed using prior information, and scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation, such as the Bayesian lasso prior or the horseshoe prior, among others.
+
+Our result leverages the negative binomial convergence to
+the Poisson likelihood: thanks to this result, we are able to exploit the P\'olya-gamma data augmentation of~\citet{polson_scott_2013} to derive an efficient sampling scheme. 
+
 
