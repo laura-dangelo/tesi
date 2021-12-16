@@ -1,33 +1,25 @@
-% !TeX root = ../Thesis.tex
 % Chapter 4
-%======================================================================
-\chapter*{Conclusions} % Write in your own chapter title
-\label{ch5}
-\setlength{\parskip}{0.5pt}
+\chapter{Clustering activation patterns of spatially-referenced neurons}
+\chaptermark{Clustering activation patterns of spatially-referenced neurons}
 
-%\fancyhead[RO,LE]{\thepage}
-%\fancyhead[LO]{\emph{Conclusions}}
-%\fancyhead[RE]{\emph{\Sectionname}}
+\section{Model and prior specification}
+Once again, we employ the general model for the calcium dynamics introduced in equation~\eqref{ch1_eq:armodel} of Chapter 1. However, differently from the previous Chapter, here we consider $n$ neurons, so we also introduce the index $i=1,\dots,n$ corresponding to each fluorescence trace. 
+Moreover, we split the parameters $A_t$ of equation~\eqref{ch1_eq:armodel} into two separate components: $s_{i,t}\in\{0,1\}$ describing the presence/absence of a spike (the \textit{signal}), and $a_{i,t}\in\R^+$ describing the spike amplitude when present.
+With these modifications, the model can be written, for time $t=1,\dots,T$, as
+\begin{equation}
+\begin{gathered}
+y_{i,t} = b_i + \Ca_{i,t} + \epsilon_{i,t},\qquad \epsilon_{i,t} \sim \N(0,\sigma^2),  \\
+\Ca_{i,t} = \gamma\, \Ca_{i,t-1} + s_{i,t}\cdot a_{i,t} + w_{i,t}, \qquad w_{i,t} \sim \N(0, \tau^2),
+\end{gathered}
+\label{ch4_eq:armodel_mult}
+\end{equation}
+where the baseline parameters $b_i$ are now neuron-specific.
+Moreover, for each series we are also given information on the spatial location of the neuron in the hippocampus, $l_i \in \R^2$ \textit{(controllare!)}.
 
-%\lhead{\emph{Conclusions}}
-\addcontentsline{toc}{chapter}{Conclusions}
-%======================================================================
+In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are a function of an underlying continuous process, and we perform the clustering at this latent level.
 
-%======================================================================
-\section*{Discussion}
-\label{5.1}
-
-
-ms.
-
-%======================================================================
-\section*{Future directions of research}
-\label{5.1}
-
-
-
-
-
-
-
-
+Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the realization of independent Bernoulli random variables whose probability depends on an underlying Gaussian process through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
+\begin{equation*}
+s_{i,t} \sim \mathrm{Bernoulli(\Phi(\tilde{s}_{i,t}))}.
+\end{equation*}
+Then, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 

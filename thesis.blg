@@ -10,49 +10,50 @@ A level-1 auxiliary file: _Chapters/Chapter1.aux
 A level-1 auxiliary file: _Chapters/Chapter2.aux
 A level-1 auxiliary file: _Chapters/Chapter3.aux
 A level-1 auxiliary file: _Chapters/Chapter4.aux
+A level-1 auxiliary file: _Chapters/Chapter5.aux
 A level-1 auxiliary file: _Extras/bibliography.aux
 The style file: CUP.bst
 Database file #1: references.bib
 Warning--empty journal in wei2019
-You've used 82 entries,
+You've used 83 entries,
             2750 wiz_defined-function locations,
-            1116 strings with 18516 characters,
-and the built_in function-call counts, 38383 in all, are:
-= -- 3545
-> -- 2165
-< -- 58
-+ -- 828
-- -- 746
-* -- 3884
-:= -- 6589
-add.period$ -- 168
-call.type$ -- 82
-change.case$ -- 501
-chr.to.int$ -- 88
-cite$ -- 247
-duplicate$ -- 1473
-empty$ -- 2640
-format.name$ -- 886
-if$ -- 7523
+            1123 strings with 18654 characters,
+and the built_in function-call counts, 38759 in all, are:
+= -- 3577
+> -- 2183
+< -- 59
++ -- 835
+- -- 752
+* -- 3914
+:= -- 6653
+add.period$ -- 171
+call.type$ -- 83
+change.case$ -- 505
+chr.to.int$ -- 89
+cite$ -- 250
+duplicate$ -- 1493
+empty$ -- 2672
+format.name$ -- 895
+if$ -- 7600
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 80
-newline$ -- 330
-num.names$ -- 336
-pop$ -- 463
+missing$ -- 83
+newline$ -- 335
+num.names$ -- 340
+pop$ -- 474
 preamble$ -- 1
-purify$ -- 407
+purify$ -- 411
 quote$ -- 0
-skip$ -- 913
+skip$ -- 926
 stack$ -- 0
-substring$ -- 2030
-swap$ -- 320
+substring$ -- 2033
+swap$ -- 323
 text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 729
+type$ -- 735
 warning$ -- 1
-while$ -- 362
+while$ -- 365
 width$ -- 0
-write$ -- 979
+write$ -- 992
 (There was 1 warning)

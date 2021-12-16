@@ -21,8 +21,8 @@ There is currently a rich literature of methods addressing the issue of deconvol
 Denoting with $y_t$ the observed fluorescence trace of a neuron and with $\Ca_t$ the underlying calcium concentration, for time $t=1,\dots,T$, the model can be written as
 \begin{equation}
 \begin{gathered}
-y_t = b + \Ca_t + \epsilon_t,\quad \epsilon_t \sim \N(0,\sigma^2),  \\
-\Ca_t = \gamma\, \Ca_{t-1} + A_t + w_t, \quad w_t \sim \N(0, \tau^2),
+y_t = b + \Ca_t + \epsilon_t,\qquad \epsilon_t \sim \N(0,\sigma^2),  \\
+\Ca_t = \gamma\, \Ca_{t-1} + A_t + w_t, \qquad w_t \sim \N(0, \tau^2),
 \end{gathered}
 \label{ch1_eq:armodel}
 \end{equation}
@@ -54,7 +54,7 @@ In particular, \citet{paninski2007} highlighted the importance of regularization
 A different approach has been proposed by \citet{wei2019}: instead of focusing the relationship between the experimental conditions and some summary statistic of the resulting spike train, they studied the distribution of the deconvolved output. In particular, this allows to analyze quantities such as the spike probability and the spikes' amplitudes. They proposed a mixture model, with a Dirac mass at zero, representing the absence of neuronal response, and a translated Gamma distribution to model the positive amplitudes.
 
 \section{Data sets} 
-Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...
+%Una frase introduttiva? Parlo dei dati dell'Allen Brain Observatory e poi ci sarebbe da mettere i nuovi dati se riesco a fare qualcosa del progetto 3...
 
 \subsection{Allen Brain Observatory data}
 \label{ch1_sec:allen_brain_data}
@@ -86,11 +86,11 @@ The synthetic stimuli are used to investigate the parameters that trigger the ne
 
 
 
-\subsection{Altri dati?}
-Paragrafo qui.
+\subsection{Hippocampal neurons data}
+Neurons located in the hippocampus are the focus of many studies investigating the neuronal circuits that underlie cognition, learning and memory.
+Specifically, experiments involving freely moving mice within particular environments allow to study the location-specific firing of hippocampal neurons during navigation. These particular neurons, that activate when the animal enters a specific place in the environment (the \textit{place field}), are often called \textit{place cells}. Place cells are thought, collectively, to act as cognitive representations of a specific location in space~\citep{okeefe1978}. However, the anatomical organization of these subpopulations of co-activating cells is still under investigation: it is unclear whether hippocampal neurons with similar place fields are spatially organized within the hippocampus~\citep{dombeck2010}.
 
-
-
+We consider data 
 
 
 

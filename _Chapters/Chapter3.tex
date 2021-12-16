@@ -187,7 +187,7 @@ Scenario 2 assumes $J=4$ experimental conditions and $K=3$ distributional cluste
 %
 Finally, Scenario 3 sets $J=5$ and $K=3$ with the spike amplitudes in the distributional clusters being (0.3, 0.5, 0.7, 0.9, 1.1), (0.3, 0.9, 1.1, 1.3), and (0.7, 0.9, 1.3). 
 %
-While in Scenario 1 the amplitudes of the spikes are quite large, spaced apart, and with the corresponding distributional clusters well distinct, in Scenario 3 the spike amplitudes are more homogeneous and more clustered in time. Scenario 2 represents an in-between situation. Hence, from the first to the last scenario, we are assuming an increasing degree of complexity. The R script generating these synthetic datasets is described in the Supporting Information.
+While in Scenario 1 the amplitudes of the spikes are quite large, spaced apart, and with the corresponding distributional clusters well distinct, in Scenario 3 the spike amplitudes are more homogeneous and more clustered in time. Scenario 2 represents an in-between situation. Hence, from the first to the last scenario, we are assuming an increasing degree of complexity. The R script generating these synthetic datasets is available in a Github repository at \texttt{https://github.com/laura-dangelo/fCAM\_calcium\_imaging}.
 
 The results attained by the proposed fCAM are compared to those obtained exploiting the common atom model (CAM) of~\citet{denti2021} -- which provides a benchmark for the clustering of the spikes and the stimulus-specific distributions -- and to those obtained with the $L_0$ penalization method of~\citet{jewell2019} and the $L_1$ penalization method of~\citet{friedrich2017}, which provide a benchmark for the task of spikes' detection. For the latter two methods we have assumed complete knowledge of the autoregressive constant controlling the rate of the calcium decay, since we found that the results were quite sensitive to this estimate.
 
@@ -233,7 +233,7 @@ From a computational point of view, the proposed algorithm is clearly more deman
 \end{figure}
 
 We now revert to the analysis of the data from the Allen Brain Observatory~\citep{allen}. The data comprise the $dF/F$-transformed fluorescence trace for a cell during session-B of the experiment. This session comprises three types of visual stimuli (static gratings, natural scene and natural movie) in addition to some period of spontaneous activity (absence of visual stimuli). Since the data are recorded at a frequency of $30$ Hz, the resulting series consists of 113{,}865 time points for a total of 63.2 minutes. 
-We focus our analysis on a neuron located in the primary visual area, at an imaging depth equal to 350 microns. Additional analyses for other neurons are reported in the Supporting Information.
+We focus our analysis on a neuron located in the primary visual area, at an imaging depth equal to 350 microns. %Additional analyses for other neurons are reported in the Supporting Information.
 %{\textcolor{red}{ADD SOMETHING LIKE: we focus our analysis for neuron ABC. Additional analyses for other neurons are reported in the Supporting Information. }}
 
 The observed fluorescence trace is shown with a continuous black line in Figure~\ref{fig:y}. Different shaded backgrounds indicate the types of visual stimuli.

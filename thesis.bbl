@@ -1,4 +1,4 @@
-\begin{thebibliography}{82}
+\begin{thebibliography}{83}
 
 \bibitem[Albert and Chib(1993)]{albert_chib_1993}
 Albert, J.~H. and Chib, S. (1993) Bayesian analysis of binary and polychotomous
@@ -155,6 +155,7 @@ Fr\"uhwirth-Schnatter, S. and Malsiner-Walli, G. (2019) From here to infinity:
   Malsiner-Walli and Gr\"un]{fruhwirthschnatter2020}
 Fr\"uhwirth-Schnatter, S., Malsiner-Walli, G. and Gr\"un, B. (2020) Generalized
   mixtures of finite mixtures and telescoping sampling.
+\newblock \emph{arXiv:2005.09918} .
 
 \bibitem[Fr\"uhwirth-Schnatter and Wagner(2006)]{fruhwirth2006}
 Fr\"uhwirth-Schnatter, S. and Wagner, H. (2006) Auxiliary mixture sampling for
@@ -310,6 +311,10 @@ Nobile, A. (2004) On the posterior distribution of the number of components in
 Nobile, A. and Fearnside, A. (2007) Bayesian finite mixtures with an unknown
   number of components: the allocation sampler.
 \newblock \emph{Statistics and Computing} \textbf{17}, 147 -- 162.
+
+\bibitem[O'Keefe and Nadel(1978)]{okeefe1978}
+O'Keefe, J. and Nadel, L. (1978) \emph{The hippocampus as a cognitive map}.
+\newblock Oxford university press.
 
 \bibitem[Paninski \emph{et~al.}(2007)Paninski, Pillow and Lewi]{paninski2007}
 Paninski, L., Pillow, J. and Lewi, J. (2007) Statistical models for neural
