@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  16 DEC 2021 17:43
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  17 DEC 2021 17:40
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -4041,17 +4041,16 @@ e 293.
 \openout2 = _Chapters/Chapter4.aux
  (./_Chapters/Chapter4.tex
 chapter 4.
-) [45
+[45
 
 
 
 
-] [46
-
-
-]
+]) [46]
 \openout2 = _Chapters/Chapter5.aux
  (./_Chapters/Chapter5.tex) [47
+
+
 
 
 ] [48
@@ -4064,7 +4063,7 @@ chapter 4.
 
 
 ] [50] [51] [52] [53])) [54]
-<CVthesis/cv.pdf, id=1019, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1026, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
@@ -4073,7 +4072,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1022, page=1, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1029, page=1, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 81.
@@ -4106,7 +4105,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 83.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1062, page=2, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1069, page=2, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 83.
@@ -4136,7 +4135,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 85.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1069, page=3, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1076, page=3, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 85.
@@ -4176,16 +4175,16 @@ LaTeX Warning: There were multiply-defined labels.
 )
 
 Here is how much of LuaTeX's memory you used:
- 47935 strings out of 481365
+ 47942 strings out of 481365
  100000,2373549 words of node,token memory allocated
- 1587 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 240 attribute, 101 glue_sp
-ec, 120 attribute_list, 2 write, 25 pdf_action nodes
-   avail lists: 1:2,2:3683,3:211,4:118,5:685,6:75,7:6076,8:78,9:570,10:28,11:424
+ 1599 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 244 attribute, 101 glue_sp
+ec, 122 attribute_list, 2 write, 25 pdf_action nodes
+   avail lists: 1:2,2:3677,3:211,4:118,5:685,6:75,7:6076,8:78,9:570,10:28,11:424
 
- 62347 multiletter control sequences out of 65536+600000
- 150 fonts using 22371131 bytes
- 85i,23n,126p,10100b,983s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 62350 multiletter control sequences out of 65536+600000
+ 150 fonts using 22371787 bytes
+ 85i,23n,126p,10100b,981s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
 f/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/share/texmf/fonts
 /opentype/public/tex-gyre/texgyrepagella-italic.otf></usr/share/texmf/fonts/open
@@ -4204,10 +4203,10 @@ fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/pub
 lic/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/symbols/msbm10.pfb>
-Output written on thesis.pdf (67 pages, 2228487 bytes).
+Output written on thesis.pdf (67 pages, 2231339 bytes).
 
-PDF statistics: 1260 PDF objects out of 1440 (max. 8388607)
- 1094 compressed objects within 11 object streams
- 233 named destinations out of 1000 (max. 131072)
+PDF statistics: 1268 PDF objects out of 1440 (max. 8388607)
+ 1101 compressed objects within 12 object streams
+ 235 named destinations out of 1000 (max. 131072)
  288 words of extra memory for PDF output out of 10000 (max. 100000000)
 

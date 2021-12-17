@@ -16,10 +16,33 @@ y_{i,t} = b_i + \Ca_{i,t} + \epsilon_{i,t},\qquad \epsilon_{i,t} \sim \N(0,\sigm
 where the baseline parameters $b_i$ are now neuron-specific.
 Moreover, for each series we are also given information on the spatial location of the neuron in the hippocampus, $l_i \in \R^2$ \textit{(controllare!)}.
 
-In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are a function of an underlying continuous process, and we perform the clustering at this latent level.
+In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process describing the spike probabilities, and we perform the clustering at this latent level.
 
 Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the realization of independent Bernoulli random variables whose probability depends on an underlying Gaussian process through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
 \begin{equation*}
-s_{i,t} \sim \mathrm{Bernoulli(\Phi(\tilde{s}_{i,t}))}.
+s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})).
 \end{equation*}
-Then, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
+Assuming a latent Gaussian process also allows to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\citep{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
+
+To obtain a clustering of neurons, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
+To inform the clustering using the location of each neuron, we make use of the probit stick-breaking process
+of \cite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma$.
+This nonparametric prior on $\tilde{\bm{s}}_i$ can be written as
+\begin{equation}
+\begin{gathered}
+\tilde{\bm{s}}_i  \sim G_{\Sigma} = \sum_{k\geq1} \pi_k(\Sigma)\cdot \delta_{\tilde{\bm{s}}^*_k }\\
+\pi_k(\Sigma) = \Phi(\alpha_k) \prod_{r<k} \big( 1- \Phi(\alpha_r)\big)
+\end{gathered}
+\end{equation}
+
+
+
+
+
+
+
+
+
+
+
+

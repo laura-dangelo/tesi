@@ -1,4 +1,4 @@
-\begin{thebibliography}{83}
+\begin{thebibliography}{84}
 
 \bibitem[Albert and Chib(1993)]{albert_chib_1993}
 Albert, J.~H. and Chib, S. (1993) Bayesian analysis of binary and polychotomous
@@ -397,6 +397,11 @@ Richardson, S. and Green, P.~J. (1997) On {Bayesian} analysis of mixtures with
 Robert, C. and Casella, G. (2010) \emph{{Introducing Monte Carlo methods with
   R}}.
 \newblock Springer.
+
+\bibitem[Rodr\'iguez and Dunson(2011)]{rodriguez2011}
+Rodr\'iguez, A. and Dunson, D. (2011) Nonparametric bayesian models through
+  probit stick-breaking processes.
+\newblock \emph{Bayesian Analysis} \textbf{6}, 145--178.
 
 \bibitem[Rodr\'iguez \emph{et~al.}(2008)Rodr\'iguez, Dunson and
   Gelfand]{rodriguez2008}
