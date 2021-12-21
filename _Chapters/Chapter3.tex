@@ -55,11 +55,14 @@ The proposed formulation can be seen as a special case of \textit{inner} spike-a
 
 
 The Bayesian model elicitation is completed by assuming conjugate priors for the underlying calcium level concentration parameters, i.e. the baseline calcium level $b$, and the variances $\sigma^2$ and $\tau^2$.  Specifically, the following conjugate prior distributions are assumed:
-\begin{eqnarray*}
-	&\Ca_0 \sim \N(0,C_0), \quad b\sim \N(b_0,B_0) \\ 
-	&1/\sigma^2 \sim \mathrm{Gamma}(h_{1\sigma},h_{2\sigma}),\quad 
+\begin{equation}
+\begin{gathered}
+	\Ca_0 \sim \N(0,C_0), \quad b\sim \N(b_0,B_0) \\ 
+	1/\sigma^2 \sim \mathrm{Gamma}(h_{1\sigma},h_{2\sigma}),\quad 
 	1/\tau^2 \sim \mathrm{Gamma}(h_{1\tau},h_{2\tau}),
-\end{eqnarray*}
+\end{gathered}
+\label{eq:ch3_priors}
+\end{equation}
 Finally, under the assumption that the process is stationary with positive correlation between the calcium level at consecutive times, we constrain $\gamma \in (0,1)$ and let $\gamma\sim \mathrm{Beta}(h_{1\gamma}, h_{2\gamma})$, a priori.
 
 

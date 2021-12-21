@@ -10,14 +10,22 @@ A level-1 auxiliary file: _Chapters/Chapter1.aux
 A level-1 auxiliary file: _Chapters/Chapter2.aux
 A level-1 auxiliary file: _Chapters/Chapter3.aux
 A level-1 auxiliary file: _Chapters/Chapter4.aux
+White space in argument---line 15 of file _Chapters/Chapter4.aux
+ : \citation{rodriguez2011;
+ :                          ishwaran2001}
+I'm skipping whatever remains of this command
 A level-1 auxiliary file: _Chapters/Chapter5.aux
 A level-1 auxiliary file: _Extras/bibliography.aux
 The style file: CUP.bst
 Database file #1: references.bib
+Repeated entry---line 924 of file references.bib
+ : @article{ishwaran2001
+ :                      ,
+I'm skipping whatever remains of this entry
 Warning--empty journal in wei2019
 You've used 84 entries,
             2750 wiz_defined-function locations,
-            1127 strings with 18778 characters,
+            1127 strings with 18780 characters,
 and the built_in function-call counts, 39174 in all, are:
 = -- 3618
 > -- 2201
@@ -56,4 +64,4 @@ warning$ -- 1
 while$ -- 369
 width$ -- 0
 write$ -- 1004
-(There was 1 warning)
+(There were 2 error messages)

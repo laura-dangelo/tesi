@@ -14,31 +14,82 @@ y_{i,t} = b_i + \Ca_{i,t} + \epsilon_{i,t},\qquad \epsilon_{i,t} \sim \N(0,\sigm
 \label{ch4_eq:armodel_mult}
 \end{equation}
 where the baseline parameters $b_i$ are now neuron-specific.
-Moreover, for each series we are also given information on the spatial location of the neuron in the hippocampus, $l_i \in \R^2$ \textit{(controllare!)}.
+Moreover, for each series it is also provided information on the spatial location of the neuron in the region of interest of the hippocampus, $\bm{l}_i \in \mathcal{L}\subseteq\R^2$.
 
 In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process describing the spike probabilities, and we perform the clustering at this latent level.
 
-Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the realization of independent Bernoulli random variables whose probability depends on an underlying Gaussian process through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
+Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the realization of independent Bernoulli random variables whose probability depends on an underlying Gaussian process (GP) through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
 \begin{equation*}
-s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})).
+s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})),
 \end{equation*}
+where $\Phi(\cdot)$ is the cumulative distribution function of a standard Gaussian distribution.
 Assuming a latent Gaussian process also allows to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\citep{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
 
 To obtain a clustering of neurons, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
-To inform the clustering using the location of each neuron, we make use of the probit stick-breaking process
-of \cite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma$.
+To include the information about the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \cite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma(\bm{l})$.
 This nonparametric prior on $\tilde{\bm{s}}_i$ can be written as
 \begin{equation}
 \begin{gathered}
-\tilde{\bm{s}}_i  \sim G_{\Sigma} = \sum_{k\geq1} \pi_k(\Sigma)\cdot \delta_{\tilde{\bm{s}}^*_k }\\
-\pi_k(\Sigma) = \Phi(\alpha_k) \prod_{r<k} \big( 1- \Phi(\alpha_r)\big)
+\tilde{\bm{s}}_i\mid \bm{l}_i  \sim G_{\bm{l}_i} = \sum_{k\geq1} \pi_k(\bm{l}_i)\cdot \delta_{\tilde{\bm{s}}^*_k }\\
+\pi_k(\bm{l}_i) = \Phi\big(\alpha_k(\bm{l}_i)\big) \prod_{r<k} \big\{ 1- \Phi\big(\alpha_r(\bm{l}_i)\big)\big\}
 \end{gathered}
+\end{equation}
+with 
+\begin{equation*}
+\begin{bmatrix}
+\alpha_k(\bm{l}_1) \\
+\alpha_k(\bm{l}_2) \\
+\vdots \\
+\alpha_k(\bm{l}_n) 
+\end{bmatrix} \sim \N_n \left(
+\bm{0},\, \Sigma(\bm{l}) = 
+\begin{bmatrix}
+1 & k(\bm{l}_1,\bm{l}_2) & \dots & k(\bm{l}_1,\bm{l}_n)\\
+k(\bm{l}_1,\bm{l}_2) & 1 & \dots & k(\bm{l}_2,\bm{l}_n) \\
+\vdots & \vdots & \ddots & \vdots \\
+k(\bm{l}_1,\bm{l}_n) & k(\bm{l}_2,\bm{l}_n) & \dots & 1
+\end{bmatrix}
+\right)
+\end{equation*}
+where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture prior are independent draws from a Gaussian process in the time domain, where the covariance matrix $\Omega(t,t')$ describes the temporal dependence:
+\begin{equation*}
+\tilde{\bm{s}}^*_k \sim \mathrm{GP}(\bm{\mu},\Omega).
+\end{equation*}
+
+Coherently with the approach described in the previous Chapter, we model the positive spike amplitudes using a Gamma prior, $a_{i,t}\sim\mathrm{Gamma}(h_{1a},h_{2a})$. Moreover, for the remaining parameters, we adopt the same prior specification as in Eq.~\eqref{eq:ch3_priors}.
+
+
+\section{Posterior inference}
+Posterior inference for the proposed model can be carried out using MCMC methods, and, in particular, the Gibbs sampler, as for most steps the full conditional distributions are available analytically.
+In line with the previous work, also here it is convenient to introduce the latent cluster allocation variables $c_i\in\{1,2,\dots\}$, that, in this context, identify the groups of neurons with a similar activation pattern.
+Conditionally on $\pi_k(\bm{l}_i)$, we have $\Pr(c_i = k\mid \bm{l}_i) = \pi_k(\bm{l}_i)$.
+Hence the distribution of the signal for neuron $i$ can be expressed, conditionally on the cluster allocation, as
+\begin{equation}
+p(\bm{s}_i\mid c_i=k,\tilde{\bm{s}}^*_k)= \prod_{t=1}^T \Phi(s_{k,t}^*)^{s_{i,t}}\big(1-\Phi(s_{k,t}^*)\big)^{1-s_{i,t}}.
+\label{eq:ch4_distr_signal_clk}
 \end{equation}
 
 
+Notice that the cluster allocation only affects the latent process controlling the spike probabilities, hence the $c_i$'s are independent of the observed traces, given the series of the estimated signal $s_i$. Moreover, as the temporal dependence between spikes is expressed only at the latent level, the distribution of each observed series is simply
+\begin{equation}
+f(\bm{y}_i\mid b_i, \bm{\Ca}_i,\gamma,\bm{s}_i,\bm{a}_i,\sigma^2,\tau^2) = \prod_{t=1}^T \phi(y_{i,t}\mid\, b_i + \gamma\, \Ca_{i,t-1} + s_{i,t}\cdot a_{i,t};\, \sigma^2+\tau^2),
+\label{eq:ch4_lik}
+\end{equation}
+where $\phi(\cdot\mid\mu;\varsigma^2)$ is the density function of a normal random variable of mean $\mu$ and variance $\varsigma^2$. Hence to obtain a sample from the posterior distribution of $b_i$, $\gamma$, $\bm{\Ca}_i$, $\sigma^2$ and $\tau^2$ we can adapt the MCMC steps described in Section~\ref{s:posterior_inference} for the multivariate case in a straightforward manner.
 
+Combining the prior distribution of the signal in Eq.~\eqref{eq:ch4_distr_signal_clk} with the likelihood \eqref{eq:ch4_lik}, the full conditional distribution of $\bm{s}_i$ is easily obtained as
+\begin{gather*}
+\Pr(s_{it} = 1 \mid y_{it}, c_i=k, \tilde{s}_{k,t}, -) = \frac{1}{\sqrt{2\pi(\sigma^2+\tau^2)}}e^{-\frac{1}{2(\sigma^2+\tau^2)}(y_{i,t} - b_i - \gamma \Ca_{i,t-1}- a_{i,t})^2 } \Phi(\tilde{s}_{k,t}) \\
+%
+\Pr(s_{it} = 0 \mid y_{it}, c_i=k, \tilde{s}_{k,t}, -) = \frac{1}{\sqrt{2\pi(\sigma^2+\tau^2)}}e^{-\frac{1}{2(\sigma^2+\tau^2)}(y_{i,t} - b_i - \gamma \Ca_{i,t-1})^2 } \Phi(-\tilde{s}_{k,t}).
+\end{gather*}
+Notice that the probability of observing a spike at time $t$ also depends on the specific amplitude $a_{i,t}$. Hence at each iteration we need to sample a new value for all parameters $a_{i,t}$, even if a spike was not detected for that particular neuron and time.
 
+Regarding the sampling of the amplitudes, assuming a Gamma prior does not lead to a simple expression of the full conditional, hence we make use of a Metropolis-Hastings step.
 
+The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in the original paper \citep{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\citep{rodriguez2011, ishwaran2001}.
+
+Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process.
 
 
 
