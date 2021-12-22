@@ -51,10 +51,11 @@ k(\bm{l}_1,\bm{l}_n) & k(\bm{l}_2,\bm{l}_n) & \dots & 1
 \end{bmatrix}
 \right)
 \end{equation*}
-where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture prior are independent draws from a Gaussian process in the time domain, where the covariance matrix $\Omega(t,t')$ describes the temporal dependence:
+where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture prior are independent draws from a Gaussian process in the time domain, 
 \begin{equation*}
 \tilde{\bm{s}}^*_k \sim \mathrm{GP}(\bm{\mu},\Omega).
 \end{equation*}
+where the covariance function $\Omega(t,t')$ describes the temporal dependence, that we model using a squared exponential kernel.
 
 Coherently with the approach described in the previous Chapter, we model the positive spike amplitudes using a Gamma prior, $a_{i,t}\sim\mathrm{Gamma}(h_{1a},h_{2a})$. Moreover, for the remaining parameters, we adopt the same prior specification as in Eq.~\eqref{eq:ch3_priors}.
 
@@ -89,7 +90,7 @@ Regarding the sampling of the amplitudes, assuming a Gamma prior does not lead t
 
 The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in the original paper \citep{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\citep{rodriguez2011, ishwaran2001}.
 
-Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process.
+Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process. To this end, we make use of a device that allows us to exploit the exponentially decreasing correlation between time points in our definition of $\Omega$. Specifically, since after a certain lag $p$ the covariance $\Omega(t,t+p)=\Omega(t,t-p)$ is \textit{virtually} equal to zero, we set all the corresponding elements in the covariance matrix exactly to zero. In this way, we obtain a Gaussian distribution with a band covariance matrix. This artifice allows us to estimate the latent process using the closed-form filter developed by \cite{fasano2021} for binary time series. In our specific case, the observed level is the set of binary series of signal $\bm{s}_i$ for all neurons in the same activation cluster, and the state equation can be expressed as depending on a $p$-variate Gaussian random vector.
 
 
 

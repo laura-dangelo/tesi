@@ -1,4 +1,4 @@
-\begin{thebibliography}{84}
+\begin{thebibliography}{85}
 
 \bibitem[Albert and Chib(1993)]{albert_chib_1993}
 Albert, J.~H. and Chib, S. (1993) Bayesian analysis of binary and polychotomous
@@ -74,6 +74,14 @@ Carvalho, C.~M., Polson, N.~G. and Scott, J.~G. (2010) The horseshoe estimator
 D'Angelo, L. (2021) {bpr: Bayesian Poisson regression}.
 \newblock \textsc{url:} \texttt{https://CRAN.R-project.org/package=bpr}.
 
+\bibitem[{de Vries, S. E. J., Lecoq, J. A., Buice M. A., Groblewski, P. A.,
+  Ocker, G. K., Oliver, M., \textit{et al.}}(2020)]{vries2020}
+{de Vries, S. E. J., Lecoq, J. A., Buice M. A., Groblewski, P. A., Ocker, G.
+  K., Oliver, M., \textit{et al.}} (2020) A large-scale standardized
+  physiological survey reveals functional organization of the mouse visual
+  cortex.
+\newblock \emph{Nature neuroscience} \textbf{23}(1), 138--151.
+
 \bibitem[Denk \emph{et~al.}(1990)Denk, Strickler and Webb]{denk1990}
 Denk, W., Strickler, J.~H. and Webb, W.~W. (1990) Two-photon laser scanning
   fluorescence microscopy.
@@ -108,6 +116,12 @@ Eddelbuettel, D. and Francois, R. (2011) Rcpp: Seamless {R} and {C}++
   integration.
 \newblock \emph{Journal of Statistical Software, Articles} \textbf{40}(8),
   1--18.
+
+\bibitem[Fasano \emph{et~al.}(2021)Fasano, Rebaudo, Durante and
+  Petrone]{fasano2021}
+Fasano, A., Rebaudo, G., Durante, D. and Petrone, S. (2021) A closed-form
+  filter for binary time series.
+\newblock \emph{Statistics and Computing} \textbf{31}.
 
 \bibitem[Ferguson(1973)]{ferguson1973}
 Ferguson, T.~S. (1973) {A Bayesian analysis of some nonparametric problems}.
@@ -444,16 +458,6 @@ Vogelstein, J.~T., Packer, A.~M., Machado, T.~A., Sippy, T., Babadi, B., Yuste,
   R. and Paninski, L. (2010) Fast nonnegative deconvolution for spike train
   inference from population calcium imaging.
 \newblock \emph{Journal of Neurophysiology} \textbf{104}(6), 3691--3704.
-
-\bibitem[de~Vries \emph{et~al.}(2020)de~Vries, Lecoq, Buice, Groblewski, Ocker,
-  Oliver, Feng, Cain, Ledochowitsch, Millman, Roll, Garrett, Keenan, Kuan,
-  Mihalas, Olsen, Thompson, Wakeman, Waters and Koch]{vries2020}
-de~Vries, S., Lecoq, J., Buice, M., Groblewski, P., Ocker, G., Oliver, M.,
-  Feng, D., Cain, N., Ledochowitsch, P., Millman, D., Roll, K., Garrett, M.,
-  Keenan, T., Kuan, C., Mihalas, S., Olsen, S., Thompson, C., Wakeman, W.,
-  Waters, J. and Koch, C. (2020) A large-scale standardized physiological
-  survey reveals functional organization of the mouse visual cortex.
-\newblock \emph{Nature neuroscience} \textbf{23}(1), 138--151.
 
 \bibitem[Wade and Ghahramani(2018)]{wade2018}
 Wade, S. and Ghahramani, Z. (2018) Bayesian cluster analysis: point estimation
