@@ -2,6 +2,9 @@
 \chapter{Clustering activation patterns of spatially-referenced neurons}
 \chaptermark{Clustering activation patterns of spatially-referenced neurons}
 
+
+seconds-long period of time \cite{cone2021}
+
 \section{Model and prior specification}
 Once again, we employ the general model for the calcium dynamics introduced in equation~\eqref{ch1_eq:armodel} of Chapter 1. However, differently from the previous Chapter, here we consider $n$ neurons, so we also introduce the index $i=1,\dots,n$ corresponding to each fluorescence trace. 
 Moreover, we split the parameters $A_t$ of equation~\eqref{ch1_eq:armodel} into two separate components: $s_{i,t}\in\{0,1\}$ describing the presence/absence of a spike (the \textit{signal}), and $a_{i,t}\in\R^+$ describing the spike amplitude when present.
@@ -23,7 +26,7 @@ Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the
 s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})),
 \end{equation*}
 where $\Phi(\cdot)$ is the cumulative distribution function of a standard Gaussian distribution.
-Assuming a latent Gaussian process also allows to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\citep{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
+Assuming a latent Gaussian process also allows to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\parencite{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
 
 To obtain a clustering of neurons, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
 To include the information about the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \cite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma(\bm{l})$.
@@ -88,7 +91,7 @@ Notice that the probability of observing a spike at time $t$ also depends on the
 
 Regarding the sampling of the amplitudes, assuming a Gamma prior does not lead to a simple expression of the full conditional, hence we make use of a Metropolis-Hastings step.
 
-The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in the original paper \citep{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\citep{rodriguez2011, ishwaran2001}.
+The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in the original paper \parencite{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\parencite{rodriguez2011, ishwaran2001}.
 
 Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process. To this end, we make use of a device that allows us to exploit the exponentially decreasing correlation between time points in our definition of $\Omega$. Specifically, since after a certain lag $p$ the covariance $\Omega(t,t+p)=\Omega(t,t-p)$ is \textit{virtually} equal to zero, we set all the corresponding elements in the covariance matrix exactly to zero. In this way, we obtain a Gaussian distribution with a band covariance matrix. This artifice allows us to estimate the latent process using the closed-form filter developed by \cite{fasano2021} for binary time series. In our specific case, the observed level is the set of binary series of signal $\bm{s}_i$ for all neurons in the same activation cluster, and the state equation can be expressed as depending on a $p$-variate Gaussian random vector.
 

@@ -159,18 +159,36 @@
 
 
 % Bibliography
-%\usepackage[style=numeric-comp,
-%                    backend=biber,
-%                    backref=false,
-%                    maxcitenames=3,
-%                    hyperref=true,
-%                    url=false,
-%                    doi=false,
-%                    isbn=false,
-%                    date=year
-%                    ]{biblatex}
-%\addbibresource{references.bib}
-\usepackage{natbib}
+\usepackage[style=apa,
+			citestyle=authoryear,
+            backend=biber,
+         %           backref=false,
+            maxcitenames=3,
+            hyperref=true,
+            uniquename=false,
+                    url=false,
+                    doi=false,
+                    isbn=false,
+                    date=year   
+         ]
+            {biblatex}
+\DeclareFieldFormat{pages}{#1}
+
+\renewbibmacro*{volume+number+eid}{%
+	\printfield{volume}%
+	%  \setunit*{\adddot}% DELETED
+%	\setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+	\printfield{number}%
+	\setunit{\addcomma\space}%
+	\printfield{eid}}
+\DeclareFieldFormat[article]{number}{\mkbibparens{#1}}
+
+\renewbibmacro{in:}{}
+
+\renewcommand*{\nameyeardelim}{\addcomma\space}
+
+\addbibresource{references.bib}
+%\usepackage{natbib}
 
 
 % Hyperref setup

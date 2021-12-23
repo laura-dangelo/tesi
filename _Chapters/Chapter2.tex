@@ -4,23 +4,23 @@
 
 
 As we have seen in Section \ref{ch1_sec:spike_train_analysis}, encoding models are an important tool to study how the deconvolved spike trains vary with the underlying experimental conditions. To this end, GLMs provide a simple and flexible strategy to estimate the impact of each covariate on the mean of the variable of interest.
-A relevant question that can be addressed using GLMs is how the number of spikes detected during a specific experiment is affected by the experimental conditions and the characteristics of the neurons. A plausible assumption to model the spike counts per time bin is to use a Poisson distribution~\citep{paninski2007}: in the context of GLMs, this setting naturally leads to the use of Poisson regression models. 
+A relevant question that can be addressed using GLMs is how the number of spikes detected during a specific experiment is affected by the experimental conditions and the characteristics of the neurons. A plausible assumption to model the spike counts per time bin is to use a Poisson distribution~\parencite{paninski2007}: in the context of GLMs, this setting naturally leads to the use of Poisson regression models. 
 
 Poisson regression models are common in statistics and represent one of the most popular choices to model how the distribution of count data varies with predictors. A typical assumption is that, under an independent sample of counts, $y_1, \dots, y_n$, the probability mass function of the generic $y_i$ conditionally on a $p$-dimensional vector of covariates $x_i$ is
 \begin{equation}
 f(y_i \mid \lambda_i) =  \frac {\lambda_i^{y_i}}{{y_i}!}e^{-\lambda_i}, \quad \log(\lambda_i) = x_i^T \beta,
 \label{ch2_eq:model0}
 \end{equation}
-where $\beta$ is a $p$-dimensional vector of unknown coefficients. Linking the linear predictor $x_i^T \beta$ and the parameter $\lambda_i$ with the logarithm represents the most natural choice, as the logarithm is the canonical link for the Poisson family~\citep{nelder1972glm}.
-Besides encoding models for spike train analyses, this model has broad application in several fields, including medicine and epidemiology~\citep{Frome1983, frome1985, Hutchinson2005}, manufacturing process control~\citep{lambert1992}, analysis of accident rates~\citep{Sarath1990, Miaou1994}, and crowd counting~\citep{chan2009}, among others.
+where $\beta$ is a $p$-dimensional vector of unknown coefficients. Linking the linear predictor $x_i^T \beta$ and the parameter $\lambda_i$ with the logarithm represents the most natural choice, as the logarithm is the canonical link for the Poisson family~\parencite{nelder1972glm}.
+Besides encoding models for spike train analyses, this model has broad application in several fields, including medicine and epidemiology~\parencite{Frome1983, frome1985, Hutchinson2005}, manufacturing process control~\parencite{lambert1992}, analysis of accident rates~\parencite{Sarath1990, Miaou1994}, and crowd counting~\parencite{chan2009}, among others.
 
-Adopting a Bayesian approach can be particularly convenient in the context of calcium imaging studies. As pointed out by \citet{paninski2007}, often some regularization technique is needed to obtain reliable estimates of the effects, as in some experiments the large number of covariates leads to a sensible risk of overfitting.
-The Bayesian paradigm offers a natural approach to regularized regression: there is a large literature on prior inducing some kind of shrinkage or selection, as, for example, the spike-and-slab prior~\citep{mitchell1988}, the Bayesian lasso~\citep{park2008bayesian}, the horseshoe prior and its extensions \citep{carvalho2010horseshoe, Piironen2017}.
+Adopting a Bayesian approach can be particularly convenient in the context of calcium imaging studies. As pointed out by \textcite{paninski2007}, often some regularization technique is needed to obtain reliable estimates of the effects, as in some experiments the large number of covariates leads to a sensible risk of overfitting.
+The Bayesian paradigm offers a natural approach to regularized regression: there is a large literature on prior inducing some kind of shrinkage or selection, as, for example, the spike-and-slab prior~\parencite{mitchell1988}, the Bayesian lasso~\parencite{park2008bayesian}, the horseshoe prior and its extensions \parencite{carvalho2010horseshoe, Piironen2017}.
 
 However, model \eqref{ch2_eq:model0} does not enjoy any conjugacy property and, thus, regardless of the prior used, the posterior distribution of $\beta$ is not available in close form. Consequently, inference is conducted using Markov Chain Monte Carlo (MCMC) methods, which obtain a sample from the posterior distribution of the parameters. Several approaches have focused on how to easily obtain the posterior distribution of the coefficients of Poisson models without requiring complex tuning strategies or long computation times. 
 In the context of count-valued time series,~\cite{fruhwirth2006} proposed a formulation of the model based on two levels of data augmentation, to derive an efficient approximate Gibbs sampler. \cite{fruhwirth2009} exploited a data augmentation strategy to simplify the computation of hierarchical models for count and multinomial data.
-Data augmentation strategies have also been employed in the case of models for multivariate dependent count data~\citep{karlis2005, bradley2018}. 
-However, the simplest Poisson regression in \eqref{ch2_eq:model0} still lacks a specific and efficient algorithm to sample from the posterior distribution of the parameters $\beta$ for any prior choice, making the Metropolis-Hastings \citep{hastings1970monte} or Hamiltonian Monte Carlo (HMC) \citep{neal2011mcmc} algorithms the only available options.
+Data augmentation strategies have also been employed in the case of models for multivariate dependent count data~\parencite{karlis2005, bradley2018}. 
+However, the simplest Poisson regression in \eqref{ch2_eq:model0} still lacks a specific and efficient algorithm to sample from the posterior distribution of the parameters $\beta$ for any prior choice, making the Metropolis-Hastings \parencite{hastings1970monte} or Hamiltonian Monte Carlo (HMC) \parencite{neal2011mcmc} algorithms the only available options.
 
 On the other hand, several efficient computational strategies for binary regression models have been proposed in the literature. Using the probit link, \cite{albert_chib_1993} proposed an efficient data augmentation based on a latent Gaussian variable, while the more recent contribution by \cite{polson_scott_2013} exploited the canonical logit link, introducing an efficient P\'olya-gamma data augmentation scheme.
 Leveraging \cite{polson_scott_2013} approach, we propose a novel approximation of the posterior distribution that can be exploited as proposal distribution of a Metropolis-Hastings algorithm or as importance density of an importance sampling for Poisson log-linear models with conditional Gaussian prior distributions on the regression parameters. With conditional Gaussian prior, we refer to a possibly hierarchical prior with conditional distribution $\beta \sim \mathrm{N}(b, B)$, with $b$ and/or $B$ random. Examples include straightforward Gaussian prior distributions with informative $(b,B)$ fixed using prior information, and scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation, such as the Bayesian lasso prior or the horseshoe prior, among others.
@@ -53,7 +53,7 @@ Following \cite{polson_scott_2013}, we rewrite each $i$-th contribution to the a
 where $\ppg(\cdot; \xi,\zeta)$ denotes the density of a P\'olya-gamma with parameters $( \xi,\zeta)$. 
 %
 
-In what follows, we assume that prior knowledge about the unknown $\beta$ parameters is represented by a conditionally Gaussian prior, i.e. $\beta \sim \mathrm{N}(b, B)$, with a possible hierarchical representation for the parameters $b$ and $B$. Examples include default informative Gaussian with fixed $(b,B)$ or scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation \citep{park2008bayesian, carvalho2010horseshoe, Piironen2017}.
+In what follows, we assume that prior knowledge about the unknown $\beta$ parameters is represented by a conditionally Gaussian prior, i.e. $\beta \sim \mathrm{N}(b, B)$, with a possible hierarchical representation for the parameters $b$ and $B$. Examples include default informative Gaussian with fixed $(b,B)$ or scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation \parencite{park2008bayesian, carvalho2010horseshoe, Piironen2017}.
 
 
 The \emph{approximate} posterior based on the conditionally Gaussian prior $\beta \sim \mathrm{N}(b, B)$ and approximate likelihood $\prod_{i=1}^n \tilde{f}_{r_i}(y_i \mid \beta)$ is consistent with the successful Gibbs sampler of \cite{polson_scott_2013}; i.e., sampling from the \emph{approximate} posterior is equivalent to sampling iteratively from the following full conditionals 
@@ -118,7 +118,7 @@ To compute the acceptance probability in \eqref{ch2_eq:acceptanceMH}, the forwar
 %
 
 Clearly, for increasing $r_i$ the proposal density \eqref{ch2_eq:proposal_distr} is closer to the true full conditional distribution; hence, the related acceptance rate will be higher, and the Metropolis-Hastings algorithm will be similar to a Gibbs sampler. 
-On the other hand, setting this parameter to get a lower acceptance rate can result in smaller autocorrelation, and hence a better mixing \citep{robert2010}. We discuss an approach to choose $r_i$ balancing these two extremes in Section~\ref{sec:tuning_param}.
+On the other hand, setting this parameter to get a lower acceptance rate can result in smaller autocorrelation, and hence a better mixing \parencite{robert2010}. We discuss an approach to choose $r_i$ balancing these two extremes in Section~\ref{sec:tuning_param}.
 
 
 \subsection{Adaptive importance sampler}
@@ -135,7 +135,7 @@ with weights
 %Importance sampling can be also used when the target density $\pi$ is known up to a normalizing constant: in these cases it is sufficient to use the normalized version of the weights $w(\beta^{(t)}) = \tilde{w}(\beta^{(t)})/\bar{W}$ with $\bar{W} = T^{-1} \sum_{t=1}^T \tilde{w}(\beta^{(t)})$.
 
 The efficiency of this algorithm is determined by the ability of the importance density to sample values relevant to the target density.
-%: an estimate of the effective sample size of the obtained sample can be assessed through the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\citep{robert2010}.
+%: an estimate of the effective sample size of the obtained sample can be assessed through the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\parencite{robert2010}.
 To improve this aspect, we modify the original algorithm and, at each iteration, we simulate values from \eqref{ch2_eq:proposal_distr}, updating the importance density with \eqref{ch2_eq:approx2}. Thus, the importance density is adaptively updated based on the previously extracted value $\beta^{(t-1)}$ and the weights become
 % . , hence $q(\beta^{(t)}) = q(\beta^{(t)}\mid \beta^{(t-1)})$.
 \begin{equation*}
@@ -151,7 +151,7 @@ The first simple solution sets all  parameters equal to a single value $r$, howe
 
 As an alternative strategy, we choose to tune instead the distance of the proposal density from the target posterior.
 As the expression of the posterior distribution is unknown, we control the distance between the Poisson and negative binomial likelihood. %: each $r_i$ is derived, conditionally on the last sampled $\beta^{(t)}$ and covariates $x_i$, to obtain a certain level of approximation. 
-Based on \citet{Teerapabolarn2012}, we consider the upper bound of the relative error between the Poisson and negative binomial cumulative distribution functions. This result is particularly useful owing to its simplicity, which allows to analytically derive adequate parameters to bound the error to a specific value. Specifically, if $Y$ is a Poisson random variable with mean $\lambda_i$ and $V$ is a negative binomial random variable with parameters $r_i$ and $p_i$, as defined in Section~\ref{ch2_sec:approx_distr}, we have the following result:
+Based on \textcite{Teerapabolarn2012}, we consider the upper bound of the relative error between the Poisson and negative binomial cumulative distribution functions. This result is particularly useful owing to its simplicity, which allows to analytically derive adequate parameters to bound the error to a specific value. Specifically, if $Y$ is a Poisson random variable with mean $\lambda_i$ and $V$ is a negative binomial random variable with parameters $r_i$ and $p_i$, as defined in Section~\ref{ch2_sec:approx_distr}, we have the following result:
 \begin{equation*}
 \mathrm{sup}_{y_i\geq 0} \left\lvert \frac{\mbox{Pr}(Y\leq y_i)}{\mbox{Pr}(V\leq y_i)} -1 \right\rvert = e^{-\lambda_i} p_i^{-r_i} - 1.
 \end{equation*}
@@ -167,7 +167,7 @@ r_i = - \lambda \log c \cdot
 \left\{ \log c + \lambda \cdot\mathrm{W}\left( \frac{-c^{-1/\lambda} \log c}{\lambda} \right) \right\}^{-1},
 \label{ch2_eq:r_solution}
 \end{equation}
-where $c=e^{\lambda}(d^2+1)$ and $\mathrm{W}(\cdot)$ is the Lambert-W function \citep{W}, which can be computed numerically using standard libraries. 
+where $c=e^{\lambda}(d^2+1)$ and $\mathrm{W}(\cdot)$ is the Lambert-W function \parencite{W}, which can be computed numerically using standard libraries. 
 %
 Hence, in the algorithm, at the beginning of each iteration, the values $r_1, \dots, r_n$ are computed according to~(\ref{ch2_eq:r_solution}) conditionally on the current value of $\beta$. %Then, these parameters are used to compute the mean and variance of the normal distribution~(\ref{ch2_eq:proposal_distr}) from which we extract a new proposed value for $\beta$.
 
@@ -178,25 +178,25 @@ Hence, in the algorithm, at the beginning of each iteration, the values $r_1, \d
 \subsection{Synthetic data}
 \label{ch2_sec:sim}
 
-We conducted a simulation study under various settings to compare the efficiency of the proposed Metropolis-Hastings and importance sampler with that of state-of-the-art methods. We focused on the Hamiltonian Monte Carlo approach---as implemented in the Stan software \citep{stan}---as the successful Metropolis-Hastings with standard random walk proposal would require, different from the proposed approaches, the tuning of $p$ parameters, which becomes cumbersome for moderate to elevate $p$. The proposed methods are implemented via the R package \texttt{bpr}, %\citep{bpr}, 
-which is written in efficient C++ language exploiting the \texttt{Rcpp} package \citep{RCPP} and available from the Comprehensive R Archive Network \citep{bpr} and in the repository
+We conducted a simulation study under various settings to compare the efficiency of the proposed Metropolis-Hastings and importance sampler with that of state-of-the-art methods. We focused on the Hamiltonian Monte Carlo approach---as implemented in the Stan software \parencite{stan}---as the successful Metropolis-Hastings with standard random walk proposal would require, different from the proposed approaches, the tuning of $p$ parameters, which becomes cumbersome for moderate to elevate $p$. The proposed methods are implemented via the R package \texttt{bpr}, %\parencite{bpr}, 
+which is written in efficient C++ language exploiting the \texttt{Rcpp} package \parencite{RCPP} and available from the Comprehensive R Archive Network \parencite{bpr} and in the repository
 at \texttt{github.com/laura-dangelo/bpr}.
 
 Data were generated from a Poisson log-linear model with sample sizes $n \in \{ 25, 50,$ $100, 200\}$ and number of covariates $p \in \{ 5, 10, 20\}$. 
 Specifically, for each combination of $n$ and $p$, we consider 50 independent $n$ dimensional vectors of counts where each $y_i$ ($i = 1\dots, n$) is sampled from a Poisson distribution with mean $\lambda_i = e^{x_i^\T \beta}$, with common parameter $\beta$. The covariates were generated from continuous or discrete/categorical random variables under the constraints that the continuous variables have mean zero and variance one and that $1\leq \lambda_i \leq 200$. 
 
-Two prior distributions for the coefficients $\beta$ were assumed, namely a vanilla Gaussian prior with independent components $\beta_j\sim \mathrm{N} (0,2)$, $j=1,\dots,p$, and the more complex horseshoe prior~\citep{carvalho2010horseshoe} which allows for the following  conditionally Gaussian representation
+Two prior distributions for the coefficients $\beta$ were assumed, namely a vanilla Gaussian prior with independent components $\beta_j\sim \mathrm{N} (0,2)$, $j=1,\dots,p$, and the more complex horseshoe prior~\parencite{carvalho2010horseshoe} which allows for the following  conditionally Gaussian representation
 \begin{gather*}
 \beta_j \mid \eta^2_j, \tau^2 \sim \mathrm{N}(0,\eta^2\tau^2) \\
 \eta \sim \mathrm{C}^+(0,1), \quad \tau \sim \mathrm{C}^+(0,1),
 \end{gather*}
-for $j=1,\dots,p$, where $\mathrm{C}^+(0,1)$ is the standard half-Cauchy distribution. To implement the samplers under the horseshoe prior, we used the details of~\cite{makalic2016horseshoesampler}, and fixed the global shrinkage parameter $\tau$ to the ``optimal value'' $\tau_n(p_n) = (p_n/n)\sqrt{\log(n/p_n)}$, where $p_n$ is the number of non-zero parameters~\citep{vanderpas2017}. 
+for $j=1,\dots,p$, where $\mathrm{C}^+(0,1)$ is the standard half-Cauchy distribution. To implement the samplers under the horseshoe prior, we used the details of~\cite{makalic2016horseshoesampler}, and fixed the global shrinkage parameter $\tau$ to the ``optimal value'' $\tau_n(p_n) = (p_n/n)\sqrt{\log(n/p_n)}$, where $p_n$ is the number of non-zero parameters~\parencite{vanderpas2017}. 
 
 Each method introduced in Section \ref{ch2_sec:2}  was run for 10000 iterations with  5000 of them discarded as burn-in. The convergence of each algorithm was assessed by graphical inspection of the trace plots of the resulting chains. The convergence was satisfactory for all simulations and comparable for all algorithms, as no systematic bias was found in the posterior mean of the estimated parameters. 
 
 
 
-To assess the efficiency of the proposed methods, we used a proxy of the time per independent sample, which is estimated as the total time (in seconds) necessary to simulate the entire chain, over the effective sample size of the resulting chain. For the proposed adaptive importance sampler, an estimate of the effective sample size was obtained using the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\citep{robert2010}. 
+To assess the efficiency of the proposed methods, we used a proxy of the time per independent sample, which is estimated as the total time (in seconds) necessary to simulate the entire chain, over the effective sample size of the resulting chain. For the proposed adaptive importance sampler, an estimate of the effective sample size was obtained using the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\parencite{robert2010}. 
 Notably, the burn-in samples were removed from the chains before computing the effective sample size. Thus, the obtained times per independent sample  do not represent exactly the number of seconds necessary to generate one independent sample---they rather represent an overestimate. Nonetheless, this approach provides a robust and fair comparison between the different competing algorithms. The experiment has been run on a Linux machine with 8 GB DDR4 2400 MHz RAM, CPU Intel i7-7700HQ 3.8 GHz, running R 4.1.1.
 %
 \begin{figure}[h]
@@ -230,9 +230,9 @@ For the horseshoe prior, the proposed Metropolis-Hastings presents a stable supe
 \label{ch2_sec:application}
 %
 Herein, we illustrate the proposed sampling method on data of brain activity in mice in response to visual stimulation.
-The data set was generated using a small subset of data from the Allen Brain Observatory~\citep{allen}, described in detail in Section~\ref{ch1_sec:allen_brain_data}.
+The data set was generated using a small subset of data from the Allen Brain Observatory~\parencite{allen}, described in detail in Section~\ref{ch1_sec:allen_brain_data}.
 In the original data set, for each neuron the fluorescent calcium traces are recorded, which is a proxy of the neuronal activity, under different experimental conditions. From these traces, it is of interest to detect and analyze the activations of neurons, which correspond to transient spikes of the intracellular calcium level. 
-We applied the method reported by~\citet{jewell2019} as described in~\citet{vries2020} to extract and count the activations of each neuron, to understand how they are affected by the experimental conditions and the location of the neurons in the brain. 
+We applied the method reported by~\textcite{jewell2019} as described in~\textcite{vries2020} to extract and count the activations of each neuron, to understand how they are affected by the experimental conditions and the location of the neurons in the brain. 
 
 \begin{figure}[t]
 	\centering
@@ -252,5 +252,5 @@ The depth of the neurons is discretized to 22 levels, ranging from 175 to 625 mi
 We ran the proposed Metropolis-Hastings algorithm for 9000 iterations, discarding the first 5000 as burn-in. The computation time was 98 seconds.
 The posterior estimates of the coefficients of the dummies on three categorical variables are shown in Figure~\ref{fig:calcium_coeff}; and for the numeric covariate depth, the posterior mean and 95\% credible intervals were equal to $-2.72\times 10^{-3}$ $(-2.90\times 10^{-3}, -2.42\times 10^{-3})$ for the linear term, and $5.59\times 10^{-6}$ $(5.11\times 10^{-6}, 6.08\times 10^{-6})$ for the quadratic term.
 Given these estimates of the coefficients, the number of spikes increased with the largest depths.
-Moreover, as shown in Figure~\ref{fig:calcium_coeff}, the response of neurons is heterogeneous across the cre-lines and, coherent with the results of~\citet{vries2020}, we obtained that the mean response is lower for the VISam, VISpm and VISrl areas.
+Moreover, as shown in Figure~\ref{fig:calcium_coeff}, the response of neurons is heterogeneous across the cre-lines and, coherent with the results of~\textcite{vries2020}, we obtained that the mean response is lower for the VISam, VISpm and VISrl areas.
 
