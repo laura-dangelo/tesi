@@ -96,7 +96,9 @@ The update of the cluster allocation variables $c_i$ using the location-dependen
 Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process. To this end, we make use of a device that allows us to exploit the exponentially decreasing correlation between time points in our definition of $\Omega$. Specifically, since after a certain lag $p$ the covariance $\Omega(t,t+p)=\Omega(t,t-p)$ is \textit{virtually} equal to zero, we set all the corresponding elements in the covariance matrix exactly to zero. In this way, we obtain a Gaussian distribution with a band covariance matrix. This artifice allows us to estimate the latent process using the closed-form filter developed by \cite{fasano2021} for binary time series. In our specific case, the observed level is the set of binary series of signal $\bm{s}_i$ for all neurons in the same activation cluster, and the state equation can be expressed as depending on a $p$-variate Gaussian random vector.
 
 
+\section{Simulation study}
 
+\section{Analysis of hippocampal neurons}
 
 
 

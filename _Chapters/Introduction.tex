@@ -52,6 +52,22 @@ These two nested layers of random discrete mixture priors allow to borrow inform
 
 
 
+\subsubsection{Clustering activation patterns of spatially-referenced neurons}
+When analyzing populations of neurons, often the interest is in identifying groups of neurons with a highly correlated pattern of activity. For many areas of the brain, there is a general agreement on the organization of these networks of neurons and their behavior.
+However, the functional and anatomical organization of hippocampal neurons is still an open research problem. 
+
+In Chapter 4, we formulate a nonparametric mixture model that allows us to identify groups of neurons based on their 
+spiking activity over seconds-long periods of time. One way to perform this task could be to define a mixture model on the binary time series that at each time describe the firing or resting state of each neuron.
+However, clustering directly these series could lead to poor performances due to the presence of occasional or erratic spikes.
+We propose to cluster instead a latent process that describes, at each time point, the probability of observing a spike. This is achieved through a mixture prior where the atoms are realizations of an underlying Gaussian process, that is then linked to the observed binary series through a probit transformation.
+This approach allows us to cluster neurons with a similar activation pattern, even if the specific series differ for some isolated spikes.
+Moreover, we further allow the model to include information on the spatial location of each neuron through the use of a probit stick breaking process~\parencite{rodriguez2011} on the mixture weights.
+
+
+
+
+
+
 
 
 

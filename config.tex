@@ -159,17 +159,17 @@
 
 
 % Bibliography
-\usepackage[style=apa,
+\usepackage[style=authoryear,
 			citestyle=authoryear,
+			giveninits=true,
             backend=biber,
-         %           backref=false,
-            maxcitenames=3,
+            backref=false,
+            minbibnames=5, maxbibnames=5,
+            mincitenames=1, maxcitenames=2,
             hyperref=true,
-            uniquename=false,
-                    url=false,
-                    doi=false,
-                    isbn=false,
-                    date=year   
+            uniquename=false, uniquelist=false,
+            url=false, doi=false, isbn=false,
+            date=year   
          ]
             {biblatex}
 \DeclareFieldFormat{pages}{#1}
@@ -177,7 +177,7 @@
 \renewbibmacro*{volume+number+eid}{%
 	\printfield{volume}%
 	%  \setunit*{\adddot}% DELETED
-%	\setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
+	%	\setunit*{\addnbspace}% NEW (optional); there's also \addnbthinspace
 	\printfield{number}%
 	\setunit{\addcomma\space}%
 	\printfield{eid}}
@@ -186,9 +186,10 @@
 \renewbibmacro{in:}{}
 
 \renewcommand*{\nameyeardelim}{\addcomma\space}
+\DeclareNameAlias{author}{last-first}
 
 \addbibresource{references.bib}
-%\usepackage{natbib}
+
 
 
 % Hyperref setup
