@@ -49,7 +49,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{422}
-      \field{title}{Bayesian Analysis of Binary and Polychotomous Response Data}
+      \field{title}{Bayesian analysis of binary and polychotomous response data}
       \field{volume}{88}
       \field{year}{1993}
       \field{pages}{669\bibrangedash 679}
@@ -76,7 +76,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{Available at: http://help.brain-map.org/display/observatory/Documentation}
+      \field{howpublished}{\textsc{url:} \texttt{help.brain-map.org/display/observatory/Documentation}}
       \field{title}{Technical whitepaper: stimulus set and response analyses}
       \field{year}{2017}
     \endentry
@@ -99,7 +99,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{brain-map.org/explore/circuits}
-      \field{title}{{Allen Brain Observatory} -- 2-photon Visual Coding [dataset]}
+      \field{title}{{Allen Brain Observatory} -- 2-photon visual coding [dataset]}
       \field{year}{2016}
     \endentry
     \entry{argiento2019}{article}{}
@@ -198,7 +198,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{The Annals of Statistics}
       \field{number}{2}
-      \field{title}{{Ferguson distributions via Polya urn schemes}}
+      \field{title}{{Ferguson distributions via Pólya urn schemes}}
       \field{volume}{1}
       \field{year}{1973}
       \field{pages}{353\bibrangedash 355}
@@ -240,7 +240,7 @@
       \field{journaltitle}{Bayesian Analysis}
       \field{month}{3}
       \field{number}{1}
-      \field{title}{Computationally Efficient Multivariate Spatio-Temporal Models for High-Dimensional Count-Valued Data (with Discussion)"}
+      \field{title}{Computationally efficient multivariate spatio-temporal models for high-dimensional count-valued data (with discussion)}
       \field{volume}{13}
       \field{year}{2018}
       \field{pages}{253\bibrangedash 310}
@@ -340,7 +340,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Bayesian Analysis}
       \field{number}{4}
-      \field{title}{{Latent Nested Nonparametric Priors (with Discussion)}}
+      \field{title}{{Latent nested nonparametric priors (with discussion)}}
       \field{volume}{14}
       \field{year}{2019}
       \field{pages}{1303\bibrangedash 1356}
@@ -531,7 +531,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Frontiers in Computational Neuroscience}
-      \field{title}{Behavioral Time Scale Plasticity of Place Fields: Mathematical Analysis}
+      \field{title}{Behavioral time scale plasticity of place fields: mathematical analysis}
       \field{volume}{15}
       \field{year}{2021}
       \field{pages}{19}
@@ -558,7 +558,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\textsc{url:} \texttt{CRAN.R-project.org/package=bpr}}
-      \field{title}{{bpr: Bayesian Poisson regression}}
+      \field{title}{R package {bpr: Bayesian Poisson regression}}
       \field{year}{2021}
     \endentry
     \entry{vries2020}{article}{}
@@ -596,8 +596,8 @@
       }
       \strng{namehash}{69c7c53806e093799f0fe079e55092a5}
       \strng{fullhash}{5fd4a5556a93f9a9c572aff06780cabe}
-      \strng{bibnamehash}{5fd4a5556a93f9a9c572aff06780cabe}
-      \strng{authorbibnamehash}{5fd4a5556a93f9a9c572aff06780cabe}
+      \strng{bibnamehash}{7f7e27f276f672096de1c84eb7481006}
+      \strng{authorbibnamehash}{7f7e27f276f672096de1c84eb7481006}
       \strng{authornamehash}{69c7c53806e093799f0fe079e55092a5}
       \strng{authorfullhash}{5fd4a5556a93f9a9c572aff06780cabe}
       \field{sortinit}{d}
@@ -690,7 +690,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
-      \field{title}{A Common Atoms Model for the {Bayesian} Nonparametric Analysis of Nested Data}
+      \field{title}{A common atoms model for the {Bayesian} nonparametric analysis of nested data}
       \field{year}{2021}
       \field{pages}{1\bibrangedash 12}
       \range{pages}{12}
@@ -855,7 +855,7 @@
       \field{issn}{1548-7660}
       \field{journaltitle}{Journal of Statistical Software, Articles}
       \field{number}{8}
-      \field{title}{Rcpp: Seamless {R} and {C}++ Integration}
+      \field{title}{Rcpp: Seamless {R} and {C}++ integration}
       \field{volume}{40}
       \field{year}{2011}
       \field{pages}{1\bibrangedash 18}
@@ -1029,7 +1029,7 @@
       \field{labeltitlesource}{title}
       \field{booktitle}{Advances In Neural Information Processing Systems}
       \field{month}{12}
-      \field{title}{Fast Active Set Methods for Online Spike Inference from Calcium Imaging}
+      \field{title}{Fast active set methods for online spike inference from calcium imaging}
       \field{venue}{NIPS 2016}
       \field{year}{2016}
       \field{pages}{1984\bibrangedash 1992}
@@ -1102,7 +1102,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Biometrics}
       \field{number}{3}
-      \field{title}{The Analysis of Rates Using {Poisson} Regression Models}
+      \field{title}{The analysis of rates using {Poisson} regression models}
       \field{volume}{39}
       \field{year}{1983}
       \field{pages}{665\bibrangedash 674}
@@ -1284,7 +1284,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Biometrika}
       \field{number}{4}
-      \field{title}{Auxiliary Mixture Sampling for Parameter-Driven Models of Time Series of Counts with Applications to State Space Modelling}
+      \field{title}{Auxiliary mixture sampling for parameter-driven models of time series of counts with applications to state space modelling}
       \field{volume}{93}
       \field{year}{2006}
       \field{pages}{827\bibrangedash 841}
@@ -1328,8 +1328,8 @@
       }
       \strng{namehash}{a428ac65ac4ae3fdbf2c9d0835d9c6f3}
       \strng{fullhash}{352e304255c3fb00eb119f60f0b358fb}
-      \strng{bibnamehash}{352e304255c3fb00eb119f60f0b358fb}
-      \strng{authorbibnamehash}{352e304255c3fb00eb119f60f0b358fb}
+      \strng{bibnamehash}{9f4f1c334f0c1be2e5a6ca3e1d625d83}
+      \strng{authorbibnamehash}{9f4f1c334f0c1be2e5a6ca3e1d625d83}
       \strng{authornamehash}{a428ac65ac4ae3fdbf2c9d0835d9c6f3}
       \strng{authorfullhash}{352e304255c3fb00eb119f60f0b358fb}
       \field{sortinit}{G}
@@ -1397,7 +1397,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Biometrika}
       \field{number}{1}
-      \field{title}{Monte {Carlo} Sampling Methods Using {Markov} Chains and Their Applications}
+      \field{title}{Monte {Carlo} sampling methods using {Markov} chains and their applications}
       \field{volume}{57}
       \field{year}{1970}
       \field{pages}{97\bibrangedash 109}
@@ -1438,8 +1438,8 @@
       }
       \strng{namehash}{4322a933e917840c2c3a67188bac41bf}
       \strng{fullhash}{1eb376ea2a25826b4f6d0c1b78a786d6}
-      \strng{bibnamehash}{1eb376ea2a25826b4f6d0c1b78a786d6}
-      \strng{authorbibnamehash}{1eb376ea2a25826b4f6d0c1b78a786d6}
+      \strng{bibnamehash}{824abca2e20c467e00d263dffd61d1cf}
+      \strng{authorbibnamehash}{824abca2e20c467e00d263dffd61d1cf}
       \strng{authornamehash}{4322a933e917840c2c3a67188bac41bf}
       \strng{authorfullhash}{1eb376ea2a25826b4f6d0c1b78a786d6}
       \field{sortinit}{H}
@@ -1552,7 +1552,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{453}
-      \field{title}{Gibbs Sampling Methods for Stick-Breaking Priors}
+      \field{title}{Gibbs sampling methods for stick-breaking priors}
       \field{volume}{96}
       \field{year}{2001}
       \field{pages}{161\bibrangedash 173}
@@ -1799,7 +1799,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Technometrics}
       \field{number}{1}
-      \field{title}{Zero-Inflated {Poisson} Regression, With an Application to Defects in Manufacturing}
+      \field{title}{Zero-inflated {Poisson} regression, with an application to defects in manufacturing}
       \field{volume}{34}
       \field{year}{1992}
       \field{pages}{1\bibrangedash 14}
@@ -1827,7 +1827,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{journaltitle}{Acta Helvitica, physico-mathematico-anatomico-botanico-medica}
-      \field{title}{Observations variae in Mathesin Puram}
+      \field{title}{Observations variae in mathesin puram}
       \field{volume}{3}
       \field{year}{1758}
       \field{pages}{128\bibrangedash 168}
@@ -1860,7 +1860,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{IEEE Signal Processing Letters}
       \field{number}{1}
-      \field{title}{A Simple Sampler for the Horseshoe Estimator}
+      \field{title}{A simple sampler for the horseshoe estimator}
       \field{volume}{23}
       \field{year}{2016}
       \field{pages}{179\bibrangedash 182}
@@ -1997,7 +1997,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{521}
-      \field{title}{Mixture Models With a Prior on the Number of Components}
+      \field{title}{Mixture models with a prior on the number of components}
       \field{volume}{113}
       \field{year}{2018}
       \field{pages}{340\bibrangedash 356}
@@ -2033,7 +2033,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{404}
-      \field{title}{Bayesian Variable Selection in Linear Regression}
+      \field{title}{Bayesian variable selection in linear regression}
       \field{volume}{83}
       \field{year}{1988}
       \field{pages}{1023\bibrangedash 1032}
@@ -2151,7 +2151,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{booktitle}{Bayesian Statistics 8}
-      \field{title}{{FDR} and {B}ayesian Multiple Comparisons Rules}
+      \field{title}{{FDR} and {B}ayesian multiple comparisons rules}
       \field{year}{2007}
     \endentry
     \entry{neal2011mcmc}{article}{}
@@ -2212,7 +2212,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the Royal Statistical Society. Series A (General)}
       \field{number}{3}
-      \field{title}{Generalized Linear Models}
+      \field{title}{Generalized linear models}
       \field{volume}{135}
       \field{year}{1972}
       \field{pages}{370\bibrangedash 384}
@@ -2505,53 +2505,6 @@
       \field{pages}{2315\bibrangedash 2328}
       \range{pages}{14}
     \endentry
-    \entry{vanderpas2017}{article}{}
-      \name{author}{3}{}{%
-        {{hash=5dcdb109ad667ecce6976f29e2bcb466}{%
-           family={Pas},
-           familyi={P\bibinitperiod},
-           given={Stéphanie},
-           giveni={S\bibinitperiod},
-           prefix={van\bibnamedelima der},
-           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
-        {{hash=89c7b4d33530162993379d6204893602}{%
-           family={Szabó},
-           familyi={S\bibinitperiod},
-           given={Botond},
-           giveni={B\bibinitperiod}}}%
-        {{hash=632f6f703a0eafd33164be7b9fa6dbdb}{%
-           family={Vaart},
-           familyi={V\bibinitperiod},
-           given={Aad},
-           giveni={A\bibinitperiod},
-           prefix={van\bibnamedelima der},
-           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
-      }
-      \list{publisher}{2}{%
-        {Institute of Mathematical Statistics}%
-        {Bernoulli Society}%
-      }
-      \strng{namehash}{21337cf9aadc49cd39439ceec5d10698}
-      \strng{fullhash}{4a89b98659bd8384b9bc2a59560b0073}
-      \strng{bibnamehash}{4a89b98659bd8384b9bc2a59560b0073}
-      \strng{authorbibnamehash}{4a89b98659bd8384b9bc2a59560b0073}
-      \strng{authornamehash}{21337cf9aadc49cd39439ceec5d10698}
-      \strng{authorfullhash}{4a89b98659bd8384b9bc2a59560b0073}
-      \field{sortinit}{P}
-      \field{sortinithash}{bb5b15f2db90f7aef79bb9e83defefcb}
-      \field{extradatescope}{labelyear}
-      \field{labeldatesource}{year}
-      \field{labelnamesource}{author}
-      \field{labeltitlesource}{title}
-      \field{journaltitle}{Electronic Journal of Statistics}
-      \field{number}{2}
-      \field{title}{{Adaptive posterior contraction rates for the horseshoe}}
-      \field{volume}{11}
-      \field{year}{2017}
-      \field{pages}{3196\bibrangedash 3225}
-      \range{pages}{30}
-      \keyw{adaptive inference,frequentist Bayes,horseshoe,nearly black vectors,normal means problem,Sparsity}
-    \endentry
     \entry{Peron2009}{article}{}
       \name{author}{2}{}{%
         {{hash=362c9b588cd8c325a219f70e5a559ac9}{%
@@ -2721,7 +2674,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Neuron}
       \field{number}{2}
-      \field{title}{Simultaneous Denoising, Deconvolution, and Demixing of Calcium Imaging Data}
+      \field{title}{Simultaneous denoising, deconvolution, and demixing of calcium imaging data}
       \field{volume}{89}
       \field{year}{2016}
       \field{pages}{285\bibrangedash 299}
@@ -2808,7 +2761,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{504}
-      \field{title}{Bayesian Inference for Logistic Models Using {Pólya}-Gamma Latent Variables}
+      \field{title}{Bayesian inference for logistic models using {Pólya}-gamma latent variables}
       \field{volume}{108}
       \field{year}{2013}
       \field{pages}{1339\bibrangedash 1349}
@@ -2845,7 +2798,7 @@
       \field{labeltitlesource}{title}
       \field{edition}{1st}
       \field{isbn}{1420093363}
-      \field{title}{Time Series: Modeling, Computation, and Inference}
+      \field{title}{Time Series: modeling, computation, and inference}
       \field{year}{2010}
     \endentry
     \entry{rand1971}{article}{}
@@ -2873,7 +2826,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{336}
-      \field{title}{Objective Criteria for the Evaluation of Clustering Methods}
+      \field{title}{Objective criteria for the evaluation of clustering methods}
       \field{volume}{66}
       \field{year}{1971}
       \field{pages}{846\bibrangedash 850}
@@ -2906,7 +2859,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
       \field{number}{4}
-      \field{title}{On {Bayesian} Analysis of Mixtures with an Unknown Number of Components (with discussion)}
+      \field{title}{On {Bayesian} analysis of mixtures with an unknown number of components (with discussion)}
       \field{volume}{59}
       \field{year}{1997}
       \field{pages}{731\bibrangedash 792}
@@ -3011,7 +2964,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{483}
-      \field{title}{The Nested Dirichlet Process}
+      \field{title}{The nested {Dirichlet} process}
       \field{volume}{103}
       \field{year}{2008}
       \field{pages}{1131\bibrangedash 1154}
@@ -3067,7 +3020,7 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{howpublished}{\textsc{url:} \texttt{mc-stan.org/}}
-      \field{title}{Stan Modeling Language Users Guide and Reference Manual}
+      \field{title}{Stan modeling language users guide and reference manual}
       \field{year}{2021}
     \endentry
     \entry{SunReich2015}{article}{}
@@ -3143,7 +3096,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Communications in Statistics - Theory and Methods}
       \field{number}{10}
-      \field{title}{The Least Upper Bound on the {Poisson}-Negative Binomial Relative Error}
+      \field{title}{The least upper bound on the {Poisson}-negative binomial relative error}
       \field{volume}{41}
       \field{year}{2012}
       \field{pages}{1833\bibrangedash 1838}
@@ -3189,11 +3142,56 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Journal of the American Statistical Association}
       \field{number}{476}
-      \field{title}{Hierarchical {Dirichlet} Processes}
+      \field{title}{Hierarchical {Dirichlet} processes}
       \field{volume}{101}
       \field{year}{2006}
       \field{pages}{1566\bibrangedash 1581}
       \range{pages}{16}
+    \endentry
+    \entry{vanderpas2017}{article}{}
+      \name{author}{3}{}{%
+        {{hash=9695ab43ea16d4a91e26a9f20984f52a}{%
+           family={{van der Pas}},
+           familyi={v\bibinitperiod},
+           given={Stéphanie},
+           giveni={S\bibinitperiod}}}%
+        {{hash=89c7b4d33530162993379d6204893602}{%
+           family={Szabó},
+           familyi={S\bibinitperiod},
+           given={Botond},
+           giveni={B\bibinitperiod}}}%
+        {{hash=632f6f703a0eafd33164be7b9fa6dbdb}{%
+           family={Vaart},
+           familyi={V\bibinitperiod},
+           given={Aad},
+           giveni={A\bibinitperiod},
+           prefix={van\bibnamedelima der},
+           prefixi={v\bibinitperiod\bibinitdelim d\bibinitperiod}}}%
+      }
+      \list{publisher}{2}{%
+        {Institute of Mathematical Statistics}%
+        {Bernoulli Society}%
+      }
+      \strng{namehash}{e9cc8ac41bc9dfceedd2a39c7cb097db}
+      \strng{fullhash}{18e5070cb232917cd556a933bec960d9}
+      \strng{bibnamehash}{18e5070cb232917cd556a933bec960d9}
+      \strng{authorbibnamehash}{18e5070cb232917cd556a933bec960d9}
+      \strng{authornamehash}{e9cc8ac41bc9dfceedd2a39c7cb097db}
+      \strng{authorfullhash}{18e5070cb232917cd556a933bec960d9}
+      \field{sortinit}{v}
+      \field{sortinithash}{02432525618c08e2b03cac47c19764af}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Electronic Journal of Statistics}
+      \field{number}{2}
+      \field{title}{{Adaptive posterior contraction rates for the horseshoe}}
+      \field{volume}{11}
+      \field{year}{2017}
+      \field{pages}{3196\bibrangedash 3225}
+      \range{pages}{30}
+      \keyw{adaptive inference,frequentist Bayes,horseshoe,nearly black vectors,normal means problem,Sparsity}
     \endentry
     \entry{vogelstein2010}{article}{}
       \name{author}{6}{}{%
@@ -3230,8 +3228,8 @@
       }
       \strng{namehash}{62fc5e45b0bc569931c71af5cba18941}
       \strng{fullhash}{34006e6a3f21c85ffc01f1361e695299}
-      \strng{bibnamehash}{34006e6a3f21c85ffc01f1361e695299}
-      \strng{authorbibnamehash}{34006e6a3f21c85ffc01f1361e695299}
+      \strng{bibnamehash}{b9239e7bc57e4eaff970443d5d297363}
+      \strng{authorbibnamehash}{b9239e7bc57e4eaff970443d5d297363}
       \strng{authornamehash}{62fc5e45b0bc569931c71af5cba18941}
       \strng{authorfullhash}{34006e6a3f21c85ffc01f1361e695299}
       \field{sortinit}{V}
@@ -3278,7 +3276,7 @@
       \field{journaltitle}{Bayesian Analysis}
       \field{month}{06}
       \field{number}{2}
-      \field{title}{Bayesian Cluster Analysis: point Estimation and Credible Balls (with Discussion)}
+      \field{title}{Bayesian cluster analysis: point estimation and credible balls (with discussion)}
       \field{pages}{559\bibrangedash 626}
       \range{pages}{68}
       \verb{doi}
@@ -3310,7 +3308,7 @@
       \field{labeltitlesource}{title}
       \field{journaltitle}{Communications in Statistics - Simulation and Computation}
       \field{number}{1}
-      \field{title}{Sampling the {Dirichlet} Mixture Model with Slices}
+      \field{title}{Sampling the {Dirichlet} mixture model with slices}
       \field{volume}{36}
       \field{year}{2007}
       \field{pages}{45\bibrangedash 54}
@@ -3354,8 +3352,8 @@
       }
       \strng{namehash}{a7a908c3db87ef07b26c3df26bb452b5}
       \strng{fullhash}{8d688a38abbd94bb8fec7f1016cd5344}
-      \strng{bibnamehash}{8d688a38abbd94bb8fec7f1016cd5344}
-      \strng{authorbibnamehash}{8d688a38abbd94bb8fec7f1016cd5344}
+      \strng{bibnamehash}{f3846ee538730de040d502ad70b5e16d}
+      \strng{authorbibnamehash}{f3846ee538730de040d502ad70b5e16d}
       \strng{authornamehash}{a7a908c3db87ef07b26c3df26bb452b5}
       \strng{authorfullhash}{8d688a38abbd94bb8fec7f1016cd5344}
       \field{sortinit}{W}
