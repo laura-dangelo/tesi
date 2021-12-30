@@ -2,11 +2,20 @@
 \chapter{Clustering activation patterns of spatially-referenced neurons}
 \chaptermark{Clustering activation patterns of spatially-referenced neurons}
 
+The previous approach only accounted for the analysis of calcium traces of individual neurons. An analysis of populations of neurons could only be performed as a second phase by combining the results of multiple analyses.
+Although not ideal, this approach is sometimes the only viable option due to the complexity and the large size of the data as, for example, the length of the individual series in the Allen Brain Observatory data.
 
-seconds-long period of time \cite{cone2021}
+In this chapter we develop a model to analyze the activity of groups of neurons and to cluster this activity on the basis of recurring patterns of activation. As motivating application, we consider the hippocampal neurons data described in Section \ref{ch1_sec:hippoc_data}: differently from the Allen Brain Observatory data, here the animal is not subjected to different types of stimuli, and it is freely moving within an environment.
+This type of experimental setting is often used to investigate hippocampal dynamics and connectivity patterns, which consist of groups of co-activating neurons. 
+Hippocampal neurons underlying spatial navigation are thought to have a distributed organization, not strictly connected to the anatomical structure; however, many studies have shown that neurons with the same place field tuning often tend to neighbor one another~\parencite{Eichenbaum1989, Redish2001}. Hence, when investigating clusters of co-activating neurons, it can be relevant to take into account their spatial locations and, in particular, their proximity to each other.
+In particular, the interest is aimed to identifying subpopulations of neurons which share a common spiking activity over seconds-long periods of time \parencite{Bittner2017}. In the case of the data that we considered (recorded with a frequency of 15 frames per second), it means estimating clusters of temporal activity patterns with a duration up to a few hundreds of time points.
+
+We develop a nonparametric mixture model that allows for identification of groups of neuron with a similar pattern of activity during periods of hundreds of time points, where the mixture weights are informed using information on the spatial proximity to each other. In particular, to identify such clusters, our modeling framework looks for similarities in the binary time series describing the active/resting state of the neurons at each time point.
+A possible difficulty in clustering these time series arises from the presence of isolated or erratic spikes, which make the observed series somehow different, even if the overall patterns match. To overcome this drawback, we perform clustering at a latent level through a process that describes, at each time point, the probability of observing a spike, hence allowing for some degree of discrepancy across series in the same cluster.
+
 
 \section{Model and prior specification}
-Once again, we employ the general model for the calcium dynamics introduced in equation~\eqref{ch1_eq:armodel} of Chapter 1. However, differently from the previous Chapter, here we consider $n$ neurons, so we also introduce the index $i=1,\dots,n$ corresponding to each fluorescence trace. 
+Once again, we employ the general model for the calcium dynamics introduced in equation~\eqref{ch1_eq:armodel} of Chapter 1. However, differently from the previous chapter, here we consider $n$ neurons, so we also introduce the index $i=1,\dots,n$ corresponding to each fluorescence trace. 
 Moreover, we split the parameters $A_t$ of equation~\eqref{ch1_eq:armodel} into two separate components: $s_{i,t}\in\{0,1\}$ describing the presence/absence of a spike (the \textit{signal}), and $a_{i,t}\in\R^+$ describing the spike amplitude when present.
 With these modifications, the model can be written, for time $t=1,\dots,T$, as
 \begin{equation}
@@ -26,7 +35,7 @@ Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the
 s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})),
 \end{equation*}
 where $\Phi(\cdot)$ is the cumulative distribution function of a standard Gaussian distribution.
-Assuming a latent Gaussian process also allows to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\parencite{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
+Assuming a latent Gaussian process also permits to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\parencite{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
 
 To obtain a clustering of neurons, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
 To include the information about the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \cite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma(\bm{l})$.

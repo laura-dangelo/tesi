@@ -2335,13 +2335,15 @@
     <bcf:citekey order="127">wade2018</bcf:citekey>
     <bcf:citekey order="128">Hoang2020</bcf:citekey>
     <bcf:citekey order="129">Peron2009</bcf:citekey>
-    <bcf:citekey order="130">cone2021</bcf:citekey>
-    <bcf:citekey order="131">dombeck2010</bcf:citekey>
-    <bcf:citekey order="132">rodriguez2011</bcf:citekey>
+    <bcf:citekey order="130">Eichenbaum1989</bcf:citekey>
+    <bcf:citekey order="130">Redish2001</bcf:citekey>
+    <bcf:citekey order="131">Bittner2017</bcf:citekey>
+    <bcf:citekey order="132">dombeck2010</bcf:citekey>
     <bcf:citekey order="133">rodriguez2011</bcf:citekey>
     <bcf:citekey order="134">rodriguez2011</bcf:citekey>
-    <bcf:citekey order="134">ishwaran2001</bcf:citekey>
-    <bcf:citekey order="135">fasano2021</bcf:citekey>
+    <bcf:citekey order="135">rodriguez2011</bcf:citekey>
+    <bcf:citekey order="135">ishwaran2001</bcf:citekey>
+    <bcf:citekey order="136">fasano2021</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

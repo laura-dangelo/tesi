@@ -67,13 +67,13 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Clustering activation patterns of spatially-referenced neurons}{45}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Model and prior specification}{45}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Model and prior specification}{46}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Posterior inference}{46}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Posterior inference}{47}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Simulation study}{47}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Simulation study}{48}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{47}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{48}{section.4.4}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Conclusions}{49}{chapter*.21}%
 \defcounter {refsection}{0}\relax 
