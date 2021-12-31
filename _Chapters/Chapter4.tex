@@ -2,7 +2,7 @@
 \chapter{Clustering activation patterns of spatially-referenced neurons}
 \chaptermark{Clustering activation patterns of spatially-referenced neurons}
 
-The previous approach only accounted for the analysis of calcium traces of individual neurons. An analysis of populations of neurons could only be performed as a second phase by combining the results of multiple analyses.
+The previous approach only accounted for the analysis of calcium traces of individual neurons. The analysis of populations of neurons could only be performed as a second phase by combining the results of multiple analyses.
 Although not ideal, this approach is sometimes the only viable option due to the complexity and the large size of the data as, for example, the length of the individual series in the Allen Brain Observatory data.
 
 In this chapter we develop a model to analyze the activity of groups of neurons and to cluster this activity on the basis of recurring patterns of activation. As motivating application, we consider the hippocampal neurons data described in Section \ref{ch1_sec:hippoc_data}: differently from the Allen Brain Observatory data, here the animal is not subjected to different types of stimuli, and it is freely moving within an environment.
@@ -28,17 +28,17 @@ y_{i,t} = b_i + \Ca_{i,t} + \epsilon_{i,t},\qquad \epsilon_{i,t} \sim \N(0,\sigm
 where the baseline parameters $b_i$ are now neuron-specific.
 Moreover, for each series it is also provided information on the spatial location of the neuron in the region of interest of the hippocampus, $\bm{l}_i \in \mathcal{L}\subseteq\R^2$.
 
-In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process describing the spike probabilities, and we perform the clustering at this latent level.
+In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process that describes the spike probabilities, and we perform clustering at this latent level.
 
 Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the realization of independent Bernoulli random variables whose probability depends on an underlying Gaussian process (GP) through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
 \begin{equation*}
 s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})),
 \end{equation*}
 where $\Phi(\cdot)$ is the cumulative distribution function of a standard Gaussian distribution.
-Assuming a latent Gaussian process also permits to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous Chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\parencite{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
+Assuming a latent Gaussian process also allows us to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\parencite{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
 
 To obtain a clustering of neurons, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
-To include the information about the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \cite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma(\bm{l})$.
+To include information on the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \textcite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma(\bm{l})$.
 This nonparametric prior on $\tilde{\bm{s}}_i$ can be written as
 \begin{equation}
 \begin{gathered}
