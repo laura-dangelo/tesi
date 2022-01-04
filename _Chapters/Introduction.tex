@@ -45,7 +45,7 @@ The ease of application of the proposed algorithms is further enhanced by their 
 Routine methods to analyze calcium imaging data are based on a two-stage approach: in a first phase, the raw fluorescent trace is deconvolved to extract the spike train, then, in a second phase, some summary statistics is derived and linked to the experimental conditions that generated it. 
 This approach, adopted in the previous contribution, is simple to implement and can be applied in a broad range of applications, however, it has some drawbacks: for example, the impossibility to borrow information between the two stages, and an unclear quantification of the uncertainty propagating from one stage to the next. Only performing the two tasks simultaneously allows to coherently quantify the uncertainty of the results, whereas -- in a two-step approach -- it is not straightforward to evaluate the overall uncertainty, as it is the result of the contribution of each step. 
 
-In Chapter 3, we introduce a nested Bayesian finite mixture model that allows to estimate the spiking activity of each neuron and, \textit{simultaneously}, to characterize how its distribution varies across various experimental conditions, for example, in response to different types of stimuli.
+In Chapter 3, we introduce a nested Bayesian finite mixture model that allows for the estimation of spiking activity and, simultaneously, reconstructing the distributions of the calcium transient spikes' amplitudes under different experimental conditions, for example, in response to different types of stimuli.
 More specifically, our modeling framework estimates and clusters the distributions of the calcium transient spikes’ amplitudes via a nested formulation of the generalized mixtures of finite mixtures prior recently proposed by~\textcite{fruhwirthschnatter2020}. The proposed model further adopts the use of a common atom specification as in~\textcite{denti2021} for estimating the distribution of the spikes’ amplitudes under each experimental condition. 
 These two nested layers of random discrete mixture priors allow to borrow information between experiments and discover similarities in the distributional patterns of neuronal responses to different stimuli. Furthermore, the spikes’ intensity values are also clustered within and between experimental conditions to determine the existence of common (recurring) response amplitudes.
 
@@ -56,12 +56,9 @@ These two nested layers of random discrete mixture priors allow to borrow inform
 When analyzing populations of neurons, often the interest is in identifying groups of neurons with a highly correlated pattern of activity. For many areas of the brain, there is a general agreement on the organization of these networks of neurons and their behavior.
 However, the functional and anatomical organization of hippocampal neurons is still an open research problem. 
 
-In Chapter 4, we formulate a nonparametric mixture model that allows us to identify groups of neurons based on their 
-spiking activity over seconds-long periods of time. One way to perform this task could be to define a mixture model on the binary time series that at each time describe the firing or resting state of each neuron.
-However, clustering directly these series could lead to poor performances due to the presence of occasional or erratic spikes.
-We propose to cluster instead a latent process that describes, at each time point, the probability of observing a spike. This is achieved through a mixture prior where the atoms are realizations of an underlying Gaussian process, that is then linked to the observed binary series through a probit transformation.
-This approach allows us to cluster neurons with a similar activation pattern, even if the specific series differ for some isolated spikes.
-Moreover, we further allow the model to include information on the spatial location of each neuron through the use of a probit stick breaking process~\parencite{rodriguez2011} on the mixture weights.
+In Chapter 4, we formulate a nonparametric mixture model that allows for deconvolution of several calcium traces and, simultaneously, detection of groups of co-activating neurons.
+Specifically, our model clusters the latent binary time series of activity based on similarities of the spiking activity over seconds-long periods of time. 
+The model makes use of a latent continuous process for the spike probabilities to identify groups of co-activating cells. Neurons' dependence is taken into account by informing the mixture weights with their spatial location through the use of a probit stick breaking process~\parencite{rodriguez2011}, following the common neuroscience assumption that neighboring neurons often activate together. 
 
 
 

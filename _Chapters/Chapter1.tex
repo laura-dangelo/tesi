@@ -58,10 +58,10 @@ A different approach has been proposed by \textcite{wei2019}: instead of focusin
 \subsection{Allen Brain Observatory data}
 \label{ch1_sec:allen_brain_data}
 The Allen Brain Observatory~\parencite{allen, vries2020} is a large public data repository for investigating how sensory stimulation is represented by neural activity in the mouse visual cortex in both single cells and populations.
-The project aims to provide a standardized and systematic survey to measure and analyze visual responses from neurons across cortical areas and layers, utilizing transgenic Cre lines to drive expression of genetically encoded fluorescent calcium indicators, and measured by \textit{in vivo} two-photon calcium imaging.
+The project aims to provide a standardized and systematic survey to measure and analyze visual responses from neurons across cortical areas, using genetically encoded fluorescent calcium indicators, measured by \textit{in vivo} two-photon calcium imaging.
 
 The study is an extended survey of physiological activity in the mouse visual cortex in response to a range of visual stimuli~\parencite{allen_stimulus}. Each mouse was placed in front of a screen where different types of visual stimuli were shown, while the mouse’s neuronal activity was recorded. The stimuli vary from simple synthetic images such as locally sparse noise or static gratings, to complex natural scenes and movies.
-The goal of the study is to investigate how neurons at different depths and in different areas of the visual cortex respond to stimuli of varying complexity, to understand their functional properties. Specifically, each neuron in the visual cortex can be characterized by their \textit{receptive field}, i.e. the features of the visual stimulus that trigger the signaling of that neuron. 
+The goal of the study is to investigate how neurons at different depths and in different areas of the visual cortex respond to stimuli of varying complexity, to understand their functional properties. % Specifically, each neuron in the visual cortex can be characterized by their \textit{receptive field}, i.e. the features of the visual stimulus that trigger the signaling of that neuron. 
 An important finding from mammalian is that higher visual areas tend to respond to more complex stimuli relative to lower areas. These differences indicate that the different neurons and visual areas have distinct functional properties.
 Hence, it is of critical interest to devise methods that allow inferring how the neuronal response varies under the different types of visual stimuli. %We expect that the neuronal activity will vary across all the experimental settings, and that some variations in its intensity will be observed based on the specific visual stimulus.
 As an example, Figure \ref{ch1_fig:trace_neurons} shows the calcium traces of two neurons recorded during two different experiment sessions from the Allen Brain Observatory study.
@@ -78,8 +78,9 @@ These plots highlight that the neuronal response is highly variable, both across
 
 The Allen Brain Observatory study comprises records of neuronal activity from over $60000$ cells from six visual areas (VISp, VISl, VISal, VISrl, VISam, and VISpm) and different imaging depths (ranging from 175 to 625 microns). The data were collected analyzing the brain activity of several genetically engineered mice, using different transgenic Cre lines.
 The neuronal response of each mouse was recorded during three experimental sessions: specifically, each session was made up of different types of visual stimuli displayed sequentially.
-Session ``A'' comprises two natural movies and a drifting gratings stimulus; session ``B'' comprises both natural movies and natural scenes, and a static gratings stimulus; finally, session ``C'' again includes two natural movies, and a locally sparse noise. Moreover, in all sessions a period of absence of stimuli was used to evaluate the baseline response during spontaneous activity.
-The synthetic stimuli are used to investigate the parameters that trigger the neuronal response: the locally sparse noise displays white and black spots in different parts of the visual space, and allows to map the spatial size and shape of the receptive field. The grating stimulus is a simple pattern whose intensity varies periodically along one dimension, and is constant in the other dimension. Different spatial frequencies, temporal frequencies and orientations are considered in order to further characterize the receptive fields. A detailed description of the visual stimuli can be found in a technical report \parencite{allen_stimulus}.
+Session ``A'' comprises two natural movies and a drifting gratings stimulus; session ``B'' comprises both natural movies and natural scenes, and a static gratings stimulus; finally, session ``C'' again includes two natural movies, and a locally sparse noise. Moreover, in all sessions a period of absence of stimuli was used to evaluate the baseline response during spontaneous activity. 
+%The synthetic stimuli are used to investigate the parameters that trigger the neuronal response: the locally sparse noise displays white and black spots in different parts of the visual space, and allows to map the spatial size and shape of the receptive field. The grating stimulus is a simple pattern whose intensity varies periodically along one dimension, and is constant in the other dimension. Different spatial frequencies, temporal frequencies and orientations are considered in order to further characterize the receptive fields. 
+A detailed description of the visual stimuli can be found in a technical report \parencite{allen_stimulus}.
 
 
 
@@ -90,7 +91,7 @@ The synthetic stimuli are used to investigate the parameters that trigger the ne
 \begin{figure}
 	\centering
 	\includegraphics[width=\linewidth]{ch1_example_data_hippoc}
-	\caption[Calcium traces of 88 neurons from the hippocampal neurons data.]{Hippocampal neurons data: denoised calcium traces (black lines) recorded in the first 350 seconds of the experiment for 88 neurons. The colored rectangles highlight the presence of co-activating neurons.}\label{ch1_fig:data_hippoc}
+	\caption[Calcium traces of 88 neurons from the hippocampal neurons data.]{Hippocampal neurons data: denoised calcium traces (black lines) recorded in the first 350 seconds of the experiment for 86 neurons. The colored rectangles highlight the presence of co-activating neurons.}\label{ch1_fig:data_hippoc}
 \end{figure}
 
 Neurons located in the hippocampus are the focus of many studies investigating the neuronal circuits that underlie cognition, learning and memory.
@@ -186,7 +187,7 @@ Moreover, for the distribution of the mixture weights it is possible to exploit 
 
 
 \subsection{Dirichlet process mixture models}
-Nonparametric mixtures extend model (\ref{ch1_eq:finitemix_h2}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \textcite{ferguson1973, ferguson1974}. Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
+Nonparametric mixtures extend model (\ref{ch1_eq:finitemix_h2}) by placing a nonparametric prior on $G$. The most common prior on random probability measures is the Dirichlet process (DP), introduced by \citeauthor{ferguson1973} (\citeyear{ferguson1973, ferguson1974}). Draws from a DP are discrete distributions with probability one, hence they turned out useful as flexible mixing measures in discrete mixtures.
 
 \subsubsection*{The Dirichlet process }
 \label{ch1_sec:DP}
