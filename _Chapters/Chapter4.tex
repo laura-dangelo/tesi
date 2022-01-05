@@ -105,11 +105,40 @@ Finally, slightly more demanding and computationally intensive, is the sampling 
 
 
 \section{Preliminary simulation study}
-The performances of the proposed model in detecting the spikes and clustering the extracted activation patterns are investigated through a simulation study. Unfortunately, the high computational cost of the proposed algorithm constitutes an obstacle to run a full and thorough simulation study, hence here we only present a preliminary analysis of the results. Additional work will be needed in order to devise computationally efficient strategies to perform posterior inference.
+The performances of the proposed model in detecting the spikes and clustering the extracted activation patterns are investigated through a simulation study. Unfortunately, the high computational cost of the proposed algorithm constitutes an obstacle to running a full and thorough simulation study, hence here we only present a preliminary analysis of the results. Additional work will be needed in order to devise computationally efficient strategies to perform posterior inference.
 
 We simulated data according to our model, and we considered a high signal-to-noise ratio, in order to focus more on the clustering performances, rather than the spike detection task. This is coherent with the characteristics of the real data that motivated the development of this model, where the spikes have very large amplitudes if compared to the measurement error. Specifically, the spike amplitudes were generated from a Gamma distribution with mean and variance equal to 3 and $0.7^2$, respectively; while the measurement error variance was set to $0.3^2$. Furthermore, we set all baseline parameters $b_i$ to zero, and we fixed the decay parameter $\gamma=0.5$.
 
-We considered scenarios with varying sample size ($n = 20, 30$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also apply a standard two-stage approach to the simulated data. Specifically, we first deconvolve the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, we cluster the extracted series of the signal using a hierarchical clustering based on the Hamming distance.
+We considered scenarios with varying sample size ($n = 20, 30$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also applied a standard two-stage approach to the simulated data. Specifically, we first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance.
+
+\begin{table}
+	\centering
+	\begin{tabular}{r||cc|cc}
+		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} \\
+		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ \\
+		\hline
+		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$			&  0							  & 1.00 $\cdot 10^{-3}$		\\
+		$L_0$ + hierarchical    & 5.50 $\cdot 10^{-3}$	&   1.00 $\cdot 10^{-3}$			&  0							  & 3.33 $\cdot 10^{-4}$				
+	\end{tabular}
+	\label{ch4:tab_misclass}
+	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model and the two-stage approach ($L_0$ + hierarchical). }
+\end{table}
+
+\begin{table}
+	\centering
+	\begin{tabular}{r||cc|cc}
+								& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} \\
+								&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ \\
+								\hline
+		Proposed model  		&		1		  &   0.915			&  0.870			  & 0.923		\\
+		$L_0$ + hierarchical    &		0.863	  &   0.968			&  0.637			  & 0.573				
+	\end{tabular}
+\label{ch4:tab_Rand}
+\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model and the two-stage approach ($L_0$ + hierarchical). }
+\end{table}
+
+
+
 
 \section{Analysis of hippocampal neurons}
 
