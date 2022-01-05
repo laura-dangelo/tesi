@@ -1,19 +1,19 @@
 [0] Config.pm:304> INFO - This is Biber 2.14 (beta)
 [0] Config.pm:307> INFO - Logfile is 'thesis.blg'
-[73] biber:322> INFO - === mar gen  4, 2022, 15:31:06
-[88] Biber.pm:415> INFO - Reading 'thesis.bcf'
-[161] Biber.pm:943> INFO - Found 89 citekeys in bib section 0
-[174] Biber.pm:4256> INFO - Processing section 0
-[174] Utils.pm:75> INFO - Globbing data source 'references.bib'
-[174] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
-[184] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
-[187] bibtex.pm:1653> INFO - LaTeX decoding ...
-[297] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
-[697] Utils.pm:293> WARN - month field 'Sep' in entry 'Brenner2002PhysRevE' is not an integer - this will probably not sort properly.
-[1019] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
-[1019] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
-[1019] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
-[1019] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
-[1118] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
-[1175] bbl.pm:755> INFO - Output to thesis.bbl
-[1175] Biber.pm:128> INFO - WARNINGS: 1
+[56] biber:322> INFO - === mer gen  5, 2022, 11:16:22
+[66] Biber.pm:415> INFO - Reading 'thesis.bcf'
+[130] Biber.pm:943> INFO - Found 89 citekeys in bib section 0
+[142] Biber.pm:4256> INFO - Processing section 0
+[142] Utils.pm:75> INFO - Globbing data source 'references.bib'
+[142] Utils.pm:91> INFO - Globbed data source 'references.bib' to references.bib
+[152] Biber.pm:4455> INFO - Looking for bibtex format file 'references.bib' for section 0
+[155] bibtex.pm:1653> INFO - LaTeX decoding ...
+[257] bibtex.pm:1471> INFO - Found BibTeX data source 'references.bib'
+[588] Utils.pm:293> WARN - month field 'Sep' in entry 'Brenner2002PhysRevE' is not an integer - this will probably not sort properly.
+[785] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[785] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[785] Biber.pm:4084> INFO - Sorting list 'nyt/global//global/global' of type 'entry' with template 'nyt' and locale 'en-US'
+[785] Biber.pm:4090> INFO - No sort tailoring available for locale 'en-US'
+[860] bbl.pm:652> INFO - Writing 'thesis.bbl' with encoding 'UTF-8'
+[905] bbl.pm:755> INFO - Output to thesis.bbl
+[905] Biber.pm:128> INFO - WARNINGS: 1

@@ -71,10 +71,10 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.2}Posterior inference}{47}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Simulation study}{48}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Preliminary simulation study}{48}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{48}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{49}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{49}{chapter*.21}%
+\contentsline {chapter}{Conclusions}{51}{chapter*.21}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{51}{chapter*.21}%
+\contentsline {chapter}{Bibliography}{53}{chapter*.21}%

@@ -10,7 +10,7 @@ This type of experimental setting is often used to investigate hippocampal dynam
 Hippocampal neurons underlying spatial navigation are thought to have a distributed organization, not strictly connected to the anatomical structure; however, many studies have shown that neurons with the same place field tuning often tend to neighbor one another~\parencite{Eichenbaum1989, Redish2001}. Hence, when investigating clusters of co-activating neurons, it can be relevant to take into account their spatial locations and, in particular, their proximity to each other.
 In particular, the interest is aimed to identifying subpopulations of neurons which share a common spiking activity over seconds-long periods of time \parencite{Bittner2017}. In the case of the data that we considered (recorded with a frequency of 15 frames per second), it means estimating clusters of temporal activity patterns with a duration up to a few hundreds of time points.
 
-We develop a nonparametric mixture model that allows for identification of groups of neuron with a similar pattern of activity during periods of hundreds of time points, where the mixture weights are informed using information on the spatial proximity to each other. In particular, to identify such clusters, our modeling framework looks for similarities in the binary time series describing the active/resting state of the neurons at each time point.
+We develop a nonparametric mixture model that allows for simultaneous deconvolution of calcium traces and identification of groups of neurons with a similar pattern of activity during long periods of time. Moreover, the weights of the mixture prior are informed using the spatial proximity between cells. In particular, to identify such clusters, our modeling framework looks for similarities in the deconvolved binary time series describing the active/resting state of the neurons at each time point.
 A possible difficulty in clustering these time series arises from the presence of isolated or erratic spikes, which make the observed series somehow different, even if the overall patterns match. To overcome this drawback, we perform clustering at a latent level through a process that describes, at each time point, the probability of observing a spike, hence allowing for some degree of discrepancy across series in the same cluster.
 
 
@@ -26,7 +26,7 @@ y_{i,t} = b_i + \Ca_{i,t} + \epsilon_{i,t},\qquad \epsilon_{i,t} \sim \N(0,\sigm
 \label{ch4_eq:armodel_mult}
 \end{equation}
 where the baseline parameters $b_i$ are now neuron-specific.
-Moreover, for each series it is also provided information on the spatial location of the neuron in the region of interest of the hippocampus, $\bm{l}_i \in \mathcal{L}\subseteq\R^2$.
+Moreover, for each series it is also provided information on the spatial location of the neurons in the region of interest, $\bm{l}_i \in \mathcal{L}\subseteq\R^2$.
 
 In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process that describes the spike probabilities, and we perform clustering at this latent level.
 
@@ -38,7 +38,7 @@ where $\Phi(\cdot)$ is the cumulative distribution function of a standard Gaussi
 Assuming a latent Gaussian process also allows us to easily describe the observed temporal dependence among spikes through the covariance function. As already noticed in the application to the Allen Brain Observatory data in the previous chapter, often the observed longer duration of a transient is the result of the summation of multiple spikes~\parencite{dombeck2010}. Hence it is clear that the spikes are not uniformly distributed in time, and that explicitly modeling this behavior might improve detection and interpretation.
 
 To obtain a clustering of neurons, we assume a mixture prior on the underlying Gaussian process that controls the probability of observing a spike at each time point. 
-To include information on the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \textcite{rodriguez2011}, where the weights are informed using a proximity matrix $\Sigma(\bm{l})$.
+To include information on the spatial location of each neuron, we make use of the probit stick-breaking process (PSBP) of \textcite{rodriguez2011}, where the weights are informed using the proximity matrix between neurons $\Sigma(\bm{l})$.
 This nonparametric prior on $\tilde{\bm{s}}_i$ can be written as
 \begin{equation}
 \begin{gathered}
@@ -73,7 +73,7 @@ Coherently with the approach described in the previous Chapter, we model the pos
 
 
 \section{Posterior inference}
-Posterior inference for the proposed model can be carried out using MCMC methods, and, in particular, the Gibbs sampler, as for most steps the full conditional distributions are available analytically.
+Posterior inference for the proposed model can be carried out using MCMC methods, and, in particular, the Gibbs sampler, as for most parameters the full conditional distributions are available analytically.
 In line with the previous work, also here it is convenient to introduce the latent cluster allocation variables $c_i\in\{1,2,\dots\}$, that, in this context, identify the groups of neurons with a similar activation pattern.
 Conditionally on $\pi_k(\bm{l}_i)$, we have $\Pr(c_i = k\mid \bm{l}_i) = \pi_k(\bm{l}_i)$.
 Hence the distribution of the signal for neuron $i$ can be expressed, conditionally on the cluster allocation, as
@@ -96,16 +96,20 @@ Combining the prior distribution of the signal in Eq.~\eqref{eq:ch4_distr_signal
 %
 \Pr(s_{it} = 0 \mid y_{it}, c_i=k, \tilde{s}_{k,t}, -) = \frac{1}{\sqrt{2\pi(\sigma^2+\tau^2)}}e^{-\frac{1}{2(\sigma^2+\tau^2)}(y_{i,t} - b_i - \gamma \Ca_{i,t-1})^2 } \Phi(-\tilde{s}_{k,t}).
 \end{gather*}
-Notice that the probability of observing a spike at time $t$ also depends on the specific amplitude $a_{i,t}$. Hence at each iteration we need to sample a new value for all parameters $a_{i,t}$, even if a spike was not detected for that particular neuron and time.
-
+Notice that the probability of observing a spike at time $t$ also depends on the specific amplitude $a_{i,t}$. Hence at each iteration we need to sample a new value for all amplitude parameters $a_{i,t}$, even if a spike was not detected for that particular neuron and time.
 Regarding the sampling of the amplitudes, assuming a Gamma prior does not lead to a simple expression of the full conditional, hence we make use of a Metropolis-Hastings step.
 
 The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in the original paper \parencite{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\parencite{rodriguez2011, ishwaran2001}.
 
-Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process. To this end, we make use of a device that allows us to exploit the exponentially decreasing correlation between time points in our definition of $\Omega$. Specifically, since after a certain lag $p$ the covariance $\Omega(t,t+p)=\Omega(t,t-p)$ is \textit{virtually} equal to zero, we set all the corresponding elements in the covariance matrix exactly to zero. In this way, we obtain a Gaussian distribution with a band covariance matrix. This artifice allows us to estimate the latent process using the closed-form filter developed by \cite{fasano2021} for binary time series. In our specific case, the observed level is the set of binary series of signal $\bm{s}_i$ for all neurons in the same activation cluster, and the state equation can be expressed as depending on a $p$-variate Gaussian random vector.
+Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process. To this end, we exploit the exponentially decreasing correlation between time points in our definition of $\Omega$ to approximate the Gaussian process to a collection of conditionally independent multivariate random variables. Specifically, since after a certain lag $p$ the covariance $\Omega(t,t+p)=\Omega(t,t-p)$ is \textit{virtually} equal to zero, we set all the corresponding elements in the covariance matrix exactly to zero. In this way, we obtain a $T$-variate Gaussian distribution with a band covariance matrix. This device allows us to write the model in state-space form and to estimate the latent process using the closed-form filter developed by \textcite{fasano2021} for binary time series. In our specific case, the observed level is the set of binary series of signal $\bm{s}_i$ for all neurons in the same activation cluster, and the state equation can be expressed as depending on a $p$-variate Gaussian random vector.
 
 
-\section{Simulation study}
+\section{Preliminary simulation study}
+The performances of the proposed model in detecting the spikes and clustering the extracted activation patterns are investigated through a simulation study. Unfortunately, the high computational cost of the proposed algorithm constitutes an obstacle to run a full and thorough simulation study, hence here we only present a preliminary analysis of the results. Additional work will be needed in order to devise computationally efficient strategies to perform posterior inference.
+
+We simulated data according to our model, and we considered a high signal-to-noise ratio, in order to focus more on the clustering performances, rather than the spike detection task. This is coherent with the characteristics of the real data that motivated the development of this model, where the spikes have very large amplitudes if compared to the measurement error. Specifically, the spike amplitudes were generated from a Gamma distribution with mean and variance equal to 3 and $0.7^2$, respectively; while the measurement error variance was set to $0.3^2$. Furthermore, we set all baseline parameters $b_i$ to zero, and we fixed the decay parameter $\gamma=0.5$.
+
+We considered scenarios with varying sample size ($n = 20, 30$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also apply a standard two-stage approach to the simulated data. Specifically, we first deconvolve the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, we cluster the extracted series of the signal using a hierarchical clustering based on the Hamming distance.
 
 \section{Analysis of hippocampal neurons}
 
