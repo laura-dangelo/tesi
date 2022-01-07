@@ -481,6 +481,47 @@
       \field{title}{Inner spike and slab Bayesian nonparametric models}
       \field{year}{2021}
     \endentry
+    \entry{canale2016}{inbook}{}
+      \name{author}{3}{}{%
+        {{hash=84cc52f1cea6243411c3fb97527cac48}{%
+           family={Canale},
+           familyi={C\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=5a35da777c0f7bb0f78fc3d18e773ed0}{%
+           family={Lijoi},
+           familyi={L\bibinitperiod},
+           given={Antonio},
+           giveni={A\bibinitperiod}}}%
+        {{hash=697257828981d515255ba46d6ad71cf6}{%
+           family={Prünster},
+           familyi={P\bibinitperiod},
+           given={Igor},
+           giveni={I\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {John Wiley \& Sons, Ltd}%
+      }
+      \strng{namehash}{be53c79f9bbc5c2518e9a1c81aff1a49}
+      \strng{fullhash}{092e5a2d578f420953cbec05a6e3200a}
+      \strng{bibnamehash}{092e5a2d578f420953cbec05a6e3200a}
+      \strng{authorbibnamehash}{092e5a2d578f420953cbec05a6e3200a}
+      \strng{authornamehash}{be53c79f9bbc5c2518e9a1c81aff1a49}
+      \strng{authorfullhash}{092e5a2d578f420953cbec05a6e3200a}
+      \field{extraname}{3}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{booktitle}{Wiley StatsRef: Statistics Reference Online}
+      \field{isbn}{9781118445112}
+      \field{title}{Bayesian Nonparametrics}
+      \field{year}{2016}
+      \field{pages}{1\bibrangedash 11}
+      \range{pages}{11}
+    \endentry
     \entry{carvalho2010horseshoe}{article}{}
       \name{author}{3}{}{%
         {{hash=55232ef1384c95cd1e224d51498c6631}{%
@@ -521,6 +562,39 @@
       \field{year}{2010}
       \field{pages}{465\bibrangedash 480}
       \range{pages}{16}
+    \endentry
+    \entry{casella2002}{book}{}
+      \name{author}{2}{}{%
+        {{hash=8a4df6a0714cf1f4a59f8e9b5a2637c6}{%
+           family={Casella},
+           familyi={C\bibinitperiod},
+           given={G.},
+           giveni={G\bibinitperiod}}}%
+        {{hash=22f4cba21b3c6fdc42d12eed80e3a6f7}{%
+           family={Berger},
+           familyi={B\bibinitperiod},
+           given={R.L.},
+           giveni={R\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Thomson Learning}%
+      }
+      \strng{namehash}{b6292e073a60441d71e1085cb6b7d430}
+      \strng{fullhash}{b6292e073a60441d71e1085cb6b7d430}
+      \strng{bibnamehash}{b6292e073a60441d71e1085cb6b7d430}
+      \strng{authorbibnamehash}{b6292e073a60441d71e1085cb6b7d430}
+      \strng{authornamehash}{b6292e073a60441d71e1085cb6b7d430}
+      \strng{authorfullhash}{b6292e073a60441d71e1085cb6b7d430}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780534243128}
+      \field{series}{Duxbury advanced series in statistics and decision sciences}
+      \field{title}{Statistical Inference}
+      \field{year}{2002}
     \endentry
     \entry{chan2009}{inproceedings}{}
       \name{author}{2}{}{%
@@ -573,7 +647,7 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{howpublished}{\textsc{url:} \texttt{CRAN.R-project.org/package=bpr}}
+      \field{howpublished}{\textsc{url:} \texttt{CRAN.R-project.org/ package=bpr}}
       \field{title}{R package {bpr: Bayesian Poisson regression}}
       \field{year}{2021}
     \endentry
@@ -1397,6 +1471,39 @@
       \field{title}{Bayesian Data Analysis, Third Edition}
       \field{year}{2013}
     \endentry
+    \entry{ghosal2017}{book}{}
+      \name{author}{2}{}{%
+        {{hash=367cd3d99e9252f0ae64c0531ec6eecb}{%
+           family={Ghosal},
+           familyi={G\bibinitperiod},
+           given={S.},
+           giveni={S\bibinitperiod}}}%
+        {{hash=12a0f8ed4fc97981c3dfb802cf9ef8b0}{%
+           family={{van der Vaart}},
+           familyi={v\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{f1cce7fce2b89211b493391a24c93a7d}
+      \strng{fullhash}{f1cce7fce2b89211b493391a24c93a7d}
+      \strng{bibnamehash}{f1cce7fce2b89211b493391a24c93a7d}
+      \strng{authorbibnamehash}{f1cce7fce2b89211b493391a24c93a7d}
+      \strng{authornamehash}{f1cce7fce2b89211b493391a24c93a7d}
+      \strng{authorfullhash}{f1cce7fce2b89211b493391a24c93a7d}
+      \field{sortinit}{G}
+      \field{sortinithash}{62eb2aa29549e4fdbd3cb154ec5711cb}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9780521878265}
+      \field{series}{Cambridge Series in Statistical and Probabilistic Mathematics}
+      \field{title}{Fundamentals of Nonparametric Bayesian Inference}
+      \field{year}{2017}
+    \endentry
     \entry{grienberger2012}{article}{}
       \name{author}{2}{}{%
         {{hash=24e2ebfe027d8f3bbef8396ed7df8fb4}{%
@@ -1457,6 +1564,55 @@
       \field{year}{1970}
       \field{pages}{97\bibrangedash 109}
       \range{pages}{13}
+    \endentry
+    \entry{hjort2010}{book}{}
+      \name{author}{4}{}{%
+        {{hash=ee7a4a3ef98ea6a92cdb53c9f8da3bbe}{%
+           family={Hjort},
+           familyi={H\bibinitperiod},
+           given={N.L.},
+           giveni={N\bibinitperiod}}}%
+        {{hash=2cd820a059084c460ce8a91dd5400ed0}{%
+           family={Holmes},
+           familyi={H\bibinitperiod},
+           given={C.},
+           giveni={C\bibinitperiod}}}%
+        {{hash=ee5ea3a94742d89f90767337464a4f3d}{%
+           family={Müller},
+           familyi={M\bibinitperiod},
+           given={P.},
+           giveni={P\bibinitperiod}}}%
+        {{hash=f0e1aecd2e08e6ebbffd81c1439f40e6}{%
+           family={Walker},
+           familyi={W\bibinitperiod},
+           given={S.G.},
+           giveni={S\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Cambridge University Press}%
+      }
+      \strng{namehash}{2646d51d030207a94e7eea86bc74d663}
+      \strng{fullhash}{fe42c84ed688e39d6d4aa1d0dcefe5f5}
+      \strng{bibnamehash}{fe42c84ed688e39d6d4aa1d0dcefe5f5}
+      \strng{authorbibnamehash}{fe42c84ed688e39d6d4aa1d0dcefe5f5}
+      \strng{authornamehash}{2646d51d030207a94e7eea86bc74d663}
+      \strng{authorfullhash}{fe42c84ed688e39d6d4aa1d0dcefe5f5}
+      \field{sortinit}{H}
+      \field{sortinithash}{6db6145dae8dc9e1271a8d556090b50a}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{isbn}{9781139484602}
+      \field{series}{Cambridge Series in Statistical and Probabilistic Mathematics}
+      \field{title}{Bayesian Nonparametrics}
+      \field{year}{2010}
+      \verb{urlraw}
+      \verb https://books.google.it/books?id=0GUzMF59AsgC
+      \endverb
+      \verb{url}
+      \verb https://books.google.it/books?id=0GUzMF59AsgC
+      \endverb
     \endentry
     \entry{Hoang2020}{article}{}
       \name{author}{6}{}{%

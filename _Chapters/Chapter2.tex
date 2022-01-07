@@ -1,5 +1,5 @@
 % Chapter 2
-\chapter{Novel posterior sampling scheme for Poisson encoding models}
+\chapter{Novel posterior sampling schemes for Poisson encoding models}
 \chaptermark{Posterior sampling for Poisson encoding models}
 
 
@@ -18,14 +18,14 @@ Adopting a Bayesian approach can be particularly convenient in the context of ca
 The Bayesian paradigm offers a natural approach to regularized regression: there is a large literature on prior inducing some kind of shrinkage or selection, as, for example, the spike-and-slab prior~\parencite{mitchell1988}, the Bayesian lasso~\parencite{park2008bayesian}, the horseshoe prior and its extensions \parencite{carvalho2010horseshoe, Piironen2017}.
 
 However, model \eqref{ch2_eq:model0} does not enjoy any conjugacy property and, thus, regardless of the prior used, the posterior distribution of $\beta$ is not available in close form. Consequently, inference is conducted using Markov Chain Monte Carlo (MCMC) methods, which obtain a sample from the posterior distribution of the parameters. Several approaches have focused on how to easily obtain the posterior distribution of the coefficients of Poisson models without requiring complex tuning strategies or long computation times. 
-In the context of count-valued time series,~\cite{fruhwirth2006} proposed a formulation of the model based on two levels of data augmentation, to derive an efficient approximate Gibbs sampler. \cite{fruhwirth2009} exploited a data augmentation strategy to simplify the computation of hierarchical models for count and multinomial data.
+In the context of count-valued time series,~\textcite{fruhwirth2006} proposed a formulation of the model based on two levels of data augmentation, to derive an efficient approximate Gibbs sampler. \textcite{fruhwirth2009} exploited a data augmentation strategy to simplify the computation of hierarchical models for count and multinomial data.
 Data augmentation strategies have also been employed in the case of models for multivariate dependent count data~\parencite{karlis2005, bradley2018}. 
 However, the simplest Poisson regression in \eqref{ch2_eq:model0} still lacks a specific and efficient algorithm to sample from the posterior distribution of the parameters $\beta$ for any prior choice, making the Metropolis-Hastings \parencite{hastings1970monte} or Hamiltonian Monte Carlo (HMC) \parencite{neal2011mcmc} algorithms the only available options.
 
-On the other hand, several efficient computational strategies for binary regression models have been proposed in the literature. Using the probit link, \cite{albert_chib_1993} proposed an efficient data augmentation based on a latent Gaussian variable, while the more recent contribution by \cite{polson_scott_2013} exploited the canonical logit link, introducing an efficient P\'olya-gamma data augmentation scheme.
-Leveraging \cite{polson_scott_2013} approach, we propose a novel approximation of the posterior distribution that can be exploited as proposal distribution of a Metropolis-Hastings algorithm or as importance density of an importance sampling for Poisson log-linear models with conditional Gaussian prior distributions on the regression parameters. With conditional Gaussian prior, we refer to a possibly hierarchical prior with conditional distribution $\beta \sim \mathrm{N}(b, B)$, with $b$ and/or $B$ random. Examples include straightforward Gaussian prior distributions with informative $(b,B)$ fixed using prior information, and scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation, such as the Bayesian lasso prior or the horseshoe prior, among others.
+On the other hand, several efficient computational strategies for binary regression models have been proposed in the literature. Using the probit link, \textcite{albert_chib_1993} proposed an efficient data augmentation based on a latent Gaussian variable, while the more recent contribution by \textcite{polson_scott_2013} exploited the canonical logit link, introducing an efficient P\'olya-gamma data augmentation scheme.
+Leveraging \textcite{polson_scott_2013} approach, we propose a novel approximation of the posterior distribution that can be exploited as proposal distribution of a Metropolis-Hastings algorithm or as importance density of an importance sampling for Poisson log-linear models with conditional Gaussian prior distributions on the regression parameters. With conditional Gaussian prior, we refer to a possibly hierarchical prior with conditional distribution $\beta \sim \mathrm{N}(b, B)$, with $b$ and/or $B$ random. Examples include straightforward Gaussian prior distributions with informative $(b,B)$ fixed using prior information, and scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation, such as the Bayesian lasso prior or the horseshoe prior, among others.
 
-More specifically, we introduce an approximation of the posterior density that exploits the negative binomial convergence to the Poisson distribution. Thanks to this result, we are able to leverage the P\'olya-gamma data augmentation scheme of~\cite{polson_scott_2013} to derive an efficient sampling scheme. 
+More specifically, we introduce an approximation of the posterior density that exploits the negative binomial convergence to the Poisson distribution. Thanks to this result, we are able to leverage the P\'olya-gamma data augmentation scheme of~\textcite{polson_scott_2013} to derive an efficient sampling scheme. 
 In the next section, we introduce and discuss the proposed algorithms, starting from the definition of an \emph{approximate} posterior distribution whose sampling can be performed straightforwardly.
 Sampling from this approximate posterior is then used as proposal density for the Metropolis-Hastings or importance sampler. The performance of the proposed algorithms in terms of computational efficiency is compared with that of state-of-the-art methods in a simulation study. Finally, we employ the proposed method to estimate a deconvolution model on spike train data from the Allen Brain Observatory.
 
@@ -45,7 +45,7 @@ We introduce an approximation of the posterior density which exploits the negati
 \end{equation}
 which corresponds to the probability mass function of a negative binomial random variable with parameter $r_i$, the number of failures until the experiment is stopped, and success probability $\lambda_i/(r_i+\lambda_i)$. As $r_i$ approaches infinity, this quantity converges to a Poisson likelihood.
 
-Following \cite{polson_scott_2013}, we rewrite each $i$-th contribution to the approximate likelihood \eqref{ch2_eq:approx1} by introducing augmented P\'olya-gamma random variables $\omega_i \sim \mbox{PG}(y_i+r_i,0)$, i.e
+Following \textcite{polson_scott_2013}, we rewrite each $i$-th contribution to the approximate likelihood \eqref{ch2_eq:approx1} by introducing augmented P\'olya-gamma random variables $\omega_i \sim \mbox{PG}(y_i+r_i,0)$, i.e
 \begin{align*}
 \tilde{f}_{r_i}(y_i \mid \beta) = & \exp\left\{ \frac{(x_i^\T \beta - \log r_i)(y_i-r_i)}{2} \right\} 2^{-(y_i+r_i)} \times \\ 
 & \int_{0}^{+\infty} \exp\left\{-\omega_i\frac{(x_i^\T \beta - \log r_i)^2}{2} \right\} \ppg(\omega_i; y_i + r_i,0) \, d\omega_i,   
@@ -56,7 +56,7 @@ where $\ppg(\cdot; \xi,\zeta)$ denotes the density of a P\'olya-gamma with param
 In what follows, we assume that prior knowledge about the unknown $\beta$ parameters is represented by a conditionally Gaussian prior, i.e. $\beta \sim \mathrm{N}(b, B)$, with a possible hierarchical representation for the parameters $b$ and $B$. Examples include default informative Gaussian with fixed $(b,B)$ or scale mixtures of Gaussian where $b$ is set to zero and the variance has a suitable hierarchical representation \parencite{park2008bayesian, carvalho2010horseshoe, Piironen2017}.
 
 
-The \emph{approximate} posterior based on the conditionally Gaussian prior $\beta \sim \mathrm{N}(b, B)$ and approximate likelihood $\prod_{i=1}^n \tilde{f}_{r_i}(y_i \mid \beta)$ is consistent with the successful Gibbs sampler of \cite{polson_scott_2013}; i.e., sampling from the \emph{approximate} posterior is equivalent to sampling iteratively from the following full conditionals 
+The \emph{approximate} posterior based on the conditionally Gaussian prior $\beta \sim \mathrm{N}(b, B)$ and approximate likelihood $\prod_{i=1}^n \tilde{f}_{r_i}(y_i \mid \beta)$ is consistent with the successful Gibbs sampler of \textcite{polson_scott_2013}; i.e., sampling from the \emph{approximate} posterior is equivalent to sampling iteratively from the following full conditionals 
 \begin{equation}
 \omega_i|\beta \sim \mbox{PG}(y_i + r_i, x_i^\T \beta - \log r_i), \qquad
 \beta | y,\omega \sim \mathrm{N}_p(m_{\omega}, V_{\omega}),
@@ -179,8 +179,7 @@ Hence, in the algorithm, at the beginning of each iteration, the values $r_1, \d
 \label{ch2_sec:sim}
 
 We conducted a simulation study under various settings to compare the efficiency of the proposed Metropolis-Hastings and importance sampler with that of state-of-the-art methods. We focused on the Hamiltonian Monte Carlo approach---as implemented in the Stan software \parencite{stan}---as the successful Metropolis-Hastings with standard random walk proposal would require, different from the proposed approaches, the tuning of $p$ parameters, which becomes cumbersome for moderate to elevate $p$. The proposed methods are implemented via the R package \texttt{bpr}, %\parencite{bpr}, 
-which is written in efficient C++ language exploiting the \texttt{Rcpp} package \parencite{RCPP} and available from the Comprehensive R Archive Network \parencite{bpr} and in the repository
-at \texttt{github.com/laura-dangelo/bpr}.
+which is written in efficient C++ language exploiting the \texttt{Rcpp} package \parencite{RCPP} and available from the Comprehensive R Archive Network \parencite{bpr} and at \texttt{github.com/laura-dangelo/bpr}.
 
 Data were generated from a Poisson log-linear model with sample sizes $n \in \{ 25, 50,$ $100, 200\}$ and number of covariates $p \in \{ 5, 10, 20\}$. 
 Specifically, for each combination of $n$ and $p$, we consider 50 independent $n$ dimensional vectors of counts where each $y_i$ ($i = 1\dots, n$) is sampled from a Poisson distribution with mean $\lambda_i = e^{x_i^\T \beta}$, with common parameter $\beta$. The covariates were generated from continuous or discrete/categorical random variables under the constraints that the continuous variables have mean zero and variance one and that $1\leq \lambda_i \leq 200$. 
@@ -190,7 +189,7 @@ Two prior distributions for the coefficients $\beta$ were assumed, namely a vani
 \beta_j \mid \eta^2_j, \tau^2 \sim \mathrm{N}(0,\eta^2\tau^2) \\
 \eta \sim \mathrm{C}^+(0,1), \quad \tau \sim \mathrm{C}^+(0,1),
 \end{gather*}
-for $j=1,\dots,p$, where $\mathrm{C}^+(0,1)$ is the standard half-Cauchy distribution. To implement the samplers under the horseshoe prior, we used the details of~\cite{makalic2016horseshoesampler}, and fixed the global shrinkage parameter $\tau$ to the ``optimal value'' $\tau_n(p_n) = (p_n/n)\sqrt{\log(n/p_n)}$, where $p_n$ is the number of non-zero parameters~\parencite{vanderpas2017}. 
+for $j=1,\dots,p$, where $\mathrm{C}^+(0,1)$ is the standard half-Cauchy distribution. To implement the samplers under the horseshoe prior, we used the details of~\textcite{makalic2016horseshoesampler}, and fixed the global shrinkage parameter $\tau$ to the ``optimal value'' $\tau_n(p_n) = (p_n/n)\sqrt{\log(n/p_n)}$, where $p_n$ is the number of non-zero parameters~\parencite{vanderpas2017}. 
 
 Each method introduced in Section \ref{ch2_sec:2}  was run for 10000 iterations with  5000 of them discarded as burn-in. The convergence of each algorithm was assessed by graphical inspection of the trace plots of the resulting chains. The convergence was satisfactory for all simulations and comparable for all algorithms, as no systematic bias was found in the posterior mean of the estimated parameters. 
 
@@ -201,7 +200,7 @@ Notably, the burn-in samples were removed from the chains before computing the e
 %
 \begin{figure}[h]
 	\begin{center}
-		\includegraphics[width = .85\textwidth]{ch2_toess_gaussian.pdf}
+		\includegraphics[width = \textwidth]{ch2_toess_gaussian.pdf}
 		\caption[Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using a Gaussian prior, over 50 replications.
 		\label{fig:time_ess}}
 	\end{center}
@@ -213,7 +212,7 @@ For the Gaussian prior the performances of the proposed algorithms are better th
 
 \begin{figure}[h!]
 	\begin{center}
-		\includegraphics[width = .85\textwidth]{ch2_toess_horseshoe.pdf}
+		\includegraphics[width = \textwidth]{ch2_toess_horseshoe.pdf}
 		\caption[Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm, using a horseshoe prior.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using the horseshoe prior, over 50 replications.
 			\label{fig:time_ess_horseshoe}}
 	\end{center}
@@ -237,10 +236,10 @@ We applied the method reported by~\textcite{jewell2019} as described in~\textcit
 \begin{figure}[t]
 	\centering
 	\begin{subfigure}{\linewidth} \centering
-		\includegraphics[width = \linewidth]{ch2_plot_area_exp.pdf}
+		\includegraphics[width = \textwidth]{ch2_plot_area_exp.pdf}
 	\end{subfigure}
 	\begin{subfigure}{\linewidth} \centering
-		\includegraphics[width = \linewidth]{ch2_plot_cre.pdf}   \end{subfigure}
+		\includegraphics[width = \textwidth]{ch2_plot_cre.pdf}   \end{subfigure}
 	\caption[Estimated coefficients of the regression on the calcium imaging data set.]{Estimated coefficients of the regression on the calcium imaging data set: posterior density, with the posterior mean and 95\% credible interval (colored dot and segment).} \label{fig:calcium_coeff}
 \end{figure}
 

@@ -115,7 +115,7 @@ Moreover, for each neuron, it is also available its location in the region of in
 \section{A brief review of some Bayesian nonparametric models} 
 \sectionmark{Bayesian nonparametric models}
 In this section we review some statistical tools that will be employed in this thesis in the analysis of calcium imaging data. The purpose of this section is not to provide a comprehensive review, but rather to outline the theoretical framework we adopted and fix some notation.
-The core topic will be the Bayesian methodology, with a focus on Bayesian nonparametric models.
+The core topic will be the Bayesian methodology, with a focus on Bayesian nonparametric models. Concise and exhaustive reviews of Bayesian nonparametrics can be found in \textcite{canale2016}, and in the books by \textcite{hjort2010} and \textcite{ghosal2017}.
 
 \subsection{Finite mixture models}
 \label{ch1_sec:finite_mix}
@@ -125,8 +125,8 @@ We start our discussion by reviewing finite mixtures. Although they are not part
 Mixtures are a popular tool to model heterogeneous data, characterized by the presence of subpopulations within the overall population. In many practical problems the data are collected under different conditions -- unfortunately, it is not always possible to have information on the subpopulation to which each individual observation belongs.
 Mixture models can be used in problems of this type, where the population consists of a number of latent subpopulations, and where each subpopulation can be described using a relatively simple model. 
 
-Denote the observed data as a vector of $n$ units $\bm{y} = (y_1,\dots,y_n)$; also, assume that the $n$ observations are exchangeable, meaning that the joint probability density $p(y_1,\dots,y_n)$ is invariant to permutations of the indices. In the framework of finite mixtures, we assume that the population is made of $K\leq n$ subpopulations, with $K$ known and fixed.
-We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k^*)$, for $k=1,\dots,K$. In this way we assume that a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k^*$.
+Denote the observed data as a vector of $n$ units $\bm{y} = (y_1,\dots,y_n)$, where each $y_i \in \mathcal{Y}$ is a scalar observation and $\mathcal{Y}$ is a measurable space (extension to the multivariate case is straightforward). Also, assume that the $n$ observations are exchangeable, meaning that the joint probability distribution $p(y_1,\dots,y_n)$ is invariant to permutations of the indices. In the framework of finite mixtures, we assume that the population is made of $K\leq n$ subpopulations, with $K$ known and fixed.
+We assume that within each of these groups, the distribution of $y_i$, $i=1,\dots,n$, can be modeled as $f(y_i \mid \theta_k^*)$, for $k=1,\dots,K$, with $f$ a density on $\mathcal{Y}$. In this way we assume that a common parametric family is assumed for all these component distributions, which however depend on specific parameter vectors $\theta_k^*$.
 The last missing piece to construct a mixture model is the parameter describing the proportion of population from each component $k$: we denote this parameter with $\pi_k$, satisfying $\sum_{k=1}^K \pi_k = 1$. Denoting the full vectors of parameters as $\bm{\theta}^* = (\theta_1^*,\dots,\theta_K^*)$ and $\bm{\pi} = (\pi_1,\dots,\pi_K)$, the data distribution for observation $i$ can be formulated as
 \begin{equation*}
 p(y_i\mid \bm{\theta}^*,\bm{\pi}) = \pi_1 \, f(y_i\mid\theta_1^*) + \dots + \pi_K \, f(y_i\mid\theta_K^*).
@@ -147,7 +147,7 @@ p(\bm{y},\bm{S}\mid \bm{\theta}^*,\bm{\pi}) = p(\bm{y}\mid\bm{S},\bm{\theta}^*)\
 \prod_{i=1}^n \prod_{k=1}^K \left\{ \pi_k f(y_i\mid\theta_k^*) \right\}^{S_{ik}}.
 \end{equation*}
 
-Having defined the data distribution, we need to specify adequate prior distributions on the model parameters $\bm{\pi}$ and $\bm{\theta}^*$. The prior $G_0$ on $\bm{\theta}^*$ is usually chosen depending on the specific application and on the basis of the component distribution $f$. For the mixture proportions $\pi_k$, the conjugate and most natural prior distribution is the Dirichlet distribution, $\bm{\pi}\sim \Dir_K(\alpha_1,\dots,\alpha_K)$.
+Having defined the data distribution, in a Bayesian framework we need to specify adequate prior distributions on the model parameters $\bm{\pi}$ and $\bm{\theta}^*$. The prior $G_0$ on $\bm{\theta}^*$ is usually chosen depending on the specific application and on the basis of the component distribution $f$. For the mixture proportions $\pi_k$, the conjugate and most natural prior distribution is the Dirichlet distribution, $\bm{\pi}\sim \Dir_K(\alpha_1,\dots,\alpha_K)$.
 
 This model also admits a useful hierarchical representation. Rewriting the latent allocation variables using the cluster indicators $c_i\in\{1,\dots,K\}$, with $c_i=k$ if $y_i$ belongs to the $k$-th mixture component (i.e. $S_{ik} = 1$), the model is, for $i = 1,\dots,n$ 
 \begin{equation}
@@ -164,7 +164,8 @@ It is possible to rewrite Equation (\ref{ch1_eq:finitemix_h1}) in a slightly dif
 \begin{equation}
 \begin{gathered}
 y_i \mid \theta_i \sim f(y_i\mid\theta_i)\\
-\theta_i \mid \bm{\theta}^*,\bm{\pi} \sim G = \sum_{k=1}^K \pi_k \delta_{\theta^*_k}\\
+\theta_i \mid \bm{\theta}^*,\bm{\pi} \sim G \\
+G= \sum_{k=1}^K \pi_k \delta_{\theta^*_k}\\
 \theta^*_1,\dots,\theta^*_K \sim G_0\\
 \pi_1,\dots,\pi_K \sim \Dir_K(\alpha_1,\dots,\alpha_K).
 \end{gathered}

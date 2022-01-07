@@ -5,28 +5,34 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.1}{\ignorespaces Calcium traces of two neurons from the Allen Brain Observatory data.}}{8}{figure.caption.11}%
+\contentsline {figure}{\numberline {1.1}{\ignorespaces Calcium traces of two neurons from the Allen Brain Observatory data.}}{8}{figure.caption.13}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {1.2}{\ignorespaces Calcium traces of 88 neurons from the hippocampal neurons data.}}{9}{figure.caption.12}%
-\defcounter {refsection}{0}\relax 
-\addvspace {10\p@ }
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.}}{29}{figure.caption.13}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm, using a horseshoe prior.}}{30}{figure.caption.14}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Estimated coefficients of the regression on the calcium imaging data set.}}{31}{figure.caption.15}%
+\contentsline {figure}{\numberline {1.2}{\ignorespaces Calcium traces of 88 neurons from the hippocampal neurons data.}}{9}{figure.caption.14}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparison between the misclassification error rate in the simulation study for the four considered methods.}}{40}{figure.caption.16}%
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.}}{30}{figure.caption.15}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.2}{\ignorespaces Comparison between the adjusted Rand index of the fCAM and CAM.}}{41}{figure.caption.17}%
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm, using a horseshoe prior.}}{31}{figure.caption.16}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Observed fluorescence trace of a neuron from the Allen Brain Observatory data and estimated neuronal activity.}}{42}{figure.caption.18}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.4}{\ignorespaces Distribution of the observational cluster parameters for the three experimental conditions of the Allen Brain Observatory data.}}{43}{figure.caption.19}%
-\defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {3.5}{\ignorespaces Visual representation of the estimated spikes and their amplitudes in the calcium trace from the Allen Brain Observatory data.}}{44}{figure.caption.20}%
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Estimated coefficients of the regression on the calcium imaging data set.}}{32}{figure.caption.17}%
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Comparison between the misclassification error rate in the simulation study for the four considered methods.}}{40}{figure.caption.18}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.2}{\ignorespaces Comparison between the adjusted Rand index of the fCAM and CAM.}}{41}{figure.caption.19}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Observed fluorescence trace of a neuron from the Allen Brain Observatory data and estimated neuronal activity.}}{42}{figure.caption.20}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.4}{\ignorespaces Distribution of the observational cluster parameters for the three experimental conditions of the Allen Brain Observatory data.}}{45}{figure.caption.21}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {3.5}{\ignorespaces Visual representation of the estimated spikes and their amplitudes in the calcium trace from the Allen Brain Observatory data.}}{46}{figure.caption.22}%
+\defcounter {refsection}{0}\relax 
+\addvspace {10\p@ }
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Estimated clustering on the simulated data with sample size $n=20$.}}{52}{figure.caption.25}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Estimated clustering on the simulated data with sample size $n=30$.}}{53}{figure.caption.26}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Estimated clustering on the simulated data with sample size $n=40$.}}{54}{figure.caption.27}%

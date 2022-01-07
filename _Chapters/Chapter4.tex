@@ -7,10 +7,10 @@ Although not ideal, this approach is sometimes the only viable option due to the
 
 In this chapter we develop a model to analyze the activity of groups of neurons and to cluster this activity on the basis of recurring patterns of activation. As motivating application, we consider the hippocampal neurons data described in Section \ref{ch1_sec:hippoc_data}: differently from the Allen Brain Observatory data, here the animal is not subjected to different types of stimuli, and it is freely moving within an environment.
 This type of experimental setting is often used to investigate hippocampal dynamics and connectivity patterns, which consist of groups of co-activating neurons. 
-Hippocampal neurons underlying spatial navigation are thought to have a distributed organization, not strictly connected to the anatomical structure; however, many studies have shown that neurons with the same place field tuning often tend to neighbor one another~\parencite{Eichenbaum1989, Redish2001}. Hence, when investigating clusters of co-activating neurons, it can be relevant to take into account their spatial locations and, in particular, their proximity to each other.
+Hippocampal neurons underlying spatial navigation are thought to have a distributed organization, not strictly connected to the anatomical structure; however, many studies have shown that neurons with the same place field tuning often tend to neighbor one another~\parencite{Eichenbaum1989, Redish2001}. Hence, when investigating clusters of co-activating neurons, it can be relevant to take into account their spatial location and, in particular, their proximity to each other.
 In particular, the interest is aimed to identifying subpopulations of neurons which share a common spiking activity over seconds-long periods of time \parencite{Bittner2017}. In the case of the data that we considered (recorded with a frequency of 15 frames per second), it means estimating clusters of temporal activity patterns with a duration up to a few hundreds of time points.
 
-We develop a nonparametric mixture model that allows for simultaneous deconvolution of calcium traces and identification of groups of neurons with a similar pattern of activity during long periods of time. Moreover, the weights of the mixture prior are informed using the spatial proximity between cells. In particular, to identify such clusters, our modeling framework looks for similarities in the deconvolved binary time series describing the active/resting state of the neurons at each time point.
+We develop a nonparametric mixture model that allows for simultaneous deconvolution of calcium traces and identification of groups of neurons with a similar pattern of activity during seconds-long periods. Moreover, the weights of the mixture prior are informed using the spatial proximity between cells. In particular, to identify such clusters, our modeling framework looks for similarities in the deconvolved binary time series describing the active/resting state of the neurons at each time point.
 A possible difficulty in clustering these time series arises from the presence of isolated or erratic spikes, which make the observed series somehow different, even if the overall patterns match. To overcome this drawback, we perform clustering at a latent level through a process that describes, at each time point, the probability of observing a spike, hence allowing for some degree of discrepancy across series in the same cluster.
 
 
@@ -26,7 +26,7 @@ y_{i,t} = b_i + \Ca_{i,t} + \epsilon_{i,t},\qquad \epsilon_{i,t} \sim \N(0,\sigm
 \label{ch4_eq:armodel_mult}
 \end{equation}
 where the baseline parameters $b_i$ are now neuron-specific.
-Moreover, for each series it is also provided information on the spatial location of the neurons in the region of interest, $\bm{l}_i \in \mathcal{L}\subseteq\R^2$.
+Moreover, for each observation it is also provided information on the spatial location of the neuron in the region of interest, $\bm{l}_i \in \mathcal{L}\subseteq\R^2$.
 
 In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process that describes the spike probabilities, and we perform clustering at this latent level.
 
@@ -42,7 +42,8 @@ To include information on the spatial location of each neuron, we make use of th
 This nonparametric prior on $\tilde{\bm{s}}_i$ can be written as
 \begin{equation}
 \begin{gathered}
-\tilde{\bm{s}}_i\mid \bm{l}_i  \sim G_{\bm{l}_i} = \sum_{k\geq1} \pi_k(\bm{l}_i)\cdot \delta_{\tilde{\bm{s}}^*_k }\\
+\tilde{\bm{s}}_i\mid \bm{l}_i  \sim G_{\bm{l}_i}\\
+G_{\bm{l}_i} = \sum_{k\geq1} \pi_k(\bm{l}_i)\cdot \delta_{\tilde{\bm{s}}^*_k }\\
 \pi_k(\bm{l}_i) = \Phi\big(\alpha_k(\bm{l}_i)\big) \prod_{r<k} \big\{ 1- \Phi\big(\alpha_r(\bm{l}_i)\big)\big\}
 \end{gathered}
 \end{equation}
@@ -63,13 +64,13 @@ k(\bm{l}_1,\bm{l}_n) & k(\bm{l}_2,\bm{l}_n) & \dots & 1
 \end{bmatrix}
 \right)
 \end{equation*}
-where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture prior are independent draws from a Gaussian process in the time domain, 
+where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture prior are independent draws from a Gaussian process,
 \begin{equation*}
-\tilde{\bm{s}}^*_k \sim \mathrm{GP}(\bm{\mu},\Omega).
+\tilde{\bm{s}}^*_k \sim \mathrm{GP}(\bm{\mu},\Omega),
 \end{equation*}
 where the covariance function $\Omega(t,t')$ describes the temporal dependence, that we model using a squared exponential kernel.
 
-Coherently with the approach described in the previous Chapter, we model the positive spike amplitudes using a Gamma prior, $a_{i,t}\sim\mathrm{Gamma}(h_{1a},h_{2a})$. Moreover, for the remaining parameters, we adopt the same prior specification as in Eq.~\eqref{eq:ch3_priors}.
+Coherently with the approach described in the previous chapter, we model the positive spike amplitudes using a Gamma prior, $a_{i,t}\sim\mathrm{Gamma}(h_{1a},h_{2a})$. Moreover, for the remaining parameters, we adopt the same prior specification as in Eq.~\eqref{eq:ch3_priors}.
 
 
 \section{Posterior inference}
@@ -107,40 +108,75 @@ Finally, slightly more demanding and computationally intensive, is the sampling 
 \section{Preliminary simulation study}
 The performances of the proposed model in detecting the spikes and clustering the extracted activation patterns are investigated through a simulation study. Unfortunately, the high computational cost of the proposed algorithm constitutes an obstacle to running a full and thorough simulation study, hence here we only present a preliminary analysis of the results. Additional work will be needed in order to devise computationally efficient strategies to perform posterior inference.
 
-We simulated data according to our model, and we considered a high signal-to-noise ratio, in order to focus more on the clustering performances, rather than the spike detection task. This is coherent with the characteristics of the real data that motivated the development of this model, where the spikes have very large amplitudes if compared to the measurement error. Specifically, the spike amplitudes were generated from a Gamma distribution with mean and variance equal to 3 and $0.7^2$, respectively; while the measurement error variance was set to $0.3^2$. Furthermore, we set all baseline parameters $b_i$ to zero, and we fixed the decay parameter $\gamma=0.5$.
+We simulated data according to our model, and we considered a high signal-to-noise ratio, in order to focus more on the clustering performances, rather than the spike detection task. Specifically, the spike amplitudes were generated from a Gamma distribution with mean and variance equal to 3 and $0.7^2$, respectively; while the measurement error variance was set to $0.3^2$. Moreover, we set all baseline parameters $b_i$ to zero, and we fixed the decay parameter $\gamma=0.5$.
 
-We considered scenarios with varying sample size ($n = 20, 30$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also applied a standard two-stage approach to the simulated data. Specifically, we first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance.
+We considered scenarios with varying sample size ($n = 20, 30, 40$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also applied a standard two-stage approach. Specifically, we (1) first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, (2) we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance. The penalization parameters in step (1) were selected following the procedure illustrated in~\textcite{vries2020} to minimize the number of estimated spikes smaller than 2 standard deviations of the trace. To assess the influence of spike detection on the estimated clustering in the two-stage approach, we also estimated a hierarchical clustering on the true signal. 
+
+
+We evaluated our model and step (1) of the two-stage approach by comparing the misclassification error rate obtained in the simulated scenarios (Tab.~\ref{ch4:tab_misclass}). In general, the performances of the proposed model are superior to those obtained using the $L_0$ penalization approach. This is consistent with the findings of the previous chapter, where we assessed that a simultaneous deconvolution and estimation of the spiking activity can improve spike detection.
+
+
+Estimation of the clustering structure was assessed using the adjusted Rand index~\parencite{rand1971,hubert1985}. Table \ref{ch4:tab_Rand} compares the results of the proposed model with those attained by the hierarchical clustering (2), both on the estimated signal, after a first deconvolution phase (1), and by applying step (2) directly on the true signal, to isolate the impact of spike detection on cluster recognition. 
 
 \begin{table}
 	\centering
-	\begin{tabular}{r||cc|cc}
-		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} \\
-		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ \\
+	\begin{tabular}{r||cc|cc|cc}
+		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} & \multicolumn{2}{c}{$n=40$} \\
+		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ & $T=100$ 		  & $T=200$ \\
 		\hline
-		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$			&  0							  & 1.00 $\cdot 10^{-3}$		\\
-		$L_0$ + hierarchical    & 5.50 $\cdot 10^{-3}$	&   1.00 $\cdot 10^{-3}$			&  0							  & 3.33 $\cdot 10^{-4}$				
+		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$ &  0	& 1.00 $\cdot 10^{-3}$	&  2.50 $\cdot 10^{-4}$	& 3.50 $\cdot 10^{-3}$	\\
+		%		$L_0$   & 5.50 $\cdot 10^{-3}$	&   1.00 $\cdot 10^{-3}$ &  0	 & 3.33 $\cdot 10^{-4}$	&  0	& 8.75 $\cdot 10^{-4}$	
+		$L_0$   & 2.20 $\cdot 10^{-2}$	&   2.97 $\cdot 10^{-2}$ & 1.73 $\cdot 10^{-2}$ & 2.33 $\cdot 10^{-2}$	&  2.26 $\cdot 10^{-2}$	& 2.30 $\cdot 10^{-2}$		
 	\end{tabular}
-	\label{ch4:tab_misclass}
-	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model and the two-stage approach ($L_0$ + hierarchical). }
+	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model and the method of \textcite{jewell2019} ``$L_0$''.\label{ch4:tab_misclass} } 	
 \end{table}
+
+
 
 \begin{table}
+	\label{ch4:tab_Rand}
 	\centering
-	\begin{tabular}{r||cc|cc}
-								& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} \\
-								&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ \\
+	\begin{tabular}{r||cc|cc|cc}
+								& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$}  & \multicolumn{2}{c}{$n=40$} \\
+								&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$   & $T=100$ 		  & $T=200$\\
 								\hline
-		Proposed model  		&		1		  &   0.915			&  0.870			  & 0.923		\\
-		$L_0$ + hierarchical    &		0.863	  &   0.968			&  0.637			  & 0.573				
+		Proposed model  		&		1		  &   0.915			&  0.870			  & 0.923 &  1			  & 0.846		\\
+		$L_0$ + hierarchical    &		0.469	  &   0.853			&  0.820			  & 0.889 &  0.516			  & 0.648	\\
+		true + hierarchical     &		1	      &   0.968			&  0.820			  & 0.966 &  1			  & 0.934	
+	%	true + hierarchical     &		0.863	  &   0.968			&  0.637			  & 0.573 &  1			  & 0.604				
 	\end{tabular}
-\label{ch4:tab_Rand}
-\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model and the two-stage approach ($L_0$ + hierarchical). }
+\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model, the two-stage approach ``$L_0$ + hierarchical'' and a hierarchical clustering on the true signal. }
 \end{table}
 
+\begin{figure}
+	\centering
+	\includegraphics[width=.75\linewidth]{ch4/n20_T100_err03_Rand1}\\
+	\includegraphics[width=.75\linewidth]{ch4/n20_T200_err03_Rand091}
+	\label{ch4:fig_n20}
+	\caption[Estimated clustering on the simulated data with sample size $n=20$.]{Estimated clustering on the simulated data with sample size $n=20$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.75\linewidth]{ch4/n30_T100_err03_prior186_Rand087}\\
+	\includegraphics[width=.75\linewidth]{ch4/n30_T200_seed1_err03_prior186_Rand092}
+	\label{ch4:fig_n30}
+	\caption[Estimated clustering on the simulated data with sample size $n=30$.]{Estimated clustering on the simulated data with sample size $n=30$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=.75\linewidth]{ch4/n40t100}\\
+	\includegraphics[width=.75\linewidth]{ch4/n40t200}
+	\label{ch4:fig_n40}
+	\caption[Estimated clustering on the simulated data with sample size $n=40$.]{Estimated clustering on the simulated data with sample size $n=40$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
+\end{figure}
 
 
 
-\section{Analysis of hippocampal neurons}
+
+
+%\section{Analysis of hippocampal neurons}
 
 
 
