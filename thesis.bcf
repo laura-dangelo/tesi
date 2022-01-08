@@ -2351,10 +2351,10 @@
     <bcf:citekey order="141">fasano2021</bcf:citekey>
     <bcf:citekey order="142">jewell2019</bcf:citekey>
     <bcf:citekey order="143">vries2020</bcf:citekey>
-    <bcf:citekey order="144">rand1971</bcf:citekey>
-    <bcf:citekey order="144">hubert1985</bcf:citekey>
+    <bcf:citekey order="144">jewell2019</bcf:citekey>
     <bcf:citekey order="145">jewell2019</bcf:citekey>
-    <bcf:citekey order="146">jewell2019</bcf:citekey>
+    <bcf:citekey order="146">rand1971</bcf:citekey>
+    <bcf:citekey order="146">hubert1985</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

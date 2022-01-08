@@ -112,62 +112,66 @@ We simulated data according to our model, and we considered a high signal-to-noi
 
 We considered scenarios with varying sample size ($n = 20, 30, 40$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also applied a standard two-stage approach. Specifically, we (1) first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, (2) we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance. The penalization parameters in step (1) were selected following the procedure illustrated in~\textcite{vries2020} to minimize the number of estimated spikes smaller than 2 standard deviations of the trace. To assess the influence of spike detection on the estimated clustering in the two-stage approach, we also estimated a hierarchical clustering on the true signal. 
 
-
-We evaluated our model and step (1) of the two-stage approach by comparing the misclassification error rate obtained in the simulated scenarios (Tab.~\ref{ch4:tab_misclass}). In general, the performances of the proposed model are superior to those obtained using the $L_0$ penalization approach. This is consistent with the findings of the previous chapter, where we assessed that a simultaneous deconvolution and estimation of the spiking activity can improve spike detection.
-
-
-Estimation of the clustering structure was assessed using the adjusted Rand index~\parencite{rand1971,hubert1985}. Table \ref{ch4:tab_Rand} compares the results of the proposed model with those attained by the hierarchical clustering (2), both on the estimated signal, after a first deconvolution phase (1), and by applying step (2) directly on the true signal, to isolate the impact of spike detection on cluster recognition. 
-
 \begin{table}
 	\centering
 	\begin{tabular}{r||cc|cc|cc}
 		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} & \multicolumn{2}{c}{$n=40$} \\
 		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ & $T=100$ 		  & $T=200$ \\
 		\hline
-		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$ &  0	& 1.00 $\cdot 10^{-3}$	&  2.50 $\cdot 10^{-4}$	& 3.50 $\cdot 10^{-3}$	\\
+		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$ &  0	& 1.00 $\cdot 10^{-3}$	&  0	& 7.50 $\cdot 10^{-4}$	\\
 		%		$L_0$   & 5.50 $\cdot 10^{-3}$	&   1.00 $\cdot 10^{-3}$ &  0	 & 3.33 $\cdot 10^{-4}$	&  0	& 8.75 $\cdot 10^{-4}$	
-		$L_0$   & 2.20 $\cdot 10^{-2}$	&   2.97 $\cdot 10^{-2}$ & 1.73 $\cdot 10^{-2}$ & 2.33 $\cdot 10^{-2}$	&  2.26 $\cdot 10^{-2}$	& 2.30 $\cdot 10^{-2}$		
+		$L_0$   & 2.20 $\cdot 10^{-2}$	&   2.97 $\cdot 10^{-2}$ & 1.73 $\cdot 10^{-2}$ & 2.33 $\cdot 10^{-2}$	&  2.22 $\cdot 10^{-2}$	& 2.30 $\cdot 10^{-2}$		
 	\end{tabular}
 	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model and the method of \textcite{jewell2019} ``$L_0$''.\label{ch4:tab_misclass} } 	
 \end{table}
 
-
-
 \begin{table}
-	\label{ch4:tab_Rand}
 	\centering
 	\begin{tabular}{r||cc|cc|cc}
-								& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$}  & \multicolumn{2}{c}{$n=40$} \\
-								&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$   & $T=100$ 		  & $T=200$\\
-								\hline
-		Proposed model  		&		1		  &   0.915			&  0.870			  & 0.923 &  1			  & 0.846		\\
-		$L_0$ + hierarchical    &		0.469	  &   0.853			&  0.820			  & 0.889 &  0.516			  & 0.648	\\
+		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$}  & \multicolumn{2}{c}{$n=40$} \\
+		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$   & $T=100$ 		  & $T=200$\\
+		\hline
+		Proposed model  		&		1		  &   0.915			&  0.870			  & 0.923 &  0.912		  & 0.912		\\
+		$L_0$ + hierarchical    &		0.469	  &   0.853			&  0.820			  & 0.889 &  0.516		  & 0.648	\\
 		true + hierarchical     &		1	      &   0.968			&  0.820			  & 0.966 &  1			  & 0.934	
-	%	true + hierarchical     &		0.863	  &   0.968			&  0.637			  & 0.573 &  1			  & 0.604				
+		%	true + hierarchical     &		0.863	  &   0.968			&  0.637			  & 0.573 &  1			  & 0.604				
 	\end{tabular}
-\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model, the two-stage approach ``$L_0$ + hierarchical'' and a hierarchical clustering on the true signal. }
+	\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model, the two-stage approach ``$L_0$ + hierarchical'' and a hierarchical clustering on the true signal.	\label{ch4:tab_Rand} }
 \end{table}
+
+
+We evaluated our model and step (1) of the two-stage approach by comparing the misclassification error rate obtained in the simulated scenarios (Tab.~\ref{ch4:tab_misclass}). In general, the performances of the proposed model are superior to those obtained using the $L_0$ penalization approach. This is consistent with the findings of the previous chapter, where we assessed that a simultaneous deconvolution and estimation of the spiking activity can improve spike detection.
+
+
+Estimation of the clustering structure was assessed using the adjusted Rand index~\parencite{rand1971,hubert1985}. Table \ref{ch4:tab_Rand} compares the results of the proposed model with those attained by the hierarchical clustering (2), both on the estimated signal, after the deconvolution phase (1), and by applying step (2) directly on the true signal, to isolate the impact of spike detection on cluster recognition. The proposed model shows superior performance compared to the two-stage approach in all simulated scenarios. The hierarchical clustering based on the true signal has overall the best results, however, it is clearly not applicable in a real application, as it assumes perfect identification of the spikes.
+Moreover, in hierarchical or centroid-based clustering, one has to fix some parameters, whose choice is somehow arbitrary, and that heavily affect the resulting partition (e.g. the number of clusters). Conversely, model-based clustering is relatively free from tuning parameters and subjective choices, leading to more stable and data-driven results.
+
+
+
+
+
+
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.75\linewidth]{ch4/n20_T100_err03_Rand1}\\
-	\includegraphics[width=.75\linewidth]{ch4/n20_T200_err03_Rand091}
+	\includegraphics[width=.75\linewidth]{ch4/t100n20}\\
+	\includegraphics[width=\linewidth]{ch4/t200n20}
 	\label{ch4:fig_n20}
 	\caption[Estimated clustering on the simulated data with sample size $n=20$.]{Estimated clustering on the simulated data with sample size $n=20$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.75\linewidth]{ch4/n30_T100_err03_prior186_Rand087}\\
-	\includegraphics[width=.75\linewidth]{ch4/n30_T200_seed1_err03_prior186_Rand092}
+	\includegraphics[width=.75\linewidth]{ch4/t100n30}\\
+	\includegraphics[width=\linewidth]{ch4/t200n30}
 	\label{ch4:fig_n30}
 	\caption[Estimated clustering on the simulated data with sample size $n=30$.]{Estimated clustering on the simulated data with sample size $n=30$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.75\linewidth]{ch4/n40t100}\\
-	\includegraphics[width=.75\linewidth]{ch4/n40t200}
+	\includegraphics[width=.65\linewidth]{ch4/t100n40}\\
+	\includegraphics[width=\linewidth]{ch4/t200n40}
 	\label{ch4:fig_n40}
 	\caption[Estimated clustering on the simulated data with sample size $n=40$.]{Estimated clustering on the simulated data with sample size $n=40$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
 \end{figure}

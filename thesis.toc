@@ -73,6 +73,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Preliminary simulation study}{50}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{55}{chapter*.28}%
+\contentsline {chapter}{Conclusions}{57}{chapter*.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{57}{chapter*.28}%
+\contentsline {chapter}{Bibliography}{59}{chapter*.28}%
