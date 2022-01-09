@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  8 JAN 2022 20:44
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  9 JAN 2022 14:25
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -4286,16 +4286,16 @@ mages/ch4/t200n40.pdf>] [56
 
 ]
 \openout2 = _Chapters/Chapter5.aux
- (./_Chapters/Chapter5.tex) [57
+ (./_Chapters/Chapter5.tex
+Underfull \vbox (badness 7133) has occurred while \output is active []
+
+ [57
 
 
-] [58
-
-
-]
+])
+[58]
 \openout2 = _Extras/bibliography.aux
-
-(./_Extras/bibliography.tex)
+ (./_Extras/bibliography.tex)
 
 Package biblatex Warning: Name format 'last-first' deprecated.
 (biblatex)                Please use 'family-given' instead.
@@ -4310,6 +4310,8 @@ Overfull \hbox (2.31088pt too wide) in paragraph at lines 77--77
  []
 
 [59
+
+
 
 
 ] [60] [61] [62] [63] [64
@@ -4425,7 +4427,7 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54588 strings out of 481365
+ 54590 strings out of 481365
  100000,2848258 words of node,token memory allocated
  1471 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 224 attribute, 109 glue_sp
@@ -4433,8 +4435,8 @@ ec, 112 attribute_list, 2 write, 7 pdf_action nodes
    avail lists: 1:2,2:3796,3:270,4:138,5:692,6:108,7:6203,8:81,9:570,10:28,11:45
 5
  68784 multiletter control sequences out of 65536+600000
- 149 fonts using 22130171 bytes
- 87i,23n,126p,10100b,3072s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 149 fonts using 22130827 bytes
+ 87i,23n,126p,10100b,3074s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
 f/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/share/texmf/fonts
 /opentype/public/tex-gyre/texgyrepagella-italic.otf></usr/share/texmf/fonts/open
@@ -4455,7 +4457,7 @@ ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb>
-Output written on thesis.pdf (79 pages, 4431643 bytes).
+Output written on thesis.pdf (79 pages, 4435300 bytes).
 
 PDF statistics: 1268 PDF objects out of 1440 (max. 8388607)
  1075 compressed objects within 11 object streams

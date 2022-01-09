@@ -16,10 +16,23 @@
 %======================================================================
 \section*{Discussion}
 
-the results show how simultaneous deconvolution and estimation of the spike amplitudes
-thanks to the borrowing of information 
-as info on the amplitudes and error is used also to detect the spikes
+In recent years the technological advances have enabled the collection of increasingly complex data. Calcium imaging data fit perfectly into this context: being high dimensional, often collected in elaborate experimental settings, with spatial and temporal dependence structures, and with a non-homogeneous response between neurons, they present several modeling challenges.
+Analyzing these data hence fosters investigation of new statistical and computational tools in many directions.
+In this thesis, we have examined three different, although related, aspects of a Bayesian analysis of these data.
 
+In the first chapter, we have considered a classical two-stage approach, based on a first deconvolution phase and a successive statistical analysis of the output. Specifically, we have examined the use of Poisson regression models to relate the number of detected spikes with several covariates describing the experimental conditions. 
+However, although we focused on this specific application, Poisson log-linear models are routinely used in many contexts, making our work applicable also outside of the scope of calcium imaging studies.
+We have developed two Markov chain Monte Carlo algorithms to sample from the posterior distribution of the regression parameters under the assumption of conditionally Gaussian prior distributions.
+The algorithms exploit the introduction of an approximate posterior distribution, which is used as the building block for a Metropolis-Hastings and importance sampling algorithms. 
+The proposed sampling strategies show good performances in terms of efficiency compared to state-of-the-art methods.
+
+In the second chapter, we have developed a nonparametric nested mixture model that allows for simultaneous deconvolution and estimation of the spiking activity, hence overcoming standard two-stage approaches.
+The model makes use of two nested layers of random discrete mixture priors to borrow information between experiments and discover similarities in the neuronal response to different types of stimuli. 
+The results on simulated data show how simultaneous deconvolution and estimation of the spike amplitudes leads to lower misclassification error, thanks to the borrowing of information between the two phases. Application on a real data set from the Allen Brain Observatory demonstrates the ability to capture characteristic features of neuronal activity.
+
+Finally, in the last chapter, we have moved to the multivariate analysis of populations of neurons. In general, neurons do not exhibit a homogeneous response to stimulation, and a relevant research question in neuroscience is studying groups of co-activating cells.
+This motivated the investigation of new clustering strategies to identify calcium traces with a similar underlying pattern of activity over seconds-long periods of time.
+We have formulated a nonparametric mixture model that deconvolves the fluorescence traces and clusters the latent binary series of activity. The latter task is achieved through the introduction of a latent continuous process that explicitly characterizes the spike probabilities and models their temporal dependence. Moreover, spatial dependence is also taken into account by using location-dependent mixture weights.
 
 %======================================================================
 \section*{Future directions of research}
