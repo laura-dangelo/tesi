@@ -146,41 +146,75 @@ We evaluated our model and step (1) of the two-stage approach by comparing the m
 Estimation of the clustering structure was assessed using the adjusted Rand index~\parencite{rand1971,hubert1985}. Table \ref{ch4:tab_Rand} compares the results of the proposed model with those attained by the hierarchical clustering (2), both on the estimated signal, after the deconvolution phase (1), and by applying step (2) directly on the true signal, to exclude the impact of spike detection on cluster recognition. The proposed model shows superior performance compared to the two-stage approach in all simulated scenarios. The hierarchical clustering based on the true signal has overall the best results, however, it is clearly not applicable in a real application, as it assumes perfect identification of the spikes.
 Moreover, in hierarchical or centroid-based clustering, one has to fix some parameters, whose choice is somehow arbitrary, and that heavily affect the resulting partition (e.g. the number of clusters). Conversely, model-based clustering is relatively free from tuning parameters and subjective choices, leading to more stable and data-driven results.
 
-
-
-
-
-
-
 \begin{figure}
 	\centering
-	\includegraphics[width=.75\linewidth]{ch4/t100n20}\\
-	\includegraphics[width=\linewidth]{ch4/t200n20}
+	\includegraphics[width=.7\linewidth]{ch4/n20t100}\\
+	\includegraphics[width=\linewidth]{ch4/n20t200}
 	\label{ch4:fig_n20}
-	\caption[Estimated clustering on the simulated data with sample size $n=20$.]{Estimated clustering on the simulated data with sample size $n=20$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
+	\caption[Estimated clustering on the simulated data with sample size $n=20$.]{Estimated clustering on the simulated data with sample size $n=20$, and series length $T=100$ (top) and $T=200$ (bottom). Each series is the simulated calcium trace; the colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition. The vertical segments correspond to the detected spikes.}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.75\linewidth]{ch4/t100n30}\\
-	\includegraphics[width=\linewidth]{ch4/t200n30}
+	\includegraphics[width=.7\linewidth]{ch4/n30t100}\\
+	\includegraphics[width=\linewidth]{ch4/n30t200}
 	\label{ch4:fig_n30}
-	\caption[Estimated clustering on the simulated data with sample size $n=30$.]{Estimated clustering on the simulated data with sample size $n=30$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
+	\caption[Estimated clustering on the simulated data with sample size $n=30$.]{Estimated clustering on the simulated data with sample size $n=30$, and series length $T=100$ (top) and $T=200$ (bottom). Each series is the simulated calcium trace; the colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition. The vertical segments correspond to the detected spikes.}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.65\linewidth]{ch4/t100n40}\\
-	\includegraphics[width=\linewidth]{ch4/t200n40}
+	\includegraphics[width=.7\linewidth]{ch4/n40t100}\\
+	\includegraphics[width=\linewidth]{ch4/n40t200}
 	\label{ch4:fig_n40}
-	\caption[Estimated clustering on the simulated data with sample size $n=40$.]{Estimated clustering on the simulated data with sample size $n=40$, and series length $T=100$ (left) and $T=200$ (right). The colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition.}
+	\caption[Estimated clustering on the simulated data with sample size $n=40$.]{Estimated clustering on the simulated data with sample size $n=40$, and series length $T=100$ (top) and $T=200$ (bottom). Each series is the simulated calcium trace; the colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition. The vertical segments correspond to the detected spikes.}
 \end{figure}
 
 
 
 
 
-%\section{Analysis of hippocampal neurons}
+\section{Analysis of hippocampal neurons}
+Finally, we move to the analysis of the hippocampal neurons data described in Sec.~\ref{ch1_sec:hippoc_data}. 
+Also in this case we will present only a preliminary analysis, as the computational issues mentioned in the previous section are particularly relevant in this context, because of the length of the series and the large number of neurons. 
+
+% subsampling?
+% durata della finestra? solo una o due?
+% serie lisce o errore?
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{ch4/real50}\\
+\end{figure}
+
+\begin{figure}
+	\centering
+	\includegraphics[width=\linewidth]{ch4/real100}\\
+\end{figure}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

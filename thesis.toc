@@ -73,6 +73,8 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.3}Preliminary simulation study}{50}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{57}{chapter*.28}%
+\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{52}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{59}{chapter*.28}%
+\contentsline {chapter}{Conclusions}{57}{chapter*.30}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{59}{chapter*.30}%
