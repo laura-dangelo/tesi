@@ -37,9 +37,9 @@ We have formulated a nonparametric mixture model that deconvolves the fluorescen
 %======================================================================
 \section*{Future directions of research}
 
+The work described in Chapter 4 presents some aspects that are prone to possible extensions and improvements. A first issue, already raised in Sec.~\ref{ch4:sec_sim}, is related to the computational cost of the algorithm used to perform posterior inference. To estimate the realizations of the latent mixture of Gaussian process, we applied the particle filtering algorithm proposed by \textcite{fasano2021}. Although the algorithm is a very good strategy to perform inference on binary state space models, it is not the most appropriate method in our context, as it must be run at every iteration of the Gibbs sampler. Hence, it would be useful to devise computationally more efficient ways to sample the realizations of the latent mixture of Gaussian processes.
 
-
-
+Another possible improvement is relative to the application to the hippocampal neurons data. In real experiments, the calcium traces are recorded for very long periods of time, however, the clustering of neurons can not be performed on the whole series. It is, indeed, unlikely that neurons exhibit a similar activity for the entire duration of the experiment, being the dynamics that regulate the neuronal activity very complex. This issue leads to the need to specify a duration for the series where we seek for clustering structures: neuroscience provides some guidelines on this choice, however, it still requires some caution. The choice of the time window can heavily affect the resulting clustering and hence the implication of the findings. Moreover, one could choose between segmenting the series or opting for a sliding window approach. All this issues are worth additional research, and, in particular, it would be useful to develop some methods to evaluate the sensitivity of the clustering to the different alternatives, and, possibly, to provide a way to evaluate what choice led to the ``best'' results.
 
 
 

@@ -477,9 +477,10 @@
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
       \field{issn}{2452-3062}
-      \field{journaltitle}{Econometrics and Statistics}
+      \field{journaltitle}{Econometrics and Statistics,}
       \field{title}{Inner spike and slab Bayesian nonparametric models}
-      \field{year}{2021}
+      \field{volume}{in press}
+      \field{year}{2022}
     \endentry
     \entry{canale2016}{inbook}{}
       \name{author}{3}{}{%
@@ -779,11 +780,10 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{Journal of the American Statistical Association}
+      \field{journaltitle}{Journal of the American Statistical Association,}
       \field{title}{A common atoms model for the {Bayesian} nonparametric analysis of nested data}
+      \field{volume}{in press}
       \field{year}{2021}
-      \field{pages}{1\bibrangedash 12}
-      \range{pages}{12}
     \endentry
     \entry{dombeck2010}{article}{}
       \name{author}{5}{}{%
@@ -1379,9 +1379,13 @@
       \field{labeldatesource}{year}
       \field{labelnamesource}{author}
       \field{labeltitlesource}{title}
-      \field{journaltitle}{arXiv:2005.09918}
-      \field{title}{Generalized mixtures of finite mixtures and telescoping sampling}
-      \field{year}{2020}
+      \field{journaltitle}{Bayesian Analysis}
+      \field{number}{4}
+      \field{title}{Generalized Mixtures of Finite Mixtures and Telescoping Sampling}
+      \field{volume}{16}
+      \field{year}{2021}
+      \field{pages}{1279\bibrangedash 1307}
+      \range{pages}{29}
     \endentry
     \entry{fruhwirth2006}{article}{}
       \name{author}{2}{}{%

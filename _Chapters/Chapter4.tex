@@ -30,7 +30,7 @@ Moreover, for each observation it is also provided information on the spatial lo
 
 In this context, the interest is in clustering the $n$ neurons according to their pattern of activation, which is described by the binary series $\bm{s}_i = \{s_{i,1},\dots,s_{i,T}\}$. However, we would like these clusters to comprise all neurons with a \textit{similar} activation pattern, even if the series differ for some occasional or isolated spikes. Instead of clustering directly the binary time series, we assume that these series are functions of an underlying continuous process that describes the spike probabilities, and we perform clustering at this latent level.
 
-Specifically, we assume that, for each $t=1,\dots,T$, the observed signal is the realization of independent Bernoulli random variables whose probability depends on an underlying Gaussian process (GP) through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
+Specifically, we assume that, for each $t=1,\dots,T$, the latent signal $\bm{s}_i$ is the realization of independent Bernoulli random variables whose probability depends on an underlying mixture of Gaussian processes through a probit transformation. Denoting with $\tilde{\bm{s}}_i = \{\tilde{s}_{i,1},\dots,\tilde{s}_{i,T}\}$ the realization of this underlying process, we write
 \begin{equation*}
 s_{i,t} \sim \mathrm{Bernoulli}(\Phi(\tilde{s}_{i,t})),
 \end{equation*}
@@ -64,13 +64,13 @@ k(\bm{l}_1,\bm{l}_n) & k(\bm{l}_2,\bm{l}_n) & \dots & 1
 \end{bmatrix}
 \right)
 \end{equation*}
-where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture prior are independent draws from a Gaussian process,
+where $k(\bm{l}_i,\bm{l}_{i'})$ is a covariance function. Finally, the atoms of the mixture are independent draws from a Gaussian process (GP), i.e.,
 \begin{equation*}
 \tilde{\bm{s}}^*_k \sim \mathrm{GP}(\bm{\mu},\Omega),
 \end{equation*}
 where the covariance function $\Omega(t,t')$ describes the temporal dependence, that we model using a squared exponential kernel.
 
-Coherently with the approach described in the previous chapter, we model the positive spike amplitudes using a Gamma prior, $a_{i,t}\sim\mathrm{Gamma}(h_{1a},h_{2a})$. Moreover, for the remaining parameters, we adopt the same prior specification as in Eq.~\eqref{eq:ch3_priors}.
+Consistently with the approach described in the previous chapter, we model the positive spike amplitudes using a Gamma prior, $a_{i,t}\sim\mathrm{Gamma}(h_{1a},h_{2a})$. Moreover, for the remaining parameters, we adopt the same prior specification as in Eq.~\eqref{eq:ch3_priors}.
 
 
 \section{Posterior inference}
@@ -100,20 +100,21 @@ Combining the prior distribution of the signal in Eq.~\eqref{eq:ch4_distr_signal
 Notice that the probability of observing a spike at time $t$ also depends on the specific amplitude $a_{i,t}$. Hence at each iteration we need to sample a new value for all amplitude parameters $a_{i,t}$, even if a spike was not detected for that particular neuron and time.
 Regarding the sampling of the amplitudes, assuming a Gamma prior does not lead to a simple expression of the full conditional, hence we make use of a Metropolis-Hastings step.
 
-The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in the original paper \parencite{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\parencite{rodriguez2011, ishwaran2001}.
+The update of the cluster allocation variables $c_i$ using the location-dependent PSBP is performed using the data augmentation strategy outlined in \textcite{rodriguez2011}. For simplicity, we used a finite PSBP with a large number of components, as it constitutes a fair approximation of the original process based on an infinite number of components~\parencite{rodriguez2011, ishwaran2001}.
 
 Finally, slightly more demanding and computationally intensive, is the sampling of the realizations of the latent Gaussian process. To this end, we exploit the exponentially decreasing correlation between time points in our definition of $\Omega$ to approximate the Gaussian process to a collection of conditionally independent multivariate random variables. Specifically, since after a certain lag $p$ the covariance $\Omega(t,t+p)=\Omega(t,t-p)$ is \textit{virtually} equal to zero, we set all the corresponding elements in the covariance matrix exactly to zero. In this way, we obtain a $T$-variate Gaussian distribution with a band covariance matrix. This device allows us to write the model in state-space form and to estimate the latent process using the closed-form filter developed by \textcite{fasano2021} for binary time series. In our specific case, the observed level is the set of binary series of signal $\bm{s}_i$ for all neurons in the same activation cluster, and the state equation can be expressed as depending on a $p$-variate Gaussian random vector.
 
 
-\section{Preliminary simulation study}
+\section{Simulation study}\label{ch4:sec_sim}
 The performances of the proposed model in detecting the spikes and clustering the extracted activation patterns are investigated through a simulation study. Unfortunately, the high computational cost of the proposed algorithm constitutes an obstacle to running a full and thorough simulation study, hence here we only present a preliminary analysis of the results. Additional work will be needed in order to devise computationally efficient strategies to perform posterior inference.
 
 We simulated data according to our model, and we considered a high signal-to-noise ratio, in order to focus more on the clustering performances, rather than the spike detection task. Specifically, the spike amplitudes were generated from a Gamma distribution with mean and variance equal to 3 and $0.7^2$, respectively; while the measurement error variance was set to $0.3^2$. Moreover, we set all baseline parameters $b_i$ to zero, and we fixed the decay parameter $\gamma=0.5$.
 
 We considered scenarios with varying sample size ($n = 20, 30, 40$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also applied a standard two-stage approach. Specifically, we (1) first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, (2) we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance. The penalization parameters in step (1) were selected following the procedure illustrated in~\textcite{vries2020} to minimize the number of estimated spikes smaller than 2 standard deviations of the trace. To assess the influence of spike detection on the estimated clustering in the two-stage approach, we also estimated a hierarchical clustering on the true signal. 
 
+
 \begin{table}
-	\centering
+	\centerline{
 	\begin{tabular}{r||cc|cc|cc}
 		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} & \multicolumn{2}{c}{$n=40$} \\
 		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ & $T=100$ 		  & $T=200$ \\
@@ -121,10 +122,11 @@ We considered scenarios with varying sample size ($n = 20, 30, 40$) and length o
 		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$ &  0	& 1.00 $\cdot 10^{-3}$	&  0	& 7.50 $\cdot 10^{-4}$	\\
 		%		$L_0$   & 5.50 $\cdot 10^{-3}$	&   1.00 $\cdot 10^{-3}$ &  0	 & 3.33 $\cdot 10^{-4}$	&  0	& 8.75 $\cdot 10^{-4}$	
 		$L_0$   & 2.20 $\cdot 10^{-2}$	&   2.97 $\cdot 10^{-2}$ & 1.73 $\cdot 10^{-2}$ & 2.33 $\cdot 10^{-2}$	&  2.22 $\cdot 10^{-2}$	& 2.30 $\cdot 10^{-2}$		
-	\end{tabular}
+	\end{tabular}}
 	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model and the method of \textcite{jewell2019} ``$L_0$''.\label{ch4:tab_misclass} } 	
 \end{table}
 
+	
 \begin{table}
 	\centering
 	\begin{tabular}{r||cc|cc|cc}
@@ -148,8 +150,10 @@ Moreover, in hierarchical or centroid-based clustering, one has to fix some para
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.7\linewidth]{ch4/n20t100}\\
-	\includegraphics[width=\linewidth]{ch4/n20t200}
+	\includegraphics[width=.75\linewidth]{ch4/n20t100}\\
+	\centerline{
+		\includegraphics[width=1.1\linewidth]{ch4/n20t200}
+	}
 	\label{ch4:fig_n20}
 	\caption[Estimated clustering on the simulated data with sample size $n=20$.]{Estimated clustering on the simulated data with sample size $n=20$, and series length $T=100$ (top) and $T=200$ (bottom). Each series is the simulated calcium trace; the colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition. The vertical segments correspond to the detected spikes.}
 \end{figure}
@@ -157,15 +161,19 @@ Moreover, in hierarchical or centroid-based clustering, one has to fix some para
 \begin{figure}
 	\centering
 	\includegraphics[width=.7\linewidth]{ch4/n30t100}\\
-	\includegraphics[width=\linewidth]{ch4/n30t200}
+	\centerline{
+		\includegraphics[width=1.1\linewidth]{ch4/n30t200}
+	}
 	\label{ch4:fig_n30}
 	\caption[Estimated clustering on the simulated data with sample size $n=30$.]{Estimated clustering on the simulated data with sample size $n=30$, and series length $T=100$ (top) and $T=200$ (bottom). Each series is the simulated calcium trace; the colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition. The vertical segments correspond to the detected spikes.}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=.7\linewidth]{ch4/n40t100}\\
-	\includegraphics[width=\linewidth]{ch4/n40t200}
+	\includegraphics[width=.75\linewidth]{ch4/n40t100}\\
+	\centerline{
+	\includegraphics[width=1.1\linewidth]{ch4/n40t200}
+}
 	\label{ch4:fig_n40}
 	\caption[Estimated clustering on the simulated data with sample size $n=40$.]{Estimated clustering on the simulated data with sample size $n=40$, and series length $T=100$ (top) and $T=200$ (bottom). Each series is the simulated calcium trace; the colors correspond to the estimated clusters, while the numbers on the left of each series correspond to the true partition. The vertical segments correspond to the detected spikes.}
 \end{figure}
@@ -178,17 +186,27 @@ Moreover, in hierarchical or centroid-based clustering, one has to fix some para
 Finally, we move to the analysis of the hippocampal neurons data described in Sec.~\ref{ch1_sec:hippoc_data}. 
 Also in this case we will present only a preliminary analysis, as the computational issues mentioned in the previous section are particularly relevant in this context, because of the length of the series and the large number of neurons. 
 
+On the calcium traces that we considered, we first performed a pre-processing phase to make the data more conform to other fluorescent traces and coherent with the biophysical model \ref{ch4_eq:armodel_mult}. Specifically, we down-sampled the traces by keeping one observation every 10. This adjustment was needed to obtain some proper spikes, as in the original traces the calcium transients increased very slowly, as a result of the adopted frame rate frequency and other experimental conditions.
+
+We considered the first 200 time points of the experiment, and we selected a subset of 30 neurons that, from a preliminary analysis, showed at least one spike in some pre-specified intervals (to avoid the inclusion of neurons with no activations in the considered time window).
+
+Neuroscience research aims to identifying groups of neurons with a pattern of activity that coincides over seconds-long periods; however, there are no clear indications on the exact length of the time window, as it may depend on the specific scope and setting of the research. Here, we considered both 4 non-overlapping windows of 50 time points each and 2 windows of 100 time points. The choice of the length of the intervals heavily affects the resulting clustering, which is evident from the results in Figg.~\ref{ch4:fig_real50} and~\ref{ch4:fig_real100}.
+
 % subsampling?
 % durata della finestra? solo una o due?
 % serie lisce o errore?
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{ch4/real50}\\
+	\includegraphics[width=\linewidth]{ch4/real50}
+	\caption{lala}
+	\label{ch4:fig_real50}
 \end{figure}
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{ch4/real100}\\
+	\includegraphics[width=\linewidth]{ch4/real100}
+	\caption{lalala}
+	\label{ch4:fig_real100}
 \end{figure}
 
 
