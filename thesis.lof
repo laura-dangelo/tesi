@@ -31,12 +31,14 @@
 \defcounter {refsection}{0}\relax 
 \addvspace {10\p@ }
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Estimated clustering on the simulated data with sample size $n=20$.}}{53}{figure.caption.25}%
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Estimated clustering on the simulated data with sample size $n=20$.}}{54}{figure.caption.25}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Estimated clustering on the simulated data with sample size $n=30$.}}{54}{figure.caption.26}%
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Estimated clustering on the simulated data with sample size $n=30$.}}{55}{figure.caption.26}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Estimated clustering on the simulated data with sample size $n=40$.}}{55}{figure.caption.27}%
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Estimated clustering on the simulated data with sample size $n=40$.}}{56}{figure.caption.27}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.4}{\ignorespaces lala\relax }}{56}{figure.caption.28}%
+\contentsline {figure}{\numberline {4.4}{\ignorespaces Estimated clustering on the hippocampal neurons data using 4 time windows of length 50.}}{57}{figure.caption.28}%
 \defcounter {refsection}{0}\relax 
-\contentsline {figure}{\numberline {4.5}{\ignorespaces lalala\relax }}{56}{figure.caption.29}%
+\contentsline {figure}{\numberline {4.5}{\ignorespaces Estimated clustering on the hippocampal neurons data using 2 time windows of length 100.}}{58}{figure.caption.29}%
+\defcounter {refsection}{0}\relax 
+\contentsline {figure}{\numberline {4.6}{\ignorespaces Distribution of the estimated spike amplitudes on the hippocampal neurons data. \relax }}{59}{figure.caption.30}%

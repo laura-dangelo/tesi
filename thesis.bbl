@@ -343,6 +343,44 @@
       \field{pages}{031907}
       \range{pages}{1}
     \endentry
+    \entry{cai2019}{article}{}
+      \name{author}{3}{}{%
+        {{hash=981603cc773da1adfa3751cc856dc2e9}{%
+           family={Cai},
+           familyi={C\bibinitperiod},
+           given={Qingpo},
+           giveni={Q\bibinitperiod}}}%
+        {{hash=ae51735c9c31621f49c0b252c58ecd51}{%
+           family={Kang},
+           familyi={K\bibinitperiod},
+           given={Jian},
+           giveni={J\bibinitperiod}}}%
+        {{hash=b3eb94a1ef3b2b871a13ed36676d1293}{%
+           family={Yu},
+           familyi={Y\bibinitperiod},
+           given={Tianwei},
+           giveni={T\bibinitperiod}}}%
+      }
+      \strng{namehash}{31cb12ffd6ed85009da98bedd047e52b}
+      \strng{fullhash}{ae15ea534c80138c866c1ef885748500}
+      \strng{bibnamehash}{ae15ea534c80138c866c1ef885748500}
+      \strng{authorbibnamehash}{ae15ea534c80138c866c1ef885748500}
+      \strng{authornamehash}{31cb12ffd6ed85009da98bedd047e52b}
+      \strng{authorfullhash}{ae15ea534c80138c866c1ef885748500}
+      \field{sortinit}{C}
+      \field{sortinithash}{4c244ceae61406cdc0cc2ce1cb1ff703}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Bayesian Analysis}
+      \field{number}{1}
+      \field{title}{{Bayesian network marker selection via the thresholded graph Laplacian Gaussian prior}}
+      \field{volume}{15}
+      \field{year}{2019}
+      \field{pages}{79\bibrangedash 102}
+      \range{pages}{24}
+    \endentry
     \entry{camerlenghi2019}{article}{}
       \name{author}{5}{}{%
         {{hash=c4dcf6217c464077e9c3bce1c252aea8}{%

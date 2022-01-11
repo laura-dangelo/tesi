@@ -2355,7 +2355,9 @@
     <bcf:citekey order="145">jewell2019</bcf:citekey>
     <bcf:citekey order="146">rand1971</bcf:citekey>
     <bcf:citekey order="146">hubert1985</bcf:citekey>
-    <bcf:citekey order="147">fasano2021</bcf:citekey>
+    <bcf:citekey order="147">Bittner2017</bcf:citekey>
+    <bcf:citekey order="148">fasano2021</bcf:citekey>
+    <bcf:citekey order="149">cai2019</bcf:citekey>
   </bcf:section>
   <!-- SORTING TEMPLATES -->
   <bcf:sortingtemplate name="nyt">

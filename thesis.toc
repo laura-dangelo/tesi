@@ -75,6 +75,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{52}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{57}{chapter*.30}%
+\contentsline {chapter}{Conclusions}{61}{chapter*.31}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{59}{chapter*.30}%
+\contentsline {chapter}{Bibliography}{63}{chapter*.31}%

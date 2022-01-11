@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  10 JAN 2022 17:14
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  11 JAN 2022 17:53
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -3811,18 +3811,18 @@ Package microtype Info: Character `ﬆ' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/sc/10'.
 (microtype)             Ignoring protrusion settings for this character.
  [7]
-<_Images/ch1_neuron2_trace.pdf, id=304, 578.16pt x 252.945pt>
+<_Images/ch1_neuron2_trace.pdf, id=309, 578.16pt x 252.945pt>
 File: _Images/ch1_neuron2_trace.pdf Graphic file (type pdf)
 <use _Images/ch1_neuron2_trace.pdf>
 Package luatex.def Info: _Images/ch1_neuron2_trace.pdf  used on input line 73.
 (luatex.def)             Requested size: 367.46329pt x 160.76495pt.
-<_Images/ch1_neuron1_trace.pdf, id=305, 578.16pt x 252.945pt>
+<_Images/ch1_neuron1_trace.pdf, id=310, 578.16pt x 252.945pt>
 File: _Images/ch1_neuron1_trace.pdf Graphic file (type pdf)
 <use _Images/ch1_neuron1_trace.pdf>
 Package luatex.def Info: _Images/ch1_neuron1_trace.pdf  used on input line 75.
 (luatex.def)             Requested size: 367.46329pt x 160.76495pt.
  [8<./_Images/ch1_neuron2_trace.pdf><./_Images/ch1_neuron1_trace.pdf>]
-<_Images/ch1_example_data_hippoc.pdf, id=327, 767.86874pt x 456.70625pt>
+<_Images/ch1_example_data_hippoc.pdf, id=332, 767.86874pt x 456.70625pt>
 File: _Images/ch1_example_data_hippoc.pdf Graphic file (type pdf)
 <use _Images/ch1_example_data_hippoc.pdf>
 Package luatex.def Info: _Images/ch1_example_data_hippoc.pdf  used on input line
@@ -4035,7 +4035,7 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `math shift' on input line 146.
 
 [27] [28]
-<_Images/ch2_toess_gaussian.pdf, id=621, 539.01375pt x 479.7925pt>
+<_Images/ch2_toess_gaussian.pdf, id=626, 539.01375pt x 479.7925pt>
 File: _Images/ch2_toess_gaussian.pdf Graphic file (type pdf)
 <use _Images/ch2_toess_gaussian.pdf>
 Package luatex.def Info: _Images/ch2_toess_gaussian.pdf  used on input line 203.
@@ -4045,7 +4045,7 @@ Package luatex.def Info: _Images/ch2_toess_gaussian.pdf  used on input line 203.
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<_Images/ch2_toess_horseshoe.pdf, id=624, 539.01375pt x 479.7925pt>
+<_Images/ch2_toess_horseshoe.pdf, id=629, 539.01375pt x 479.7925pt>
 File: _Images/ch2_toess_horseshoe.pdf Graphic file (type pdf)
 <use _Images/ch2_toess_horseshoe.pdf>
 Package luatex.def Info: _Images/ch2_toess_horseshoe.pdf  used on input line 215
@@ -4054,12 +4054,12 @@ Package luatex.def Info: _Images/ch2_toess_horseshoe.pdf  used on input line 215
 
 LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-<_Images/ch2_plot_area_exp.pdf, id=629, 593.21625pt x 174.6525pt>
+<_Images/ch2_plot_area_exp.pdf, id=634, 593.21625pt x 174.6525pt>
 File: _Images/ch2_plot_area_exp.pdf Graphic file (type pdf)
 <use _Images/ch2_plot_area_exp.pdf>
 Package luatex.def Info: _Images/ch2_plot_area_exp.pdf  used on input line 239.
 (luatex.def)             Requested size: 408.29532pt x 120.21187pt.
-<_Images/ch2_plot_cre.pdf, id=630, 593.21625pt x 276.03125pt>
+<_Images/ch2_plot_cre.pdf, id=635, 593.21625pt x 276.03125pt>
 File: _Images/ch2_plot_cre.pdf Graphic file (type pdf)
 <use _Images/ch2_plot_cre.pdf>
 Package luatex.def Info: _Images/ch2_plot_cre.pdf  used on input line 242.
@@ -4158,17 +4158,17 @@ Package microtype Info: Character `⁻' is missing
 (microtype)             in font `TU/TeXGyrePagella(0)/m/n/9'.
 (microtype)             Ignoring protrusion settings for this character.
  [37] [38]
-<_Images/ch3_err_rate1.pdf, id=745, 442.65375pt x 290.08376pt>
+<_Images/ch3_err_rate1.pdf, id=750, 442.65375pt x 290.08376pt>
 File: _Images/ch3_err_rate1.pdf Graphic file (type pdf)
 <use _Images/ch3_err_rate1.pdf>
 Package luatex.def Info: _Images/ch3_err_rate1.pdf  used on input line 199.
 (luatex.def)             Requested size: 244.97968pt x 160.54247pt.
-<_Images/ch3_err_rate2.pdf, id=746, 442.65375pt x 290.08376pt>
+<_Images/ch3_err_rate2.pdf, id=751, 442.65375pt x 290.08376pt>
 File: _Images/ch3_err_rate2.pdf Graphic file (type pdf)
 <use _Images/ch3_err_rate2.pdf>
 Package luatex.def Info: _Images/ch3_err_rate2.pdf  used on input line 201.
 (luatex.def)             Requested size: 244.97968pt x 160.54247pt.
-<_Images/ch3_err_rate3.pdf, id=747, 442.65375pt x 290.08376pt>
+<_Images/ch3_err_rate3.pdf, id=752, 442.65375pt x 290.08376pt>
 File: _Images/ch3_err_rate3.pdf Graphic file (type pdf)
 <use _Images/ch3_err_rate3.pdf>
 Package luatex.def Info: _Images/ch3_err_rate3.pdf  used on input line 203.
@@ -4179,12 +4179,12 @@ Underfull \vbox (badness 1009) has occurred while \output is active []
  [39]
 [40<./_Images/ch3_err_rate1.pdf><./_Images/ch3_err_rate2.pdf><./_Images/ch3_err_
 rate3.pdf>]
-<_Images/ch3_rand_index.pdf, id=783, 712.6625pt x 368.37625pt>
+<_Images/ch3_rand_index.pdf, id=788, 712.6625pt x 368.37625pt>
 File: _Images/ch3_rand_index.pdf Graphic file (type pdf)
 <use _Images/ch3_rand_index.pdf>
 Package luatex.def Info: _Images/ch3_rand_index.pdf  used on input line 220.
 (luatex.def)             Requested size: 408.29532pt x 211.04462pt.
-<_Images/ch3_plot_data_new.pdf, id=784, 578.16pt x 252.945pt>
+<_Images/ch3_plot_data_new.pdf, id=789, 578.16pt x 252.945pt>
 File: _Images/ch3_plot_data_new.pdf Graphic file (type pdf)
 <use _Images/ch3_plot_data_new.pdf>
 Package luatex.def Info: _Images/ch3_plot_data_new.pdf  used on input line 232.
@@ -4196,22 +4196,22 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [42<./_Images/ch3_plot_data_new.pdf>] [43]
-<_Images/ch3_hist1.pdf, id=835, 456.70625pt x 269.005pt>
+<_Images/ch3_hist1.pdf, id=840, 456.70625pt x 269.005pt>
 File: _Images/ch3_hist1.pdf Graphic file (type pdf)
 <use _Images/ch3_hist1.pdf>
 Package luatex.def Info: _Images/ch3_hist1.pdf  used on input line 283.
 (luatex.def)             Requested size: 285.80547pt x 168.34525pt.
-<_Images/ch3_hist2.pdf, id=836, 456.70625pt x 269.005pt>
+<_Images/ch3_hist2.pdf, id=841, 456.70625pt x 269.005pt>
 File: _Images/ch3_hist2.pdf Graphic file (type pdf)
 <use _Images/ch3_hist2.pdf>
 Package luatex.def Info: _Images/ch3_hist2.pdf  used on input line 285.
 (luatex.def)             Requested size: 285.80547pt x 168.34525pt.
-<_Images/ch3_hist3.pdf, id=837, 456.70625pt x 269.005pt>
+<_Images/ch3_hist3.pdf, id=842, 456.70625pt x 269.005pt>
 File: _Images/ch3_hist3.pdf Graphic file (type pdf)
 <use _Images/ch3_hist3.pdf>
 Package luatex.def Info: _Images/ch3_hist3.pdf  used on input line 287.
 (luatex.def)             Requested size: 285.80547pt x 168.34525pt.
-<_Images/ch3_spike_color_prob_new.pdf, id=838, 578.16pt x 722.7pt>
+<_Images/ch3_spike_color_prob_new.pdf, id=843, 578.16pt x 722.7pt>
 File: _Images/ch3_spike_color_prob_new.pdf Graphic file (type pdf)
 <use _Images/ch3_spike_color_prob_new.pdf>
 Package luatex.def Info: _Images/ch3_spike_color_prob_new.pdf  used on input lin
@@ -4240,22 +4240,22 @@ Overfull \hbox (3.24461pt too wide) in paragraph at lines 132--141
  []
 
 [51]
-<_Images/ch4/n20t100.pdf, id=932, 451.6875pt x 370.38374pt>
+<_Images/ch4/n20t100.pdf, id=937, 451.6875pt x 370.38374pt>
 File: _Images/ch4/n20t100.pdf Graphic file (type pdf)
 <use _Images/ch4/n20t100.pdf>
 Package luatex.def Info: _Images/ch4/n20t100.pdf  used on input line 153.
 (luatex.def)             Requested size: 306.22148pt x 251.11725pt.
-<_Images/ch4/n20t200.pdf, id=933, 638.385pt x 370.38374pt>
+<_Images/ch4/n20t200.pdf, id=938, 638.385pt x 370.38374pt>
 File: _Images/ch4/n20t200.pdf Graphic file (type pdf)
 <use _Images/ch4/n20t200.pdf>
 Package luatex.def Info: _Images/ch4/n20t200.pdf  used on input line 156.
 (luatex.def)             Requested size: 449.12733pt x 260.57802pt.
-<_Images/ch4/n30t100.pdf, id=934, 485.815pt x 496.85625pt>
+<_Images/ch4/n30t100.pdf, id=939, 485.815pt x 496.85625pt>
 File: _Images/ch4/n30t100.pdf Graphic file (type pdf)
 <use _Images/ch4/n30t100.pdf>
 Package luatex.def Info: _Images/ch4/n30t100.pdf  used on input line 163.
 (luatex.def)             Requested size: 285.80547pt x 292.3011pt.
-<_Images/ch4/n30t200.pdf, id=935, 712.6625pt x 496.85625pt>
+<_Images/ch4/n30t200.pdf, id=940, 712.6625pt x 496.85625pt>
 File: _Images/ch4/n30t200.pdf Graphic file (type pdf)
 <use _Images/ch4/n30t200.pdf>
 Package luatex.def Info: _Images/ch4/n30t200.pdf  used on input line 166.
@@ -4264,12 +4264,12 @@ Package luatex.def Info: _Images/ch4/n30t200.pdf  used on input line 166.
 
 LaTeX Warning: Float too large for page by 32.76947pt on input line 169.
 
-<_Images/ch4/n40t100.pdf, id=936, 545.03625pt x 496.85625pt>
+<_Images/ch4/n40t100.pdf, id=941, 545.03625pt x 496.85625pt>
 File: _Images/ch4/n40t100.pdf Graphic file (type pdf)
 <use _Images/ch4/n40t100.pdf>
 Package luatex.def Info: _Images/ch4/n40t100.pdf  used on input line 173.
 (luatex.def)             Requested size: 306.22148pt x 279.14737pt.
-<_Images/ch4/n40t200.pdf, id=937, 752.8125pt x 496.85625pt>
+<_Images/ch4/n40t200.pdf, id=942, 752.8125pt x 496.85625pt>
 File: _Images/ch4/n40t200.pdf Graphic file (type pdf)
 <use _Images/ch4/n40t200.pdf>
 Package luatex.def Info: _Images/ch4/n40t200.pdf  used on input line 176.
@@ -4277,31 +4277,43 @@ Package luatex.def Info: _Images/ch4/n40t200.pdf  used on input line 176.
 
 LaTeX Warning: Float too large for page by 2.92906pt on input line 179.
 
-<_Images/ch4/real50.pdf, id=942, 542.025pt x 370.38374pt>
-File: _Images/ch4/real50.pdf Graphic file (type pdf)
-<use _Images/ch4/real50.pdf>
-Package luatex.def Info: _Images/ch4/real50.pdf  used on input line 200.
-(luatex.def)             Requested size: 408.29532pt x 279.0135pt.
-<_Images/ch4/real100.pdf, id=943, 631.35875pt x 355.3275pt>
-File: _Images/ch4/real100.pdf Graphic file (type pdf)
-<use _Images/ch4/real100.pdf>
-Package luatex.def Info: _Images/ch4/real100.pdf  used on input line 207.
-(luatex.def)             Requested size: 408.29532pt x 229.789pt.
-) [52] [53<./_Images/ch4/n20t100.pdf><./_Images/ch4/n20t200.pdf>] [54<./_Images/
-ch4/n30t100.pdf><./_Images/ch4/n30t200.pdf>] [55<./_Images/ch4/n40t100.pdf><./_I
-mages/ch4/n40t200.pdf>] [56<./_Images/ch4/real50.pdf><./_Images/ch4/real100.pdf>
+
+Underfull \vbox (badness 1077) has occurred while \output is active []
+
+ [52]
+[53] [54<./_Images/ch4/n20t100.pdf><./_Images/ch4/n20t200.pdf>] [55<./_Images/ch
+4/n30t100.pdf><./_Images/ch4/n30t200.pdf>] [56<./_Images/ch4/n40t100.pdf><./_Ima
+ges/ch4/n40t200.pdf>]
+<_Images/ch4/insieme50.pdf, id=994, 545.03625pt x 402.50375pt>
+File: _Images/ch4/insieme50.pdf Graphic file (type pdf)
+<use _Images/ch4/insieme50.pdf>
+Package luatex.def Info: _Images/ch4/insieme50.pdf  used on input line 210.
+(luatex.def)             Requested size: 408.29532pt x 301.52084pt.
+<_Images/ch4/insieme100c.pdf, id=995, 545.03625pt x 402.50375pt>
+File: _Images/ch4/insieme100c.pdf Graphic file (type pdf)
+<use _Images/ch4/insieme100c.pdf>
+Package luatex.def Info: _Images/ch4/insieme100c.pdf  used on input line 218.
+(luatex.def)             Requested size: 408.29532pt x 301.52084pt.
+<_Images/ch4/hist_a.pdf, id=996, 583.17876pt x 381.425pt>
+File: _Images/ch4/hist_a.pdf Graphic file (type pdf)
+<use _Images/ch4/hist_a.pdf>
+Package luatex.def Info: _Images/ch4/hist_a.pdf  used on input line 225.
+(luatex.def)             Requested size: 408.29532pt x 267.04805pt.
+) [57<./_Images/ch4/insieme50.pdf>] [58<./_Images/ch4/insieme100c.pdf>] [59<./_I
+mages/ch4/hist_a.pdf>] [60
+
+
+
 ]
 \openout2 = _Chapters/Chapter5.aux
  (./_Chapters/Chapter5.tex
 Underfull \vbox (badness 7133) has occurred while \output is active []
 
- [57
-
-
+ [61
 
 
 ])
-[58]
+[62]
 \openout2 = _Extras/bibliography.aux
  (./_Extras/bibliography.tex)
 
@@ -4317,16 +4329,13 @@ Overfull \hbox (2.31088pt too wide) in paragraph at lines 77--77
 5 CRAN.R-project.org/
  []
 
-[59
+[63
 
 
 
 
-] [60] [61] [62] [63] [64
-
-
-]
-<CVthesis/cv.pdf, id=1038, 614.295pt x 794.97pt>
+] [64] [65] [66] [67] [68]
+<CVthesis/cv.pdf, id=1067, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
@@ -4335,7 +4344,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1041, page=1, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1070, page=1, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 81.
@@ -4356,7 +4365,10 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 81.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [65<./CVthesis/cv.pdf>]
+ [69
+
+
+<./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 83.
@@ -4365,7 +4377,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 83.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1080, page=2, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1111, page=2, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 83.
@@ -4386,7 +4398,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 83.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [66<./CVthesis/cv.pdf>]
+ [70<./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 85.
@@ -4395,7 +4407,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 85.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1087, page=3, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1118, page=3, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 85.
@@ -4417,7 +4429,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 85.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 
-[67<./CVthesis/cv.pdf>]
+[71<./CVthesis/cv.pdf>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
  (./thesis.aux (./_Extras/frontpage.aux)
@@ -4435,16 +4447,16 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54630 strings out of 481365
+ 54665 strings out of 481365
  100000,2848258 words of node,token memory allocated
- 1471 words of node memory still in use:
-   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 224 attribute, 109 glue_sp
-ec, 112 attribute_list, 2 write, 7 pdf_action nodes
-   avail lists: 1:2,2:3797,3:270,4:139,5:692,6:108,7:6204,8:81,9:570,10:28,11:45
-5
- 68801 multiletter control sequences out of 65536+600000
- 149 fonts using 22131483 bytes
- 87i,23n,126p,10100b,3074s stack positions out of 5000i,500n,10000p,200000b,100000s
+ 1507 words of node memory still in use:
+   7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 230 attribute, 109 glue_sp
+ec, 115 attribute_list, 2 write, 10 pdf_action nodes
+   avail lists: 1:2,2:3800,3:279,4:140,5:736,6:105,7:6304,8:81,9:570,10:28,11:48
+6
+ 68813 multiletter control sequences out of 65536+600000
+ 149 fonts using 22134107 bytes
+ 87i,23n,126p,10100b,3070s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
 f/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/share/texmf/fonts
 /opentype/public/tex-gyre/texgyrepagella-italic.otf></usr/share/texmf/fonts/open
@@ -4465,10 +4477,10 @@ ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb>
-Output written on thesis.pdf (79 pages, 4505278 bytes).
+Output written on thesis.pdf (83 pages, 4557668 bytes).
 
-PDF statistics: 1295 PDF objects out of 1440 (max. 8388607)
- 1098 compressed objects within 11 object streams
- 273 named destinations out of 1000 (max. 131072)
+PDF statistics: 1326 PDF objects out of 1440 (max. 8388607)
+ 1122 compressed objects within 12 object streams
+ 279 named destinations out of 1000 (max. 131072)
  312 words of extra memory for PDF output out of 10000 (max. 100000000)
 

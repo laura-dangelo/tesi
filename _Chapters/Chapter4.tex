@@ -110,7 +110,7 @@ The performances of the proposed model in detecting the spikes and clustering th
 
 We simulated data according to our model, and we considered a high signal-to-noise ratio, in order to focus more on the clustering performances, rather than the spike detection task. Specifically, the spike amplitudes were generated from a Gamma distribution with mean and variance equal to 3 and $0.7^2$, respectively; while the measurement error variance was set to $0.3^2$. Moreover, we set all baseline parameters $b_i$ to zero, and we fixed the decay parameter $\gamma=0.5$.
 
-We considered scenarios with varying sample size ($n = 20, 30, 40$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed method, we also applied a standard two-stage approach. Specifically, we (1) first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, (2) we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance. The penalization parameters in step (1) were selected following the procedure illustrated in~\textcite{vries2020} to minimize the number of estimated spikes smaller than 2 standard deviations of the trace. To assess the influence of spike detection on the estimated clustering in the two-stage approach, we also estimated a hierarchical clustering on the true signal. 
+We considered scenarios with varying sample size ($n = 20, 30, 40$) and length of the calcium traces ($T = 100, 200$). Here we only present one simulated scenario for each setting to briefly describe the model's behavior and assess its performance. To compare the results of the proposed mixture of latent Gaussian processes (MLGP), we also applied a standard two-stage approach. Specifically, we (1) first deconvolved the simulated calcium traces using the approach introduced by \textcite{jewell2019}, then, (2) we clustered the extracted series of the signal using a hierarchical clustering based on the Hamming distance. The penalization parameters in step (1) were selected following the procedure illustrated in~\textcite{vries2020} to minimize the number of estimated spikes smaller than 2 standard deviations of the trace. To assess the influence of spike detection on the estimated clustering in the two-stage approach, we also estimated a hierarchical clustering on the true signal. 
 
 
 \begin{table}
@@ -119,11 +119,11 @@ We considered scenarios with varying sample size ($n = 20, 30, 40$) and length o
 		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$} & \multicolumn{2}{c}{$n=40$} \\
 		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$ & $T=100$ 		  & $T=200$ \\
 		\hline
-		Proposed model  		&		0		  	    &   5.25 $\cdot 10^{-3}$ &  0	& 1.00 $\cdot 10^{-3}$	&  0	& 7.50 $\cdot 10^{-4}$	\\
+		MLGP  		&		0		  	    &   5.25 $\cdot 10^{-3}$ &  0	& 1.00 $\cdot 10^{-3}$	&  0	& 7.50 $\cdot 10^{-4}$	\\
 		%		$L_0$   & 5.50 $\cdot 10^{-3}$	&   1.00 $\cdot 10^{-3}$ &  0	 & 3.33 $\cdot 10^{-4}$	&  0	& 8.75 $\cdot 10^{-4}$	
 		$L_0$   & 2.20 $\cdot 10^{-2}$	&   2.97 $\cdot 10^{-2}$ & 1.73 $\cdot 10^{-2}$ & 2.33 $\cdot 10^{-2}$	&  2.22 $\cdot 10^{-2}$	& 2.30 $\cdot 10^{-2}$		
 	\end{tabular}}
-	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model and the method of \textcite{jewell2019} ``$L_0$''.\label{ch4:tab_misclass} } 	
+	\caption[Misclassification error rate on the simulated data.]{Misclassification error rate on the simulated data for the proposed model (MLGP) and the method of \textcite{jewell2019} ($L_0$).\label{ch4:tab_misclass} } 	
 \end{table}
 
 	
@@ -133,12 +133,12 @@ We considered scenarios with varying sample size ($n = 20, 30, 40$) and length o
 		& \multicolumn{2}{c}{$n=20$}	    & \multicolumn{2}{c}{$n=30$}  & \multicolumn{2}{c}{$n=40$} \\
 		&  $T=100$ 		  & $T=200$ 		& $T=100$ 		  & $T=200$   & $T=100$ 		  & $T=200$\\
 		\hline
-		Proposed model  		&		1		  &   0.915			&  0.870			  & 0.923 &  0.912		  & 0.912		\\
+		MLGP  		&		1		  &   0.915			&  0.870			  & 0.923 &  0.912		  & 0.912		\\
 		$L_0$ + hierarchical    &		0.469	  &   0.853			&  0.820			  & 0.889 &  0.516		  & 0.648	\\
 		true + hierarchical     &		1	      &   0.968			&  0.820			  & 0.966 &  1			  & 0.934	
 		%	true + hierarchical     &		0.863	  &   0.968			&  0.637			  & 0.573 &  1			  & 0.604				
 	\end{tabular}
-	\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model, the two-stage approach ``$L_0$ + hierarchical'' and a hierarchical clustering on the true signal.	\label{ch4:tab_Rand} }
+	\caption[Adjusted Rand index of the estimated clusters of activity on the simulated data.]{Adjusted Rand index of the estimated clusters of activity on the simulated data for the proposed model (MLGP), the two-stage approach ($L_0$ + hierarchical) and a hierarchical clustering on the true signal (true + hierarchical).	\label{ch4:tab_Rand} }
 \end{table}
 
 
@@ -148,7 +148,7 @@ We evaluated our model and step (1) of the two-stage approach by comparing the m
 Estimation of the clustering structure was assessed using the adjusted Rand index~\parencite{rand1971,hubert1985}. Table \ref{ch4:tab_Rand} compares the results of the proposed model with those attained by the hierarchical clustering (2), both on the estimated signal, after the deconvolution phase (1), and by applying step (2) directly on the true signal, to exclude the impact of spike detection on cluster recognition. The proposed model shows superior performance compared to the two-stage approach in all simulated scenarios. The hierarchical clustering based on the true signal has overall the best results, however, it is clearly not applicable in a real application, as it assumes perfect identification of the spikes.
 Moreover, in hierarchical or centroid-based clustering, one has to fix some parameters, whose choice is somehow arbitrary, and that heavily affect the resulting partition (e.g. the number of clusters). Conversely, model-based clustering is relatively free from tuning parameters and subjective choices, leading to more stable and data-driven results.
 
-\begin{figure}
+\begin{figure}[b]
 	\centering
 	\includegraphics[width=.75\linewidth]{ch4/n20t100}\\
 	\centerline{
@@ -186,53 +186,45 @@ Moreover, in hierarchical or centroid-based clustering, one has to fix some para
 Finally, we move to the analysis of the hippocampal neurons data described in Sec.~\ref{ch1_sec:hippoc_data}. 
 Also in this case we will present only a preliminary analysis, as the computational issues mentioned in the previous section are particularly relevant in this context, because of the length of the series and the large number of neurons. 
 
-On the calcium traces that we considered, we first performed a pre-processing phase to make the data more conform to other fluorescent traces and coherent with the biophysical model \ref{ch4_eq:armodel_mult}. Specifically, we down-sampled the traces by keeping one observation every 10. This adjustment was needed to obtain some proper spikes, as in the original traces the calcium transients increased very slowly, as a result of the adopted frame rate frequency and other experimental conditions.
+We considered the first 2000 time points of the experiment, and we selected a subset of 30 neurons that, from a preliminary analysis, showed at least one spike in some pre-specified intervals (to avoid the inclusion of neurons with no activations in the considered time window).
+On the calcium traces that we considered, we first performed a pre-processing phase by down-sampling the traces, keeping one observation every 10, hence leading to 200 time points for each series. This step was necessary to make the data more conform to other fluorescent traces, as, for example, those from the Allen Brain Observatory analyzed in the previous chapter, and for computational reasons.
 
-We considered the first 200 time points of the experiment, and we selected a subset of 30 neurons that, from a preliminary analysis, showed at least one spike in some pre-specified intervals (to avoid the inclusion of neurons with no activations in the considered time window).
+Neuroscience research aims to identify groups of neurons with a pattern of activity that coincides over seconds-long periods.
+In real experiments, the calcium traces are recorded for very long periods of time, hence, the clustering of neurons can not be performed on the whole series. It is, indeed, unlikely that neurons exhibit a similar activity for the entire duration of the experiment, being the dynamics that regulate the neuronal activity very complex. 
+This issue leads to the need to specify the length of the intervals where we seek for clustering structures: neuroscience provides some guidelines on this choice~\parencite{Bittner2017}, however, there are no clear indications on the exact length of such time windows, as it may depend on the specific scope and setting of the research. 
+%
+Here, we considered both 4 non-overlapping windows of 50 time points (75 seconds) each and 2 windows of 100 time points (150 seconds), to assess influence of this choice on the resulting clustering. Figg.~\ref{ch4:fig_real50} and~\ref{ch4:fig_real100} compare these two scenarios: the top panel of each figure shows the observed calcium traces, and the colors correspond to the estimated cluster label, which can vary in each time window. The bottom panels show the location of neurons in the hippocampus, and the colors again show the evolution of the estimated clustering. In both scenarios, most neurons are assigned to the same cluster, and this large group remains together for the whole duration of the experiment. 
+From a visual inspection, one would expect a larger number of clusters, as many traces which are now grouped together appear to be quite different. However, the model is able to detect some specific patterns of activity, which are reasonably assigned to separate groups.
 
-Neuroscience research aims to identifying groups of neurons with a pattern of activity that coincides over seconds-long periods; however, there are no clear indications on the exact length of the time window, as it may depend on the specific scope and setting of the research. Here, we considered both 4 non-overlapping windows of 50 time points each and 2 windows of 100 time points. The choice of the length of the intervals heavily affects the resulting clustering, which is evident from the results in Figg.~\ref{ch4:fig_real50} and~\ref{ch4:fig_real100}.
+Both scenarios show that there is scope for improvement in the clustering procedure, and there are a few directions which are worth investigation.
+An important factor that affects the results is the process on the amplitudes. Figure \ref{ch4:hist_a} shows the distribution of the estimated parameters $a_{it}$: the spike amplitudes appear to be very heterogeneous and with a large variance. Using a gamma distribution to model the positive spikes could hence be too restrictive, and a more flexible prior could improve spike estimation and, in turn, the clustering structure. For example, adopting a mixture prior, similarly to the previous chapter, could be appropriate to address these issues. Another aspect which can be investigated is the use of overlapping time-windows, which could lead to a more progressive transition between partitions. 
 
+
+\clearpage
 % subsampling?
 % durata della finestra? solo una o due?
 % serie lisce o errore?
 \begin{figure}
-	\centering
-	\includegraphics[width=\linewidth]{ch4/real50}
-	\caption{lala}
-	\label{ch4:fig_real50}
+	\centerline{
+		\includegraphics[width=1\linewidth]{ch4/insieme50}
+	}
+	\caption[Estimated clustering on the hippocampal neurons data using 4 time windows of length 50.]{Hippocampal neurons data: observed calcium traces (top) and locations (bottom) for the considered subset of neurons. The colors correspond to the estimated clustering in 4 non-overlapping time windows of length 50. \label{ch4:fig_real50}}
 \end{figure}
+
+
+\begin{figure}
+	\centerline{
+		\includegraphics[width=1\linewidth]{ch4/insieme100c}
+	}
+	\caption[Estimated clustering on the hippocampal neurons data using 2 time windows of length 100.]{Hippocampal neurons data: observed calcium traces (top) and locations (bottom) for the considered subset of neurons. The colors correspond to the estimated clustering in 2 non-overlapping time windows of length 100. \label{ch4:fig_real100}}
+\end{figure}
+
 
 \begin{figure}
 	\centering
-	\includegraphics[width=\linewidth]{ch4/real100}
-	\caption{lalala}
-	\label{ch4:fig_real100}
+	\includegraphics[width=\linewidth]{ch4/hist_a}
+	\caption{Distribution of the estimated spike amplitudes on the hippocampal neurons data. \label{ch4:hist_a}}
 \end{figure}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
