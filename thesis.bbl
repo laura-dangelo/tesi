@@ -3299,6 +3299,54 @@
       \field{pages}{1131\bibrangedash 1154}
       \range{pages}{24}
     \endentry
+    \entry{rosenbaum2017}{article}{}
+      \name{author}{5}{}{%
+        {{hash=0f2ffdb750a9eff2a9c3fa0e92d5f531}{%
+           family={Rosenbaum},
+           familyi={R\bibinitperiod},
+           given={R.},
+           giveni={R\bibinitperiod}}}%
+        {{hash=ad7f2d28579931f89ee87283b8ad4f66}{%
+           family={Smith},
+           familyi={S\bibinitperiod},
+           given={M.\bibnamedelimi A.},
+           giveni={M\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=759e0f3cbfaefc499d4880bb2c210815}{%
+           family={Kohn},
+           familyi={K\bibinitperiod},
+           given={A.},
+           giveni={A\bibinitperiod}}}%
+        {{hash=0ba2d41523220b3f6b48d854661f4f04}{%
+           family={Rubin},
+           familyi={R\bibinitperiod},
+           given={J.\bibnamedelimi E.},
+           giveni={J\bibinitperiod\bibinitdelim E\bibinitperiod}}}%
+        {{hash=83baae5d42fee3af885c02fd298642e8}{%
+           family={Doiron},
+           familyi={D\bibinitperiod},
+           given={B.},
+           giveni={B\bibinitperiod}}}%
+      }
+      \strng{namehash}{d00a467ef267f9a7147c369ad37cbb22}
+      \strng{fullhash}{cafd4b584e5522b5805b2d8f58bd8ce3}
+      \strng{bibnamehash}{cafd4b584e5522b5805b2d8f58bd8ce3}
+      \strng{authorbibnamehash}{cafd4b584e5522b5805b2d8f58bd8ce3}
+      \strng{authornamehash}{d00a467ef267f9a7147c369ad37cbb22}
+      \strng{authorfullhash}{cafd4b584e5522b5805b2d8f58bd8ce3}
+      \field{sortinit}{R}
+      \field{sortinithash}{b9c68a358aea118dfa887b6e902414a7}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Nature neuroscience}
+      \field{number}{1}
+      \field{title}{The spatial structure of correlated neuronal variability}
+      \field{volume}{13}
+      \field{year}{2017}
+      \field{pages}{107\bibrangedash 114}
+      \range{pages}{8}
+    \endentry
     \entry{sethuraman1994}{article}{}
       \name{author}{1}{}{%
         {{hash=5610b62bb3ef391bd67399a3ee83e0b0}{%

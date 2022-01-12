@@ -65,16 +65,18 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Allen Brain Observatory data analysis}{42}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Clustering activation patterns of spatially-referenced neurons}{47}{chapter.4}%
+\contentsline {subsection}{\numberline {3.4.1}Analysis of additional neurons}{46}{subsection.3.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Model and prior specification}{48}{section.4.1}%
+\contentsline {chapter}{\numberline {4}Clustering activation patterns of spatially-referenced neurons}{51}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Posterior inference}{49}{section.4.2}%
+\contentsline {section}{\numberline {4.1}Model and prior specification}{52}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Simulation study}{50}{section.4.3}%
+\contentsline {section}{\numberline {4.2}Posterior inference}{53}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{52}{section.4.4}%
+\contentsline {section}{\numberline {4.3}Simulation study}{54}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{61}{chapter*.31}%
+\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{56}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{63}{chapter*.31}%
+\contentsline {chapter}{Conclusions}{65}{chapter*.35}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{Bibliography}{67}{chapter*.35}%

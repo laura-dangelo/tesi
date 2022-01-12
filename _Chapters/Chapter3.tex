@@ -193,6 +193,8 @@ Finally, Scenario 3 sets $J=5$ and $K=3$ with the spike amplitudes in the distri
 While in Scenario 1 the amplitudes of the spikes are quite large, spaced apart, and with the corresponding distributional clusters well distinct, in Scenario 3 the spike amplitudes are more homogeneous and more clustered in time. Scenario 2 represents an in-between situation. Hence, from the first to the last scenario, we are assuming an increasing degree of complexity. The R script generating these synthetic datasets is available at \texttt{github.com/laura-dangelo/fCAM\_calcium\_imaging}.
 
 The results attained by the proposed fCAM are compared to those obtained exploiting the common atom model (CAM) of~\textcite{denti2021} -- which provides a benchmark for the clustering of the spikes and the stimulus-specific distributions -- and to those obtained with the $L_0$ penalization method of~\textcite{jewell2019} and the $L_1$ penalization method of~\textcite{friedrich2017}, which provide a benchmark for the task of spikes' detection. For the latter two methods we have assumed complete knowledge of the autoregressive constant controlling the rate of the calcium decay, since we found that the results were quite sensitive to this estimate.
+To assess the sensitivity of the proposed fCAM to the prior specification, we repeated the numerical experiment for different values of the hyperparameters $h_{A1}$ and $h_{A2}$ in \eqref{eq:G0}. In particular, the shape parameter $h_{A1}$ was supposed to play a key role in the detection of spikes. Keeping fixed the ratio $h_{A1}/h_{A2}$, the parameters were set equal to 3, 4, 6, and 8: a small value implies, \textit{a priori}, less separation between zero and the distribution of the positive spikes while a large value corresponds to the opposite effect. 
+
 
 \begin{figure}
 	\centering
@@ -205,8 +207,6 @@ The results attained by the proposed fCAM are compared to those obtained exploit
 	\label{fig:boxplots_rates}
 \end{figure}
 
-
-To assess the sensitivity of the proposed fCAM to the prior specification, we repeated the numerical experiment for different values of the hyperparameters $h_{A1}$ and $h_{A2}$ in \eqref{eq:G0}. In particular, the shape parameter $h_{A1}$ was supposed to play a key role in the detection of spikes. Keeping fixed the ratio $h_{A1}/h_{A2}$, the parameters were set equal to 3, 4, 6, and 8: a small value implies, \textit{a priori}, less separation between zero and the distribution of the positive spikes while a large value corresponds to the opposite effect. 
 
 
 Focusing on the classification of each time point as a spike or not, Figure~\ref{fig:boxplots_rates} summarizes the misclassification rate for all competing methods under the three scenarios. The results of the $50$ replications are summarized using boxplots. For our fCAM, we report only the results obtained with $h_{A1} = h_{A2} = 8$ as those obtained for the other choices are essentially equivalent.  The rates are small in absolute value and broadly comparable across the different methods, thus confirming that all the competing models are effective in detecting the spikes.  
@@ -234,9 +234,9 @@ From a computational point of view, the proposed algorithm is clearly more deman
 	\label{fig:y}
 \end{figure}
 
-We now revert to the analysis of the data from the Allen Brain Observatory~\parencite{allen}. The data comprise the $dF/F$-transformed fluorescence trace for a cell during session-B of the experiment. This session comprises three types of visual stimuli (static gratings, natural scene and natural movie) in addition to some period of spontaneous activity (absence of visual stimuli). Since the data are recorded at a frequency of $30$ Hz, the resulting series consists of 113{,}865 time points for a total of 63.2 minutes. 
-We focus our analysis on a neuron located in the primary visual area, at an imaging depth equal to 350 microns. %Additional analyses for other neurons are reported in the Supporting Information.
-%{\textcolor{red}{ADD SOMETHING LIKE: we focus our analysis for neuron ABC. Additional analyses for other neurons are reported in the Supporting Information. }}
+We now revert to the analysis of the data from the Allen Brain Observatory~\parencite{allen}. The data comprise the $dF/F$-transformed fluorescence trace for a cell during session-B of the experiment (cell id 508596945). This session comprises three types of visual stimuli (static gratings, natural scene and natural movie) in addition to some period of spontaneous activity (absence of visual stimuli). Since the data are recorded at a frequency of $30$ Hz, the resulting series consists of 113{,}865 time points for a total of 63.2 minutes. 
+We focus the first analysis on a neuron located in the primary visual area, at an imaging depth equal to 350 microns. Additional analyses for other neurons are reported later in this section.
+
 
 The observed fluorescence trace is shown with a continuous black line in Figure~\ref{fig:y}. Different shaded backgrounds indicate the types of visual stimuli.
 Using the notation introduced in the previous Sections, $J=4$ with $j=1, 2, 3$ corresponding to static grating, natural scene, and natural movie, respectively and $j=4$ indicating no stimulus presence. 
@@ -271,20 +271,13 @@ first, for each MCMC iteration, the group-specific average of $A_t$ is computed 
 We notice that for all experiments, high values of the observed calcium level are often produced as the result of several consecutive spikes, since, individually, the spikes are characterized by a relatively low amplitude, and the observed calcium level is cumulated due to its autoregressive behavior.  The autoregressive parameter $\gamma$ has a posterior mean equal to $0.493$ with a 95\% credible interval of $(0.481, 0.505)$.
 %
 This result corresponds to the understanding that the observed calcium response may be generated by high-frequency firing neurons: due to the low-sampling rate, the non-linear calcium signal essentially captures a super-imposition of multiple spikes \parencite{Hoang2020}.  
-
-
-
-As a matter of fact, another useful quantity we can compute to compare the neuronal activity between stimuli is the firing rate, which provides a measure of how often the neuron has activated during a specific visual stimulus.
-The rate computes the number of detected spikes per second, to take into account the different duration of the experiments.  For the static grating stimulus the posterior mean rate (and related 95\% credible interval) is $0.223$ $(0.216, 0.229)$, while for the natural scene and natural movie stimuli they are $0.419$ $(0.410, 0.428)$ and $0.511$ $(0.495, 0.531)$, respectively. These results highlight the role of spike-frequency adaptation, whereby some neurons show an increased activity when exposed to more complex stimuli, thus exhibiting higher firing rates and larger calcium concentration measurements \parencite{Peron2009}.
-
-
-\begin{figure}
+\begin{figure}[h!]
 	\centering
-	\includegraphics[width = .7\textwidth]{_Images/ch3_hist1.pdf}\\
+	\includegraphics[width = .8\textwidth]{_Images/ch3_hist1.pdf}\\
 	%
-	\includegraphics[width = .7\textwidth]{_Images/ch3_hist2.pdf}\\
+	\includegraphics[width = .8\textwidth]{_Images/ch3_hist2.pdf}\\
 	%
-	\includegraphics[width = .7\textwidth]{_Images/ch3_hist3.pdf}
+	\includegraphics[width = .8\textwidth]{_Images/ch3_hist3.pdf}
 	\caption[Distribution of the observational cluster parameters for the three experimental conditions of the Allen Brain Observatory data.]{Empirical distribution of the posterior means of the observational cluster parameters $A_t$ for the three experimental conditions of the Allen Brain Observatory data.}
 	\label{fig:A_distr}
 \end{figure}
@@ -296,14 +289,87 @@ The rate computes the number of detected spikes per second, to take into account
 	\label{fig:spike_color}
 \end{figure}
 
+\clearpage
+
+
+
+As a matter of fact, another useful quantity we can compute to compare the neuronal activity between stimuli is the firing rate, which provides a measure of how often the neuron has activated during a specific visual stimulus.
+The rate computes the number of detected spikes per second, to take into account the different duration of the experiments.  For the static grating stimulus the posterior mean rate (and related 95\% credible interval) is $0.223$ $(0.216, 0.229)$, while for the natural scene and natural movie stimuli they are $0.419$ $(0.410, 0.428)$ and $0.511$ $(0.495, 0.531)$, respectively. These results highlight the role of spike-frequency adaptation, whereby some neurons show an increased activity when exposed to more complex stimuli, thus exhibiting higher firing rates and larger calcium concentration measurements \parencite{Peron2009}.
+
+
+
+\subsection{Analysis of additional neurons}
+We analyzed two additional neurons: the first was chosen from the same targeted area and depth as the one presented above (primary visual area, 350 microns, cell id 517398389); while the second neuron was chosen from the same area but at a different depth, and, specifically, at a much shallower depth (175 microns, cell id 587435328). 
+Although all neurons are located in the same area, we do not necessarily expect similar results, as neurons do not show spatial dependence in some regions of the brain~\parencite{rosenbaum2017}.
+In the following paragraphs we present the same type of analyses and plots reported in the main analysis. 
+
+Figure~\ref{fig:cell1_trace} shows the observed fluorescence trace of the second considered neuron ($\#517398389$), together with the estimated activity.
+Even if the trace appears to be similar to the previously analyzed neuron, we obtained a different clustering of the stimuli. Here the static grating and natural movie are pooled together with high posterior probability, while the natural scene is assigned to a separate cluster. Similarly to the previous analysis, no activity is detected during the absence of stimuli.
+The firing rate has a posterior mean (and related 95\% credible interval) equal to $0.488$ $(0.471, 0.506)$ for the static grating stimulus, to $1.192$ $(1.166, 1.220)$ for the natural scene, and to $0.304$ $(0.286, 0.325)$ for the natural movie.
+Figure~\ref{fig:A_distr1} shows the histograms of the posterior means of the non-zero spike amplitudes for the three stimuli. Compared to the natural movie, for both the static grating and the natural scene we observe heavier tails and the presence of clusters associated with larger parameters. Notice also that the estimated spikes' amplitudes are quite similar to the ones estimated in the previous analysis.
+This behavior is consistent with what observe in Figure~\ref{fig:spike_color1}, which shows a short interval of the observed calcium series, chosen in correspondence of one of the highest observed spikes. 
+
+
+Moving to the analysis of the last neuron ($\#587435328$), Figure~\ref{fig:cell2_trace} shows the observed fluorescence trace, together with the estimated activity.
+It is evident that this trace is very different from the previously considered ones, as it shows very little activity during the static grating stimulus and especially during the natural movie stimulus. This difference is reflected in the estimated distributional clusters, as now the natural movie is even pooled together with the absence of stimuli with high posterior probability; while the static grating and natural scene are assigned to two separate clusters.
+The firing rate was estimated equal to $0.067$ $(0.062, 0.072)$ spikes per second for the static grating stimulus, to $1.354$ $(1.326, 1.383)$ for the natural scene, and to $0.0063$ $(0.0033, 0.0066)$ for the natural movie.
+Figure~\ref{fig:A_distr2} shows the histograms of the distribution of the posterior means of the observational cluster parameters $A_t$.
+We also report the histogram associated with the natural movie, as few spikes were detected in correspondence of the end of the stimulus. It is evident how the natural scene is associated with the most intense activity, while the static grating leads a lower, but still present, activity. 
+Finally Figure~\ref{fig:spike_color2}, similarly to the previous analyses, shows a short interval of the observed calcium series, together with colored vertical lines at the estimated spike times. 
+
+In line with the current literature, our approach is limited to the analysis of the calcium responses observed from single neurons.
+Inferences from our work could possibly be used to identify patterns across multiple neurons. For example, it is reasonable to assume that neurons exhibiting similar activity patterns may be grouped into homogeneous (spatial) clusters. Therefore, a second stage of the analysis may explicitly cluster across neurons the inferred spikes and the posterior means of the amplitudes within successive time-intervals of calcium traces. Alternatively, one could apply the zero-inflated gamma model recently proposed by \textcite{wei2019} to study the densities of the deconvolved activity estimates and similarly heuristically compare such densities across neurons. 
+
+\newpage
+
+\begin{figure}
+	\centerline{\includegraphics[width = \linewidth]{cell517398389_trace.pdf}}
+	\caption[Observed fluorescence trace of neuron $\#517398389$ from the Allen Brain Observatory data and estimated neuronal activity.]{Observed fluorescence trace for neuron $\#517398389$ at depth 350 microns (black line), and visual stimulus to which the mouse is exposed (shaded areas). The yellow line represents the estimated neuronal activity.}
+	\label{fig:cell1_trace}
+\end{figure}
+\begin{figure}
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width = \linewidth]{hist350.pdf}
+		\caption[Distribution of the observational cluster parameters for the three experimental conditions of neuron $\#517398389$.]{Empirical distribution of the posterior means of the observational cluster parameters $A_t$ for the three experimental conditions, for neuron $\#517398389$.}
+		\label{fig:A_distr1}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width = \linewidth]{plot350new.pdf}
+		\caption[Visual representation of the estimated spikes and their amplitudes in the calcium trace of neuron $\#517398389$.]{Short interval of length 500 in correspondence of a spike for the three stimuli, for neuron $\#517398389$. The vertical lines indicate the spikes' times and the colors correspond to the observational cluster of their amplitudes. The bottom panels show the estimated posterior probability of spike presence, for each time point.}
+		\label{fig:spike_color1}
+	\end{minipage}
+\end{figure}
 
 
 
 
 
 
+\newpage
+\begin{figure}
+	\centerline{\includegraphics[width = \linewidth]{cell587435328_dep175_trace.pdf}}
+	\caption[Observed fluorescence trace of neuron $\#587435328$ from the Allen Brain Observatory data and estimated neuronal activity.]{Observed fluorescence trace for neuron neuron $\#587435328$ at a depth 175 (black line), and visual stimulus to which the mouse is exposed (shaded areas). The yellow line represents the estimated neuronal activity.}
+	\label{fig:cell2_trace}
+\end{figure}
 
-
+\begin{figure}
+	\centering
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width = \linewidth]{hist175.pdf}
+		\caption[Distribution of the observational cluster parameters for the three experimental conditions of neuron $\#587435328$.]{Empirical distribution of the posterior means of the observational cluster parameters $A_t$ for the three experimental conditions, for neuron $\#587435328$.}
+		\label{fig:A_distr2}
+	\end{minipage}\hfill
+	\begin{minipage}{0.45\textwidth}
+		\centering
+		\includegraphics[width = \linewidth]{plot175new.pdf}
+			\caption[Visual representation of the estimated spikes and their amplitudes in the calcium trace of neuron $\#587435328$.]{Short interval of length 500 in correspondence of a spike for the three stimuli, for neuron $\#587435328$. The vertical lines indicate the spikes' times and the colors correspond to the observational cluster of their amplitudes. The bottom panels show the estimated posterior probability of spike presence, for each time point.}
+		\label{fig:spike_color2}
+	\end{minipage}
+\end{figure}
 
 
 
