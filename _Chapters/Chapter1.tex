@@ -132,27 +132,22 @@ The last missing piece to construct a mixture model is the parameter describing 
 p(y_i\mid \bm{\theta}^*,\bm{\pi}) = \pi_1 \, f(y_i\mid\theta_1^*) + \dots + \pi_K \, f(y_i\mid\theta_K^*).
 \end{equation*}
 
-In mixture models it is convenient to think of the component indicators as missing data, and to impute them to obtain a much simpler form of the data distribution. Hence we introduce the indicator $S_{ik}$ of component $k$ for observation $i$, with 
+In mixture models it is convenient to think of the component indicators as missing data, and to impute them to obtain a much simpler form of the data distribution. 
+Hence we introduce the cluster indicator variables $c_i\in\{1,\dots,K\}$, with $c_i=k$ if $y_i$ belongs to the $k$-th mixture component.
+Conditionally on the mixture proportions, it holds $\Pr(c_i = k \mid \bm{\pi}) = \pi_k$, for $k = 1,\dots,K$. Moreover, given these allocation variables, the $y_i$ are assumed to be independent and their distribution factorizes as $p(y_i\mid c_i,\bm{\theta}^*) = \prod_{k=1}^K f(y_i\mid\theta_k^*)^{\mathbb{I}(c_i = k)}$, where $\mathbb{I}(A)$ is the indicator variable, taking value 1 if event $A$ occurs and 0 otherwise.
+%
+The joint density of the observed data and the unobserved allocation variables, conditionally on the model parameters, can now be written as 
 \begin{equation*}
-S_{ik} = \begin{cases}
-1 \quad \text{if $y_i$ is drawn from component $k$}\\
-0 \quad \text{otherwise}.
-\end{cases}
-\end{equation*}
-Given $\bm{\pi}$, the distribution of $\bm{S}_i = (S_{i1},\dots,S_{iK})$ is $\Mult(1;\pi_1,\dots,\pi_K)$. 
-Conditionally on $\bm{S}_{i}$, the data distribution of $y_i$ is simply $p(y_i\mid \bm{S}_i,\bm{\theta}^*) = \prod_{k=1}^K f(y_i\mid\theta_k^*)^{S_{ik}}$; moreover, given $\bm{S}=(\bm{S}_1,\dots,\bm{S}_n)$, the $y_i$ are assumed to be independent.
-The joint density of the observed data and the unobserved indicators, conditionally on the model parameters, can now be written as 
-\begin{equation*}
-p(\bm{y},\bm{S}\mid \bm{\theta}^*,\bm{\pi}) = p(\bm{y}\mid\bm{S},\bm{\theta}^*)\, p(\bm{S}\mid\bm{\pi}) = 
-\prod_{i=1}^n \prod_{k=1}^K \left\{ \pi_k f(y_i\mid\theta_k^*) \right\}^{S_{ik}}.
+p(\bm{y},\bm{c}\mid \bm{\theta}^*,\bm{\pi}) = p(\bm{y}\mid\bm{c},\bm{\theta}^*)\, p(\bm{c}\mid\bm{\pi}) = 
+\prod_{i=1}^n \prod_{k=1}^K \left\{ \pi_k f(y_i\mid\theta_k^*) \right\}^{\mathbb{I}(c_i = k)}.
 \end{equation*}
 
 Having defined the data distribution, in a Bayesian framework we need to specify adequate prior distributions on the model parameters $\bm{\pi}$ and $\bm{\theta}^*$. The prior $G_0$ on $\bm{\theta}^*$ is usually chosen depending on the specific application and on the basis of the component distribution $f$. For the mixture proportions $\pi_k$, the conjugate and most natural prior distribution is the Dirichlet distribution, $\bm{\pi}\sim \Dir_K(\alpha_1,\dots,\alpha_K)$.
 
-This model also admits a useful hierarchical representation. Rewriting the latent allocation variables using the cluster indicators $c_i\in\{1,\dots,K\}$, with $c_i=k$ if $y_i$ belongs to the $k$-th mixture component (i.e. $S_{ik} = 1$), the model is, for $i = 1,\dots,n$ 
+Thanks to the data augmentation based on the cluster allocation variables, the model also admits a useful hierarchical representation: for $i = 1,\dots,n$ 
 \begin{equation}
 \begin{gathered}
-y_i \mid c_i = k, \theta^*_k \sim f(y_i\mid\theta^*_k)\\
+y_i \mid c_i, \theta^*_1,\dots, \theta^*_K \sim f(y_i\mid\theta^*_{c_i})\\
 \Pr(c_i = k \mid \pi_1,\dots,\pi_K) = \pi_k \quad \text{for } k = 1,\dots,K\\ 
 \theta^*_1,\dots,\theta^*_K \sim G_0\\
 \pi_1,\dots,\pi_K  \sim \Dir_K(\alpha_1,\dots,\alpha_K).
@@ -193,7 +188,7 @@ Nonparametric mixtures extend model (\ref{ch1_eq:finitemix_h2}) by placing a non
 \subsubsection*{The Dirichlet process }
 \label{ch1_sec:DP}
 The Dirichlet process is a stochastic process whose realizations are probability distributions with probability one. 
-Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. For this short review of some of the main properties of the DP we followed the unpublished report by Yee Whye Teh, which illustrates the fundamental properties of this process.
+Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. In this Section we just briefly review some of the main properties of the DP, the reader can refer to, e.g., \textcite{muller2015, hjort2010} for an exhaustive review of the Dirichlet process prior and related models.
 
 Formally, a random distribution $G$ on some probability space $\Theta$ is said to follow a DP prior with base measure $G_0$ and concentration parameter $\alpha$, denoted $G\sim\DP(\alpha,G_0)$, if for any partition $\{B_1,\dots,B_H\}$ of $\Theta$
 \begin{equation*}
@@ -222,9 +217,9 @@ Another useful result, which allows to get a better understanding of the effect 
 \end{equation*}
 Therefore the posterior base measure given $\{\theta_1,\dots,\theta_n\}$ is also the predictive distribution of $\theta_{n+1}$. This distribution highlights the discreteness of draws from a DP, and allows to investigate the clustering structure induced by the DP when is used as mixing measure in mixture models. Since the distribution is discrete, it is possible that some of the values $\{\theta_1,\dots,\theta_n\}$ will be repeated. In particular, the unique values of $\{\theta_1,\dots,\theta_n\}$ induce
 a partition of the set $\{1,\dots,n\}$ into clusters defined by observations with the same value.
-Denoting with $\{\theta^*_1, \dots, \theta^*_K\}$ the unique values among the $\theta_i$, and letting $n_k$ be the number of $\theta_i$ equal to $\theta^*_k$, for $i=1,\dots,n$ and $k=1,\dots,K$, the predictive distribution can be written as
+Denoting with $\{\theta^*_1, \dots, \theta^*_{K^+}\}$ the unique values among the $\theta_i$, and letting $n_k$ be the number of $\theta_i$ equal to $\theta^*_k$, for $i=1,\dots,n$ and $k=1,\dots,K^+$, the predictive distribution can be written as
 \begin{equation*}
-\theta_{n+1} \mid \theta_1,\dots,\theta_n \sim \frac{1}{\alpha + n} \left( \alpha G_0 + \sum_{k=1}^K n_k \delta_{\theta_k^*} \right).
+\theta_{n+1} \mid \theta_1,\dots,\theta_n \sim \frac{1}{\alpha + n} \left( \alpha G_0 + \sum_{k=1}^{K^+} n_k \delta_{\theta_k^*} \right).
 \end{equation*}
 From this equation, it is possible to notice that $\theta_{n+1}$ will take a value $\theta^*_k$ with a probability proportional to $n_k$, the number of times it has already been observed. 
 Hence, the larger $n_k$ is, the higher the probability that it will grow. This is a rich-gets-richer phenomenon, where large clusters grow larger faster.
@@ -259,7 +254,7 @@ where the weights $\{\pi_k\}_{k=1}^{\infty}$ follow a stick-breaking constructio
 
 Differently from finite mixtures, DPMs are infinite mixture models, as they assume a countably infinite number of components. 
 However, because the $\pi_k$'s decrease exponentially quickly, only a small number of components will be used to model the
-data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, the prior expected number of clusters in a sample of size $n$ is approximately equal to $\alpha \log(1 + n/\alpha)$.
+data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, in a sample of size $n$, the prior expected number of clusters $\mathbb{E}(K^+)$ is approximately equal to $\alpha \log(1 + n/\alpha)$.
 This means that while in finite mixture models the number of clusters has to be fixed in advance, in DPMs the number of clusters is determined by the data and can be inferred.
 
 \subsubsection*{Posterior inference for DPMs}
@@ -267,17 +262,16 @@ Applying MCMC techniques to DPMs directly is not feasible, as it would require i
 It is common to divide these methods into two classes depending on the strategy they adopt to deal with the infinite-dimensional component of the model: marginal algorithms are based on model representations with the DP is integrated out, while conditional algorithms explicitly represent the measure generated by the process using its stick-breaking construction.
 Here we will focus on conditional methods. Avoiding marginalization of the random measure allows to perform inference on it directly, moreover, these methods are often computationally more efficient than marginal ones; however, they require to devise good strategies to deal with the infinite dimension of the process.
 
-In the blocked Gibbs sampler of~\textcite{ishwaran2001} the infinite random measure is truncated to an upper bound $K$ for the number of clusters. The motivation that justifies this approach is that the weights $\{\pi_k\}_{k=1}^{\infty}$ determined by the stick-breaking construction are stochastically decreasing in $k$. By choosing a sufficiently large value $K$ one can assume that $\sum_{k=K+1}^{\infty} \pi_k$ has a distribution concentrated near zero.
-Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{ch1_sec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $v_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h)$ for $k = 1,\dots,K-1$. Finally, letting $v_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
+In the blocked Gibbs sampler of~\textcite{ishwaran2001} the infinite random measure is truncated to an upper bound $K$ for the number of components. The motivation that justifies this approach is that the weights $\{\pi_k\}_{k=1}^{\infty}$ determined by the stick-breaking construction are stochastically decreasing in $k$. By choosing a sufficiently large value $K$ one can assume that $\sum_{k=K +1}^{\infty} \pi_k$ has a distribution concentrated near zero.
+Adopting such truncation leads to a representation of the model as finite mixture, so the sampler described in Section \ref{ch1_sec:finite_mix} can be applied with just few changes on the weights distribution. In particular, the weights are now sampled from a stick-breaking process with $v_k \sim \Beta(1+n_k, \alpha + \sum_{h=k+1}^{K} n_h)$ for $k = 1,\dots,K-1$. Finally, letting $v_K = 1$ ensures that the first $K$ weights sum to one. Adopting this approach leads to a straightforward MCMC algorithm for posterior inference, however, in some applications $K$ needs to be set to very large values in order to obtain an adequate approximation.
 
 The slice sampler \parencite{walker2007, kalli2011} has been adopted as an alternative ``dynamic'' truncation method to automatically select the active components of the mixture. 
 The slice sampler relies on the introduction of latent uniform random variables $u_i$, $i=1,\dots,n$, such that 
 marginalizing the joint density of $(y_i,u_i)$ still returns the desired density in Eq. (\ref{ch1_eq:DPM}), and such that the conditional density of $y_i\mid u_i$ only involves a finite number of mixture components.
 Specifically, model (\ref{ch1_eq:DPM}) can be obtained as marginal density with respect to $u_i$ of
 \begin{equation*}
-p(y_i,u_i\mid G) = \sum_{k=1}^{\infty} \mathbb{I}(u_i<\pi_k) f(y_i\mid\theta^*_k),
-\end{equation*}
-where $\mathbb{I}(A)$ is the indicator variable, taking value 1 if event $A$ occurs and 0 otherwise. 
+p(y_i,u_i\mid G) = \sum_{k=1}^{\infty} \mathbb{I}(u_i<\pi_k) f(y_i\mid\theta^*_k).
+\end{equation*} 
 The key of introducing this variable is that, conditionally on $u_i$, the density can be written as
 \begin{equation*}
 p(y_i\mid u_i, G) = N_u^{-1} \sum_{k\in A_u} f(y_i\mid\theta^*_k)
@@ -292,7 +286,7 @@ The slice sampler algorithm iterates the following steps:
 \begin{enumerate}
 	\item Update the cluster-specific parameters $\theta^*_k$, for $k=1,\dots,K$, where $K$ is defined as the maximum index $h$ such that $\xi_h > u_i$ for all $i=1,\dots,n$, from
 	$$p(\theta^*\mid \CC) \propto G_0(\theta^*_k)\prod_{i:c_i=k} f(y_i\mid\theta^*_k).$$
-	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{ch1_eq:stickbreaking}) with beta random variables $v_k\sim\Beta(1+n_k, \alpha + \sum_{h=k+1}^K n_h).$
+	\item Update the weights $\pi_k$ for $k=1,\dots,K$ using the stick-breaking construction (\ref{ch1_eq:stickbreaking}) with beta random variables $v_k\sim\Beta(1+n_k, \alpha + \sum_{h=k+1}^{K} n_h).$
 	\item Sample the latent variables $u_i$ from a uniform distribution $u_i \mid c_i \sim \mathrm{Unif}(0,\xi_{c_i})$
 	\item Update the cluster allocations $c_i$ for $i=1,\dots,n$ from
 	$$\Pr(c_i = k\mid u_i, y_i, \theta^*_k)\propto \mathbb{I}(k:\xi_k > u_i) \frac{\pi_k}{\xi_k} f(y_i\mid\theta^*_k).$$
@@ -300,10 +294,11 @@ The slice sampler algorithm iterates the following steps:
 
 
 
-\subsection{Mixtures of finite mixtures}
-To avoid fixing the number of clusters, a different approach to DP mixtures is to consider finite mixtures with a prior on the number of components. Although this may seem as the most natural way to infer the number of groups, application of mixtures of finite mixtures (MFMs) has long been hindered by the difficulty of performing posterior inference. 
-Several inference methods have been proposed for this type of models \parencite{McCullagh2008,nobile2004,nobile2007,richardson1997} often exploiting the reversible jump Markov chain Monte Carlo techniques. However, applying the reversible jump in new situations can be hard, as it requires designing new reversible jump moves.
+\subsection{Finite mixtures with an unknown number of components}
+To avoid fixing the number of clusters, a different approach to DP mixtures is to consider finite mixtures with a prior on the number of components. Although this may seem as the most natural way to infer the number of groups, application of finite mixtures with an unknown number of components, recently often called mixtures of finite mixtures (MFMs), has long been hindered by the difficulty of performing posterior inference. 
+Several inference methods have been proposed for this class of models \parencite{richardson1997,nobile2004,nobile2007, McCullagh2008} often exploiting the reversible jump Markov chain Monte Carlo techniques. However, applying the reversible jump in new situations can be hard, as it requires designing new reversible jump moves. 
 
+Because of these difficulties, researchers have also investigated alternative strategies: for example, \textcite{Stephens2000} exploited birth-death processes to construct an ergodic Markov chain with the appropriate stationary distribution.
 More recently, different models have been proposed inspired by nonparametric mixtures \parencite{miller2018, argiento2019}. \textcite{miller2018} explicitly derived MFMs counterparts for several properties exhibited by DPMs. However, their approach is restricted to a fixed parameter $\alpha$ for the Dirichlet distribution, regardless of the dimension $K$, and only relies on marginal methods for performing posterior inference.
 \textcite{argiento2019} instead introduced a new class of random measures based on the normalization of a point process, 
 and used it as mixing measure in a MFMs. Moreover, they outlined marginal and conditional methods for posterior inference using this class of discrete random measures.
@@ -324,7 +319,7 @@ K \sim p(K)
 \end{gathered}
 \label{ch1_eq:gMFM}
 \end{equation*}
-Including a prior on $K$ also induces a prior on the number of clusters $K_+$: here a crucial role is played by the sequence of concentration parameters of the Dirichlet distribution. Considering fixed parameters as in~\textcite{miller2018}, where a $\Dir_K(1,\dots,1)$ is used regardless of the value of $K$, leads to a prior expected number of clusters $E(K_+)$ close to $E(K)$ for many priors $p(K)$. Having instead concentration parameters that decrease with increasing $K$ induces randomness in the prior distribution of $K_+\mid K$, allowing for a gap between $K_+$ and $K$. In this formulation the parameters decrease linearly with $K$, and a $F$ prior distribution is used for the hyperparameter $\alpha$.
+Including a prior on $K$ also induces a prior on the number of clusters $K_+$: here a crucial role is played by the sequence of concentration parameters of the Dirichlet distribution. Considering fixed parameters as in~\textcite{miller2018}, where a $\Dir_K(1,\dots,1)$ is used regardless of the value of $K$, leads to a prior expected number of clusters $\mathbb{E}(K_+)$ close to $\mathbb{E}(K)$ for many priors $p(K)$. Having instead concentration parameters that decrease with increasing $K$ induces randomness in the prior distribution of $K_+\mid K$, allowing for a gap between $K_+$ and $K$. In this formulation the parameters decrease linearly with $K$, and a $F$ prior distribution is used for the hyperparameter $\alpha$.
 The specification of a gMFM is completed with a suitable prior $p(K)$ on the number of components. In their work, \textcite{fruhwirthschnatter2020} discuss different choices and compare the resulting prior on the number of clusters. 
 A desirable prior on $K$ should be weakly informative on the number of clusters, and should lead to a prior on $K_+$ which is concentrated on moderate number of clusters, with fat tails to ensure that also a high number of clusters may be estimated. They suggest to use a translated prior for $K$, where $K-1$ follows a beta-negative-binomial distribution, which is a hierarchical generalization of the Poisson, the geometric and the negative-binomial distribution.
 

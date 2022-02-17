@@ -68,26 +68,26 @@ where $V_{\omega} = (X^\T\Omega X + B^{-1})$ and $m_{\omega} = V_{\omega}(X^\T \
 
 The adherence of this approximate posterior to the true posterior highly depends on the values of $r_i$, with larger values of $r_i$ resulting in better approximations. However, when employing this result in posterior sampling, large values of $r_i$ imply longer computation time due to the computational cost of sampling P\'olya-gamma random variables with large parameters. Although the specific choice of $r_i$ remains an open point---discussed later in Section \ref{sec:tuning_param}---in the context of MCMC sampling, we propose to reduce the computational burden related to the sampling of $n$  P\'olya-gamma  random variables marginalizing the Gaussian distribution in \eqref{ch2_eq:approx0} with respect to the related P\'olya-gamma density conditioned on $\beta^{(t-1)}$,  the last available $\beta$ sampled. Since this marginalization is not in a closed form we introduce a second level of approximation of the true posterior. Specifically, we introduce $q(\beta \mid \beta^{(t-1)})$ a density that depends on $\beta^{(t-1)}$, defined as the first-order Taylor expansion of the marginalized Gaussian distribution, i.e. 
 %\begin{align*}
-%q(\beta\mid \beta^{(t-1)}) %&= \mathrm{E}_{\omega\mid\beta^{(t-1)}}\left\{ \phi(\beta\mid \omega_1,\dots,\omega_n) \right\}\\
-%&=\mathrm{E}_{\omega\mid\beta^{(t-1)}} \left[ (2\pi)^{-p/2} \mathrm{det}(V_{\omega})^{-1/2} \exp\left\{-\frac{1}{2}(\beta - %m_{\omega})^\T V_{\omega} (\beta - m_{\omega})\right\} \right].
+%q(\beta\mid \beta^{(t-1)}) %&= \mathbb{E}_{\omega\mid\beta^{(t-1)}}\left\{ \phi(\beta\mid \omega_1,\dots,\omega_n) \right\}\\
+%&=\mathbb{E}_{\omega\mid\beta^{(t-1)}} \left[ (2\pi)^{-p/2} \mathrm{det}(V_{\omega})^{-1/2} \exp\left\{-\frac{1}{2}(\beta - %m_{\omega})^\T V_{\omega} (\beta - m_{\omega})\right\} \right].
 %\end{align*}
 %Through a first order Taylor expansion we further obtain
 \begin{equation}
 \begin{aligned}
-q(\beta\mid \beta^{(t-1)}) & = %\approx \phi(\beta\mid \mathrm{E}_{\omega\mid\beta^{(t-1)}}\left\{\omega_1\right\},\dots,\mathrm{E}_{\omega\mid\beta^{(t-1)}}\left\{\omega_n\right\})\\
+q(\beta\mid \beta^{(t-1)}) & = %\approx \phi(\beta\mid \mathbb{E}_{\omega\mid\beta^{(t-1)}}\left\{\omega_1\right\},\dots,\mathbb{E}_{\omega\mid\beta^{(t-1)}}\left\{\omega_n\right\})\\
 %& \approx
-(2\pi)^{-p/2} \mathrm{det}(V_{\mathrm{E}(\omega)})^{-1/2} \exp\left\{-\frac{1}{2}(\beta - m_{\mathrm{E}(\omega)})^\T V_{\mathrm{E}(\omega)}^{-1} (\beta - m_{\mathrm{E}(\omega)})\right\},
+(2\pi)^{-p/2} \mathrm{det}(V_{\mathbb{E}(\omega)})^{-1/2} \exp\left\{-\frac{1}{2}(\beta - m_{\mathbb{E}(\omega)})^\T V_{\mathbb{E}(\omega)}^{-1} (\beta - m_{\mathbb{E}(\omega)})\right\},
 \end{aligned}
 \label{ch2_eq:approx2}
 \end{equation}
-where $V_{\mathrm{E}(\omega)} = (X^\T \Omega X + B^{-1})$, $m_{\mathrm{E}(\omega)} = V_{\mathrm{E}(\omega)}(X^\T \kappa + B^{-1}b)$, 
-$\Omega = \mathrm{diag} \{ \mathrm{E}(\omega_1),\dots,\mathrm{E}(\omega_n)\}$, $\kappa = (\mathrm{E}(\omega_1) \log r_i + (y_1-r_i)/2, \dots, \mathrm{E}(\omega_n) \log r_i + (y_n-r_i)/2)$, and for each $i = 1, \dots, n$ the conditional expectation of each $\omega_i$ is simply 
+where $V_{\mathbb{E}(\omega)} = (X^\T \Omega X + B^{-1})$, $m_{\mathbb{E}(\omega)} = V_{\mathbb{E}(\omega)}(X^\T \kappa + B^{-1}b)$, 
+$\Omega = \mathrm{diag} \{ \mathbb{E}(\omega_1),\dots,\mathbb{E}(\omega_n)\}$, $\kappa = (\mathbb{E}(\omega_1) \log r_i + (y_1-r_i)/2, \dots, \mathbb{E}(\omega_n) \log r_i + (y_n-r_i)/2)$, and for each $i = 1, \dots, n$ the conditional expectation of each $\omega_i$ is simply 
 \begin{equation*}
-\mathrm{E}\left(\omega_i^*\right) = \frac{r_i+y_i}{2(x_i^\T\beta^{(t-1)}-\log r_i)}\left(\frac{e^{x_i^\T\beta^{(t-1)}}-r_i}{e^{x_i^\T\beta^{(t-1)}}+r_i}\right),
+\mathbb{E}\left(\omega_i^*\right) = \frac{r_i+y_i}{2(x_i^\T\beta^{(t-1)}-\log r_i)}\left(\frac{e^{x_i^\T\beta^{(t-1)}}-r_i}{e^{x_i^\T\beta^{(t-1)}}+r_i}\right),
 \end{equation*}
 or equivalently
 \begin{equation}
-\beta\mid \beta^{(t-1)} \sim \mathrm{N}(m_{\mathrm{E}(\omega)}, V_{\mathrm{E}(\omega)}).
+\beta\mid \beta^{(t-1)} \sim \mathrm{N}(m_{\mathbb{E}(\omega)}, V_{\mathbb{E}(\omega)}).
 \label{ch2_eq:proposal_distr}
 \end{equation}
 The above construction is eventually used as the building block of efficient Metropolis-Hastings and importance sampling algorithms, as described in the following sections.
@@ -124,9 +124,9 @@ On the other hand, setting this parameter to get a lower acceptance rate can res
 \subsection{Adaptive importance sampler}
 \label{ch2_sec:is}
 
-The sampling mechanism \eqref{ch2_eq:proposal_distr} can also be exploited within the context of importance sampling, where the posterior expectation of a function of the parameter $\beta$, $\mathrm{E}\left( h(\beta) \right) = \int h(\beta)\, \pi(\beta \mid y) d\beta$ is evaluated via Monte Carlo integration without direct sampling from $\pi(\beta \mid y)$. To this end, the general approach is to define an importance density $q(\beta)$ that is used to sample values $\beta^{(1)}, \dots, \beta^{(T)}$, which are eventually averaged to obtain an approximation of $\mathrm{E}\left( h(\beta) \right)$ through
+The sampling mechanism \eqref{ch2_eq:proposal_distr} can also be exploited within the context of importance sampling, where the posterior expectation of a function of the parameter $\beta$, $\mathbb{E}\left( h(\beta) \right) = \int h(\beta)\, \pi(\beta \mid y) d\beta$ is evaluated via Monte Carlo integration without direct sampling from $\pi(\beta \mid y)$. To this end, the general approach is to define an importance density $q(\beta)$ that is used to sample values $\beta^{(1)}, \dots, \beta^{(T)}$, which are eventually averaged to obtain an approximation of $\mathbb{E}\left( h(\beta) \right)$ through
 \[
-\widehat{\mathrm{E}( h(\beta))} = \frac{1}{T} \sum_{t=1}^T \tilde{w}(\beta^{(t)}) h(\beta^{(t)}),
+\widehat{\mathbb{E}( h(\beta))} = \frac{1}{T} \sum_{t=1}^T \tilde{w}(\beta^{(t)}) h(\beta^{(t)}),
 \]
 with weights 
 \begin{equation*}

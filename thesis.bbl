@@ -2397,6 +2397,7 @@
       \strng{editorbibnamehash}{343fcc44ced6aac1a3a4b44d2ea6ae6b}
       \strng{editornamehash}{9c2233430bef1043c75e5abbe061a875}
       \strng{editorfullhash}{7a2178a5e38b6d356e7a19a55ba10454}
+      \field{extraname}{1}
       \field{sortinit}{M}
       \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
       \field{extradatescope}{labelyear}
@@ -2406,6 +2407,48 @@
       \field{booktitle}{Bayesian Statistics 8}
       \field{title}{{FDR} and {B}ayesian multiple comparisons rules}
       \field{year}{2007}
+    \endentry
+    \entry{muller2015}{book}{}
+      \name{author}{4}{}{%
+        {{hash=57f66066d804db9a6a0f631aa4beba38}{%
+           family={M{ü}ller},
+           familyi={M\bibinitperiod},
+           given={Peter},
+           giveni={P\bibinitperiod}}}%
+        {{hash=94f69b95b687fbf793681a5f2b9bedba}{%
+           family={Quintana},
+           familyi={Q\bibinitperiod},
+           given={Fernando\bibnamedelima Andr{é}s},
+           giveni={F\bibinitperiod\bibinitdelim A\bibinitperiod}}}%
+        {{hash=e9aff628dfdcc863c23db1cba4e89680}{%
+           family={Jara},
+           familyi={J\bibinitperiod},
+           given={Alejandro},
+           giveni={A\bibinitperiod}}}%
+        {{hash=93c916954978d241d522c1a01940bff7}{%
+           family={Hanson},
+           familyi={H\bibinitperiod},
+           given={Tim},
+           giveni={T\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Springer}%
+      }
+      \strng{namehash}{a1e159ac27dcc50bb364e6c37c49e401}
+      \strng{fullhash}{cd00db13a87ccc81a204494152fdc474}
+      \strng{bibnamehash}{cd00db13a87ccc81a204494152fdc474}
+      \strng{authorbibnamehash}{cd00db13a87ccc81a204494152fdc474}
+      \strng{authornamehash}{a1e159ac27dcc50bb364e6c37c49e401}
+      \strng{authorfullhash}{cd00db13a87ccc81a204494152fdc474}
+      \field{extraname}{2}
+      \field{sortinit}{M}
+      \field{sortinithash}{2e5c2f51f7fa2d957f3206819bf86dc3}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{title}{Bayesian nonparametric data analysis}
+      \field{year}{2015}
     \endentry
     \entry{neal2011mcmc}{article}{}
       \name{author}{1}{}{%
@@ -3399,6 +3442,37 @@
       \field{howpublished}{\textsc{url:} \texttt{mc-stan.org/}}
       \field{title}{Stan modeling language users guide and reference manual}
       \field{year}{2021}
+    \endentry
+    \entry{Stephens2000}{article}{}
+      \name{author}{1}{}{%
+        {{hash=b6392ab77144d0d73f3f35bd39da607c}{%
+           family={Stephens},
+           familyi={S\bibinitperiod},
+           given={Matthew},
+           giveni={M\bibinitperiod}}}%
+      }
+      \list{publisher}{1}{%
+        {Institute of Mathematical Statistics}%
+      }
+      \strng{namehash}{b6392ab77144d0d73f3f35bd39da607c}
+      \strng{fullhash}{b6392ab77144d0d73f3f35bd39da607c}
+      \strng{bibnamehash}{b6392ab77144d0d73f3f35bd39da607c}
+      \strng{authorbibnamehash}{b6392ab77144d0d73f3f35bd39da607c}
+      \strng{authornamehash}{b6392ab77144d0d73f3f35bd39da607c}
+      \strng{authorfullhash}{b6392ab77144d0d73f3f35bd39da607c}
+      \field{sortinit}{S}
+      \field{sortinithash}{c319cff79d99c853d775f88277d4e45f}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{The Annals of Statistics}
+      \field{number}{1}
+      \field{title}{{Bayesian analysis of mixture models with an unknown number of components—an alternative to reversible jump methods}}
+      \field{volume}{28}
+      \field{year}{2000}
+      \field{pages}{40\bibrangedash 74}
+      \range{pages}{35}
     \endentry
     \entry{SunReich2015}{article}{}
       \name{author}{5}{}{%

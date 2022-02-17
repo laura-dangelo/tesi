@@ -33,7 +33,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.3.2}Dirichlet process mixture models}{12}{subsection.1.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {1.3.3}Mixtures of finite mixtures}{16}{subsection.1.3.3}%
+\contentsline {subsection}{\numberline {1.3.3}Finite mixtures with an unknown number of components}{16}{subsection.1.3.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {1.3.4}Bayesian nonparametric models for nested data}{18}{subsection.1.3.4}%
 \defcounter {refsection}{0}\relax 

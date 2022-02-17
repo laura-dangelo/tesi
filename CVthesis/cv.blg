@@ -1,0 +1,5 @@
+[0] Config.pm:304> INFO - This is Biber 2.14 (beta)
+[0] Config.pm:307> INFO - Logfile is 'cv.blg'
+[61] biber:322> INFO - === gio feb 17, 2022, 11:39:43
+[173] Utils.pm:309> ERROR - Cannot find 'cv.bcf'!
+[174] Biber.pm:132> INFO - ERRORS: 1
