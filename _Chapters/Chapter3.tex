@@ -196,20 +196,42 @@ The results attained by the proposed fCAM are compared to those obtained exploit
 To assess the sensitivity of the proposed fCAM to the prior specification, we repeated the numerical experiment for different values of the hyperparameters $h_{A1}$ and $h_{A2}$ in \eqref{eq:G0}. In particular, the shape parameter $h_{A1}$ was supposed to play a key role in the detection of spikes. Keeping fixed the ratio $h_{A1}/h_{A2}$, the parameters were set equal to 3, 4, 6, and 8: a small value implies, \textit{a priori}, less separation between zero and the distribution of the positive spikes while a large value corresponds to the opposite effect. 
 
 
+%	\centering
+%		\includegraphics[width = .6\textwidth]{_Images/ch3_err_rate1.pdf}\\
+%
+%		\includegraphics[width = .6\textwidth]{_Images/ch3_err_rate2.pdf}\\
+%
+%		\includegraphics[width = .6\textwidth]{_Images/ch3_err_rate3.pdf}\\
 \begin{figure}
 	\centering
-		\includegraphics[width = .6\textwidth]{_Images/ch3_err_rate1.pdf}\\
-%
-		\includegraphics[width = .6\textwidth]{_Images/ch3_err_rate2.pdf}\\
-%
-		\includegraphics[width = .6\textwidth]{_Images/ch3_err_rate3.pdf}\\
+	\includegraphics[width = .6\textwidth]{_Images/ch3_Figure_1.pdf}
+	\includegraphics[width = .6\textwidth]{_Images/ch3_Figure_2.pdf}
+	\includegraphics[width = .6\textwidth]{_Images/ch3_Figure_3.pdf}
 	\caption[Comparison between the misclassification error rate in the simulation study for the four considered methods.]{Distribution of the misclassification error rate in the simulation study for the four considered methods: CAM, fCAM, and the methods of~\textcite{jewell2019} ``L0'' and~\textcite{friedrich2017} ``L1''.}
 	\label{fig:boxplots_rates}
 \end{figure}
 
 
 
-Focusing on the classification of each time point as a spike or not, Figure~\ref{fig:boxplots_rates} summarizes the misclassification rate for all competing methods under the three scenarios. The results of the $50$ replications are summarized using boxplots. For our fCAM, we report only the results obtained with $h_{A1} = h_{A2} = 8$ as those obtained for the other choices are essentially equivalent.  The rates are small in absolute value and broadly comparable across the different methods, thus confirming that all the competing models are effective in detecting the spikes.  
+
+Focusing on the classification of each time point as a spike or not, Figure~\ref{fig:boxplots_rates} summarizes the misclassification rate for all competing methods under the three scenarios. The results of the $50$ replications are summarized using boxplots. For our fCAM, we report only the results obtained with $h_{A1} = h_{A2} = 8$ as those obtained for the other choices are essentially equivalent. 
+The rates are small in absolute value and broadly comparable across the different methods, thus confirming that all the competing models are effective in detecting the spikes.  
+
+Here and henceforth, we identified the presence of a spike if the posterior probability of a spike at time $t$, say $PPS_t$, estimated by the proportion of non-zero $A_t$'s over all MCMC iterations, was greater than a threshold $\kappa$. This threshold allows us to control the (estimated) Bayesian false discovery rate at the pre-set value 0.05, that is $\kappa$ solves the equation $$\operatorname{FDR}\left(\kappa\right)=\frac{\sum_{t=1}^{T}\left(1-\mathrm{PPS}_{t}\right) I_{\left(\mathrm{PPS}_{t}>\kappa\right)}}
+{ \left.\sum_{t=1}^{T} I_{\left(\mathrm{PPS}_{t}>\kappa\right)} \right.
+}=0.05.$$ For more details, we refer to \textcite{newton2004} and \textcite{Muller07}. See also \textcite{SunReich2015} for a discussion with dependent hypotheses.
+Moreover, we assessed the sensitivity of spike detection to different values of $\kappa$: Figure \ref{fig:threshold_err_rate} shows the misclassification error rate obtained by varying the threshold between $5\%$ and $95\%$ on the three simulated scenarios. These plots highlight how spike detection for the fCAM is quite robust: indeed, the error rate remains almost stable for several values of the threshold $\kappa$.
+\begin{figure}
+	\centering
+	\includegraphics[width = .49\textwidth]{_Images/review_scen1.pdf}
+	\hfill
+	\includegraphics[width = .49\textwidth]{_Images/review_scen2.pdf}
+	%
+	\includegraphics[width = .49\textwidth]{_Images/review_scen3.pdf}
+	\caption[Misclassification error rate obtained for different values of the threshold $\kappa$ in the simulation study.]{Misclassification error rate of the fCAM obtained for different values of the threshold $\kappa \in [0.5,0.95]$ over the 50 replications (black lines) of the simulation study. The colored lines represent the median error rate.}
+	\label{fig:threshold_err_rate}
+\end{figure}
+
 
 However, the proposed fCAM not only enables the detection of spikes but also allows us to conduct inference on the clustering structure. Therefore, we report on its ability to identify the clustering structure. Figure~\ref{fig:rand_index} reports the adjusted Rand index~\parencite{rand1971,hubert1985} computed on both the observational and the distributional clusters for $h_{A1} = h_{A2} = 8$ (results for other settings are similar). Values of the adjusted Rand index close to 1 denote that the identified structure resemble the true clustering. While for the observational clusters the results are broadly comparable, for the distributional clusters, the performance of the proposed fCAM is uniformly superior. In addition, the variability of the results generally appears to be drastically smaller for the fCAM, thus providing evidence of greater efficiency. This is consistent to the results of \textcite{fruhwirthschnatter2020} where  the generalized mixtures of finite mixtures is compared to a standard Dirichlet process mixture model. 
 
@@ -217,7 +239,7 @@ From a computational point of view, the proposed algorithm is clearly more deman
 
 
 \begin{figure}
-	\centerline{\includegraphics[width = \textwidth]{_Images/ch3_rand_index.pdf}}
+	\centerline{\includegraphics[width = .8\textwidth]{_Images/ch3_Figure_4.pdf}}
 	%\centerline{\includegraphics[width = .7\textwidth]{_Images/rand_index2.pdf}}
 	\caption[Comparison between the adjusted Rand index of the fCAM and CAM.]{Distribution of the adjusted Rand index on the distributional and observational clusters of CAM and fCAM, computed on the 50 simulations for the three scenarios of the simulated data.}
 	\label{fig:rand_index}
@@ -244,8 +266,10 @@ Using the notation introduced in the previous Sections, $J=4$ with $j=1, 2, 3$ c
 
 We ran the MCMC algorithm of Section \ref{s:posterior_inference} using the same prior specification of Section \ref{s:model} for 15{,}000 iterations discarding the first 7{,}000 iterations as burn-in and keeping one iteration every four to improve mixing.  Visual inspection of the traceplots and Geweke diagnostics showed no issues with convergence. 
 %
-The superimposed light line in Figure~\ref{fig:y} represents the estimated neuronal activity in terms of the inferred amplitude $A_t$, i.e. removing the measurement errors and the result of the accumulation of calcium from the previous spikes. Here and henceforth, we identified the presence of a spike if the  posterior probability of a spike at time $t$, say $PPS_t$, estimated by the proportion of non-zero $A_t$'s over all MCMC iterations, was greater than  $\kappa=75.5\%$. This threshold allows us to control the (estimated) Bayesian false discovery rate at the pre-set value 0.05, that is $\kappa$ solves the equation $$\operatorname{FDR}\left(\kappa\right)=\frac{\sum_{t=1}^{T}\left(1-\mathrm{PPS}_{t}\right) I_{\left(\mathrm{PPS}_{t}>\kappa\right)}}{ \left.\sum_{t=1}^{T} I_{\left(\mathrm{PPS}_{t}>\kappa\right.}\right)}=0.05.$$ For more details, we refer to \textcite{newton2004} and \textcite{Muller07}. See also \textcite{SunReich2015} for a discussion with dependent hypotheses.
-%
+The superimposed light line in Figure~\ref{fig:y} represents the estimated neuronal activity in terms of the inferred amplitude $A_t$, i.e. removing the measurement errors and the result of the accumulation of calcium from the previous spikes. 
+The presence of a spike was inferred using the procedure outlined in the previous section based on the estimated Bayesian false discovery rate. Specifically, here the threshold was fixed to $\kappa=75.5\%$ to control the rate at the pre-set value 0.05.
+
+
 
 %
 As already mentioned in the Introduction, in calcium imaging it is of interest studying the distribution of the spikes in response to each experimental stimulus, and identifying similarities and differences in these distributions across stimuli. 
@@ -271,6 +295,11 @@ first, for each MCMC iteration, the group-specific average of $A_t$ is computed 
 We notice that for all experiments, high values of the observed calcium level are often produced as the result of several consecutive spikes, since, individually, the spikes are characterized by a relatively low amplitude, and the observed calcium level is cumulated due to its autoregressive behavior.  The autoregressive parameter $\gamma$ has a posterior mean equal to $0.493$ with a 95\% credible interval of $(0.481, 0.505)$.
 %
 This result corresponds to the understanding that the observed calcium response may be generated by high-frequency firing neurons: due to the low-sampling rate, the non-linear calcium signal essentially captures a super-imposition of multiple spikes \parencite{Hoang2020}.  
+
+As a matter of fact, another useful quantity we can compute to compare the neuronal activity between stimuli is the firing rate, which provides a measure of how often the neuron has activated during a specific visual stimulus.
+The rate computes the number of detected spikes per second, to take into account the different duration of the experiments.  For the static grating stimulus the posterior mean rate (and related 95\% credible interval) is $0.223$ $(0.216, 0.229)$, while for the natural scene and natural movie stimuli they are $0.419$ $(0.410, 0.428)$ and $0.511$ $(0.495, 0.531)$, respectively. These results highlight the role of spike-frequency adaptation, whereby some neurons show an increased activity when exposed to more complex stimuli, thus exhibiting higher firing rates and larger calcium concentration measurements \parencite{Peron2009}.
+
+
 \begin{figure}[h!]
 	\centering
 	\includegraphics[width = .8\textwidth]{_Images/ch3_hist1.pdf}\\
@@ -289,12 +318,9 @@ This result corresponds to the understanding that the observed calcium response 
 	\label{fig:spike_color}
 \end{figure}
 
-\clearpage
 
 
 
-As a matter of fact, another useful quantity we can compute to compare the neuronal activity between stimuli is the firing rate, which provides a measure of how often the neuron has activated during a specific visual stimulus.
-The rate computes the number of detected spikes per second, to take into account the different duration of the experiments.  For the static grating stimulus the posterior mean rate (and related 95\% credible interval) is $0.223$ $(0.216, 0.229)$, while for the natural scene and natural movie stimuli they are $0.419$ $(0.410, 0.428)$ and $0.511$ $(0.495, 0.531)$, respectively. These results highlight the role of spike-frequency adaptation, whereby some neurons show an increased activity when exposed to more complex stimuli, thus exhibiting higher firing rates and larger calcium concentration measurements \parencite{Peron2009}.
 
 
 

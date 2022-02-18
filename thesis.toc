@@ -65,7 +65,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.4}Allen Brain Observatory data analysis}{42}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Analysis of additional neurons}{46}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1}Analysis of additional neurons}{45}{subsection.3.4.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Clustering activation patterns of spatially-referenced neurons}{51}{chapter.4}%
 \defcounter {refsection}{0}\relax 
@@ -77,6 +77,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{56}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{65}{chapter*.35}%
+\contentsline {chapter}{Conclusions}{65}{chapter*.36}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{67}{chapter*.35}%
+\contentsline {chapter}{Bibliography}{67}{chapter*.36}%
