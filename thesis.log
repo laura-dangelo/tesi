@@ -1,4 +1,4 @@
-This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  18 FEB 2022 18:05
+This is LuaTeX, Version 1.10.0 (TeX Live 2019/Debian)  (format=lualatex 2020.11.30)  19 FEB 2022 18:03
  restricted system commands enabled.
 **thesis.tex
 (./thesis.tex
@@ -4364,8 +4364,14 @@ Underfull \vbox (badness 7133) has occurred while \output is active []
  [65
 
 
-])
-[66]
+]
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+ [66])
+[67] [68
+
+
+]
 \openout2 = _Extras/bibliography.aux
  (./_Extras/bibliography.tex)
 
@@ -4381,13 +4387,11 @@ Overfull \hbox (2.31088pt too wide) in paragraph at lines 77--77
 5 CRAN.R-project.org/
  []
 
-[67
+[69
 
 
-
-
-] [68] [69] [70] [71] [72]
-<CVthesis/cv.pdf, id=1182, 614.295pt x 794.97pt>
+] [70] [71] [72] [73] [74]
+<CVthesis/cv.pdf, id=1191, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
@@ -4396,7 +4400,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 81.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1185, page=1, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1194, page=1, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 81.
@@ -4417,7 +4421,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 1>
 Package luatex.def Info: CVthesis/cv.pdf , page1 used on input line 81.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [73
+ [75
 
 
 <./CVthesis/cv.pdf>]
@@ -4429,7 +4433,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 83.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1225, page=2, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1234, page=2, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 83.
@@ -4450,7 +4454,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 2>
 Package luatex.def Info: CVthesis/cv.pdf , page2 used on input line 83.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
- [74<./CVthesis/cv.pdf>]
+ [76<./CVthesis/cv.pdf>]
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 85.
@@ -4459,7 +4463,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf>
 Package luatex.def Info: CVthesis/cv.pdf  used on input line 85.
 (luatex.def)             Requested size: 614.29349pt x 794.96806pt.
-<CVthesis/cv.pdf, id=1232, page=3, 614.295pt x 794.97pt>
+<CVthesis/cv.pdf, id=1241, page=3, 614.295pt x 794.97pt>
 File: CVthesis/cv.pdf Graphic file (type pdf)
 <use CVthesis/cv.pdf, page 3>
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 85.
@@ -4481,7 +4485,7 @@ File: CVthesis/cv.pdf Graphic file (type pdf)
 Package luatex.def Info: CVthesis/cv.pdf , page3 used on input line 85.
 (luatex.def)             Requested size: 614.80902pt x 795.63522pt.
 
-[75<./CVthesis/cv.pdf>]
+[77<./CVthesis/cv.pdf>]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 87.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 87.
  (./thesis.aux (./_Extras/frontpage.aux)
@@ -4499,7 +4503,7 @@ Package logreq Info: Writing requests to 'thesis.run.xml'.
 )
 
 Here is how much of LuaTeX's memory you used:
- 54822 strings out of 481365
+ 54826 strings out of 481365
  100000,2848258 words of node,token memory allocated
  1585 words of node memory still in use:
    7 hlist, 2 vlist, 2 rule, 2 glue, 4 kern, 1 glyph, 242 attribute, 109 glue_sp
@@ -4507,7 +4511,7 @@ ec, 121 attribute_list, 2 write, 17 pdf_action nodes
    avail lists: 1:2,2:3806,3:282,4:141,5:801,6:99,7:7053,8:81,9:570,10:28,11:534
 
  68881 multiletter control sequences out of 65536+600000
- 149 fonts using 22137387 bytes
+ 149 fonts using 22138043 bytes
  87i,23n,126p,10100b,3073s stack positions out of 5000i,500n,10000p,200000b,100000s
 </usr/share/texmf/fonts/opentype/public/lm/lmmono10-regular.otf></usr/share/texm
 f/fonts/opentype/public/tex-gyre/texgyrepagella-bold.otf></usr/share/texmf/fonts
@@ -4529,10 +4533,10 @@ ic/amsfonts/cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
 onts/cm/cmsy6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
 cmsy8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msb
 m10.pfb>
-Output written on thesis.pdf (87 pages, 6105746 bytes).
+Output written on thesis.pdf (89 pages, 6107127 bytes).
 
-PDF statistics: 1444 PDF objects out of 1728 (max. 8388607)
- 1217 compressed objects within 13 object streams
- 292 named destinations out of 1000 (max. 131072)
+PDF statistics: 1453 PDF objects out of 1728 (max. 8388607)
+ 1224 compressed objects within 13 object streams
+ 294 named destinations out of 1000 (max. 131072)
  320 words of extra memory for PDF output out of 10000 (max. 100000000)
 
