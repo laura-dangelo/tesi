@@ -2,6 +2,7 @@
 \pagestyle{empty}
 %
 \usepackage{xcolor}
+\usepackage{amsmath, amssymb}
 
 \oddsidemargin=-0.3cm \textheight=24cm \textwidth=16.6cm
 \topmargin=-2.2cm
@@ -49,7 +50,26 @@ In other words, there is any specific reason to consider a Poisson regression fo
 \item ``Does the author think that the novel posterior sampling scheme for the Poisson regression could be extended to zero-inflated models.''\vskip1mm
 
 {\em 
-	\textcolor{cyan}{--> DA FARE <--}
+	\textcolor{cyan}{--> controlla <--}
+	We thank the Evaluator for the interesting and stimulating question.
+	Zero-inflated Poisson (ZIP) regression assumes that the distribution of the observed data can be expressed as a mixture of a Dirac mass at 0 and a Poisson distribution, i.e.,
+	$$ f(y_i \mid \lambda_i, \pi_i) = \pi_i \delta_0(y_i) + (1-\pi_i) e^{-\lambda_i} \lambda_i^{y_i} (y_i!)^{-1}.$$
+	If $\pi_i$ and $\beta_i$ are assumed independent a priori, and if $\beta \sim N(b,B)$, then the proposed algorithms could be applied without much additional effort.
+	In particular, the proposed sampling strategy would be straightforward to apply if it is possible to implement a data augmentation scheme, where the latent allocation variables that indicate the component to which $y_i$ is assigned are sampled. If we denote these variables with $v_i\in\{0,1\}$, then
+	\begin{equation*}
+	\begin{gathered}
+	pr(v_i = 0 \mid y_i=0, \pi_i, \beta) =  \pi_i + (1-\pi_i) \exp\{-e^{x_i^T\beta}\} \\
+	pr(v_i = 0 \mid y_i>0, \pi_i, \beta) =  0
+	\end{gathered}
+	\end{equation*}
+	and
+	\begin{equation*}
+	\begin{gathered}
+		f(y_i \mid v_i = 0) = \delta_0(y_i) \\
+		f(y_i \mid v_i = 1, \beta) = \exp\{-e^{x_i^T\beta}\}e^{x_i^T\beta y_i}(y_i!)^{-1}
+	\end{gathered}
+	\end{equation*}
+	Conditionally on $v_i = 1$, the setting is identical to that adopted in the Thesis.
 }
 \vskip3mm
 
