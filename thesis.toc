@@ -55,28 +55,28 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Spike train data}{29}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Modeling single-neuron activations via nonparametric mixtures}{33}{chapter.3}%
+\contentsline {chapter}{\numberline {3}Modeling single-neuron activations via nonparametric mixtures}{35}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Model and prior specification}{34}{section.3.1}%
+\contentsline {section}{\numberline {3.1}Model and prior specification}{36}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Posterior inference}{36}{section.3.2}%
+\contentsline {section}{\numberline {3.2}Posterior inference}{38}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Simulation study}{37}{section.3.3}%
+\contentsline {section}{\numberline {3.3}Simulation study}{39}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Allen Brain Observatory data analysis}{42}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Allen Brain Observatory data analysis}{44}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {3.4.1}Analysis of additional neurons}{45}{subsection.3.4.1}%
+\contentsline {subsection}{\numberline {3.4.1}Analysis of additional neurons}{47}{subsection.3.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Clustering activation patterns of spatially-referenced neurons}{51}{chapter.4}%
+\contentsline {chapter}{\numberline {4}Clustering activation patterns of spatially-referenced neurons}{53}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Model and prior specification}{52}{section.4.1}%
+\contentsline {section}{\numberline {4.1}Model and prior specification}{54}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Posterior inference}{53}{section.4.2}%
+\contentsline {section}{\numberline {4.2}Posterior inference}{55}{section.4.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Simulation study}{54}{section.4.3}%
+\contentsline {section}{\numberline {4.3}Simulation study}{56}{section.4.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{56}{section.4.4}%
+\contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{58}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{65}{chapter*.36}%
+\contentsline {chapter}{Conclusions}{67}{chapter*.36}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{69}{chapter*.36}%
+\contentsline {chapter}{Bibliography}{71}{chapter*.36}%

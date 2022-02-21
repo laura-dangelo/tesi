@@ -40,14 +40,15 @@ Sampling from this approximate posterior is then used as proposal density for th
 Assume $y_1,\dots,y_n$ is an independent sample of counts from model ~(\ref{ch2_eq:model0}). 
 We introduce an approximation of the posterior density which exploits the negative binomial convergence to the Poisson distribution, i.e., we approximate the $i$-th contribution to the likelihood function $f(y_i \mid \lambda_i)$ with $\tilde{f}_{r_i}(y_i \mid \lambda_i)$ where 
 \begin{equation}
-\tilde{f}_{r_i}(y_i \mid \lambda_i) = \left( \frac{r_i}{r_i + \lambda_i}\right)^{r_i} \left(\frac{\lambda_i}{r_i+ \lambda_i}\right)^{y_i},
+\tilde{f}_{r_i}(y_i \mid \lambda_i) = 
+\binom{r_i + y_i -1}{r_i-1} \left( \frac{r_i}{r_i + \lambda_i}\right)^{r_i} \left(\frac{\lambda_i}{r_i+ \lambda_i}\right)^{y_i},
 \label{ch2_eq:approx1}
 \end{equation}
 which corresponds to the probability mass function of a negative binomial random variable with parameter $r_i$, the number of failures until the experiment is stopped, and success probability $\lambda_i/(r_i+\lambda_i)$. As $r_i$ approaches infinity, this quantity converges to a Poisson likelihood.
 
 Following \textcite{polson_scott_2013}, we rewrite each $i$-th contribution to the approximate likelihood \eqref{ch2_eq:approx1} by introducing augmented P\'olya-gamma random variables $\omega_i \sim \mbox{PG}(y_i+r_i,0)$, i.e
 \begin{align*}
-\tilde{f}_{r_i}(y_i \mid \beta) = & \exp\left\{ \frac{(x_i^\T \beta - \log r_i)(y_i-r_i)}{2} \right\} 2^{-(y_i+r_i)} \times \\ 
+\tilde{f}_{r_i}(y_i \mid \beta) \propto & \exp\left\{ \frac{(x_i^\T \beta - \log r_i)(y_i-r_i)}{2} \right\} 2^{-(y_i+r_i)} \times \\ 
 & \int_{0}^{+\infty} \exp\left\{-\omega_i\frac{(x_i^\T \beta - \log r_i)^2}{2} \right\} \ppg(\omega_i; y_i + r_i,0) \, d\omega_i,   
 \end{align*}
 where $\ppg(\cdot; \xi,\zeta)$ denotes the density of a P\'olya-gamma with parameters $( \xi,\zeta)$. 
@@ -80,10 +81,11 @@ q(\beta\mid \beta^{(t-1)}) & = %\approx \phi(\beta\mid \mathbb{E}_{\omega\mid\be
 \end{aligned}
 \label{ch2_eq:approx2}
 \end{equation}
-where $V_{\mathbb{E}(\omega)} = (X^\T \Omega X + B^{-1})$, $m_{\mathbb{E}(\omega)} = V_{\mathbb{E}(\omega)}(X^\T \kappa + B^{-1}b)$, 
-$\Omega = \mathrm{diag} \{ \mathbb{E}(\omega_1),\dots,\mathbb{E}(\omega_n)\}$, $\kappa = (\mathbb{E}(\omega_1) \log r_i + (y_1-r_i)/2, \dots, \mathbb{E}(\omega_n) \log r_i + (y_n-r_i)/2)$, and for each $i = 1, \dots, n$ the conditional expectation of each $\omega_i$ is simply 
+where $V_{\mathbb{E}(\omega)} = (X^\T \tilde{\Omega} X + B^{-1})$, $m_{\mathbb{E}(\omega)} = V_{\mathbb{E}(\omega)}(X^\T \tilde{\kappa} + B^{-1}b)$, 
+$\tilde{\Omega}  = \mathrm{diag} \{ \mathbb{E}(\omega_1),\dots,\mathbb{E}(\omega_n)\}$, $\tilde{\kappa} = (\mathbb{E}(\omega_1) \log r_i + (y_1-r_i)/2, \dots, \mathbb{E}(\omega_n) \log r_i + (y_n-r_i)/2)$, and for each $i = 1, \dots, n$ the conditional expectation of each $\omega_i$ is simply 
+% 
 \begin{equation*}
-\mathbb{E}\left(\omega_i^*\right) = \frac{r_i+y_i}{2(x_i^\T\beta^{(t-1)}-\log r_i)}\left(\frac{e^{x_i^\T\beta^{(t-1)}}-r_i}{e^{x_i^\T\beta^{(t-1)}}+r_i}\right),
+\mathbb{E}\left(\omega_i\right) = \frac{r_i+y_i}{2(x_i^\T\beta^{(t-1)}-\log r_i)}\left(\frac{e^{x_i^\T\beta^{(t-1)}}-r_i}{e^{x_i^\T\beta^{(t-1)}}+r_i}\right),
 \end{equation*}
 or equivalently
 \begin{equation}
@@ -104,18 +106,7 @@ We employ the above sampling mechanism as the proposal density in a Metropolis-H
 is evaluated to decide whether to accept or reject the proposed $\beta^*$, where $\pi(\beta^*\mid y)$ is the exact posterior distribution.
 
 %
-To compute the acceptance probability in \eqref{ch2_eq:acceptanceMH}, the forward and backward transition densities $q(\beta^*\mid \beta^{(t-1)})$ and $q(\beta^{(t-1)}\mid \beta^*)$ must be computed. Consistent with this,  approximation~(\ref{ch2_eq:approx2}) is particularly useful: without it, it would be necessary to compute the marginal density where the P\'olya-gamma random variables are integrated out. However, the marginalization with respect to the  P\'olya-gamma density does not lead to a closed form expression; thus, the Metropolis-Hastings algorithm cannot be defined. %For example, the density of $\beta^*$ conditioned on $\beta^{(t)}$ is
-%\begin{equation}
-%q(\beta^*\mid \beta^{(t)}) = \int_{\{\mathcal{R}^+\}^n} \phi(\beta^*\mid \omega_1^*,\dots,\omega_n^*)p(\omega_1^*,\dots,\omega_n^*\mid \beta^{(t)})d\omega_1^*\dots\omega_n^* 
-%\label{ch2_eq:marginal}
-%\end{equation} 
-%where $\phi(\beta^*\mid \omega_1^*,\dots,\omega_n^*)$ is the density of $\beta^*$ conditioned on $\{\omega_1^*,\dots,\omega_n^*\}$, that is $\beta^*\mid\omega^*\sim N_p (m_{\omega^*}, V_{\omega^*})$, and $p(\omega_1^*,\dots,\omega_n^*\mid \beta^{(t)})$ is the density of $n$ independent $PG(r_i+y_i, x_i^\T\beta^{(t)}-\log r_i)$ random variables. 
-%
-
-
-%An analogous result holds for $q(\beta^{(t-1)}\mid \beta^{*})$, with the only difference that the expectation of the P\'olya-gamma random variables is conditioned on $\beta^*$ instead of $\beta^{(t-1)}$.
-%Not only this Taylor approximation avoids the computation of the marginal density in~(\ref{ch2_eq:marginal}), but it also avoids the sampling the P\'olya-gamma random variables, as now the algorithm only involves Gaussian densities.
-%
+To compute the acceptance probability in \eqref{ch2_eq:acceptanceMH}, the forward and backward transition densities $q(\beta^*\mid \beta^{(t-1)})$ and $q(\beta^{(t-1)}\mid \beta^*)$ must be computed. Consistent with this,  approximation~(\ref{ch2_eq:approx2}) is particularly useful: without it, it would be necessary to compute the marginal density where the P\'olya-gamma random variables are integrated out. However, the marginalization with respect to the  P\'olya-gamma density does not lead to a closed form expression; thus, the Metropolis-Hastings algorithm cannot be defined. %For example, the density of $\beta^*$ 
 
 Clearly, for increasing $r_i$ the proposal density \eqref{ch2_eq:proposal_distr} is closer to the true full conditional distribution; hence, the related acceptance rate will be higher, and the Metropolis-Hastings algorithm will be similar to a Gibbs sampler. 
 On the other hand, setting this parameter to get a lower acceptance rate can result in smaller autocorrelation, and hence a better mixing \parencite{robert2010}. We discuss an approach to choose $r_i$ balancing these two extremes in Section~\ref{sec:tuning_param}.
@@ -135,11 +126,9 @@ with weights
 %Importance sampling can be also used when the target density $\pi$ is known up to a normalizing constant: in these cases it is sufficient to use the normalized version of the weights $w(\beta^{(t)}) = \tilde{w}(\beta^{(t)})/\bar{W}$ with $\bar{W} = T^{-1} \sum_{t=1}^T \tilde{w}(\beta^{(t)})$.
 
 The efficiency of this algorithm is determined by the ability of the importance density to sample values relevant to the target density.
-%: an estimate of the effective sample size of the obtained sample can be assessed through the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\parencite{robert2010}.
-To improve this aspect, we modify the original algorithm and, at each iteration, we simulate values from \eqref{ch2_eq:proposal_distr}, updating the importance density with \eqref{ch2_eq:approx2}. Thus, the importance density is adaptively updated based on the previously extracted value $\beta^{(t-1)}$ and the weights become
-% . , hence $q(\beta^{(t)}) = q(\beta^{(t)}\mid \beta^{(t-1)})$.
+To improve this aspect, we modify the original algorithm and, instead of using a fixed density $q$, at each iteration we consider an adaptive proposal. Specifically, we make use of \eqref{ch2_eq:approx2} as proposal density, but, unlike the Metropolis-Hastings algorithm,  we update it only when the last sampled value moves towards a region with a higher posterior probability. Denoting with $\beta^{c}$ the conditioning value, at each iteration we sample a new value from $q(\beta^{(t)}\mid\beta^c)$, and if $\pi(\beta^{(t)}\mid y)>\pi(\beta^{c}\mid y)$, we set $\beta^{c} = \beta^{(t)}$. Thus, the importance density is adaptively updated and the weights become
 \begin{equation*}
-\tilde{w}(\beta^{(t)}) = \frac{\pi(\beta^{(t)} \mid y)}{q(\beta^{(t)} \mid \beta^{(t-1)})}.
+\tilde{w}(\beta^{(t)}) = \frac{\pi(\beta^{(t)} \mid y)}{q(\beta^{(t)} \mid \beta^{c})}.
 \end{equation*}
 
 
