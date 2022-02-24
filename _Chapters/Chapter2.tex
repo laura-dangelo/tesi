@@ -130,6 +130,8 @@ To improve this aspect, we modify the original algorithm and, instead of using a
 \begin{equation*}
 \tilde{w}(\beta^{(t)}) = \frac{\pi(\beta^{(t)} \mid y)}{q(\beta^{(t)} \mid \beta^{c})}.
 \end{equation*}
+Algorithms which are continuously updated in order to maximize their performances have often been studied. For example, in a different framework, and specifically in the context of sequences of distributions, \textcite{delMoral2006} define a sequential Monte Carlo scheme where the proposal distribution is always updated to exploit all available information.
+
 
 
 \subsection{Tuning parameters $r_i$}
@@ -185,7 +187,7 @@ Each method introduced in Section \ref{ch2_sec:2}  was run for 10000 iterations 
 
 
 To assess the efficiency of the proposed methods, we used a proxy of the time per independent sample, which is estimated as the total time (in seconds) necessary to simulate the entire chain, over the effective sample size of the resulting chain. For the proposed adaptive importance sampler, an estimate of the effective sample size was obtained using the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\parencite{robert2010}. 
-Notably, the burn-in samples were removed from the chains before computing the effective sample size. Thus, the obtained times per independent sample  do not represent exactly the number of seconds necessary to generate one independent sample---they rather represent an overestimate. Nonetheless, this approach provides a robust and fair comparison between the different competing algorithms. The experiment has been run on a Linux machine with 8 GB DDR4 2400 MHz RAM, CPU Intel i7-7700HQ 3.8 GHz, running R 4.1.1.
+Notably, the burn-in samples were removed from the chains before computing the effective sample size. Thus, the obtained times per independent sample  do not represent exactly the number of seconds necessary to generate one independent sample---they rather represent an overestimate. Nonetheless, this approach provides a robust and fair comparison between the different competing algorithms. The experiment has been run on a macOS machine with 32 GB DDR4 2400 MHz RAM, CPU Intel Core i7 4.2 GHz, running R 4.1.1.
 %
 \begin{figure}[h]
 	\begin{center}
@@ -241,4 +243,50 @@ We ran the proposed Metropolis-Hastings algorithm for 9000 iterations, discardin
 The posterior estimates of the coefficients of the dummies on three categorical variables are shown in Figure~\ref{fig:calcium_coeff}; and for the numeric covariate depth, the posterior mean and 95\% credible intervals were equal to $-2.72\times 10^{-3}$ $(-2.90\times 10^{-3}, -2.42\times 10^{-3})$ for the linear term, and $5.59\times 10^{-6}$ $(5.11\times 10^{-6}, 6.08\times 10^{-6})$ for the quadratic term.
 Given these estimates of the coefficients, the number of spikes increased with the largest depths.
 Moreover, as shown in Figure~\ref{fig:calcium_coeff}, the response of neurons is heterogeneous across the cre-lines and, coherent with the results of~\textcite{vries2020}, we obtained that the mean response is lower for the VISam, VISpm and VISrl areas.
+
+\section{ZIP regression}
+In this section, we outline how the proposed sampling strategies can be applied also for extensions of the basic Poisson regression: specifically, we discuss the zero-inflated Poisson (ZIP) model.
+
+ZIP regression assumes that the distribution of the observed data can be expressed as a mixture of a Dirac mass at 0 and a Poisson distribution, i.e.,
+$$ f(y_i \mid \bm{\beta}, \pi_i) = \pi_i \cdot \delta_0(y_i) + (1-\pi_i) \cdot e^{-e^{x_i^T\bm{\beta}}} e^{x_i^T\bm{\beta}\, y_i} \frac{1}{y_i!}.$$
+If $\pi_i$ and $\bm{\beta}$ are assumed independent a priori, and if $\bm{\beta} \sim N_p(b,B)$, then the proposed algorithms could be applied without much additional effort.
+In particular, the proposed sampling strategy would be straightforward to apply if it is possible to implement a data augmentation scheme, where the latent allocation variables that indicate the component to which $y_i$ is assigned are sampled. 
+
+If, for example, we consider the simplest setting where we assume $\pi_i = \pi \sim \mathrm{Beta}(\alpha,\gamma)$ for all subjects, and we introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero, then, conditionally on the observed value of $y_i$, the distribution of $v_i$ is Bernoulli with probability
+\begin{equation}
+\begin{gathered}
+\mathrm{Pr}(v_i = 1 \mid y_i=0, \pi, \bm{\beta}) =  \frac{\pi}{\pi + (1-\pi) \exp\{-e^{x_i^T\bm{\beta}}\}} \\
+\mathrm{Pr}(v_i = 1 \mid y_i>0, \pi, \bm{\beta}) =  0
+\end{gathered}
+\label{eq:prob}
+\end{equation}
+and, conditionally on this data augmentation variables,
+\begin{equation*}
+\begin{gathered}
+f(y_i \mid v_i = 1) = \delta_0(y_i) \\
+f(y_i \mid v_i = 0, \bm{\beta}) = \exp\{-e^{x_i^T\bm{\beta}}\}e^{x_i^T\bm{\beta}\, y_i}\frac{1}{y_i!}.
+\end{gathered}
+\end{equation*}
+Hence, conditionally on $v_i = 0$, the setting is identical to that adopted throughout the chapter.
+In this framework, a Gibbs sampler algorithm is easily defined as:
+\begin{enumerate}
+	\item Sample $\pi\mid v_1,\dots,v_n \sim \mathrm{Beta}(\alpha + \sum_{i=1}^{n} v_i, \gamma + n - \sum_{i=1}^{n} v_i)$
+	\item For $i = 1,\dots,n$, sample $v_i\mid \pi, y_i, \bm{\beta}$, which is a Bernoulli with (conditional) probability given in Equation \eqref{eq:prob}.
+	\item For the subgroup of observations with $v_i = 0$, sample the parameters $\bm{\beta}$ using one of the algorithms outlined in Section \ref{ch2_sec:2}. 
+\end{enumerate}
+Notice that the last step can be performed without additional complexity because the update of $\bm{\beta}$ does not involve other variables (e.g. the P\'olya-gamma data augmentation variables, which are integrated out). Thus, even if the set of $y_i$ changes between iterations of the Gibbs sampler, the sampling of the $\bm{\beta}$ is not affected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

@@ -2,7 +2,7 @@
 \pagestyle{empty}
 %
 \usepackage{xcolor}
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, bm}
 
 \oddsidemargin=-0.3cm \textheight=24cm \textwidth=16.6cm
 \topmargin=-2.2cm
@@ -42,34 +42,46 @@ In other words, there is any specific reason to consider a Poisson regression fo
 \vskip1mm
 
 {\em 
-	We thank the Evaluator for raising this point. The development of novel sampling schemes for Bayesian Poisson regression was motivated by the lack of efficient algorithms to perform posterior inference for this model. Hence this motivation goes beyond application to specific data sets or fields (as, for example, calcium imaging studies). Of course, in cases where a negative binomial distribution is more suited to describe the data, a different model, and thus a different sampling scheme should be used. However, in cases where a Poisson distribution is adequate, our approach would represent a convenient algorithm to perform posterior inference.
+	We thank the Evaluator for raising this point. Despite we motivated the development of Chapter 2 with the analysis of spike train data, whose model goodness of fit would be appropriate to perform (e.g. to compare different model specification, such as negative binomial regression and ZIP, among others), the contribution has a methodological focus. The development of novel sampling schemes for Bayesian Poisson regression was motivated by the lack of efficient algorithms to perform posterior inference for this model. Hence this motivation goes beyond application to specific data sets or fields (as, for example, calcium imaging studies). Of course, in cases where a negative binomial distribution is more suited to describe the data, a different model, and thus a different sampling scheme should be used. However, in order to fit a Poisson regression (also within the scope of model comparison), our approach would represent a convenient algorithm to perform posterior inference.
 }
 \vskip3mm
 
 %
 \item ``Does the author think that the novel posterior sampling scheme for the Poisson regression could be extended to zero-inflated models.''\vskip1mm
 
-{\em 
-	\textcolor{cyan}{--> controlla <--}
+{\em
 	We thank the Evaluator for the interesting and stimulating question.
 	Zero-inflated Poisson (ZIP) regression assumes that the distribution of the observed data can be expressed as a mixture of a Dirac mass at 0 and a Poisson distribution, i.e.,
-	$$ f(y_i \mid \lambda_i, \pi_i) = \pi_i \delta_0(y_i) + (1-\pi_i) e^{-\lambda_i} \lambda_i^{y_i} (y_i!)^{-1}.$$
-	If $\pi_i$ and $\beta_i$ are assumed independent a priori, and if $\beta \sim N(b,B)$, then the proposed algorithms could be applied without much additional effort.
-	In particular, the proposed sampling strategy would be straightforward to apply if it is possible to implement a data augmentation scheme, where the latent allocation variables that indicate the component to which $y_i$ is assigned are sampled. If we denote these variables with $v_i\in\{0,1\}$, then
-	\begin{equation*}
+	$$ f(y_i \mid \bm{\beta}, \pi_i) = \pi_i \delta_0(y_i) + (1-\pi_i) e^{-e^{x_i^T\bm{\beta}}} e^{x_i^T\bm{\beta}\, y_i} \frac{1}{y_i!}.$$
+	If $\pi_i$ and $\bm{\beta}$ are assumed independent a priori, and if $\bm{\beta} \sim N_p(b,B)$, then the proposed algorithms could be applied without much additional effort.
+	In particular, the proposed sampling strategy would be straightforward to apply if it is possible to implement a data augmentation scheme, where the latent allocation variables that indicate the component to which $y_i$ is assigned are sampled. 
+	
+	If, for example, we consider the simplest setting where we assume $\pi_i = \pi \sim \mathrm{Beta}(\alpha,\gamma)$ for all subjects, and we introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero, then
+	\begin{equation}
 	\begin{gathered}
-	pr(v_i = 0 \mid y_i=0, \pi_i, \beta) =  \pi_i + (1-\pi_i) \exp\{-e^{x_i^T\beta}\} \\
-	pr(v_i = 0 \mid y_i>0, \pi_i, \beta) =  0
+	\mathrm{Pr}(v_i = 1 \mid y_i=0, \pi, \bm{\beta}) =  \frac{\pi}{\pi + (1-\pi) \exp\{-e^{x_i^T\bm{\beta}}\}} \\
+	\mathrm{Pr}(v_i = 1 \mid y_i>0, \pi, \bm{\beta}) =  0
 	\end{gathered}
-	\end{equation*}
+	\label{eq:prob}
+	\end{equation}
 	and
 	\begin{equation*}
 	\begin{gathered}
-		f(y_i \mid v_i = 0) = \delta_0(y_i) \\
-		f(y_i \mid v_i = 1, \beta) = \exp\{-e^{x_i^T\beta}\}e^{x_i^T\beta y_i}(y_i!)^{-1}
+		f(y_i \mid v_i = 1) = \delta_0(y_i) \\
+		f(y_i \mid v_i = 0, \bm{\beta}) = \exp\{-e^{x_i^T\bm{\beta}}\}e^{x_i^T\bm{\beta}\, y_i}\frac{1}{y_i!}
 	\end{gathered}
 	\end{equation*}
-	Conditionally on $v_i = 1$, the setting is identical to that adopted in the Thesis.
+	Conditionally on $v_i = 0$, the setting is identical to that adopted in the Thesis.\\
+	In this setting, a Gibbs sampler algorithm is defined as:
+	\begin{enumerate}
+		\item Sample $\pi\mid v_1,\dots,v_n \sim \mathrm{Beta}(\alpha + \sum_{i=1}^{n} v_i, \gamma + n - \sum_{i=1}^{n} v_i)$
+		\item For $i = 1,\dots,n$, sample $v_i\mid \pi, y_i, \bm{\beta}$, which is a Bernoulli with (conditional) probability given in Equation \eqref{eq:prob}.
+		\item For the subgroup of observations with $v_i = 0$, sample the parameters $\bm{\beta}$ using one of the algorithms outlined in Chapter 2. 
+		
+		This step can be performed without additional complexity because the update of $\bm{\beta}$ does not involve other variables (e.g. the P\'olya-gamma data augmentation variables, which are integrated out). Thus, even if the set of $y_i$ changes between iterations of the Gibbs sampler, the sampling of the $\bm{\beta}$ is not affected.
+	\end{enumerate}
+	
+	We have added a section where we discuss this extension of the model.
 }
 \vskip3mm
 
@@ -124,17 +136,18 @@ alternative to reversible jump methods. Annals of statistics, 40-74.
 It is very unclear to me why in many recent works (e.g. in this Thesis) researchers refer to the class of mixtures models with random number of components as mixture of finite mixture. I think the latter name is a misleading reference that do not recognize the early and seminal works on the topic.''\vskip1mm
 
 {\em 
-	\textcolor{cyan}{Cosa dico?}
+	We have added the suggested references, which certainly contribute to provide a comprehensive review of these models.
+	We agree that seminal works such as those just mentioned have been fundamental for research concerning mixtures with a random number of components. However, in this thesis we have exploited the recent literature (in particular, Miller and Harrison, 2018; and Fr\"uhwirth-Schnatter et al., 2021), where this class of model is referred to using the name of ``mixture of finite mixtures''. Hence, in line with these works, we have decided to use the same definition.
 }
 \vskip3mm
 
 %
 \item `` `Considering fixed parameters as in Miller and Harrison (2018), where a Dirichlet$_K(1,\dots, 1)$ is used regardless of the value of $K$, leads to a prior expected number of clusters $E(K^+)$ close to $E(K)$ for many priors p(K).'\\
-I really disagree with this sentence. Can the author provide some illustrative example? Moreover, I think that the Dirichlet$_K(\gamma,\dots, \gamma)$ prior, with $\gamma$ independent from $M$, can yields to very flexible prior on $K^+$. See for instance, Argiento de Iorio (2019), or the AntMAN package (https://cran.r-
+I really disagree with this sentence. Can the author provide some illustrative example? Moreover, I think that the Dirichlet$_K(\gamma,\dots, \gamma)$ prior, with $\gamma$ independent from $M$, can yields to very flexible prior on $K^+$. See for instance, Argiento \& De Iorio (2019), or the AntMAN package (https://cran.r-
 project.org/web/packages/AntMAN/index.html)''\vskip1mm
 
 {\em 
-	\textcolor{cyan}{Cosa dico?}
+	We agree with the Evaluator, that sentence was not very clear and it could lead to some confusion; we have clarified it to avoid misunderstandings. Illustrative examples can be found in the paper by Fr\"uhwirth-Schnatter et al. (2021).
 }
 \vskip3mm
 
@@ -148,13 +161,14 @@ Del Moral, P., A. Doucet, and A. Jasra (2006). Sequential Monte Carlo samplers. 
 I think a sentence to clarify connections (or absence of connections) should be added here.''\vskip1mm
 
 {\em 
-	\textcolor{cyan}{---> DA FARE! leggere e capire cosa fanno!! <---}
+	We thank the Evaluator for the useful and interesting reference, we have discussed connection with this method in Section 2.1.3. From my understanding, in the work of Del Moral, P., A. Doucet, and A. Jasra (2006) the main goal is to define a sampling scheme for sequences of distributions $\pi_n$, for $n$ varying in $\mathbb{T} = \{1,\dots,p\}$. Their work hence focuses on updates of the sampling procedure to exploit knowledge about the target density $\pi_{n-1}$ to sample from $\pi_n$ in an efficient way. Instead, in the proposed algorithms we use information on the previous state of the chain to inform the proposal density. Although there are some analogies between their approach and our proposed algorithm, as they both try to maximize the available information to improve the sampling scheme, the main objective is different.
+	
 }
 \vskip3mm
 
 %
 \item ``Section 3.3 (more precisely pg 39). `The result attained by the proposed fCAM".
-It is not clear to me how spike's detection is performed for the simulation study. In the subsequent Section 3.4 (pg 42), the author states that a spike is identified if posterior probability of a spike at time t is greater than $kappa=75.5\%$.'
+It is not clear to me how spike's detection is performed for the simulation study. In the subsequent Section 3.4 (pg 42), the author states that a spike is identified if posterior probability of a spike at time t is greater than $\kappa=75.5\%$.'
 I'm wondering if the same threshold is used also in the simulation study. If this is the case, how sensitive are the results to the choice of this threshold?''\vskip1mm
 
 {\em 
@@ -166,7 +180,7 @@ I'm wondering if the same threshold is used also in the simulation study. If thi
 \item ``I like Chapter 4, but, as the authors also mentioned in the conclusions I think that the proposed approach can be strongly improved from a computational point of view. I think the PhD candidate could elaborate a bit more about this issue in this chapter.''\vskip1mm
 
 {\em 
-	We thank the Evaluator for the valuable suggestion. At the beginning of Section 4.3, we have discussed more in detail the computational issues of the current approach, and we have outlined some possible improvements.
+	We agree that the discussion about the computational aspects was somehow approximate. At the beginning of Section 4.3, we have discussed more in detail the computational issues of the current approach, and we have outlined some possible strategies to improve it.
 }
 \vskip3mm
 

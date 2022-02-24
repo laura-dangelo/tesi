@@ -743,6 +743,45 @@
       \field{pages}{138\bibrangedash 151}
       \range{pages}{14}
     \endentry
+    \entry{delMoral2006}{article}{}
+      \name{author}{3}{}{%
+        {{hash=ffba709e072f0474f2b0b461384367c8}{%
+           family={Del\bibnamedelima Moral},
+           familyi={D\bibinitperiod\bibinitdelim M\bibinitperiod},
+           given={Pierre},
+           giveni={P\bibinitperiod}}}%
+        {{hash=aca5faad8b57b96b59c12fc59d0b6eb4}{%
+           family={Doucet},
+           familyi={D\bibinitperiod},
+           given={Arnaud},
+           giveni={A\bibinitperiod}}}%
+        {{hash=fd2c45b545dcce044e994f763abfcd70}{%
+           family={Jasra},
+           familyi={J\bibinitperiod},
+           given={Ajay},
+           giveni={A\bibinitperiod}}}%
+      }
+      \strng{namehash}{abc794107557ef6008ac963d12611605}
+      \strng{fullhash}{32a1ea512da8bce2c068ba314aa973e9}
+      \strng{bibnamehash}{32a1ea512da8bce2c068ba314aa973e9}
+      \strng{authorbibnamehash}{32a1ea512da8bce2c068ba314aa973e9}
+      \strng{authornamehash}{abc794107557ef6008ac963d12611605}
+      \strng{authorfullhash}{32a1ea512da8bce2c068ba314aa973e9}
+      \field{sortinit}{D}
+      \field{sortinithash}{c438b3d5d027251ba63f5ed538d98af5}
+      \field{extradatescope}{labelyear}
+      \field{labeldatesource}{year}
+      \field{labelnamesource}{author}
+      \field{labeltitlesource}{title}
+      \field{journaltitle}{Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
+      \field{number}{3}
+      \field{title}{Sequential {Monte Carlo} samplers}
+      \field{volume}{68}
+      \field{year}{2006}
+      \field{pages}{411\bibrangedash 436}
+      \range{pages}{26}
+      \keyw{Importance sampling,Markov chain Monte Carlo methods,Ratio of normalizing constants,Resampling,Sequential Monte Carlo methods,Simulated annealing}
+    \endentry
     \entry{denk1990}{article}{}
       \name{author}{3}{}{%
         {{hash=48ec9766177a9c8846df93c75f6608d9}{%

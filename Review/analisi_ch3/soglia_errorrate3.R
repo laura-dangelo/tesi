@@ -28,11 +28,11 @@ str(outf)
 
 
 
-
-df = data.frame(th = rep(seqq, 50),
+errseq3 = errseq
+df3 = data.frame(th = rep(seqq, 50),
                 id = sort(rep(1:50, length(seqq))),
                 value = c(t(errseq)) )
-df$id = as.factor(df$id)
+df3$id = as.factor(df3$id)
 
 library(ggplot2)
 
@@ -46,7 +46,7 @@ cols = gg_color_hue(4)[3]
 
 
 ggplot() +
-  geom_line(data = df, aes(x=th, y=value, group=id), lwd = 0.3) +
+  geom_line(data = df3, aes(x=th, y=value, group=id), lwd = 0.3) +
   theme_bw() +
   theme(legend.position = "bottom",
         rect = element_rect(fill="transparent", colour=NA),
@@ -54,7 +54,7 @@ ggplot() +
         panel.grid.major = element_blank(),
         plot.title = element_text(hjust = 0.5)) +
   scale_x_continuous(name = "Threshold") +
-  scale_y_continuous(name = "Error rate") +
-  geom_line(data = data.frame(t = seqq, yy = apply(errseq, 2, median)), aes(x = t, y = yy), col = cols, lwd = 1) +
+  scale_y_continuous(name = "Error rate", limits = c(0, 0.0075)) +
+  geom_line(data = data.frame(t = seqq, yy = apply(errseq3, 2, median)), aes(x = t, y = yy), col = cols, lwd = 1) +
   ggtitle("Scenario 3")
 
