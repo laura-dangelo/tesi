@@ -1,17 +1,17 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {english}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\nonumberline Introduction}{1}{chapter*.9}%
+\contentsline {chapter}{\nonumberline Introduction}{1}{chapter*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Overview}{1}{chapter*.9}%
+\contentsline {section}{Overview}{1}{chapter*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{Main contributions of the thesis}{2}{chapter*.9}%
+\contentsline {section}{Main contributions of the thesis}{2}{chapter*.10}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Novel posterior sampling scheme for Poisson encoding models}{2}{subsubsection*.10}%
+\contentsline {subsubsection}{Novel posterior sampling scheme for Poisson encoding models}{2}{subsubsection*.11}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Modeling single-neuron activations via nonparametric mixtures}{3}{subsubsection*.11}%
+\contentsline {subsubsection}{Modeling single-neuron activations via nonparametric mixtures}{3}{subsubsection*.12}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsubsection}{Clustering activation patterns of spatially-referenced neurons}{4}{subsubsection*.12}%
+\contentsline {subsubsection}{Clustering activation patterns of spatially-referenced neurons}{4}{subsubsection*.13}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Background: statistical modeling of calcium imaging data}{5}{chapter.1}%
 \defcounter {refsection}{0}\relax 
@@ -79,6 +79,6 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {4.4}Analysis of hippocampal neurons}{58}{section.4.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Conclusions}{67}{chapter*.36}%
+\contentsline {chapter}{Conclusions}{67}{chapter*.37}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Bibliography}{71}{chapter*.36}%
+\contentsline {chapter}{Bibliography}{71}{chapter*.37}%

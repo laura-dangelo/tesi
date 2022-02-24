@@ -22,17 +22,19 @@
 
     \include{_Extras/second}
 
-   % \include{_Extras/dedication}
-%	 \renewcommand\thepage{\scshape\roman{page}}
-
+ 
 	\setcounter{page}{1} %%%
-	\pagenumbering{roman}%%%
-	
-   % \include{_Extras/thanks}	
+	\pagenumbering{roman}%%%	
    	
     \include{_Extras/abstract}
    
     \include{_Extras/sommario}
+   
+   \include{_Extras/dedication}
+  % \renewcommand\thepage{\scshape\roman{page}}
+   \gotoclearpage
+   \include{_Extras/thanks}
+   \gotoclearpage
    
     \gotoclearpage
     \phantomsection\tableofcontents
