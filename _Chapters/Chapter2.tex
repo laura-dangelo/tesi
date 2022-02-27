@@ -189,17 +189,19 @@ Each method introduced in Section \ref{ch2_sec:2}  was run for 10000 iterations 
 To assess the efficiency of the proposed methods, we used a proxy of the time per independent sample, which is estimated as the total time (in seconds) necessary to simulate the entire chain, over the effective sample size of the resulting chain. For the proposed adaptive importance sampler, an estimate of the effective sample size was obtained using the quantity $\sum_{t=1}^T w(\beta^{(t)})^2 / (\sum_{t=1}^T w(\beta^{(t)}))^2$, which takes values between 1 and $n$~\parencite{robert2010}. 
 Notably, the burn-in samples were removed from the chains before computing the effective sample size. Thus, the obtained times per independent sample  do not represent exactly the number of seconds necessary to generate one independent sample---they rather represent an overestimate. Nonetheless, this approach provides a robust and fair comparison between the different competing algorithms. The experiment has been run on a macOS machine with 32 GB DDR4 2400 MHz RAM, CPU Intel Core i7 4.2 GHz, running R 4.1.1.
 %
-\begin{figure}[h]
-	\begin{center}
-		\includegraphics[width = \textwidth]{ch2_toess_gaussian.pdf}
-		\caption[Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using a Gaussian prior, over 50 replications.
-		\label{fig:time_ess}}
-	\end{center}
-\end{figure}
-
 Figure~\ref{fig:time_ess} and \ref{fig:time_ess_horseshoe} show, for each combination of $n$ and $p$, the distribution of the median time per independent sample for the three algorithms computed on the 50 replications under a Gaussian and horseshoe priors, respectively. The plots are presented in the logarithmic scale for clarity. 
 
 For the Gaussian prior the performances of the proposed algorithms are better than those obtained using the HMC implemented in Stan, for small values of the dimension $p$. For $p=20$, instead, the performances of the HMC are quite competitive with respect to the importance sampling and broadly comparable to the proposed efficient Metropolis-Hastings algorithm. Notably, the differences are less evident with increasing sample size. 
+
+For the horseshoe prior, the proposed Metropolis-Hastings presents a stable superior performance with respect to the HMC sampler implemented in Stan for each sample size $n$ ad number of covariates $p$. The performance of the importance sampler remains competitive. As previously observed for the Gaussian prior, the differences are less evident for increasing sample size. 
+
+\begin{figure}[h!]
+	\begin{center}
+		\includegraphics[width = \textwidth]{ch2_toess_gaussian.pdf}
+		\caption[Comparison between the time per independent sample of the proposed algorithms and of the HMC algorithm.]{Time per independent sample (in logarithmic scale) for the three algorithms. For each combination of $n$ and $p$ the boxplots represent the distribution of the (log) time (in seconds) over the effective sample size using a Gaussian prior, over 50 replications.
+			\label{fig:time_ess}}
+	\end{center}
+\end{figure}
 
 \begin{figure}[h!]
 	\begin{center}
@@ -209,13 +211,13 @@ For the Gaussian prior the performances of the proposed algorithms are better th
 	\end{center}
 \end{figure}
 %
-For the horseshoe prior, the proposed Metropolis-Hastings presents a stable superior performance with respect to the HMC sampler implemented in Stan for each sample size $n$ ad number of covariates $p$. The performance of the importance sampler remains competitive. As previously observed for the Gaussian prior, the differences are less evident for increasing sample size. 
+
 
 %Hastings produces similar results to the HMC, with slightly better results for small $n$ and $p$. The use of a hierarchical prior mainly affects the importance sampler, which now has a lower efficiency compared to the other two approaches.
 
 
 
-
+\newpage
 \subsection{Spike train data}
 \label{ch2_sec:application}
 %
@@ -250,12 +252,12 @@ In this section, we outline how the proposed sampling strategies can be applied 
 ZIP regression assumes that the distribution of the observed data can be expressed as a mixture of a Dirac mass at 0 and a Poisson distribution, i.e.,
 $$ f(y_i \mid \bm{\beta}, \pi_i) = \pi_i \cdot \delta_0(y_i) + (1-\pi_i) \cdot e^{-e^{x_i^T\bm{\beta}}} e^{x_i^T\bm{\beta}\, y_i} \frac{1}{y_i!}.$$
 If $\pi_i$ and $\bm{\beta}$ are assumed independent a priori, and if $\bm{\beta} \sim N_p(b,B)$, then the proposed algorithms could be applied without much additional effort.
-In particular, the proposed sampling strategy would be straightforward to apply if it is possible to implement a data augmentation scheme, where the latent allocation variables that indicate the component to which $y_i$ is assigned are sampled. 
+In particular, the proposed sampling strategies would be straightforward to apply under a data augmentation scheme where latent allocation variables indicate if the observation comes from the spike in zero or from the Poisson component. 
 
-If, for example, we consider the simplest setting where we assume $\pi_i = \pi \sim \mathrm{Beta}(\alpha,\gamma)$ for all subjects, and we introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero, then, conditionally on the observed value of $y_i$, the distribution of $v_i$ is Bernoulli with probability
+Considering the simplest setting where for all $i=1,\dots,n$, $\pi_i = \pi \sim \mathrm{Beta}(\alpha,\gamma)$, we can introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero. Then, conditionally on the observed value of $y_i$, the distribution of $v_i$ is Bernoulli with conditional probabilities
 \begin{equation}
 \begin{gathered}
-\mathrm{Pr}(v_i = 1 \mid y_i=0, \pi, \bm{\beta}) =  \frac{\pi}{\pi + (1-\pi) \exp\{-e^{x_i^T\bm{\beta}}\}} \\
+\mathrm{Pr}(v_i = 1 \mid y_i=0, \pi, \bm{\beta}) =  \frac{\pi}{\pi + (1-\pi) \exp\{-e^{x_i^T\bm{\beta}}\}}, \\
 \mathrm{Pr}(v_i = 1 \mid y_i>0, \pi, \bm{\beta}) =  0
 \end{gathered}
 \label{eq:prob}
@@ -263,12 +265,12 @@ If, for example, we consider the simplest setting where we assume $\pi_i = \pi \
 and, conditionally on this data augmentation variables,
 \begin{equation*}
 \begin{gathered}
-f(y_i \mid v_i = 1) = \delta_0(y_i) \\
+f(y_i \mid v_i = 1) = \delta_0(y_i), \\
 f(y_i \mid v_i = 0, \bm{\beta}) = \exp\{-e^{x_i^T\bm{\beta}}\}e^{x_i^T\bm{\beta}\, y_i}\frac{1}{y_i!}.
 \end{gathered}
 \end{equation*}
 Hence, conditionally on $v_i = 0$, the setting is identical to that adopted throughout the chapter.
-In this framework, a Gibbs sampler algorithm is easily defined as:
+Consistently with this, a Gibbs sampler algorithm is easily defined as:
 \begin{enumerate}
 	\item Sample $\pi\mid v_1,\dots,v_n \sim \mathrm{Beta}(\alpha + \sum_{i=1}^{n} v_i, \gamma + n - \sum_{i=1}^{n} v_i)$
 	\item For $i = 1,\dots,n$, sample $v_i\mid \pi, y_i, \bm{\beta}$, which is a Bernoulli with (conditional) probability given in Equation \eqref{eq:prob}.

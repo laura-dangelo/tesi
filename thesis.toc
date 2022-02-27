@@ -55,7 +55,7 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.2.2}Spike train data}{30}{subsection.2.2.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {2.3}ZIP regression}{30}{section.2.3}%
+\contentsline {section}{\numberline {2.3}ZIP regression}{32}{section.2.3}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Modeling single-neuron activations via nonparametric mixtures}{35}{chapter.3}%
 \defcounter {refsection}{0}\relax 
