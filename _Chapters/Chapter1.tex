@@ -95,7 +95,7 @@ A detailed description of the visual stimuli can be found in a technical report 
 \end{figure}
 
 Neurons located in the hippocampus are the focus of many studies investigating the neuronal circuits that underlie cognition, learning and memory.
-Specifically, experiments involving freely moving mice within particular environments allow to study the location-specific firing of hippocampal neurons during navigation. These particular neurons, that activate when the animal enters a specific place in the environment (the \textit{place field}), are often called \textit{place cells}. Place cells are thought, collectively, to act as cognitive representations of a specific location in space~\parencite{okeefe1978}. However, the anatomical organization of these subpopulations of co-activating cells is still under investigation: it is unclear whether hippocampal neurons with similar place fields are spatially organized within the hippocampus~\parencite{dombeck2010}.
+Specifically, experiments involving freely moving mice within particular environments allow studying the location-specific firing of hippocampal neurons during navigation. These particular neurons, that activate when the animal enters a specific place in the environment (the \textit{place field}), are often called \textit{place cells}. Place cells are thought, collectively, to act as cognitive representations of a specific location in space~\parencite{okeefe1978}. However, the anatomical organization of these subpopulations of co-activating cells is still under investigation: it is unclear whether hippocampal neurons with similar place fields are spatially organized within the hippocampus~\parencite{dombeck2010}.
 
 The dataset we consider collects the activity of 325 neurons located in the hippocampus of a mouse during navigation in a closed environment for about 12 minutes. The calcium level is recorded with a frequency of 15 frames per second, resulting in 10870 calcium measurements over time for each series.
 Moreover, for each neuron, it is also available its location in the region of interest of the hippocampus.
@@ -188,7 +188,7 @@ Nonparametric mixtures extend model (\ref{ch1_eq:finitemix_h2}) by placing a non
 \subsubsection*{The Dirichlet process }
 \label{ch1_sec:DP}
 The Dirichlet process is a stochastic process whose realizations are probability distributions with probability one. 
-Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. In this Section we just briefly review some of the main properties of the DP, the reader can refer to, e.g., \textcite{muller2015, hjort2010} for an exhaustive review of the Dirichlet process prior and related models.
+Stochastic processes are distributions over function spaces, with their realizations being random functions. In the case of the DP, it is a distribution over the space of probability measures, which are real-valued functions with particular properties, which can be interpreted as distributions over some probability space. In this section we just briefly review some of the main properties of the DP, the reader can refer to, e.g., \textcite{muller2015, hjort2010} for an exhaustive review of the Dirichlet process prior and related models.
 
 Formally, a random distribution $G$ on some probability space $\Theta$ is said to follow a DP prior with base measure $G_0$ and concentration parameter $\alpha$, denoted $G\sim\DP(\alpha,G_0)$, if for any partition $\{B_1,\dots,B_H\}$ of $\Theta$
 \begin{equation*}
@@ -217,9 +217,9 @@ Another useful result, which allows to get a better understanding of the effect 
 \end{equation*}
 Therefore the posterior base measure given $\{\theta_1,\dots,\theta_n\}$ is also the predictive distribution of $\theta_{n+1}$. This distribution highlights the discreteness of draws from a DP, and allows to investigate the clustering structure induced by the DP when is used as mixing measure in mixture models. Since the distribution is discrete, it is possible that some of the values $\{\theta_1,\dots,\theta_n\}$ will be repeated. In particular, the unique values of $\{\theta_1,\dots,\theta_n\}$ induce
 a partition of the set $\{1,\dots,n\}$ into clusters defined by observations with the same value.
-Denoting with $\{\theta^*_1, \dots, \theta^*_{K^+}\}$ the unique values among the $\theta_i$, and letting $n_k$ be the number of $\theta_i$ equal to $\theta^*_k$, for $i=1,\dots,n$ and $k=1,\dots,K^+$, the predictive distribution can be written as
+Denoting with $\{\theta^*_1, \dots, \theta^*_{K_+}\}$ the unique values among the $\theta_i$, and letting $n_k$ be the number of $\theta_i$ equal to $\theta^*_k$, for $i=1,\dots,n$ and $k=1,\dots,K_+$, the predictive distribution can be written as
 \begin{equation*}
-\theta_{n+1} \mid \theta_1,\dots,\theta_n \sim \frac{1}{\alpha + n} \left( \alpha G_0 + \sum_{k=1}^{K^+} n_k \delta_{\theta_k^*} \right).
+\theta_{n+1} \mid \theta_1,\dots,\theta_n \sim \frac{1}{\alpha + n} \left( \alpha G_0 + \sum_{k=1}^{K_+} n_k \delta_{\theta_k^*} \right).
 \end{equation*}
 From this equation, it is possible to notice that $\theta_{n+1}$ will take a value $\theta^*_k$ with a probability proportional to $n_k$, the number of times it has already been observed. 
 Hence, the larger $n_k$ is, the higher the probability that it will grow. This is a rich-gets-richer phenomenon, where large clusters grow larger faster.
@@ -254,7 +254,7 @@ where the weights $\{\pi_k\}_{k=1}^{\infty}$ follow a stick-breaking constructio
 
 Differently from finite mixtures, DPMs are infinite mixture models, as they assume a countably infinite number of components. 
 However, because the $\pi_k$'s decrease exponentially quickly, only a small number of components will be used to model the
-data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, in a sample of size $n$, the prior expected number of clusters $\mathbb{E}(K^+)$ is approximately equal to $\alpha \log(1 + n/\alpha)$.
+data a priori: in the following, we will define \textit{clusters} these non-empty components. In general, in a sample of size $n$, the prior expected number of clusters $\mathbb{E}(K_+)$ is approximately equal to $\alpha \log(1 + n/\alpha)$.
 This means that while in finite mixture models the number of clusters has to be fixed in advance, in DPMs the number of clusters is determined by the data and can be inferred.
 
 \subsubsection*{Posterior inference for DPMs}
@@ -336,7 +336,7 @@ The algorithm performs the following steps:
 	\item Update the partition $\CC$:
 	\begin{enumerate}
 		\item[(a)] Sample $c_i$, for $i=1,\dots,n$ from $\Pr(c_i = k \mid \bm{\pi}, \bm{\theta}^*, y)\propto \pi_k f(y_i\mid\theta^*_k)$;
-		\item[(b)] Determine the number $K_+$ of non-empty clusters and relabel the components such that the first $K_+$ clusters are non-empty.
+		\item[(b)] Determine the number $K_+$ of non-empty clusters and relabel the components so that the first $K_+$ clusters are non-empty.
 	\end{enumerate}
 	\item Conditional on $\CC$, update the parameters of the non-empty components (and eventual hyperparamters): $$p(\theta^*_k\mid \CC,\bm{y}) \propto G_0(\bm{\theta}^*) \prod_{i:c_i=k} f(y_i\mid\theta^*_k)\quad \text{for } k = 1,\dots,K.$$
 	\item Conditional on $\CC$, draw a new value for $K$ from

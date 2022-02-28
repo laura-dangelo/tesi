@@ -54,34 +54,8 @@ In other words, there is any specific reason to consider a Poisson regression fo
 	Zero-inflated Poisson (ZIP) regression assumes that the distribution of the observed data can be expressed as a mixture of a Dirac mass at 0 and a Poisson distribution, i.e.,
 	$$ f(y_i \mid \bm{\beta}, \pi_i) = \pi_i \delta_0(y_i) + (1-\pi_i) e^{-e^{x_i^T\bm{\beta}}} e^{x_i^T\bm{\beta}\, y_i} \frac{1}{y_i!}.$$
 	If $\pi_i$ and $\bm{\beta}$ are assumed independent a priori, and if $\bm{\beta} \sim N_p(b,B)$, then the proposed algorithms could be applied without much additional effort.
-	In particular, the proposed sampling strategy would be straightforward to apply if it is possible to implement a data augmentation scheme, where the latent allocation variables that indicate the component to which $y_i$ is assigned are sampled. 
 	
-	If, for example, we consider the simplest setting where we assume $\pi_i = \pi \sim \mathrm{Beta}(\alpha,\gamma)$ for all subjects, and we introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero, then
-	\begin{equation}
-	\begin{gathered}
-	\mathrm{Pr}(v_i = 1 \mid y_i=0, \pi, \bm{\beta}) =  \frac{\pi}{\pi + (1-\pi) \exp\{-e^{x_i^T\bm{\beta}}\}} \\
-	\mathrm{Pr}(v_i = 1 \mid y_i>0, \pi, \bm{\beta}) =  0
-	\end{gathered}
-	\label{eq:prob}
-	\end{equation}
-	and
-	\begin{equation*}
-	\begin{gathered}
-		f(y_i \mid v_i = 1) = \delta_0(y_i) \\
-		f(y_i \mid v_i = 0, \bm{\beta}) = \exp\{-e^{x_i^T\bm{\beta}}\}e^{x_i^T\bm{\beta}\, y_i}\frac{1}{y_i!}
-	\end{gathered}
-	\end{equation*}
-	Conditionally on $v_i = 0$, the setting is identical to that adopted in the Thesis.\\
-	In this setting, a Gibbs sampler algorithm is defined as:
-	\begin{enumerate}
-		\item Sample $\pi\mid v_1,\dots,v_n \sim \mathrm{Beta}(\alpha + \sum_{i=1}^{n} v_i, \gamma + n - \sum_{i=1}^{n} v_i)$
-		\item For $i = 1,\dots,n$, sample $v_i\mid \pi, y_i, \bm{\beta}$, which is a Bernoulli with (conditional) probability given in Equation \eqref{eq:prob}.
-		\item For the subgroup of observations with $v_i = 0$, sample the parameters $\bm{\beta}$ using one of the algorithms outlined in Chapter 2. 
-		
-		This step can be performed without additional complexity because the update of $\bm{\beta}$ does not involve other variables (e.g. the P\'olya-gamma data augmentation variables, which are integrated out). Thus, even if the set of $y_i$ changes between iterations of the Gibbs sampler, the sampling of the $\bm{\beta}$ is not affected.
-	\end{enumerate}
-	
-	We have added a section where we discuss this extension of the model.
+	We have added a section where we discuss this extension of the model (see Sec. 2.3).
 }
 \vskip3mm
 
@@ -172,7 +146,7 @@ It is not clear to me how spike's detection is performed for the simulation stud
 I'm wondering if the same threshold is used also in the simulation study. If this is the case, how sensitive are the results to the choice of this threshold?''\vskip1mm
 
 {\em 
-	We thank the Evaluator for this question. We have clarified the spike detection procedure used in the simulation study by moving the discussion about the false discovery rate in that section. Moreover, we have added an analysis of the sensitivity of spike detection to the choice of the threshold (see page 41).
+	We thank the Evaluator for this question. We have clarified the spike detection procedure used in the simulation study by moving the discussion about the false discovery rate in that section. Moreover, we have added an analysis of the sensitivity of spike detection to the choice of the threshold (see page 43).
 }
 \vskip3mm
 

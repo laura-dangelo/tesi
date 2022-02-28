@@ -38,7 +38,7 @@ Sampling from this approximate posterior is then used as proposal density for th
 \subsection{Approximate posterior distribution}\label{ch2_sec:approx_distr}
 
 Assume $y_1,\dots,y_n$ is an independent sample of counts from model ~(\ref{ch2_eq:model0}). 
-We introduce an approximation of the posterior density which exploits the negative binomial convergence to the Poisson distribution, i.e., we approximate the $i$-th contribution to the likelihood function $f(y_i \mid \lambda_i)$ with $\tilde{f}_{r_i}(y_i \mid \lambda_i)$ where 
+We introduce an approximation of the posterior density that exploits the negative binomial convergence to the Poisson distribution, i.e., we approximate the $i$-th contribution to the likelihood function $f(y_i \mid \lambda_i)$ with $\tilde{f}_{r_i}(y_i \mid \lambda_i)$ where 
 \begin{equation}
 \tilde{f}_{r_i}(y_i \mid \lambda_i) = 
 \binom{r_i + y_i -1}{r_i-1} \left( \frac{r_i}{r_i + \lambda_i}\right)^{r_i} \left(\frac{\lambda_i}{r_i+ \lambda_i}\right)^{y_i},
@@ -173,7 +173,7 @@ We conducted a simulation study under various settings to compare the efficiency
 which is written in efficient C++ language exploiting the \texttt{Rcpp} package \parencite{RCPP} and available from the Comprehensive R Archive Network \parencite{bpr} and at \texttt{github.com/laura-dangelo/bpr}.
 
 Data were generated from a Poisson log-linear model with sample sizes $n \in \{ 25, 50,$ $100, 200\}$ and number of covariates $p \in \{ 5, 10, 20\}$. 
-Specifically, for each combination of $n$ and $p$, we consider 50 independent $n$ dimensional vectors of counts where each $y_i$ ($i = 1\dots, n$) is sampled from a Poisson distribution with mean $\lambda_i = e^{x_i^\T \beta}$, with common parameter $\beta$. The covariates were generated from continuous or discrete/categorical random variables under the constraints that the continuous variables have mean zero and variance one and that $1\leq \lambda_i \leq 200$. 
+Specifically, for each combination of $n$ and $p$, we considered 50 independent $n$ dimensional vectors of counts where each $y_i$ ($i = 1\dots, n$) is sampled from a Poisson distribution with mean $\lambda_i = e^{x_i^\T \beta}$, with common parameter $\beta$. The covariates were generated from continuous or discrete/categorical random variables under the constraints that the continuous variables have mean zero and variance one and that $1\leq \lambda_i \leq 200$. 
 
 Two prior distributions for the coefficients $\beta$ were assumed, namely a vanilla Gaussian prior with independent components $\beta_j\sim \mathrm{N} (0,2)$, $j=1,\dots,p$, and the more complex horseshoe prior~\parencite{carvalho2010horseshoe} which allows for the following  conditionally Gaussian representation
 \begin{gather*}
@@ -191,7 +191,7 @@ Notably, the burn-in samples were removed from the chains before computing the e
 %
 Figure~\ref{fig:time_ess} and \ref{fig:time_ess_horseshoe} show, for each combination of $n$ and $p$, the distribution of the median time per independent sample for the three algorithms computed on the 50 replications under a Gaussian and horseshoe priors, respectively. The plots are presented in the logarithmic scale for clarity. 
 
-For the Gaussian prior the performances of the proposed algorithms are better than those obtained using the HMC implemented in Stan, for small values of the dimension $p$. For $p=20$, instead, the performances of the HMC are quite competitive with respect to the importance sampling and broadly comparable to the proposed efficient Metropolis-Hastings algorithm. Notably, the differences are less evident with increasing sample size. 
+For the Gaussian prior the performances of the proposed algorithms are better than those obtained using the HMC implemented in Stan, for small values of the dimension $p$. For $p=20$, instead, the performances of the HMC are quite competitive with respect to the proposed algorithms. 
 
 For the horseshoe prior, the proposed Metropolis-Hastings presents a stable superior performance with respect to the HMC sampler implemented in Stan for each sample size $n$ ad number of covariates $p$. The performance of the importance sampler remains competitive. As previously observed for the Gaussian prior, the differences are less evident for increasing sample size. 
 
@@ -252,9 +252,9 @@ In this section, we outline how the proposed sampling strategies can be applied 
 ZIP regression assumes that the distribution of the observed data can be expressed as a mixture of a Dirac mass at 0 and a Poisson distribution, i.e.,
 $$ f(y_i \mid \bm{\beta}, \pi_i) = \pi_i \cdot \delta_0(y_i) + (1-\pi_i) \cdot e^{-e^{x_i^T\bm{\beta}}} e^{x_i^T\bm{\beta}\, y_i} \frac{1}{y_i!}.$$
 If $\pi_i$ and $\bm{\beta}$ are assumed independent a priori, and if $\bm{\beta} \sim N_p(b,B)$, then the proposed algorithms could be applied without much additional effort.
-In particular, the proposed sampling strategies would be straightforward to apply under a data augmentation scheme where latent allocation variables indicate if the observation comes from the spike in zero or from the Poisson component. 
+In particular, the proposed sampling strategies would be straightforward to apply under a data augmentation scheme in which latent allocation variables indicate whether the observation comes from the spike in zero or from the Poisson component. 
 
-Considering the simplest setting where for all $i=1,\dots,n$, $\pi_i = \pi \sim \mathrm{Beta}(\alpha,\gamma)$, we can introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero. Then, conditionally on the observed value of $y_i$, the distribution of $v_i$ is Bernoulli with conditional probabilities
+Considering the simplest setting where for all $i=1,\dots,n$, $\pi_i = \pi$ and $\pi\sim \mathrm{Beta}(\alpha,\gamma)$, we can introduce the variables $v_i\in\{0,1\}$, with $v_i = 1$ indicating the assignment to the degenerate component at zero. Then, conditionally on the observed value of $y_i$, the distribution of $v_i$ is Bernoulli with conditional probabilities
 \begin{equation}
 \begin{gathered}
 \mathrm{Pr}(v_i = 1 \mid y_i=0, \pi, \bm{\beta}) =  \frac{\pi}{\pi + (1-\pi) \exp\{-e^{x_i^T\bm{\beta}}\}}, \\
